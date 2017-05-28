@@ -13,7 +13,7 @@ public class StaticMapCollisions extends MapObjects {
 
     /**
      * Erzeugt alle statischen Objekte eines Levels und fügt die der angegebenen
-     * Welt hinzu.
+     * Welt hinzu
      *
      * @param world Welt, in der die Objekte erzeugt werden
      * @param level Level, welches die Objekte in der Ebene "StaticCollisions" besitzt
