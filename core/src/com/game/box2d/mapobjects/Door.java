@@ -3,6 +3,9 @@ package com.game.box2d.mapobjects;
 import com.badlogic.gdx.physics.box2d.World;
 import com.game.LevelMap;
 
+/**
+ * Eine Tür kann geschlossen sein oder offen.
+ */
 public class Door extends MapObjects {
 	
 	/** Speichert den Wert, ob die Tür geöffnet oder geschlossen ist */

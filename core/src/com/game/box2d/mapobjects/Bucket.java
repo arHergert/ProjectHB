@@ -5,6 +5,12 @@ import java.util.TreeSet;
 import com.badlogic.gdx.physics.box2d.World;
 import com.game.LevelMap;
 
+/**
+ * Ein Eimer, welches mit einem Gegenstand gefüllt werden kann
+ * und aus dem man diesen wieder herausnehmen kann.
+ *
+ * @param <T> Inhalt des Eimers. Muss MapObject extenden.
+ */
 public class Bucket<T extends MapObjects> extends MapObjects {
 
 	/** MapObject, das der Eimer enthält */
@@ -15,9 +21,10 @@ public class Bucket<T extends MapObjects> extends MapObjects {
 	}
 	
 	/**
-	 * Fügt ein MapObject als Inhalt des Eimers hinzu
+	 * Fügt ein MapObject als Inhalt des Eimers hinzu.
 	 * Ein Eimer kann maximal ein Object enthalten
-	 * @param object das MapObject, das in den Eimer gelegt werden soll
+     *
+	 * @param mapObject das MapObject, das in den Eimer gelegt werden soll
 	 * @throws Exception wenn der Eimer bereits ein MapObject enthält
 	 */
 	public void fill(T mapObject) throws Exception {
