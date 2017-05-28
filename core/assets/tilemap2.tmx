@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="24" height="24" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="TestTileset" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="tileset.png" width="512" height="512"/>
+  <terraintypes>
+   <terrain name="Graspath" tile="-1"/>
+   <terrain name="sand" tile="-1"/>
+  </terraintypes>
+  <tile id="249">
+   <objectgroup draworder="index">
+    <object id="1" x="0.25" y="0.25">
+     <polygon points="0,0 31.75,0 31,27.5 0.25,17 0,16.25"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="250">
+   <objectgroup draworder="index">
+    <object id="3" x="-0.909091" y="25.6364">
+     <polygon points="0,1.09091 0.727273,-26.1818 32.1818,-26 32.3636,-18.7273 27.0909,-10.1818 20.5455,-3.63636 14,0.545455"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="253">
+   <objectgroup draworder="index">
+    <object id="2" x="1.5" y="1.5">
+     <polygon points="0,0 30.25,0.5 27.75,29 20.25,30 14.75,22.75 4.75,30.5 -0.5,29.25 3,19.25"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="254">
+   <objectgroup draworder="index">
+    <object id="1" x="14.5" y="-0.25">
+     <polygon points="0,0 17.5,0.5 18.25,32.75 2.5,23"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="255">
+   <objectgroup draworder="index">
+    <object id="1" x="-0.5" y="-0.75">
+     <polygon points="0,0 18.5,0 16.25,27.25 -0.25,32.75"/>
+    </object>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <layer name="Grass" width="24" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzzZ2Bg8KcAJxDAlJg9av6o+aPmj5o/aj7tzB/Fo3gkYwC5+scB
+  </data>
+ </layer>
+ <layer name="Road" width="24" height="24">
+  <data encoding="base64" compression="zlib">
+   eJxjY2BgkAFiWSCWA2I2EjEhwDZq/qAxH4R5cWA+KpnPjQXj8xsx5usAsS4ODLODEvPxYUJxMxTMlx7i7h8NH9qZTwgQU3bgw6SYTw4mxXxcZQg+TKz5ckSoJQeMmk9b8wG1ZxLS
+  </data>
+ </layer>
+ <layer name="statues" width="24" height="24">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDCfwjkJ5XOA9EH8A4n9IbFLkCYH/IIIRk02s/CgYGoDc9EcIUJr+CIGRkv5oFT8w8I/G5pMCAIMFGOs=
+  </data>
+ </layer>
+ <layer name="trees" width="24" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzdVFsKhDAQ8/5H0wusegHdvYCPH+ejhZCdOiNT/TAQKEMJQ5Omaf7RCrsL86sYhGM6f4S9Mo/gK/yl8ySclXkEm3BP50W4KvO7UcuLErxe9PYVFV4vZvuKCq8Xq33lFJoPmOkoNB8w01FoPmCmo7B8qJVjfHPUrNUp+OaoWatT8M1R845OebKn3gBvRq1/X9LxZpT/PetlHd6DM1rak/8975V1eA/Ok7efeK+sY/WPt588OT8AGGhjIg==
+  </data>
+ </layer>
+</map>

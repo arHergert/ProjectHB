@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="8" tilewidth="16" tileheight="16" nextobjectid="9">
+ <tileset firstgid="1" name="dungeon tileset calciumtrice simple" tilewidth="16" tileheight="16" tilecount="960" columns="30">
+  <image source="dungeon tileset calciumtrice simple.png" width="480" height="512"/>
+ </tileset>
+ <layer name="Floor" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJyTZ2BgUABiRSBWAmJlKAaJfQTiT2hiyOpUgNgWiO2A2B6IHYDYEYpBYvyMDAwCjKhiyOqcgLgKiJvJxNVA3ADElWTijkGgv45C/fjkpwPxDAJqAF4CNds=
+  </data>
+ </layer>
+ <objectgroup name="StaticCollisions"/>
+ <objectgroup name="Door">
+  <object id="6" name="doorBottom" x="112.917" y="123.917" width="29.6667" height="2.66667"/>
+ </objectgroup>
+ <objectgroup name="PlayerSpawnpoints">
+  <object id="3" name="spawnBottomDoor" x="126.75" y="103.25" width="4" height="2.75"/>
+  <object id="4" name="spawnStart" x="126.333" y="67.9167" width="2.75" height="3.5"/>
+ </objectgroup>
+ <layer name="Wall" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQxkoQbECECtC2cpArIKkRh6LvDKUDwBAiAHY
+  </data>
+ </layer>
+</map>
