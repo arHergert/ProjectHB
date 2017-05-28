@@ -4,30 +4,55 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 import com.game.LevelMap;
+import com.game.Main;
 
 /**
- * Created by Artur on 15.05.2017.
+ * Klasse zum Erstellen eines Spielcharakters. Pro Welt
+ * darf maximal ein Spieler exisiteren.
  */
 public class Player extends Sprite {
 
-   public  static final float PPM = 16 * 5.6f;
+    /** Konstante Pixel per Meter. Nötig, da Box2D in Meter statt Pixel rechnet. Wird fürs Playermovement benötigt */
+    public  static final float PPM = 16 * 5.6f;
 
+    /** Referenz auf die aktuelle Welt, in der sich der Spieler befindet **/
     private World world;
     public Body body;
     private Texture boxImg;
-    private float startX = 0;
-    private float startY = 0;
 
+    /**
+     * Erstellt einen neuen Spieler. Liest die Spawnpoints des Levels aus um
+     * zu bestimmen wo der Spieler platziert wird.
+     *
+     * Um einen alten Spieler zu löschen muss mit dem aktuellen world Objekt die {@link World#destroyBody(Body)}
+     * Methode aufgerufen werden.
+     *
+     * @param world Referenz auf die Welt, in der der Spieler erstellt werden soll
+     * @param level Referenz auf das Level, welches die Spawnpoints angeben
+     * @param playerImgFile Textur des Spielers
+     * @param spawnpoint Folgende Möglichkeiten gibt es:<br>
+     *                   spawnStart -> Startet an der Start Position<br>
+     *                   spawnBottomDoor -> Startet an der unteren Tür<br>
+     *                   spawnUpperDoor -> Startet an der oberen Tür.<br><br>
+     *
+     *                   Wenn keine der drei angegeben wird, spawnt der Player
+     *                   bei 0,0. WICHTIG: Die Spawnpoints müssen in der level-tmx-File
+     *                   in der Ebene "PlayerSpawnpoints" abgelegt werden!
+     */
     public Player (World world, LevelMap level, String playerImgFile , String spawnpoint){
         this.world = world;
         boxImg = new Texture(Gdx.files.internal(playerImgFile));
 
 
+        float startX = 0;
+        float startY = 0;
+
+        //Überprüft den eingebenen String nach dem Wunsch-Spawnpoint. Wenn keiner gefunden wurde, spawnt der Spieler bei 0,0
         if (spawnpoint.equals("spawnStart")){
             startX = level.getSpawnStartX();
             startY = level.getSpawnStartY();
@@ -41,27 +66,42 @@ public class Player extends Sprite {
             startY = level.getSpawnUpperDoorY();
         }
 
+        //Kollisionsbox des Players definieren
         definePlayer(startX, startY);
 
     }
 
+    /**
+     * Definiert die Position und die Kollisionsbox
+     * des Spielers
+     *
+     * @param startX Startposition X
+     * @param startY Startposition Y
+     */
+    private void definePlayer(float startX, float startY){
 
-    public void definePlayer(float startX, float startY){
-
+        //Eigenschaften für den Körper festsetzen -> Statisch, Spawnpoints, dreht sich nicht
         BodyDef def = new BodyDef();
         def.type = BodyDef.BodyType.DynamicBody;
         def.position.set(startX , startY );
         def.fixedRotation = true;
+
+        //Körper in der Welt erstellen mit den zuvor definierten Eigenschaften
         body = world.createBody(def);
 
+        //Körperform definieren (Rechteck) und dem Körper überreichen
         PolygonShape pShape = new PolygonShape();
         pShape.setAsBox(boxImg.getWidth()/2, boxImg.getHeight()/2);
 
+        //Namen für das Kollisionsobjekt festsetzen. Wird zur Kollisionsabfrage benötigt.
         body.createFixture(pShape, 1.0f).setUserData("Player");
+
+        //Nicht mehr zugreifbares disposen
         pShape.dispose();
 
 
     }
+
 
     public Texture getImg(){
         return boxImg;
@@ -76,6 +116,10 @@ public class Player extends Sprite {
     }
 
 
+    /**
+     * Zeichnet den Spieler mit seiner Grafikdatei an seiner Position
+     * @param batch Benötigtes SpriteBatch aus der {@link Main}
+     */
     public void draw(Batch batch){
         batch.draw(boxImg, body.getPosition().x - boxImg.getWidth()/2, body.getPosition().y - boxImg.getHeight()/2);
     }
