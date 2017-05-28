@@ -6,11 +6,18 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.game.LevelMap;
 
 /**
- * Created by Artur on 20.05.2017.
+ * Erstellt die statischen Objekte in Leveln, die keine Interaktionen
+ * beinhalten (z.B. Wände)
  */
 public class StaticMapCollisions extends MapObjects {
 
-
+    /**
+     * Erzeugt alle statischen Objekte eines Levels und fügt die der angegebenen
+     * Welt hinzu.
+     *
+     * @param world Welt, in der die Objekte erzeugt werden
+     * @param level Level, welches die Objekte in der Ebene "StaticCollisions" besitzt
+     */
     public void createObjects(World world, LevelMap level){
         BodyDef bodyDef = new BodyDef();
         FixtureDef fixtureDef = new FixtureDef();

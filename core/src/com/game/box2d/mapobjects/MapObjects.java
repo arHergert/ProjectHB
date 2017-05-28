@@ -11,7 +11,8 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.game.LevelMap;
 
 /**
- * Created by Artur on 21.05.2017.
+ * Standarddefinierung eines Box2D Kollisionsobjektes, welches mit dem Spieler
+ * kollidieren kann
  */
 public abstract class MapObjects {
 
@@ -23,6 +24,13 @@ public abstract class MapObjects {
 
     public MapObjects(){}
 
+    /**
+     * <b>Warnung: Ein MapObject allein kann nicht instanziiert werden,
+     * da es keine Kollisionsform besitzt</b>
+     *
+     * @param world Welt, in der das Objekt erstellt werden soll
+     * @param map Map mit den Ebenen zur Definierung des Objektes
+     */
     public MapObjects(World world, LevelMap map){
         this.world = world;
         this.level = map;
@@ -36,7 +44,13 @@ public abstract class MapObjects {
     }
 
 
-
+    /**
+     * Erstellt ein Rechteck als Kollisionsform und speichert die Position
+     * des Objektes aus der Levelebende
+     *
+     * @param rectangleObject
+     * @return Rechteck
+     */
     protected PolygonShape getRectangle(RectangleMapObject rectangleObject) {
         Rectangle rectangle = rectangleObject.getRectangle();
         PolygonShape polygon = new PolygonShape();
@@ -49,6 +63,13 @@ public abstract class MapObjects {
         return polygon;
     }
 
+    /**
+     * Erstellt ein Kreis als Kollisionsform und speichert die Position
+     * des Objektes aus der Levelebende
+     *
+     * @param circleObject
+     * @return Kreis
+     */
     protected CircleShape getCircle(CircleMapObject circleObject) {
         Circle circle = circleObject.getCircle();
         CircleShape circleShape = new CircleShape();
@@ -57,6 +78,13 @@ public abstract class MapObjects {
         return circleShape;
     }
 
+    /**
+     * Erstellt ein freiförmiges Polygon als Kollisionsform und speichert die Position
+     * des Objektes aus der Levelebende
+     *
+     * @param polygonObject
+     * @return Polygon
+     */
     protected PolygonShape getPolygon(PolygonMapObject polygonObject) {
         PolygonShape polygon = new PolygonShape();
         float[] vertices = polygonObject.getPolygon().getTransformedVertices();
@@ -69,6 +97,13 @@ public abstract class MapObjects {
         return polygon;
     }
 
+    /**
+     * Erstellt eine Linie als Kollisionsform und speichert die Position
+     * des Objektes aus der Levelebende
+     *
+     * @param polylineObject
+     * @return Linie
+     */
     protected ChainShape getPolyline(PolylineMapObject polylineObject) {
         float[] vertices = polylineObject.getPolyline().getTransformedVertices();
         Vector2[] worldVertices = new Vector2[vertices.length / 2];
