@@ -84,7 +84,9 @@ public class Main extends ApplicationAdapter {
 
 
     /**
+     * Aktualisierung des Spiels pro Frame.
      *
+     * Hier wird die komplette Spiellogik verwaltet.
      */
 	public void render () {
 
