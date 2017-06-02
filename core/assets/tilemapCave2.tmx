@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="8" tilewidth="16" tileheight="16" nextobjectid="9">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="16" height="8" tilewidth="16" tileheight="16" nextobjectid="10">
  <tileset firstgid="1" name="dungeon tileset calciumtrice simple" tilewidth="16" tileheight="16" tilecount="960" columns="30">
   <image source="dungeon tileset calciumtrice simple.png" width="480" height="512"/>
  </tileset>
@@ -8,7 +8,11 @@
    eJyTZ2BgUABiRSBWAmJlKAaJfQTiT2hiyOpUgNgWiO2A2B6IHYDYEYpBYvyMDAwCjKhiyOqcgLgKiJvJxNVA3ADElWTijkGgv45C/fjkpwPxDAJqAF4CNds=
   </data>
  </layer>
- <objectgroup name="StaticCollisions"/>
+ <objectgroup name="StaticCollisions">
+  <object id="9" x="145" y="128">
+   <polyline points="0,0 111,0 111,-128 -145,-128 -145,0 -33,0"/>
+  </object>
+ </objectgroup>
  <objectgroup name="Door">
   <object id="6" name="doorBottom" x="112.917" y="123.917" width="29.6667" height="2.66667"/>
  </objectgroup>

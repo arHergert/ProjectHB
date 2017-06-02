@@ -1,5 +1,7 @@
 package com.game.box2d.mapobjects;
 
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.game.WorldMap;
 
 /**
@@ -12,9 +14,20 @@ public class Bucket<T extends MapObjects> extends MapObjects {
 
 	/** MapObject, das der Eimer enthält */
 	private T contents;
-	
-	public Bucket(WorldMap map) {
+
+    /**
+     * Erstellt einen Eimer/Box, in der man ein anderes MapObject hineinlegen kann.
+     * Buckets müssen sich im Level in der Ebene "InteractiveObjects" befinden.
+     *
+     * @param map Referenz auf das Level, in der sich "Door" Ebene befindet
+     * @param mapSensorObject Name des Sensors (Userdata). MUSS einzigartig sein.
+     */
+	public Bucket(WorldMap map, String mapSensorObject) {
 		super(map);
+        PolygonShape shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("InteractiveObjects").getObjects().get(mapSensorObject));
+        fixtureDef.shape = shape;
+        fixture = body.createFixture(fixtureDef);
+        fixture.setUserData(mapSensorObject);
 	}
 	
 	/**

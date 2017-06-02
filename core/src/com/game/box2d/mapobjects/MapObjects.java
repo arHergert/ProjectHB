@@ -21,6 +21,7 @@ public abstract class MapObjects {
     protected Body body;
     protected FixtureDef fixtureDef;
     protected BodyDef bodyDef;
+    protected Fixture fixture;
 
     public MapObjects(){}
 

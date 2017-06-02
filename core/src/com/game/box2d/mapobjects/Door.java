@@ -1,5 +1,7 @@
 package com.game.box2d.mapobjects;
 
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.game.WorldMap;
 
@@ -13,11 +15,17 @@ public class Door extends MapObjects {
 	
 	/**
 	 * Erstellt ein neues Tür-Objekt
+     * Doors müssen sich im Level in der Ebene "InteractiveObjects" befinden.
+     *
 	 * @param map
 	 */
-	public Door( WorldMap map) {
+	public Door( WorldMap map, String mapSensorObject) {
 		super( map);
 		isOpen = false;
+        PolygonShape shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("InteractiveObjects").getObjects().get(mapSensorObject));
+        fixtureDef.shape = shape;
+        fixture = body.createFixture(fixtureDef);
+        fixture.setUserData(mapSensorObject);
 	}
 	
 	/** Gibt den Wert zurück, der aussagt, ob die Tür geöffnet oder geschlossen ist. */

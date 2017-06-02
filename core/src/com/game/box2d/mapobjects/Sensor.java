@@ -15,15 +15,14 @@ import com.game.WorldMap;
  */
 public class Sensor extends MapObjects {
 
-    protected Fixture fixture;
-
     /** Flag zum Überprüfen ob der Sensor an ist oder nicht */
     private boolean activated = false;
 
     /**
      * Erstellt ein Sensorobjekt, mit dem man z.B. Türen erstellen kann.
      *
-     * @param world Welt in der der Sensor platziert wird
+     * Türen müssen sich im Level in der Ebene "Door" befinden.
+     *
      * @param map Referenz auf das Level, in der sich "Door" Ebene befindet
      * @param mapSensorObject Name des Sensors (Userdata). MUSS einzigartig sein.
      */
