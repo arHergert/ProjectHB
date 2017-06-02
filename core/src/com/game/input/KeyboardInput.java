@@ -2,7 +2,7 @@ package com.game.input;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
-import com.game.LevelMap;
+import com.game.WorldMap;
 import com.game.MapCamera;
 import com.game.box2d.Player;
 
@@ -22,7 +22,7 @@ public class KeyboardInput extends InputMultiplexer{
     }
 
 
-    public void updatePlayerMovement(Player boxPlayer, MapCamera camera, LevelMap levelmap){
+    public void updatePlayerMovement(Player boxPlayer, MapCamera camera, WorldMap levelmap){
 
         int horizSpeed = 0;
         int vertSpeed = 0;

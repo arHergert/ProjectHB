@@ -24,7 +24,7 @@ public class MapCamera extends OrthographicCamera {
      *
      * @param levelmap Aktuelles Level
      */
-    public MapCamera(LevelMap levelmap){
+    public MapCamera(WorldMap levelmap){
 
         this.setToOrtho(false, levelmap.getMapHeight() * 1.7f, ((levelmap.getMapHeight()/16)*9) * 1.7f );
         this.position.set ( levelmap.getMapWidth()/2,  levelmap.getMapHeight()/2, 0);

@@ -1,7 +1,7 @@
 package com.game.box2d.mapobjects;
 
 import com.badlogic.gdx.physics.box2d.World;
-import com.game.LevelMap;
+import com.game.WorldMap;
 
 /**
  * Eine Tür kann geschlossen sein oder offen.
@@ -16,7 +16,7 @@ public class Door extends MapObjects {
 	 * @param world
 	 * @param map
 	 */
-	public Door(World world, LevelMap map) {
+	public Door(World world, WorldMap map) {
 		super(world, map);
 		isOpen = false;
 	}

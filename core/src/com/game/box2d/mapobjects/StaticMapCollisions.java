@@ -3,7 +3,7 @@ package com.game.box2d.mapobjects;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.*;
 import com.badlogic.gdx.physics.box2d.*;
-import com.game.LevelMap;
+import com.game.WorldMap;
 
 /**
  * Erstellt die statischen Objekte in Leveln, die keine Interaktionen
@@ -18,7 +18,7 @@ public class StaticMapCollisions extends MapObjects {
      * @param world Welt, in der die Objekte erzeugt werden
      * @param level Level, welches die Objekte in der Ebene "StaticCollisions" besitzt
      */
-    public void createObjects(World world, LevelMap level){
+    public void createObjects(World world, WorldMap level){
         BodyDef bodyDef = new BodyDef();
         FixtureDef fixtureDef = new FixtureDef();
         Body body;

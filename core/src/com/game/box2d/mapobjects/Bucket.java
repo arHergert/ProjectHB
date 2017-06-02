@@ -1,9 +1,7 @@
 package com.game.box2d.mapobjects;
 
-import java.util.TreeSet;
-
 import com.badlogic.gdx.physics.box2d.World;
-import com.game.LevelMap;
+import com.game.WorldMap;
 
 /**
  * Ein Eimer, welches mit einem Gegenstand gefüllt werden kann
@@ -16,7 +14,7 @@ public class Bucket<T extends MapObjects> extends MapObjects {
 	/** MapObject, das der Eimer enthält */
 	private T contents;
 	
-	public Bucket(World world, LevelMap map) {
+	public Bucket(World world, WorldMap map) {
 		super(world, map);
 	}
 	

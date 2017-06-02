@@ -24,9 +24,9 @@ public class Main extends ApplicationAdapter {
     private MapCamera camera;
     private TiledMapRenderer tiledMapRenderer;
     private KeyboardInput keyboardInput;
-    private LevelMap level1;
-    private LevelMap level2;
-    private LevelMap currentlevel;
+    private WorldMap level1;
+    private WorldMap level2;
+    private WorldMap currentlevel;
     private World level1_world;  //TODO welten in Klasse LEvelManager packen
     private World level2_world;
     private World currentworld;
@@ -52,8 +52,8 @@ public class Main extends ApplicationAdapter {
 
 
             //Von hier...
-        level1 = new LevelMap("tilemapCave.tmx");
-        level2 = new LevelMap("tilemapCave2.tmx");
+        level1 = new WorldMap("tilemapCave.tmx");
+        level2 = new WorldMap("tilemapCave2.tmx");
 
         level1_world = new World(new Vector2(0, 0),false);
         level2_world = new World(new Vector2(0, 0),false);

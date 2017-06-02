@@ -8,7 +8,7 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.game.LevelMap;
+import com.game.WorldMap;
 
 /**
  * Standarddefinierung eines Box2D Kollisionsobjektes, welches mit dem Spieler
@@ -17,7 +17,7 @@ import com.game.LevelMap;
 public abstract class MapObjects {
 
     protected World world;
-    protected LevelMap level;
+    protected WorldMap level;
     protected Body body;
     protected FixtureDef fixtureDef;
     protected BodyDef bodyDef;
@@ -31,7 +31,7 @@ public abstract class MapObjects {
      * @param world Welt, in der das Objekt erstellt werden soll
      * @param map Map mit den Ebenen zur Definierung des Objektes
      */
-    public MapObjects(World world, LevelMap map){
+    public MapObjects(World world, WorldMap map){
         this.world = world;
         this.level = map;
 

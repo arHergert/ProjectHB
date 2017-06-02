@@ -14,7 +14,7 @@ import com.badlogic.gdx.math.Rectangle;
  *
  * Erstellt ein TiledMap map-object, über die alle map Operationen gehen (Zugriff auf Ebenen, Objekte etc.)
  */
-public class LevelMap {
+public class WorldMap {
 
     /** Deklariertes Map Objekt des aktuellen Levels*/
     private TiledMap map;
@@ -34,7 +34,7 @@ public class LevelMap {
      *
      * @param mapfile Link zur Tiled Map Datei
      */
-    public LevelMap(String mapfile){
+    public WorldMap(String mapfile){
 
         //Lädt die Mapdatei
         map = new TmxMapLoader().load(mapfile);
@@ -160,5 +160,5 @@ public class LevelMap {
 
 
 
-}//end class LevelMap
+}//end class WorldMap
 

@@ -1,7 +1,7 @@
 package com.game.box2d.mapobjects;
 
 import com.badlogic.gdx.physics.box2d.World;
-import com.game.LevelMap;
+import com.game.WorldMap;
 
 /**
  * Ein Stein kann getragen werden und runtergestellt werden
@@ -16,7 +16,7 @@ public class Rock extends MapObjects {
 	 * @param world
 	 * @param map
 	 */
-	public Rock(World world, LevelMap map) {
+	public Rock(World world, WorldMap map) {
 		super(world, map);
 	}
 	

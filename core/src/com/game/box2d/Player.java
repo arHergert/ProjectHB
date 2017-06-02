@@ -8,7 +8,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.game.LevelMap;
+import com.game.WorldMap;
 import com.game.Main;
 
 /**
@@ -44,7 +44,7 @@ public class Player extends Sprite {
      *                   bei 0,0. WICHTIG: Die Spawnpoints müssen in der level-tmx-File
      *                   in der Ebene "PlayerSpawnpoints" abgelegt werden!
      */
-    public Player (World world, LevelMap level, String playerImgFile , String spawnpoint){
+    public Player (World world, WorldMap level, String playerImgFile , String spawnpoint){
         this.world = world;
         boxImg = new Texture(Gdx.files.internal(playerImgFile));
 

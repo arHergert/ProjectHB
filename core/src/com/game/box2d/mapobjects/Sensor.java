@@ -4,7 +4,7 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.game.LevelMap;
+import com.game.WorldMap;
 
 /**
  * Sensor zum Überprüfen ob ein anderes Objekt dieses berührt.
@@ -27,7 +27,7 @@ public class Sensor extends MapObjects {
      * @param map Referenz auf das Level, in der sich "Door" Ebene befindet
      * @param mapSensorObject Name des Sensors (Userdata). MUSS einzigartig sein.
      */
-    public Sensor(World world, LevelMap map, String mapSensorObject) {
+    public Sensor(World world, WorldMap map, String mapSensorObject) {
         super(world, map);
         PolygonShape shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("Door").getObjects().get(mapSensorObject));
         fixtureDef.shape = shape;
