@@ -7,6 +7,9 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.World;
+import com.game.box2d.mapobjects.StaticMapCollisions;
 
 /**
  * Lädt die .tmx File des Levels und beinhaltet Methoden
@@ -26,6 +29,9 @@ public class WorldMap {
     /** Beinhaltet alle Spawnpoints, auf die der Spieler spawnen kann */
     private MapObjects spawnpoints;
 
+    /** Deklariertes World Objekt für das aktuelle Level*/
+    private World world;
+    private StaticMapCollisions mapCollisions = new StaticMapCollisions();
 
     /**
      * Lädt die .tmx Tiled Map und setzt die Grenzen innerhalb
@@ -67,6 +73,14 @@ public class WorldMap {
             setSpawnUpperDoor();
         }
 
+
+        /** Beginn der Initialisierung für die BOX2D Welt */
+        world = new World(new Vector2(0, 0),false);
+
+        //Statische Kollisionen wie z.B. Wände für diese Welt erstellen
+        mapCollisions.createObjects(world,this);
+
+
     }
 
 
@@ -107,6 +121,10 @@ public class WorldMap {
 
     public TiledMap getMap(){
         return this.map;
+    }
+
+    public World getWorld(){
+        return this.world;
     }
 
     public int getMapWidth() {

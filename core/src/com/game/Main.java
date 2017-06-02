@@ -13,6 +13,8 @@ import com.game.box2d.mapobjects.StaticMapCollisions;
 import com.game.box2d.WorldContactListener;
 import com.game.input.KeyboardInput;
 
+import java.util.ArrayList;
+
 /**
  * Hauptklasse zur Erstellung, Aktualisierung und Verwaltung der Spiellogik und -objekte
  */
@@ -27,13 +29,8 @@ public class Main extends ApplicationAdapter {
     private WorldMap level1;
     private WorldMap level2;
     private WorldMap currentlevel;
-    private World level1_world;  //TODO welten in Klasse LEvelManager packen
-    private World level2_world;
-    private World currentworld;
     private Player boxPlayer;
     private Box2DDebugRenderer debugRenderer;
-    private StaticMapCollisions mapCollisions_level1 = new StaticMapCollisions();  //TODO StaticMapCollisions in eine Klasse LevelManager packen
-    private StaticMapCollisions mapCollisions_level2 = new StaticMapCollisions();
     private Sensor doorUp;
     private Sensor doorBottom;
 
@@ -50,28 +47,18 @@ public class Main extends ApplicationAdapter {
         //Initialisierung des Spritebatches. Damit können Grafiken gezeichnet werden.
         batch = new SpriteBatch();
 
-
-            //Von hier...
         level1 = new WorldMap("tilemapCave.tmx");
         level2 = new WorldMap("tilemapCave2.tmx");
 
-        level1_world = new World(new Vector2(0, 0),false);
-        level2_world = new World(new Vector2(0, 0),false);
+        doorUp = new Sensor(level1, "doorUp" );
+        doorBottom = new Sensor(level2, "doorBottom");
 
-        mapCollisions_level1.createObjects(level1_world,level1);
-        doorUp = new Sensor(level1_world, level1, "doorUp" );
-
-        mapCollisions_level2.createObjects(level2_world, level2 );
-        doorBottom = new Sensor(level2_world, level2, "doorBottom");
-
-        level1_world.setContactListener( new WorldContactListener(doorUp, doorBottom));
-        level2_world.setContactListener( new WorldContactListener(doorUp, doorBottom));
-
-            // .. bis hier -> Umstrukturieren für neue Klasse LevelManager
+        //Contactlistener pro Welt definieren
+        level1.getWorld().setContactListener( new WorldContactListener(doorUp, doorBottom));
+        level2.getWorld().setContactListener( new WorldContactListener(doorUp, doorBottom));
 
         //Aktuelles Level festlegen
         currentlevel = level1;
-        currentworld = level1_world;
 
         //Aktuelles Level mit MapRenderer festlegen
         tiledMapRenderer = new OrthogonalTiledMapRenderer(currentlevel.getMap());
@@ -82,7 +69,7 @@ public class Main extends ApplicationAdapter {
 
         //Neuer Renderer, der die Kollisionsboxen im Spiel erkenntlich macht
         debugRenderer = new Box2DDebugRenderer();
-        boxPlayer = new Player(currentworld, currentlevel, "caveman.png", "spawnStart");
+        boxPlayer = new Player(currentlevel, "caveman.png", "spawnStart");
 
         //Definieren des Spielerinputs.
         keyboardInput = new KeyboardInput();
@@ -108,8 +95,7 @@ public class Main extends ApplicationAdapter {
         if(doorUp.isActivated()){
 
             doorUp.deactivate();
-            currentworld.destroyBody(boxPlayer.body);
-            currentworld = level2_world;
+            currentlevel.getWorld().destroyBody(boxPlayer.body);
             currentlevel = level2;
             updateLevel("spawnBottomDoor");
 
@@ -119,8 +105,7 @@ public class Main extends ApplicationAdapter {
         if (doorBottom.isActivated()){
 
             doorBottom.deactivate();
-            currentworld.destroyBody(boxPlayer.body);
-            currentworld = level1_world;
+            currentlevel.getWorld().destroyBody(boxPlayer.body);
             currentlevel = level1;
             updateLevel("spawnUpperDoor");
         }
@@ -137,10 +122,10 @@ public class Main extends ApplicationAdapter {
         tiledMapRenderer.render(new int[]{0});
 
         //Worldaktualisierung. Welt aktualisiert sich 60 mal pro Sekunde.
-        currentworld.step(1/60f, 6,2);
+        currentlevel.getWorld().step(1/60f, 6,2);
 
         //Aktualisieren des DebugRenderers
-        debugRenderer.render(currentworld, camera.combined);
+        debugRenderer.render(currentlevel.getWorld(), camera.combined);
 
         //Das batch zeichnet/aktualisiert die Positionen der Graphiken
         batch.setProjectionMatrix(camera.combined);
@@ -167,7 +152,8 @@ public class Main extends ApplicationAdapter {
         currentlevel.getMap().dispose();
         level2.getMap().dispose();
         level1.getMap().dispose();
-        level1_world.dispose();
+        level1.getWorld().dispose();
+        level2.getWorld().dispose();
         debugRenderer.dispose();
         boxPlayer.getImg().dispose();
 
@@ -181,7 +167,7 @@ public class Main extends ApplicationAdapter {
         camera = new MapCamera(currentlevel);
         camera.update();
 
-        boxPlayer = new Player(currentworld, currentlevel, "caveman.png", spawn);
+        boxPlayer = new Player(currentlevel, "caveman.png", spawn);
 
 
     }

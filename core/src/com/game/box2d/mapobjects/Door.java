@@ -13,11 +13,10 @@ public class Door extends MapObjects {
 	
 	/**
 	 * Erstellt ein neues Tür-Objekt
-	 * @param world
 	 * @param map
 	 */
-	public Door(World world, WorldMap map) {
-		super(world, map);
+	public Door( WorldMap map) {
+		super( map);
 		isOpen = false;
 	}
 	

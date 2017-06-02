@@ -13,11 +13,10 @@ public class Rock extends MapObjects {
 	
 	/**
 	 * Erstellt ein neues Stein-Objekt.
-	 * @param world
 	 * @param map
 	 */
-	public Rock(World world, WorldMap map) {
-		super(world, map);
+	public Rock(WorldMap map) {
+		super(map);
 	}
 	
 	/**

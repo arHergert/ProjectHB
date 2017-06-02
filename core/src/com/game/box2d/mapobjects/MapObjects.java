@@ -28,11 +28,10 @@ public abstract class MapObjects {
      * <b>Warnung: Ein MapObject allein kann nicht instanziiert werden,
      * da es keine Kollisionsform besitzt</b>
      *
-     * @param world Welt, in der das Objekt erstellt werden soll
-     * @param map Map mit den Ebenen zur Definierung des Objektes
+     * @param map Map mit den Ebenen zur Definierung des Objektes und der Welt
      */
-    public MapObjects(World world, WorldMap map){
-        this.world = world;
+    public MapObjects(WorldMap map){
+        this.world = map.getWorld();
         this.level = map;
 
         bodyDef = new BodyDef();

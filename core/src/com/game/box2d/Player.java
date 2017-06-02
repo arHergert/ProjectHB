@@ -32,8 +32,8 @@ public class Player extends Sprite {
      * Um einen alten Spieler zu löschen muss mit dem aktuellen world Objekt die {@link World#destroyBody(Body)}
      * Methode aufgerufen werden.
      *
-     * @param world Referenz auf die Welt, in der der Spieler erstellt werden soll
-     * @param level Referenz auf das Level, welches die Spawnpoints angeben
+     * @param level Referenz auf das Level, welches die Spawnpoints angeben und die Welt enthält
+     * @param level Referenz auf das Level, welches die Spawnpoints angeben und die Welt enthält
      * @param playerImgFile Textur des Spielers
      * @param spawnpoint Folgende Möglichkeiten gibt es:<br>
      *                   spawnStart -> Startet an der Start Position<br>
@@ -44,8 +44,8 @@ public class Player extends Sprite {
      *                   bei 0,0. WICHTIG: Die Spawnpoints müssen in der level-tmx-File
      *                   in der Ebene "PlayerSpawnpoints" abgelegt werden!
      */
-    public Player (World world, WorldMap level, String playerImgFile , String spawnpoint){
-        this.world = world;
+    public Player (WorldMap level, String playerImgFile , String spawnpoint){
+        this.world = level.getWorld();
         boxImg = new Texture(Gdx.files.internal(playerImgFile));
 
 

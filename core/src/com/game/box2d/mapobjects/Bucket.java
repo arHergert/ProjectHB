@@ -1,6 +1,5 @@
 package com.game.box2d.mapobjects;
 
-import com.badlogic.gdx.physics.box2d.World;
 import com.game.WorldMap;
 
 /**
@@ -14,8 +13,8 @@ public class Bucket<T extends MapObjects> extends MapObjects {
 	/** MapObject, das der Eimer enthält */
 	private T contents;
 	
-	public Bucket(World world, WorldMap map) {
-		super(world, map);
+	public Bucket(WorldMap map) {
+		super(map);
 	}
 	
 	/**
