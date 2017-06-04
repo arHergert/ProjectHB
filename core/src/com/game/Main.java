@@ -2,13 +2,14 @@ package com.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.game.box2d.Player;
-import com.game.input.KeyboardInput;
+import com.game.input.PlayerMovementInputProcessor;
 import com.game.leveldesign.LevelManager;
 
 /**
@@ -21,10 +22,11 @@ public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
     private MapCamera camera;
     private TiledMapRenderer tiledMapRenderer;
-    private KeyboardInput keyboardInput;
+    private PlayerMovementInputProcessor playermoveInput;
     private LevelManager levels;
     private Player boxPlayer;
     private Box2DDebugRenderer debugRenderer;
+    private InputMultiplexer multiplexer;
 
     //IM
 
@@ -42,19 +44,24 @@ public class Main extends ApplicationAdapter {
         levels = new LevelManager();
 
         //Aktuelles Level mit MapRenderer festlegen
-        tiledMapRenderer = new OrthogonalTiledMapRenderer(levels.getCurrentlevel().getMap());
+        tiledMapRenderer = new OrthogonalTiledMapRenderer(levels.getCurrentWorldMap().getMap());
 
         //Kamera auf aktuelles Level setzen
-        camera = new MapCamera(levels.getCurrentlevel());
+        camera = new MapCamera(levels.getCurrentWorldMap());
         camera.update();
 
         //Neuer Renderer, der die Kollisionsboxen im Spiel erkenntlich macht
         debugRenderer = new Box2DDebugRenderer();
-        boxPlayer = new Player(levels.getCurrentlevel(), "caveman.png", "spawnStart");
+        boxPlayer = new Player(levels.getCurrentWorldMap(), "caveman.png", "spawnStart");
 
         //Definieren des Spielerinputs.
-        keyboardInput = new KeyboardInput();
-        Gdx.input.setInputProcessor(keyboardInput);
+        multiplexer = new InputMultiplexer(); //Enthält alle InputProcessor des laufenden Spiels
+        playermoveInput = new PlayerMovementInputProcessor(); //Enthält PlayerMovementInputProcessor für die Spielerbewegung
+
+        //InputProcessor für Playerbewegung und Levellogik des Startlevels an den Multiplexer hängen
+        multiplexer.addProcessor(playermoveInput);
+        multiplexer.addProcessor(levels.getCurrentlevelInputLogic());
+        Gdx.input.setInputProcessor(multiplexer);
 
 
     }
@@ -75,18 +82,25 @@ public class Main extends ApplicationAdapter {
         //Prüft ob der der Spieler in ein anderes Level gehen will und wechselt entsprechend
         if(levels.isPlayerSwitchingLevel()){
 
-            levels.getCurrentlevel().getWorld().destroyBody(boxPlayer.body);
+            //Alten BOX2D Körper und InputProcessor des aktuellen Levels entsorgen
+            levels.getCurrentWorldMap().getWorld().destroyBody(boxPlayer.body);
+            multiplexer.removeProcessor(levels.getCurrentlevelInputLogic());
 
             //In das neue Level wechseln
             levels.switchLevel();
-            tiledMapRenderer = new OrthogonalTiledMapRenderer(levels.getCurrentlevel().getMap());
-            camera = new MapCamera(levels.getCurrentlevel());
+
+            //Kamera, Renderer, Player etc. auf das neue aktuelle Level verweisen
+            multiplexer.addProcessor(levels.getCurrentlevelInputLogic());
+            tiledMapRenderer = new OrthogonalTiledMapRenderer(levels.getCurrentWorldMap().getMap());
+            camera = new MapCamera(levels.getCurrentWorldMap());
             camera.update();
-            boxPlayer = new Player(levels.getCurrentlevel(), "caveman.png", levels.getSpawnpoint());
+            boxPlayer = new Player(levels.getCurrentWorldMap(), "caveman.png", levels.getSpawnpoint());
+
+
         }
 
-        //Spielerbewegung
-        keyboardInput.updatePlayerMovement(boxPlayer,camera, levels.getCurrentlevel());
+        //Spielerbewegung erfassen im PlayerMovementInputProcessor
+        playermoveInput.updatePlayerMovement(boxPlayer,camera, levels.getCurrentWorldMap());
 
         //MapRenderer auf die Position der Kamera verweisen
         tiledMapRenderer.setView(camera);
@@ -96,10 +110,10 @@ public class Main extends ApplicationAdapter {
         tiledMapRenderer.render(new int[]{0});
 
         //Worldaktualisierung. Welt aktualisiert sich 60 mal pro Sekunde.
-        levels.getCurrentlevel().getWorld().step(1/60f, 6,2);
+        levels.getCurrentWorldMap().getWorld().step(1/60f, 6,2);
 
         //Aktualisieren des DebugRenderers
-        debugRenderer.render(levels.getCurrentlevel().getWorld(), camera.combined);
+        debugRenderer.render(levels.getCurrentWorldMap().getWorld(), camera.combined);
 
         //Das batch zeichnet/aktualisiert die Positionen der Graphiken
         batch.setProjectionMatrix(camera.combined);
@@ -108,7 +122,7 @@ public class Main extends ApplicationAdapter {
         batch.end();
 
         //Restliche Ebenen, nach der Grundebene, rendern
-        for(int i = 1; i < levels.getCurrentlevel().getMap().getLayers().getCount(); i++){
+        for(int i = 1; i < levels.getCurrentWorldMap().getMap().getLayers().getCount(); i++){
             tiledMapRenderer.render( new int[]{i});
         }
 

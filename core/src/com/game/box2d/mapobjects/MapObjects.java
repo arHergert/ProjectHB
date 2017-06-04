@@ -23,6 +23,9 @@ public abstract class MapObjects {
     protected BodyDef bodyDef;
     protected Fixture fixture;
 
+    /** Variable zur Bestimmung ob das Objekt mit dem Player kollidiert */
+    private boolean collidesWithPlayer = false;
+
     public MapObjects(){}
 
     /**
@@ -119,6 +122,28 @@ public abstract class MapObjects {
         return chain;
     }
 
+
+    /**
+     * Überprüft ob das aktuelle MapObject mit dem Spieler kollidiert
+     * @return Ob das Objekt mit dem Spieler kollidiert
+     */
+    public boolean collidesWithPlayer(){
+        return collidesWithPlayer;
+    }
+
+    /**
+     * Aktiviert die Kollision mit dem Spieler
+     */
+    public void collideOn(){
+        this.collidesWithPlayer = true;
+    }
+
+    /**
+     * Deaktiviert die Kollision mit dem Spieler
+     */
+    public void collideOff(){
+        this.collidesWithPlayer = false;
+    }
 
 
 }//end class InteractiveMapObjects

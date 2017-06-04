@@ -1,5 +1,6 @@
 package com.game.leveldesign.levels;
 
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
@@ -66,6 +67,26 @@ public abstract class Level {
      */
     protected abstract ContactListener levelContact();
 
+
+    /**
+     * Methode zum Erstellen des InputProcessors.
+     * Muss in den Subklassen überschrieben werden.
+     * Folgendermaßen sieht die Methode in den Subklassn aus:
+     * <pre><code>
+     *     public InputProcessor levelInput() {
+             return new InputAdapter(){
+                 public boolean keyDown(int keycode) {
+                    //Levellogic
+                 }
+
+                //Eventuell weitere Methoden wie keyUp etc.
+
+             };
+         }
+     * </code></pre>
+     * @return InputProcessor des Levels
+     */
+    public abstract InputProcessor levelInput();
 
     public WorldMap getWorldMap(){
         return this.worldmap;

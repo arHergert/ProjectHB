@@ -1,5 +1,8 @@
 package com.game.leveldesign.levels;
 
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.physics.box2d.*;
 
 /**
@@ -35,21 +38,25 @@ public class Level_1 extends Level{
 
 
             }
+            public void endContact(Contact contact) {}
+            public void preSolve(Contact contact, Manifold oldManifold) {}
+            public void postSolve(Contact contact, ContactImpulse impulse) {}
+        };
+    }
 
-            @Override
-            public void endContact(Contact contact) {
+    @Override
+    public InputProcessor levelInput() {
+       return new InputAdapter(){
 
-            }
+           public boolean keyDown(int keycode) {
 
-            @Override
-            public void preSolve(Contact contact, Manifold oldManifold) {
+               if (keycode == Input.Keys.E ){
+                  System.out.println("E");
+               }
 
-            }
+               return false;
+           }
 
-            @Override
-            public void postSolve(Contact contact, ContactImpulse impulse) {
-
-            }
         };
     }
 }//end class Level_1

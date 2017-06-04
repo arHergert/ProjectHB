@@ -49,4 +49,6 @@ public class Lever extends MapObjects {
 	}
 
 
+
+
 }//end class Lever

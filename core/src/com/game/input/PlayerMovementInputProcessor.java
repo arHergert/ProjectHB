@@ -1,7 +1,9 @@
 package com.game.input;
 
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.InputProcessor;
 import com.game.leveldesign.WorldMap;
 import com.game.MapCamera;
 import com.game.box2d.Player;
@@ -9,7 +11,7 @@ import com.game.box2d.Player;
 import static com.game.box2d.Player.PPM;
 
 
-public class KeyboardInput extends InputMultiplexer{
+public class PlayerMovementInputProcessor extends InputAdapter{
 
     //IV
     boolean camMoveLeft, camMoveRight, camMoveUp, camMoveDown;
@@ -17,7 +19,7 @@ public class KeyboardInput extends InputMultiplexer{
 
     //Constructor
 
-    public KeyboardInput(){
+    public PlayerMovementInputProcessor(){
 
     }
 
@@ -141,4 +143,4 @@ public class KeyboardInput extends InputMultiplexer{
     }
 
 
-}//end class KeyboardInput
+}//end class PlayerMovementInputProcessor

@@ -1,5 +1,6 @@
 package com.game.leveldesign;
 
+import com.badlogic.gdx.InputProcessor;
 import com.game.leveldesign.levels.Level;
 import com.game.leveldesign.levels.Level_1;
 import com.game.leveldesign.levels.Level_2;
@@ -30,6 +31,8 @@ public class LevelManager {
     private final String SPAWN_BOTTOM = "spawnBottomDoor";
     private final String SPAWN_UP = "spawnUpperDoor";
 
+    private InputProcessor currentlevelInputLogic;
+
     /**
      *
      */
@@ -46,6 +49,9 @@ public class LevelManager {
         //Spawnpoint des Spielers für das Startlevel bestimmten
         currentSpawn = SPAWN_START;
 
+        //Inputlogik für das aktuelle Level festlegen
+        currentlevelInputLogic = currentlevel.levelInput();
+
     }
 
 
@@ -56,8 +62,12 @@ public class LevelManager {
      *
      * @return WorldMap des aktuellen Levels
      */
-    public WorldMap getCurrentlevel(){
+    public WorldMap getCurrentWorldMap(){
         return currentlevel.getWorldMap();
+    }
+
+    public Level getCurrentlevel(){
+        return currentlevel;
     }
 
 
@@ -114,9 +124,12 @@ public class LevelManager {
 
         }
 
+
         //Level wurde gewechselt -> FLAG zurücksetzen
         this.playerSwitchesLevel = false;
 
+        //Inputlogik für das aktuelle Level aktualisieren
+        currentlevelInputLogic = currentlevel.levelInput();
 
 
 
@@ -126,5 +139,9 @@ public class LevelManager {
 
     public String getSpawnpoint(){
         return this.currentSpawn;
+    }
+
+    public InputProcessor getCurrentlevelInputLogic(){
+        return this.currentlevelInputLogic;
     }
 }//end class LevelManager
