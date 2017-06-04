@@ -1,9 +1,8 @@
 package com.game.box2d.mapobjects;
 
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.game.WorldMap;
+import com.game.leveldesign.WorldMap;
 
 /**
  * Eine Druckplatte aktiviert sich wenn man sie beschwert.
@@ -27,7 +26,7 @@ public class Plate extends MapObjects {
      * Erstellt eine Druckplatte.
      * Druckplatten müssen sich im Level in der Ebene "InteractiveObjects" befinden.
      *
-     * @param map Referenz auf das Level, in der sich "Door" Ebene befindet
+     * @param map Referenz auf das Level, in der sich "InteractiveObjects" Ebene befindet
      * @param lock Ob die Druckplatte einrasten soll oder nicht
      * @param mapSensorObject Name des Sensors (Userdata). MUSS einzigartig sein.
      */
@@ -38,6 +37,7 @@ public class Plate extends MapObjects {
         fixtureDef.shape = shape;
         fixtureDef.isSensor = true;
         fixture = body.createFixture(fixtureDef);
+        shape.dispose();
         fixture.setUserData(mapSensorObject);
     }
 

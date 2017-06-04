@@ -2,7 +2,7 @@ package com.game.box2d.mapobjects;
 
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.game.WorldMap;
+import com.game.leveldesign.WorldMap;
 
 /**
  * Ein Hebel kann aktiviert werden und deaktiviert
@@ -27,6 +27,7 @@ public class Lever extends MapObjects {
         PolygonShape shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("InteractiveObjects").getObjects().get(mapSensorObject));
         fixtureDef.shape = shape;
         fixture = body.createFixture(fixtureDef);
+        shape.dispose();
         fixture.setUserData(mapSensorObject);
     }
 
@@ -36,6 +37,7 @@ public class Lever extends MapObjects {
 	public void use() {
 
         isActivated = !isActivated;
+        System.out.println(isActivated);
 	}
 
 

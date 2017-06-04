@@ -1,10 +1,8 @@
 package com.game.box2d.mapobjects;
 
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.physics.box2d.World;
-import com.game.WorldMap;
+import com.game.leveldesign.WorldMap;
 
 /**
  * Sensor zum Überprüfen ob ein anderes Objekt dieses berührt.
@@ -28,11 +26,21 @@ public class Sensor extends MapObjects {
      */
     public Sensor(WorldMap map, String mapSensorObject) {
         super(map);
-        PolygonShape shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("Door").getObjects().get(mapSensorObject));
-        fixtureDef.shape = shape;
-        fixtureDef.isSensor = true;
-        fixture = body.createFixture(fixtureDef);
-        fixture.setUserData(mapSensorObject);
+        PolygonShape shape;
+
+        if(map.getMap().getLayers().get("Door").getObjects().get(mapSensorObject) == null ){
+            shape = null;
+        }else{
+            shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("Door").getObjects().get(mapSensorObject));
+            fixtureDef.shape = shape;
+            fixtureDef.isSensor = true;
+            fixture = body.createFixture(fixtureDef);
+
+            shape.dispose();
+            fixture.setUserData(mapSensorObject);
+        }
+
+
     }
 
     public void activate(){

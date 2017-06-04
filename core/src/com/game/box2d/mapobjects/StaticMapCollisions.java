@@ -3,7 +3,7 @@ package com.game.box2d.mapobjects;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.*;
 import com.badlogic.gdx.physics.box2d.*;
-import com.game.WorldMap;
+import com.game.leveldesign.WorldMap;
 
 /**
  * Erstellt die statischen Objekte in Leveln, die keine Interaktionen
@@ -52,6 +52,7 @@ public class StaticMapCollisions extends MapObjects {
 
             fixtureDef.shape = shape;
             body.createFixture(fixtureDef);
+            shape.dispose();
         }
 
     }

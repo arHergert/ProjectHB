@@ -1,4 +1,4 @@
-package com.game;
+package com.game.leveldesign;
 
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;

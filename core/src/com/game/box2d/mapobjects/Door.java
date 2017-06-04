@@ -2,8 +2,7 @@ package com.game.box2d.mapobjects;
 
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.physics.box2d.World;
-import com.game.WorldMap;
+import com.game.leveldesign.WorldMap;
 
 /**
  * Eine Tür kann geschlossen sein oder offen.
@@ -25,6 +24,7 @@ public class Door extends MapObjects {
         PolygonShape shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("InteractiveObjects").getObjects().get(mapSensorObject));
         fixtureDef.shape = shape;
         fixture = body.createFixture(fixtureDef);
+        shape.dispose();
         fixture.setUserData(mapSensorObject);
 	}
 	

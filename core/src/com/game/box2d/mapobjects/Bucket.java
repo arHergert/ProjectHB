@@ -2,7 +2,7 @@ package com.game.box2d.mapobjects;
 
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.game.WorldMap;
+import com.game.leveldesign.WorldMap;
 
 /**
  * Ein Eimer, welches mit einem Gegenstand gefüllt werden kann
@@ -27,6 +27,7 @@ public class Bucket<T extends MapObjects> extends MapObjects {
         PolygonShape shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("InteractiveObjects").getObjects().get(mapSensorObject));
         fixtureDef.shape = shape;
         fixture = body.createFixture(fixtureDef);
+        shape.dispose();
         fixture.setUserData(mapSensorObject);
 	}
 	

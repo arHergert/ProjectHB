@@ -1,19 +1,15 @@
 package com.game;
 
-import com.badlogic.gdx.*;
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.game.box2d.Player;
-import com.game.box2d.mapobjects.Sensor;
-import com.game.box2d.mapobjects.StaticMapCollisions;
-import com.game.box2d.WorldContactListener;
 import com.game.input.KeyboardInput;
-
-import java.util.ArrayList;
+import com.game.leveldesign.LevelManager;
 
 /**
  * Hauptklasse zur Erstellung, Aktualisierung und Verwaltung der Spiellogik und -objekte
@@ -26,13 +22,9 @@ public class Main extends ApplicationAdapter {
     private MapCamera camera;
     private TiledMapRenderer tiledMapRenderer;
     private KeyboardInput keyboardInput;
-    private WorldMap level1;
-    private WorldMap level2;
-    private WorldMap currentlevel;
+    private LevelManager levels;
     private Player boxPlayer;
     private Box2DDebugRenderer debugRenderer;
-    private Sensor doorUp;
-    private Sensor doorBottom;
 
     //IM
 
@@ -47,29 +39,18 @@ public class Main extends ApplicationAdapter {
         //Initialisierung des Spritebatches. Damit können Grafiken gezeichnet werden.
         batch = new SpriteBatch();
 
-        level1 = new WorldMap("tilemapCave.tmx");
-        level2 = new WorldMap("tilemapCave2.tmx");
-
-        doorUp = new Sensor(level1, "doorUp" );
-        doorBottom = new Sensor(level2, "doorBottom");
-
-        //Contactlistener pro Welt definieren
-        level1.getWorld().setContactListener( new WorldContactListener(doorUp, doorBottom));
-        level2.getWorld().setContactListener( new WorldContactListener(doorUp, doorBottom));
-
-        //Aktuelles Level festlegen
-        currentlevel = level1;
+        levels = new LevelManager();
 
         //Aktuelles Level mit MapRenderer festlegen
-        tiledMapRenderer = new OrthogonalTiledMapRenderer(currentlevel.getMap());
+        tiledMapRenderer = new OrthogonalTiledMapRenderer(levels.getCurrentlevel().getMap());
 
         //Kamera auf aktuelles Level setzen
-        camera = new MapCamera(currentlevel);
+        camera = new MapCamera(levels.getCurrentlevel());
         camera.update();
 
         //Neuer Renderer, der die Kollisionsboxen im Spiel erkenntlich macht
         debugRenderer = new Box2DDebugRenderer();
-        boxPlayer = new Player(currentlevel, "caveman.png", "spawnStart");
+        boxPlayer = new Player(levels.getCurrentlevel(), "caveman.png", "spawnStart");
 
         //Definieren des Spielerinputs.
         keyboardInput = new KeyboardInput();
@@ -91,41 +72,34 @@ public class Main extends ApplicationAdapter {
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-            //Von hier...
-        if(doorUp.isActivated()){
+        //Prüft ob der der Spieler in ein anderes Level gehen will und wechselt entsprechend
+        if(levels.isPlayerSwitchingLevel()){
 
-            doorUp.deactivate();
-            currentlevel.getWorld().destroyBody(boxPlayer.body);
-            currentlevel = level2;
-            updateLevel("spawnBottomDoor");
+            levels.getCurrentlevel().getWorld().destroyBody(boxPlayer.body);
 
+            //In das neue Level wechseln
+            levels.switchLevel();
+            tiledMapRenderer = new OrthogonalTiledMapRenderer(levels.getCurrentlevel().getMap());
+            camera = new MapCamera(levels.getCurrentlevel());
+            camera.update();
+            boxPlayer = new Player(levels.getCurrentlevel(), "caveman.png", levels.getSpawnpoint());
         }
 
-
-        if (doorBottom.isActivated()){
-
-            doorBottom.deactivate();
-            currentlevel.getWorld().destroyBody(boxPlayer.body);
-            currentlevel = level1;
-            updateLevel("spawnUpperDoor");
-        }
-            // .. bis hier -> Auslagern in entsprechende Instanz einer LevelManager Klasse
-
-        //Spielereingaben aktualisieren
-        keyboardInput.updatePlayerMovement(boxPlayer,camera, currentlevel);
+        //Spielerbewegung
+        keyboardInput.updatePlayerMovement(boxPlayer,camera, levels.getCurrentlevel());
 
         //MapRenderer auf die Position der Kamera verweisen
         tiledMapRenderer.setView(camera);
         camera.update();
 
-        //Ebenenen des aktuellen Levels rendern
+        //Grundebene des aktuellen Levels rendern
         tiledMapRenderer.render(new int[]{0});
 
         //Worldaktualisierung. Welt aktualisiert sich 60 mal pro Sekunde.
-        currentlevel.getWorld().step(1/60f, 6,2);
+        levels.getCurrentlevel().getWorld().step(1/60f, 6,2);
 
         //Aktualisieren des DebugRenderers
-        debugRenderer.render(currentlevel.getWorld(), camera.combined);
+        debugRenderer.render(levels.getCurrentlevel().getWorld(), camera.combined);
 
         //Das batch zeichnet/aktualisiert die Positionen der Graphiken
         batch.setProjectionMatrix(camera.combined);
@@ -133,11 +107,10 @@ public class Main extends ApplicationAdapter {
         boxPlayer.draw(batch); //Position der Playergrafik aktualisieren
         batch.end();
 
-        //Restliche Ebenen, nach der Spielerebene, rendern
-        if( currentlevel == level2){                        //TODO Dynamisch bis zur letzten Ebene durchlaufen, ohne array length manuell eingeben zu müssen
-            tiledMapRenderer.render(new int[]{4});
+        //Restliche Ebenen, nach der Grundebene, rendern
+        for(int i = 1; i < levels.getCurrentlevel().getMap().getLayers().getCount(); i++){
+            tiledMapRenderer.render( new int[]{i});
         }
-
 
 
 	}
@@ -149,27 +122,11 @@ public class Main extends ApplicationAdapter {
      * UNBEDINGT ALLES, was die {@link Main#dispose()} Methode ausführen kann, hier rein tun
      */
 	public void dispose () {
-        currentlevel.getMap().dispose();
-        level2.getMap().dispose();
-        level1.getMap().dispose();
-        level1.getWorld().dispose();
-        level2.getWorld().dispose();
+        //TODO Methode zum Disposen aller geladenen Level
         debugRenderer.dispose();
         boxPlayer.getImg().dispose();
 
 	}
 
-
-    //Temporäre MEthode zum switchen von zwei Leveln. Wird in eine neue LevelManager klasse outgesourced.
-    public void updateLevel(String spawn){
-
-        tiledMapRenderer = new OrthogonalTiledMapRenderer(currentlevel.getMap());
-        camera = new MapCamera(currentlevel);
-        camera.update();
-
-        boxPlayer = new Player(currentlevel, "caveman.png", spawn);
-
-
-    }
 
 }//end class Main

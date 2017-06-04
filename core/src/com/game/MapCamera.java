@@ -3,6 +3,7 @@ package com.game;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.BoundingBox;
+import com.game.leveldesign.WorldMap;
 
 /**
  * Erweiterung der {@link OrthographicCamera} um zusätzliche Funktionen.

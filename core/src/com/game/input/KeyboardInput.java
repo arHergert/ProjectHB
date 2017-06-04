@@ -2,7 +2,7 @@ package com.game.input;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
-import com.game.WorldMap;
+import com.game.leveldesign.WorldMap;
 import com.game.MapCamera;
 import com.game.box2d.Player;
 

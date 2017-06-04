@@ -1,11 +1,8 @@
 package com.game.box2d.mapobjects;
 
 import com.badlogic.gdx.maps.objects.CircleMapObject;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.physics.box2d.World;
-import com.game.WorldMap;
+import com.game.leveldesign.WorldMap;
 
 /**
  * Ein Stein kann getragen werden und runtergestellt werden
@@ -27,6 +24,7 @@ public class Rock extends MapObjects {
         CircleShape shape = getCircle((CircleMapObject)map.getMap().getLayers().get("InteractiveObjects").getObjects().get(mapSensorObject));
         fixtureDef.shape = shape;
         fixture = body.createFixture(fixtureDef);
+        shape.dispose();
         fixture.setUserData(mapSensorObject);
 	}
 	

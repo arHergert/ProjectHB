@@ -8,7 +8,7 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.game.WorldMap;
+import com.game.leveldesign.WorldMap;
 
 /**
  * Standarddefinierung eines Box2D Kollisionsobjektes, welches mit dem Spieler
