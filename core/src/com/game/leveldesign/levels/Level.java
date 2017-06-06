@@ -1,7 +1,6 @@
 package com.game.leveldesign.levels;
 
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.game.box2d.mapobjects.Sensor;

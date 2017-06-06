@@ -86,6 +86,8 @@ public class Main extends ApplicationAdapter {
             levels.getCurrentWorldMap().getWorld().destroyBody(boxPlayer.body);
             multiplexer.removeProcessor(levels.getCurrentlevelInputLogic());
 
+            //TODO Methode zum Disposen des aktuellen Levels, ohne dabei den ArrayList Eintrag zu löschen
+
             //In das neue Level wechseln
             levels.switchLevel();
 
@@ -136,7 +138,7 @@ public class Main extends ApplicationAdapter {
      * UNBEDINGT ALLES, was die {@link Main#dispose()} Methode ausführen kann, hier rein tun
      */
 	public void dispose () {
-        //TODO Methode zum Disposen aller geladenen Level
+        //TODO Methode zum Disposen aller Level
         debugRenderer.dispose();
         boxPlayer.getImg().dispose();
 

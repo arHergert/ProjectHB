@@ -103,7 +103,7 @@ public class LevelManager {
 
             //Überprüft ob es ein nächstes Level gibt und wechselt zu diesem, ansonsten gibt es eine Fehlermeldung aus
             if( levelList.indexOf(currentlevel)+1 >= levelList.size()){
-                System.err.println("Kein naechstes Level verfuegbar. Bitte Sensor entfernen oder Level hinzufuegen!");
+                System.err.println("Kein naechstes Level verfuegbar. Bitte Sensor entfernen oder naechstes Level hinzufuegen!");
             }else{
                 currentlevel = levelList.get(levelList.indexOf(currentlevel)+1 );
             }
@@ -116,7 +116,7 @@ public class LevelManager {
 
             //Überprüft ob es ein vorheriges Level gibt und wechselt zu diesem, ansonsten gibt es eine Fehlermeldung aus
             if( levelList.indexOf(currentlevel)-1 < 0){
-                System.err.println("Kein vorheriges Level verfuegbar. Bitte Sensor entfernen oder Level hinzufuegen!");
+                System.err.println("Kein vorheriges Level verfuegbar. Bitte Sensor entfernen oder vorheriges Level hinzufuegen!");
             }else{
                 currentlevel = levelList.get(levelList.indexOf(currentlevel)-1 );
             }
@@ -136,7 +136,6 @@ public class LevelManager {
     }
 
 
-
     public String getSpawnpoint(){
         return this.currentSpawn;
     }
@@ -144,4 +143,5 @@ public class LevelManager {
     public InputProcessor getCurrentlevelInputLogic(){
         return this.currentlevelInputLogic;
     }
+
 }//end class LevelManager
