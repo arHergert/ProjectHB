@@ -3,12 +3,12 @@
  <tileset firstgid="1" source="TempTileset.tsx"/>
  <layer name="Grundebene" width="8" height="8">
   <data encoding="base64" compression="zlib">
-   eJyTZ2BgUABiRSBWB2JlIFaC0ipAbAvEdkBsD8SuQOwIxA5Q2gmIK4c4BgBarRnH
+   eJyTZ2BgUABiRSBWA2JlIFaC0ipAbAvEdkBsD8QuQOwIxA5Q2gmIq4C4GQtuAuJqIG4A4koo3oHEBuF2NHl03AnEdQTkcenfAZXHpReGAdG5Gtk=
   </data>
  </layer>
  <layer name="Wall" width="8" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBjeQB6IFYBYBYgroRgkpgwVAwAf4AG8
+   eJxjYBjeQB6IFYBYBU1MGSoGAA7cAMo=
   </data>
  </layer>
  <objectgroup name="StaticCollisions">
@@ -21,7 +21,7 @@
   <object id="5" name="doorBottom" x="49.4545" y="124.182" width="28.5455" height="2"/>
  </objectgroup>
  <objectgroup name="PlayerSpawnpoints">
-  <object id="6" name="spawnUpperDoor" x="51.6364" y="34" width="4.18182" height="4"/>
-  <object id="7" name="spawnBottomDoor" x="60.1818" y="105.636" width="3.63636" height="3.81818"/>
+  <object id="6" name="spawnUpperDoor" x="54.9091" y="33.0909" width="4.18182" height="4"/>
+  <object id="7" name="spawnBottomDoor" x="61.0909" y="111.818" width="3.63636" height="3.81818"/>
  </objectgroup>
 </map>

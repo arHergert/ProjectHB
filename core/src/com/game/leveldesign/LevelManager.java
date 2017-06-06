@@ -106,10 +106,9 @@ public class LevelManager {
             //Überprüft ob es ein nächstes Level gibt und wechselt zu diesem, ansonsten gibt es eine Fehlermeldung aus
             if( levelList.indexOf(currentlevel)+1 >= levelList.size()){
                 System.err.println("Kein naechstes Level verfuegbar. Bitte Sensor entfernen oder naechstes Level hinzufuegen!");
-                System.out.println(levelList.get(levelList.indexOf(currentlevel)+1));
+
             }else{
                 currentlevel = levelList.get(levelList.indexOf(currentlevel)+1 );
-                System.out.println(levelList.get(levelList.indexOf(currentlevel)+1));
             }
 
 
@@ -121,10 +120,9 @@ public class LevelManager {
             //Überprüft ob es ein vorheriges Level gibt und wechselt zu diesem, ansonsten gibt es eine Fehlermeldung aus
             if( levelList.indexOf(currentlevel)-1 < 0){
                 System.err.println("Kein vorheriges Level verfuegbar. Bitte Sensor entfernen oder vorheriges Level hinzufuegen!");
-                System.out.println(levelList.get(levelList.indexOf(currentlevel)-1));
+
             }else{
                 currentlevel = levelList.get(levelList.indexOf(currentlevel)-1 );
-                System.out.println(levelList.get(levelList.indexOf(currentlevel)-1));
             }
 
 
