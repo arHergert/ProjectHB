@@ -19,7 +19,7 @@ public class Sensor extends MapObjects {
     /**
      * Erstellt ein Sensorobjekt, mit dem man z.B. Türen erstellen kann.
      *
-     * Türen müssen sich im Level in der Ebene "Door" befinden.
+     * Türen müssen sich im Level in der Ebene "Sensor" befinden.
      *
      * @param map Referenz auf das Level, in der sich "Door" Ebene befindet
      * @param mapSensorObject Name des Sensors (Userdata). MUSS einzigartig sein.
@@ -28,10 +28,10 @@ public class Sensor extends MapObjects {
         super(map);
         PolygonShape shape;
 
-        if(map.getMap().getLayers().get("Door").getObjects().get(mapSensorObject) == null ){
+        if(map.getMap().getLayers().get("Sensor").getObjects().get(mapSensorObject) == null ){
             shape = null;
         }else{
-            shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("Door").getObjects().get(mapSensorObject));
+            shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("Sensor").getObjects().get(mapSensorObject));
             fixtureDef.shape = shape;
             fixtureDef.isSensor = true;
             fixture = body.createFixture(fixtureDef);

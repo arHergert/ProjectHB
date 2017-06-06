@@ -2,6 +2,7 @@ package com.game.leveldesign;
 
 import com.badlogic.gdx.InputProcessor;
 import com.game.leveldesign.levels.Level;
+import com.game.leveldesign.levels.Level_0;
 import com.game.leveldesign.levels.Level_1;
 import com.game.leveldesign.levels.Level_2;
 
@@ -39,8 +40,9 @@ public class LevelManager {
     public LevelManager(){
 
         //Hinzufügen der Level
-        levelList.add(0, new Level_1());
-        levelList.add(1, new Level_2());
+        levelList.add(0, new Level_0());
+        levelList.add(1, new Level_1());
+        levelList.add(2, new Level_2());
 
 
         //Aktuelles Level bestimmen
@@ -104,8 +106,10 @@ public class LevelManager {
             //Überprüft ob es ein nächstes Level gibt und wechselt zu diesem, ansonsten gibt es eine Fehlermeldung aus
             if( levelList.indexOf(currentlevel)+1 >= levelList.size()){
                 System.err.println("Kein naechstes Level verfuegbar. Bitte Sensor entfernen oder naechstes Level hinzufuegen!");
+                System.out.println(levelList.get(levelList.indexOf(currentlevel)+1));
             }else{
                 currentlevel = levelList.get(levelList.indexOf(currentlevel)+1 );
+                System.out.println(levelList.get(levelList.indexOf(currentlevel)+1));
             }
 
 
@@ -117,8 +121,10 @@ public class LevelManager {
             //Überprüft ob es ein vorheriges Level gibt und wechselt zu diesem, ansonsten gibt es eine Fehlermeldung aus
             if( levelList.indexOf(currentlevel)-1 < 0){
                 System.err.println("Kein vorheriges Level verfuegbar. Bitte Sensor entfernen oder vorheriges Level hinzufuegen!");
+                System.out.println(levelList.get(levelList.indexOf(currentlevel)-1));
             }else{
                 currentlevel = levelList.get(levelList.indexOf(currentlevel)-1 );
+                System.out.println(levelList.get(levelList.indexOf(currentlevel)-1));
             }
 
 

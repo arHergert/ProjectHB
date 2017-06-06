@@ -17,7 +17,7 @@
   </object>
  </objectgroup>
  <objectgroup name="InteractiveObjects">
-  <object id="15" name="Hebel_1" x="121.273" y="70.1818" width="6.90909" height="8.90909"/>
+  <object id="15" name="Hebel_1" x="120" y="74.5454" width="6.90909" height="8.90909"/>
  </objectgroup>
  <objectgroup name="Door">
   <object id="9" name="doorUp" x="48.5455" y="4.72727" width="14.3636" height="3.81818"/>
