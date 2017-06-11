@@ -1,6 +1,5 @@
 package com.game.leveldesign.levels;
 
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.physics.box2d.*;
