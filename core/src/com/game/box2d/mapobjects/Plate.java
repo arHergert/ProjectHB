@@ -62,9 +62,12 @@ public class Plate extends MapObjects {
 	/**
 	* @return Zustand der Druckplatte
 	*/
-	protected boolean isActivated() {
+	public boolean isActivated() {
 		return isActivated;
 	}
 
 
+	public void reset() {
+		isActivated = false;
+	}
 }
