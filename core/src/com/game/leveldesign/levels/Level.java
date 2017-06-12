@@ -1,6 +1,8 @@
 package com.game.leveldesign.levels;
 
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.game.box2d.mapobjects.Sensor;
@@ -146,4 +148,13 @@ public abstract class Level {
         return this.doorBottom;
     }
 
+    /**
+     * Kann in den einzelnen Leveln überschrieben oder
+     * leer gelassen werden.
+     * Sollte überschrieben werden, wenn Grafiken für
+     * MapObjects (z.B. Lever, Plates etc.) gerendert werden sollen
+     *
+     * @param batch Die SpriteBatch batch aus der main
+     */
+    public abstract void drawObjects(Batch batch);
 }//end class Level

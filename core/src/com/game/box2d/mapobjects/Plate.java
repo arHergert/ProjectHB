@@ -1,5 +1,9 @@
 package com.game.box2d.mapobjects;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.game.leveldesign.WorldMap;
@@ -10,6 +14,8 @@ import com.game.leveldesign.WorldMap;
  * sie ist eingerastet, dann bleibt sie aktiviert
  */
 public class Plate extends MapObjects {
+
+    private Texture status_neutral, status_true, status_false, currentTexture;
 
 	/**
 	* Gibt an, ob die Druckplatte aktiviert ist. Standardweise false
@@ -39,6 +45,12 @@ public class Plate extends MapObjects {
         fixture = body.createFixture(fixtureDef);
         shape.dispose();
         fixture.setUserData(mapSensorObject);
+
+        status_neutral = new Texture(Gdx.files.internal("plate/pressureplate_default.png"));
+        status_true = new Texture(Gdx.files.internal("plate/pressureplate_true.png"));
+        status_false = new Texture(Gdx.files.internal("plate/pressureplate_false.png"));
+
+        currentTexture = status_neutral;
     }
 
 
@@ -46,6 +58,7 @@ public class Plate extends MapObjects {
 	* Wird aufgerufen, wenn Platte beschwert wird, und aktiviert diese
 	*/
 	public void load() {
+        currentTexture = status_true;
 		isActivated = true;
 	}
 
@@ -53,6 +66,7 @@ public class Plate extends MapObjects {
 	* Wird aufgerufen, wenn sich kein Gewicht mehr auf der Platte befindet, und deaktivert diese, wenn sie nicht einrastet
 	*/
 	public void unload() {
+        currentTexture = status_false;
 		if(!lock) {
 			isActivated = false;
 		}
@@ -68,6 +82,13 @@ public class Plate extends MapObjects {
 
 
 	public void reset() {
+        currentTexture = status_neutral;
 		isActivated = false;
 	}
-}
+
+
+    @Override
+    public void draw(Batch batch) {
+        batch.draw(currentTexture, positionX, positionY, 16,16 );
+    }
+}//end class Plate

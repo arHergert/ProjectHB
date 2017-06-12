@@ -1,5 +1,7 @@
 package com.game.box2d.mapobjects;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.objects.CircleMapObject;
 import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.PolylineMapObject;
@@ -22,6 +24,7 @@ public abstract class MapObjects {
     protected FixtureDef fixtureDef;
     protected BodyDef bodyDef;
     protected Fixture fixture;
+    protected float positionX = 0, positionY = 0;
 
     /** Variable zur Bestimmung ob das Objekt mit dem Player kollidiert */
     private boolean collidesWithPlayer = false;
@@ -44,6 +47,7 @@ public abstract class MapObjects {
         bodyDef.type = BodyDef.BodyType.StaticBody;
         body = world.createBody(bodyDef);
 
+
     }
 
 
@@ -57,6 +61,10 @@ public abstract class MapObjects {
     protected PolygonShape getRectangle(RectangleMapObject rectangleObject) {
         Rectangle rectangle = rectangleObject.getRectangle();
         PolygonShape polygon = new PolygonShape();
+
+        positionX = rectangle.x;
+        positionY = rectangle.y;
+
         Vector2 size = new Vector2((rectangle.x + rectangle.width * 0.5f) ,
                 (rectangle.y + rectangle.height * 0.5f ) );
         polygon.setAsBox(rectangle.width * 0.5f ,
@@ -145,6 +153,10 @@ public abstract class MapObjects {
         this.collidesWithPlayer = false;
     }
 
+
+    public void draw (Batch batch){
+
+    }
 
 }//end class InteractiveMapObjects
 

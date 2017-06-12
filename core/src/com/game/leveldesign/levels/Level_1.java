@@ -2,6 +2,8 @@ package com.game.leveldesign.levels;
 
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.*;
 
 /**
@@ -66,5 +68,10 @@ public class Level_1 extends Level {
                 return false;
             }
         };
+    }
+
+    @Override
+    public void drawObjects(Batch batch) {
+
     }
 }//end class Level_1

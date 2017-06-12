@@ -3,6 +3,8 @@ package com.game.leveldesign.levels;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.*;
 import com.game.box2d.mapobjects.Plate;
 
@@ -182,5 +184,16 @@ public class Level_2 extends Level {
                 return false;
             }
         };
+    }
+
+    @Override
+    public void drawObjects(Batch batch) {
+        for (int i = 0; i< plates.length; i++){
+            for (int j = 0; j < plates[i].length; j++ ){
+
+                plates[i][j].draw(batch);
+            }
+        }
+
     }
 }//end class Level_1

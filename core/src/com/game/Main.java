@@ -120,6 +120,7 @@ public class Main extends ApplicationAdapter {
         //Das batch zeichnet/aktualisiert die Positionen der Graphiken
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
+        levels.getCurrentlevel().drawObjects(batch);
         boxPlayer.draw(batch); //Position der Playergrafik aktualisieren
         batch.end();
 
