@@ -1,21 +1,28 @@
 package com.game.leveldesign.levels;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.*;
+import com.game.box2d.mapobjects.Rock;
 
 /**
  * Created by Artur on 06.06.2017.
  */
 public class Level_1 extends Level {
 
+	private Rock intPuzzle, stringPuzzle, booleanPuzzle, floatPuzzle;
+	
     /**
      * @param
      */
     public Level_1() {
         super("level1_map.tmx");
+        intPuzzle = new Rock(worldmap, "PuzzleRock001", true);
+        stringPuzzle = new Rock(worldmap, "PuzzleRock002", true);
+        booleanPuzzle = new Rock(worldmap, "PuzzleRock003", true);
+        floatPuzzle = new Rock(worldmap, "PuzzleRock004", true);
     }
 
     @Override
@@ -35,6 +42,8 @@ public class Level_1 extends Level {
 
                     //Restliches Zeug
 
+                    
+                    
 
 
                 }//end if-Abfage ob Player nicht mit StaticMapCollisions-Objekten kollidiert
@@ -63,7 +72,10 @@ public class Level_1 extends Level {
 
             public boolean keyDown(int keycode) {
 
-
+            	if(keycode == Input.Keys.E) {
+            		
+            		
+            	}
 
                 return false;
             }
@@ -72,6 +84,9 @@ public class Level_1 extends Level {
 
     @Override
     public void drawObjects(Batch batch) {
-
+    	intPuzzle.draw(batch);
+    	stringPuzzle.draw(batch);
+    	booleanPuzzle.draw(batch);
+    	floatPuzzle.draw(batch);
     }
 }//end class Level_1
