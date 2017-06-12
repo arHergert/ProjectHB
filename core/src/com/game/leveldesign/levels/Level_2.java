@@ -50,35 +50,49 @@ public class Level_2 extends Level {
                     checkDoorCollisions(fixA,fixB);
 
                     //Restliches Zeug
-                    if (fixA.getUserData().equals("Plate00") || fixB.getUserData().equals("Plate00")){
-                        Fixture doorBottomFixture = fixA.getUserData() == "Plate00" ? fixA : fixB;
-                        Fixture player = doorBottomFixture == fixA ? fixB : fixA;
-                        plates[0][0].load();
-                    } else if (fixA.getUserData().equals("Plate01") || fixB.getUserData().equals("Plate01")){
-                        Fixture doorBottomFixture = fixA.getUserData() == "Plate01" ? fixA : fixB;
-                        Fixture player = doorBottomFixture == fixA ? fixB : fixA;
-                        if(plates[0][0].isActivated()) {
-                            plates[0][1].load();
-                        } else {
-                            resetPlates();
+
+                    /**
+                     * Da nur Player_feet die Druckplatten auslösen dürfen, muss
+                     * zuerst abgefragt werden ob bei einer Kollision
+                     * mit den Druckplatten kein anderes Objekt mit denen kollidiert
+                     */
+
+                    if(fixA.getUserData().equals("Player_feet") || fixB.getUserData().equals("Player_feet")){
+
+                        System.out.println("FIXA: "+ fixA.getUserData() + "   FIXB: "+ fixB.getUserData());
+
+                        if (fixA.getUserData().equals("Plate00") || fixB.getUserData().equals("Plate00")){
+                            Fixture doorBottomFixture = fixA.getUserData() == "Plate00" ? fixA : fixB;
+                            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+                            plates[0][0].load();
+                        } else if (fixA.getUserData().equals("Plate01") || fixB.getUserData().equals("Plate01")){
+                            Fixture doorBottomFixture = fixA.getUserData() == "Plate01" ? fixA : fixB;
+                            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+                            if(plates[0][0].isActivated()) {
+                                plates[0][1].load();
+                            } else {
+                                resetPlates();
+                            }
+                        } else if (fixA.getUserData().equals("Plate10") || fixB.getUserData().equals("Plate10")){
+                            Fixture doorBottomFixture = fixA.getUserData() == "Plate10" ? fixA : fixB;
+                            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+                            if(plates[0][1].isActivated()) {
+                                plates[1][0].load();
+                            } else {
+                                resetPlates();
+                            }
+                        } else if (fixA.getUserData().equals("Plate11") || fixB.getUserData().equals("Plate11")) {
+                            Fixture doorBottomFixture = fixA.getUserData() == "Plate11" ? fixA : fixB;
+                            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+                            if(plates[1][0].isActivated()) {
+                                plates[1][1].load();
+                            } else {
+                                resetPlates();
+                            }
                         }
-                    } else if (fixA.getUserData().equals("Plate10") || fixB.getUserData().equals("Plate10")){
-                        Fixture doorBottomFixture = fixA.getUserData() == "Plate10" ? fixA : fixB;
-                        Fixture player = doorBottomFixture == fixA ? fixB : fixA;
-                        if(plates[0][1].isActivated()) {
-                            plates[1][0].load();
-                        } else {
-                            resetPlates();
-                        }
-                    } else if (fixA.getUserData().equals("Plate11") || fixB.getUserData().equals("Plate11")) {
-                        Fixture doorBottomFixture = fixA.getUserData() == "Plate11" ? fixA : fixB;
-                        Fixture player = doorBottomFixture == fixA ? fixB : fixA;
-                        if(plates[1][0].isActivated()) {
-                            plates[1][1].load();
-                        } else {
-                            resetPlates();
-                        }
+
                     }
+
 
 
                 }//end if-Abfage ob Player nicht mit StaticMapCollisions-Objekten kollidiert

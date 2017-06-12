@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="8" height="8" tilewidth="16" tileheight="16" nextobjectid="20">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="8" height="8" tilewidth="16" tileheight="16" nextobjectid="24">
  <tileset firstgid="1" source="TempTileset.tsx"/>
  <layer name="Grundebene" width="8" height="8">
   <data encoding="base64" compression="zlib">
@@ -21,10 +21,10 @@
   <object id="5" name="doorBottom" x="49.4545" y="124.182" width="28.5455" height="2"/>
  </objectgroup>
  <objectgroup name="InteractiveObjects">
-  <object id="16" name="Plate00" x="0.363636" y="96.3636" width="15.0909" height="15.4545"/>
   <object id="17" name="Plate10" x="112.273" y="96.2728" width="15.0909" height="15.4545"/>
   <object id="18" name="Plate11" x="112.273" y="32.2728" width="15.0909" height="15.4545"/>
-  <object id="19" name="Plate01" x="0.636368" y="31.9091" width="15.0909" height="15.4545"/>
+  <object id="19" name="Plate01" x="0.636368" y="32.0909" width="15.0909" height="15.4545"/>
+  <object id="23" name="Plate00" x="1.77636e-15" y="96.1818" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="PlayerSpawnpoints">
   <object id="6" name="spawnUpperDoor" x="54.9091" y="33.0909" width="4.18182" height="4"/>

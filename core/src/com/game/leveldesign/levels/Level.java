@@ -117,6 +117,7 @@ public abstract class Level {
      */
     protected void checkDoorCollisions(Fixture fixA, Fixture fixB){
 
+
         if (fixA.getUserData().equals("doorUp") || fixB.getUserData().equals("doorUp")){
             Fixture doorUpFixture = fixA.getUserData() == "doorUp" ? fixA : fixB;
             Fixture player = doorUpFixture == fixA ? fixB : fixA;

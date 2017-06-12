@@ -4,10 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.*;
 import com.game.leveldesign.WorldMap;
 import com.game.Main;
 
@@ -90,14 +88,25 @@ public class Player extends Sprite {
         body = world.createBody(def);
 
         //Körperform definieren (Rechteck) und dem Körper überreichen
+        FixtureDef fixtureDef = new FixtureDef();
         PolygonShape pShape = new PolygonShape();
         pShape.setAsBox(boxImg.getWidth()/2, boxImg.getHeight()/2);
 
+        fixtureDef.shape = pShape;
+
         //Namen für das Kollisionsobjekt festsetzen. Wird zur Kollisionsabfrage benötigt.
-        body.createFixture(pShape, 1.0f).setUserData("Player");
+        body.createFixture(pShape,1.0f).setUserData("Player");
+
+        /** Fußhitbox erstellen für Druckplatten etc. */
+        PolygonShape feet = new PolygonShape();
+        feet.setAsBox((boxImg.getWidth()/2) - 3f, 0.5f,new Vector2(boxImg.getWidth()/64, boxImg.getHeight() - 47.5f), 0f);
+        fixtureDef.shape = feet;
+
+        body.createFixture(feet,1.0f).setUserData("Player_feet");
 
         //Nicht mehr zugreifbares disposen
         pShape.dispose();
+        feet.dispose();
 
 
     }
