@@ -66,8 +66,6 @@ public class Level_2 extends Level {
 
                     if(fixA.getUserData().equals("Player_feet") || fixB.getUserData().equals("Player_feet")){
 
-                        System.out.println("FIXA: "+ fixA.getUserData() + "   FIXB: "+ fixB.getUserData());
-
                         if (fixA.getUserData().equals("Plate00") || fixB.getUserData().equals("Plate00")){
                             Fixture doorBottomFixture = fixA.getUserData() == "Plate00" ? fixA : fixB;
                             Fixture player = doorBottomFixture == fixA ? fixB : fixA;
