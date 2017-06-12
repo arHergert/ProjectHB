@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.utils.Timer;
 import com.game.leveldesign.WorldMap;
 
 /**
@@ -84,11 +85,13 @@ public class Plate extends MapObjects {
 	public void reset() {
         currentTexture = status_neutral;
 		isActivated = false;
+
 	}
 
 
     @Override
     public void draw(Batch batch) {
+
         batch.draw(currentTexture, positionX, positionY, 16,16 );
     }
 }//end class Plate

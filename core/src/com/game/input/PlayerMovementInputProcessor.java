@@ -1,13 +1,11 @@
 package com.game.input;
 
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputAdapter;
-import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.*;
 import com.game.leveldesign.WorldMap;
 import com.game.MapCamera;
 import com.game.box2d.Player;
 
+import static com.game.box2d.Player.PLAYER_SPEED;
 import static com.game.box2d.Player.PPM;
 
 
@@ -78,12 +76,14 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         }
 
-        boxPlayer.body.setLinearVelocity(horizSpeed * PPM   , vertSpeed * PPM );
+        boxPlayer.body.setLinearVelocity(horizSpeed * (PPM * PLAYER_SPEED)   , vertSpeed * (PPM * PLAYER_SPEED) );
+
 
 
     }
 
     public boolean keyDown(int keycode) {
+
         if(keycode == Input.Keys.D){
             camMoveRight = true;
         }
@@ -105,6 +105,7 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
 
     public boolean keyUp(int keycode) {
+
         if(keycode == Input.Keys.D){
             camMoveRight = false;
         }
