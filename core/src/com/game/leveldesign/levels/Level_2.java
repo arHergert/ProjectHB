@@ -3,17 +3,23 @@ package com.game.leveldesign.levels;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.physics.box2d.*;
+import com.game.box2d.mapobjects.Plate;
 
 /**
  * Created by Artur on 06.06.2017.
  */
 public class Level_2 extends Level {
 
+    //IV
+    private Plate[][] plates;
+
     /**
      * @param
      */
     public Level_2() {
         super("level2_map.tmx");
+        plates = new Plate[2][2];
+        plates[0][0] = new Plate(worldmap, true, "plate00");
     }
 
     @Override
