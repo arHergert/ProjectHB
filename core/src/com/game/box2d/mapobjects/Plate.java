@@ -92,6 +92,6 @@ public class Plate extends MapObjects {
     @Override
     public void draw(Batch batch) {
 
-        batch.draw(currentTexture, positionX, positionY, 16,16 );
+        batch.draw(currentTexture, positionX, positionY);
     }
 }//end class Plate

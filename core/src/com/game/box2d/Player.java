@@ -16,7 +16,7 @@ import com.game.Main;
 public class Player extends Sprite {
 
     /** Konstante Pixel per Meter. Nötig, da Box2D in Meter statt Pixel rechnet. Wird fürs Playermovement benötigt */
-    public static float PLAYER_SPEED = 3.7f;
+    public static float PLAYER_SPEED = 5f;
     public  static final float PPM = 16;
 
     /** Referenz auf die aktuelle Welt, in der sich der Spieler befindet **/
@@ -91,7 +91,8 @@ public class Player extends Sprite {
         //Körperform definieren (Rechteck) und dem Körper überreichen
         FixtureDef fixtureDef = new FixtureDef();
         PolygonShape pShape = new PolygonShape();
-        pShape.setAsBox(boxImg.getWidth()/2, boxImg.getHeight()/2);
+       // pShape.setAsBox(boxImg.getWidth()/2, boxImg.getHeight()/2);
+        pShape.setAsBox(16, 32);
 
         fixtureDef.shape = pShape;
 
@@ -100,7 +101,7 @@ public class Player extends Sprite {
 
         /** Fußhitbox erstellen für Druckplatten etc. */
         PolygonShape feet = new PolygonShape();
-        feet.setAsBox((boxImg.getWidth()/2) - 3f, 0.5f,new Vector2(boxImg.getWidth()/64, boxImg.getHeight() - 47.5f), 0f);
+        feet.setAsBox( (32/2) - 6f, 0.5f,new Vector2(boxImg.getWidth()/64, boxImg.getHeight() - 63.5f), 0f);
         fixtureDef.shape = feet;
 
         body.createFixture(feet,1.0f).setUserData("Player_feet");
@@ -131,7 +132,7 @@ public class Player extends Sprite {
      * @param batch Benötigtes SpriteBatch aus der {@link Main}
      */
     public void draw(Batch batch){
-        batch.draw(boxImg, body.getPosition().x - boxImg.getWidth()/2, body.getPosition().y - boxImg.getHeight()/2);
+        batch.draw(boxImg, body.getPosition().x -16 , body.getPosition().y - 32, 32,64);
     }
 
 }//end class Player
