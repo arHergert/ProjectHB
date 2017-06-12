@@ -19,11 +19,16 @@ public class Level_2 extends Level {
      */
     public Level_2() {
         super("level2_map.tmx");
-        plates = new Plate[2][2];
+        plates = new Plate[3][3];
         plates[0][0] = new Plate(worldmap, true, "Plate00");
         plates[0][1] = new Plate(worldmap, true, "Plate01");
+        plates[0][2] = new Plate(worldmap, true, "Plate02");
         plates[1][0] = new Plate(worldmap, true, "Plate10");
         plates[1][1] = new Plate(worldmap, true, "Plate11");
+        plates[1][2] = new Plate(worldmap, true, "Plate12");
+        plates[2][0] = new Plate(worldmap, true, "Plate20");
+        plates[2][1] = new Plate(worldmap, true, "Plate21");
+        plates[2][2] = new Plate(worldmap, true, "Plate22");
     }
 
     private void resetPlates() {
@@ -73,10 +78,18 @@ public class Level_2 extends Level {
                             } else {
                                 resetPlates();
                             }
+                        } else if (fixA.getUserData().equals("Plate02") || fixB.getUserData().equals("Plate02")){
+                            Fixture doorBottomFixture = fixA.getUserData() == "Plate02" ? fixA : fixB;
+                            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+                            if(plates[0][1].isActivated()) {
+                                plates[0][2].load();
+                            } else {
+                                resetPlates();
+                            }
                         } else if (fixA.getUserData().equals("Plate10") || fixB.getUserData().equals("Plate10")){
                             Fixture doorBottomFixture = fixA.getUserData() == "Plate10" ? fixA : fixB;
                             Fixture player = doorBottomFixture == fixA ? fixB : fixA;
-                            if(plates[0][1].isActivated()) {
+                            if(plates[0][2].isActivated()) {
                                 plates[1][0].load();
                             } else {
                                 resetPlates();
@@ -86,6 +99,38 @@ public class Level_2 extends Level {
                             Fixture player = doorBottomFixture == fixA ? fixB : fixA;
                             if(plates[1][0].isActivated()) {
                                 plates[1][1].load();
+                            } else {
+                                resetPlates();
+                            }
+                        } else if (fixA.getUserData().equals("Plate12") || fixB.getUserData().equals("Plate12")) {
+                            Fixture doorBottomFixture = fixA.getUserData() == "Plate12" ? fixA : fixB;
+                            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+                            if(plates[1][1].isActivated()) {
+                                plates[1][2].load();
+                            } else {
+                                resetPlates();
+                            }
+                        } else if (fixA.getUserData().equals("Plate20") || fixB.getUserData().equals("Plate20")){
+                            Fixture doorBottomFixture = fixA.getUserData() == "Plate20" ? fixA : fixB;
+                            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+                            if(plates[1][2].isActivated()) {
+                                plates[2][0].load();
+                            } else {
+                                resetPlates();
+                            }
+                        } else if (fixA.getUserData().equals("Plate21") || fixB.getUserData().equals("Plate21")) {
+                            Fixture doorBottomFixture = fixA.getUserData() == "Plate21" ? fixA : fixB;
+                            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+                            if(plates[2][0].isActivated()) {
+                                plates[2][1].load();
+                            } else {
+                                resetPlates();
+                            }
+                        } else if (fixA.getUserData().equals("Plate22") || fixB.getUserData().equals("Plate22")) {
+                            Fixture doorBottomFixture = fixA.getUserData() == "Plate22" ? fixA : fixB;
+                            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+                            if(plates[2][1].isActivated()) {
+                                plates[2][2].load();
                             } else {
                                 resetPlates();
                             }
@@ -125,8 +170,13 @@ public class Level_2 extends Level {
                     System.out.println("");
                     System.out.println("Platte00: " + plates[0][0].isActivated());
                     System.out.println("Platte01: " + plates[0][1].isActivated());
+                    System.out.println("Platte02: " + plates[0][2].isActivated());
                     System.out.println("Platte10: " + plates[1][0].isActivated());
                     System.out.println("Platte11: " + plates[1][1].isActivated());
+                    System.out.println("Platte12: " + plates[1][2].isActivated());
+                    System.out.println("Platte20: " + plates[2][0].isActivated());
+                    System.out.println("Platte21: " + plates[2][1].isActivated());
+                    System.out.println("Platte22: " + plates[2][2].isActivated());
                 }
 
                 return false;

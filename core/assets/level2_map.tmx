@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="8" height="8" tilewidth="16" tileheight="16" nextobjectid="24">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="8" height="8" tilewidth="16" tileheight="16" nextobjectid="32">
  <tileset firstgid="1" source="TempTileset.tsx"/>
  <layer name="Grundebene" width="8" height="8">
   <data encoding="base64" compression="zlib">
-   eJyTZ2BgUABiRSBWA2JlIFaC0ipAbAvEdkBsD8QuQOwIxA5Q2gmI9wFxMxbcBJVrAOJKKN6BxAbhdjR5dNwJxHUE5PfhkNuBRw4ZAwBGqBvT
+   eJyTZ2BgUABiRSBWA2JlIFaC0ipAbAvEdkBsD8QuQOwIxA5Q2gmIq4C4GQtuAuJqIG4A4koo3oHEBuF2NHl03AnEdQTka3DIgeyqxaMXhgHPCRrJ
   </data>
  </layer>
  <layer name="Wall" width="8" height="8">
@@ -21,10 +21,15 @@
   <object id="5" name="doorBottom" x="49.4545" y="124.182" width="28.5455" height="2"/>
  </objectgroup>
  <objectgroup name="InteractiveObjects">
-  <object id="17" name="Plate10" x="112.273" y="96.2728" width="15.0909" height="15.4545"/>
-  <object id="18" name="Plate11" x="112.273" y="32.2728" width="15.0909" height="15.4545"/>
-  <object id="19" name="Plate01" x="0.636368" y="32.0909" width="15.0909" height="15.4545"/>
-  <object id="23" name="Plate00" x="1.77636e-15" y="96.1818" width="16" height="16"/>
+  <object id="23" name="Plate00" x="28.5341" y="96.3409" width="15" height="15"/>
+  <object id="24" name="Plate01" x="28.125" y="66.6023" width="15" height="15"/>
+  <object id="25" name="Plate02" x="29.2955" y="35.0795" width="15" height="15"/>
+  <object id="26" name="Plate10" x="66.4659" y="92.3864" width="15" height="15"/>
+  <object id="27" name="Plate11" x="66.8182" y="65.7727" width="15" height="15"/>
+  <object id="28" name="Plate12" x="65.625" y="34.4205" width="15" height="15"/>
+  <object id="29" name="Plate20" x="101.477" y="92.8409" width="15" height="15"/>
+  <object id="30" name="Plate21" x="100.977" y="66.5682" width="15" height="15"/>
+  <object id="31" name="Plate22" x="98.7386" y="37.3409" width="15" height="15"/>
  </objectgroup>
  <objectgroup name="PlayerSpawnpoints">
   <object id="6" name="spawnUpperDoor" x="54.9091" y="33.0909" width="4.18182" height="4"/>
