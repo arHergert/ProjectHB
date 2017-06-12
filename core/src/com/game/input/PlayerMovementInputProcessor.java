@@ -15,7 +15,7 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
     //IV
     boolean camMoveLeft, camMoveRight, camMoveUp, camMoveDown;
-    private float moveSpeed = 1.5f;
+    private float moveSpeed = 1f;
 
     //Constructor
 

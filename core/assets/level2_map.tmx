@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="13" height="12" tilewidth="16" tileheight="16" nextobjectid="32">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="9" height="10" tilewidth="16" tileheight="16" nextobjectid="34">
  <tileset firstgid="1" source="TempTileset.tsx"/>
- <layer name="Grundebene" width="13" height="12">
+ <layer name="Grundebene" width="9" height="10">
   <data encoding="base64" compression="zlib">
-   eJyVzlsOgjAQheHuRCqEXShI2JR3ELntBd/lwb35k8zD2ABCky9zhqScbowxHixC+Ng606ocYIc9IqQ4IHZmpHKCE4oRD+SSc9mHfEaGo3irPKV27rg+I99a3Bb8W2tmeqbeOfTcV/bUC+70K94213PBEyU6vNReydT71fyeTLr/nS91GEAx
+   eJyTZ2BgUABiRSBWA2JlIFZCo22B2A6I7YHYBYgdgdgBja4C4mYsuAmIG6HsBiCuhOIdSGxk3IBDHIT3Quk6PGoImYNsbz0R5hBSs5OAm2EYAL3YJvo=
   </data>
  </layer>
- <layer name="Wall" width="13" height="12">
+ <layer name="Wall" width="9" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo4A8IA/ECkCsgkVMEYlWAmJlqDoAJzQBbg==
+   eJxjYBgFlAIlIFYGYhUkMXkgVgBiRag8ABOAAOw=
   </data>
  </layer>
  <objectgroup name="StaticCollisions">
-  <object id="1" x="0" y="0">
-   <polyline points="0,0 207.75,0 207.75,191.75 0,191.75 0,0"/>
+  <object id="32" x="0" y="0">
+   <polyline points="0,0 144,0 144,160 0,160 0,0"/>
   </object>
  </objectgroup>
  <objectgroup name="Sensor">
   <object id="2" name="doorUp" x="49.0909" y="3.09091" width="13.6364" height="3.63636"/>
-  <object id="5" name="doorBottom" x="49.4545" y="188.682" width="28.5455" height="2"/>
+  <object id="5" name="doorBottom" x="49.7045" y="156.682" width="28.5455" height="2"/>
  </objectgroup>
  <objectgroup name="InteractiveObjects">
-  <object id="23" name="Plate00" x="65.0341" y="159.841" width="15" height="15"/>
-  <object id="24" name="Plate01" x="64.375" y="96.3523" width="15" height="15"/>
-  <object id="25" name="Plate02" x="65.2955" y="33.3295" width="15" height="15"/>
-  <object id="26" name="Plate10" x="128.466" y="160.136" width="15" height="15"/>
-  <object id="27" name="Plate11" x="128.068" y="96.5227" width="15" height="15"/>
-  <object id="28" name="Plate12" x="128.375" y="32.9205" width="15" height="15"/>
-  <object id="29" name="Plate20" x="191.727" y="159.841" width="15" height="15"/>
-  <object id="30" name="Plate21" x="192.227" y="96.3182" width="15" height="15"/>
-  <object id="31" name="Plate22" x="191.989" y="33.3409" width="15" height="15"/>
+  <object id="23" name="Plate00" x="32" y="112" width="15" height="15"/>
+  <object id="24" name="Plate01" x="32" y="80" width="15" height="15"/>
+  <object id="25" name="Plate02" x="32" y="48" width="15" height="15"/>
+  <object id="26" name="Plate10" x="64" y="112" width="15" height="15"/>
+  <object id="27" name="Plate11" x="64" y="80" width="15" height="15"/>
+  <object id="28" name="Plate12" x="64" y="48" width="15" height="15"/>
+  <object id="29" name="Plate20" x="96" y="112" width="15" height="15"/>
+  <object id="30" name="Plate21" x="96" y="80" width="15" height="15"/>
+  <object id="31" name="Plate22" x="96" y="48" width="15" height="15"/>
  </objectgroup>
  <objectgroup name="PlayerSpawnpoints">
-  <object id="6" name="spawnUpperDoor" x="54.9091" y="33.0909" width="4.18182" height="4"/>
-  <object id="7" name="spawnBottomDoor" x="61.8409" y="179.818" width="3.63636" height="3.81818"/>
+  <object id="6" name="spawnUpperDoor" x="53.4091" y="23.5909" width="4.18182" height="4"/>
+  <object id="7" name="spawnBottomDoor" x="62.0909" y="147.818" width="3.63636" height="3.81818"/>
  </objectgroup>
 </map>
