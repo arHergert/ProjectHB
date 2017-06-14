@@ -15,6 +15,7 @@ public class Rock extends MapObjects {
 
 	/** Gibt zurück, ob ein Stein gerade hochgehoben ist. Standardweise false */
 	private boolean isPickedUp = false;
+	private boolean isRectangle;
 	
 	/**
 	 * Erstellt ein neues Stein-Objekt.
@@ -39,6 +40,7 @@ public class Rock extends MapObjects {
         fixture = body.createFixture(fixtureDef);
         shape.dispose();
         fixture.setUserData(mapSensorObject);
+        this.isRectangle = isRectangle;
 	}
 	
 	/**
@@ -63,4 +65,12 @@ public class Rock extends MapObjects {
 		return isPickedUp;
 	}
 
+	/**
+	 * Gibt zurück, ob es sich um einen runden oder um einen eckigen Stein (für Puzzles) handelt.
+	 * @return true, wenn der Stein eckig ist
+	 */
+	public boolean isRectangle() {
+		return this.isRectangle;
+	}
+	
 }
