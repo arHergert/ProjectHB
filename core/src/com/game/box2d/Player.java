@@ -24,7 +24,7 @@ public class Player extends Sprite {
     public Body body;
     private Texture boxImg;
 
-    /**
+    /**d
      * Erstellt einen neuen Spieler. Liest die Spawnpoints des Levels aus um
      * zu bestimmen wo der Spieler platziert wird.
      *

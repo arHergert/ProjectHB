@@ -11,6 +11,11 @@
    eJxjYBgF9AKFQFyEJgYAEXQA5A==
   </data>
  </layer>
+ <layer name="PuzzleTextures" width="8" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFAwkAAYAAAQ==
+  </data>
+ </layer>
  <layer name="Wand" width="8" height="12">
   <data encoding="base64" compression="zlib">
    eJxjYBgFlABBIBYGYmYkMSaomBAQM0IxK5I8G5I4ABG8AF4=

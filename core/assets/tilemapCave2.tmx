@@ -8,7 +8,12 @@
  </layer>
  <layer name="Details" width="16" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFwxUUAnERATUAICQA5A==
+   eJxjYBh+IBmIUyjQXwzEJUj8UiAuo8hFAwMKgbiIgBoAoyYDfQ==
+  </data>
+ </layer>
+ <layer name="PuzzleTextures" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIxkAAAIAAAE=
   </data>
  </layer>
  <layer name="Wand" width="16" height="8">
@@ -25,7 +30,7 @@
   <object id="4" name="doorBottom" x="235.167" y="245.333" width="41.3334" height="2.66667"/>
  </objectgroup>
  <objectgroup name="PlayerSpawnpoints">
-  <object id="2" name="spawnStart" x="257.792" y="112.958" width="2.75" height="3.5"/>
+  <object id="2" name="spawnStart" x="254.459" y="126.625" width="2.75" height="3.5"/>
   <object id="3" name="spawnBottomDoor" x="253.709" y="189.292" width="4" height="2.75"/>
  </objectgroup>
 </map>

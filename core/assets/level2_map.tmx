@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="9" height="12" tilewidth="32" tileheight="32" nextobjectid="57">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="9" height="12" tilewidth="32" tileheight="32" nextobjectid="64">
  <tileset firstgid="1" source="finalTileset.tsx"/>
+ <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="9" height="12">
   <data encoding="base64" compression="zlib">
    eJyN0MEKgkAQxvE9GtTNF0jB1Eo9aJ4NCtKTgoH6/u/RX5iFQVQa+LHLx+wwrGuMcXDCBzWOOEg+nxWeaDBgVNkLb7ToMOGCVGU9vvAQiRwFQpX58va8EKt7ggD3lT4r25hj3WS/vZ5/5tieQO7Xjd3nnXU9UJr9sn+4rB8YHA/x
@@ -9,6 +10,11 @@
  <layer name="Details" width="9" height="12">
   <data encoding="base64" compression="zlib">
    eJxjYBgFgxEUAnERFnEAFTAA5A==
+  </data>
+ </layer>
+ <layer name="PuzzleTextures" width="9" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAdYGKkoeGDDDDSya8ABnoABg==
   </data>
  </layer>
  <layer name="Wand" width="9" height="12">

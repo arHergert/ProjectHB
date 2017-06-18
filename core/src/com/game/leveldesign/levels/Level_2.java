@@ -1,9 +1,14 @@
 package com.game.leveldesign.levels;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.physics.box2d.*;
 import com.game.box2d.mapobjects.Plate;
 
@@ -14,6 +19,7 @@ public class Level_2 extends Level {
 
     //IV
     private Plate[][] plates;
+
 
     /**
      * @param
@@ -191,6 +197,25 @@ public class Level_2 extends Level {
                 plates[i][j].draw(batch);
             }
         }
+
+        /*
+        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("DisposableDroid.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParameter.color = Color.valueOf("43435d");
+        fontParameter.size = (int) Math.ceil(10);
+        fontGenerator.scaleForPixelHeight((int) Math.ceil(10));
+        fontParameter.minFilter = Texture.TextureFilter.Nearest;
+        fontParameter.magFilter = Texture.TextureFilter.MipMapLinearNearest;
+        BitmapFont font14 = fontGenerator.generateFont(fontParameter);
+        fontGenerator.dispose();
+        String puzzleText = "for (int i=0; i < array.length(); i++){\n" +
+                "   for (int j=0; j < array[i].length(); j++{\n" +
+                "       array[i][j] = true;\n" +
+                "   }\n" +
+                "}\n";
+
+        font14.draw(batch, puzzleText, worldmap.getMapRight()- 120, worldmap.getMapHeight() - 40);
+        */
 
     }
 }//end class Level_1

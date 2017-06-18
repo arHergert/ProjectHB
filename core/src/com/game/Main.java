@@ -109,11 +109,8 @@ public class Main extends ApplicationAdapter {
         camera.update();
 
         //Grundebene des aktuellen Levels rendern
-        tiledMapRenderer.render(new int[]{0});
+        tiledMapRenderer.render(new int[]{0,1,2});
 
-        if(levels.getCurrentWorldMap().getMap().getLayers().get(1) != null){
-            tiledMapRenderer.render(new int[]{1});
-        }
 
         //Worldaktualisierung. Welt aktualisiert sich 60 mal pro Sekunde.
         levels.getCurrentWorldMap().getWorld().step(1/60f, 6,2);
@@ -129,7 +126,7 @@ public class Main extends ApplicationAdapter {
         batch.end();
 
         //Restliche Ebenen, nach der Grundebene, rendern
-        for(int i = 2; i < levels.getCurrentWorldMap().getMap().getLayers().getCount(); i++){
+        for(int i = 3; i < levels.getCurrentWorldMap().getMap().getLayers().getCount(); i++){
             tiledMapRenderer.render( new int[]{i});
         }
 
