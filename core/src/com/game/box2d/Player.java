@@ -16,7 +16,7 @@ import com.game.Main;
 public class Player extends Sprite {
 
     /** Konstante Pixel per Meter. Nötig, da Box2D in Meter statt Pixel rechnet. Wird fürs Playermovement benötigt */
-    public static float PLAYER_SPEED = 5.5f;
+    public static float PLAYER_SPEED = 6.3f;
     public  static final float PPM = 16;
 
     /** Referenz auf die aktuelle Welt, in der sich der Spieler befindet **/

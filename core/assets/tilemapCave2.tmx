@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="16" height="8" tilewidth="32" tileheight="32" nextobjectid="16">
- <tileset firstgid="1" source="TempGraphics.tsx"/>
+ <tileset firstgid="1" source="finalTileset.tsx"/>
  <layer name="Grundebene" width="16" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjZWBg4CQTswMxDxDzkon5RvVTrJ8fiAVwYGUgVsEjLwjEABU6BpI=
+   eJyNzVsOgyAQhWG2oiZW0apbaL2+Wq3t/lfi/wDJxAAyyZcwB8J5KaXe6DFgFPuMxZHbfcKKDzbs+Ir9h78jt/uBFKVRiLPMfHmGHImhxflOhQYPx90z8o/W9Mf01o6s8/SH6Et/aOy70Jy4GhUM
+  </data>
+ </layer>
+ <layer name="Details" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFwxUUAnERATUAICQA5A==
+  </data>
+ </layer>
+ <layer name="Wand" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQxlwAzEfFIPYXFA2M5IaJizq+KBqARZoAJo=
   </data>
  </layer>
  <objectgroup name="StaticCollisions">

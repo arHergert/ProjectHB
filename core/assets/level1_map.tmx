@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="8" height="8" tilewidth="32" tileheight="32" nextobjectid="78">
- <tileset firstgid="1" source="TempTileset.tsx"/>
- <tileset firstgid="961" source="TempGraphics.tsx"/>
- <layer name="Grundebene" width="8" height="8">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="8" height="12" tilewidth="32" tileheight="32" nextobjectid="81">
+ <tileset firstgid="1" source="finalTileset.tsx"/>
+ <layer name="Grundebene" width="8" height="12">
   <data encoding="base64" compression="zlib">
-   eJw7yszAcBIN3wTiW0B8HIjPAPFZPHiwy58H4stA/BiIn0DZMHwRiAFmMjRB
+   eJyV0DsKg1AQheFbKpguG9CAMT5yLYzWChHUNAoKMe5/Hf7FBG6jYvHBzBk4xVyVUhYuaNDCgS15iQodvpjxwRs1egz44Q6NBSMmeHiIDC8Est/gI4YrEmNOpdPd8Dy4p9JvZuGJfi33aKff3HMUO33//5jZCi9zEAA=
+  </data>
+ </layer>
+ <layer name="Details" width="8" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF9AKFQFyEJgYAEXQA5A==
+  </data>
+ </layer>
+ <layer name="Wand" width="8" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFlABBIBYGYmYkMSaomBAQM0IxK5I8G5I4ABG8AF4=
   </data>
  </layer>
  <objectgroup name="PlayerSpawnpoints">
-  <object id="1" name="spawnBottomDoor" x="92.8563" y="206.204" width="3.63636" height="3.81818"/>
-  <object id="2" name="spawnUpperDoor" x="189.175" y="48.6441" width="4.18182" height="4"/>
+  <object id="1" name="spawnBottomDoor" x="127.523" y="300.87" width="3.63636" height="3.81818"/>
+  <object id="2" name="spawnUpperDoor" x="126.842" y="85.3107" width="4.18182" height="4"/>
  </objectgroup>
  <objectgroup name="StaticCollisions">
-  <object id="53" x="0.666667" y="-1">
-   <polyline points="0,0 254.667,1 254.667,257 -1.33333,257 -1.33333,1"/>
+  <object id="80" x="0" y="32">
+   <polyline points="0,0 96,0 96,-32 160,-32 160,0 256,0 256,320 160,320 160,352 96,352 96,320 0,320 0,0"/>
   </object>
  </objectgroup>
  <objectgroup name="Sensor">
-  <object id="12" name="doorBottom" x="75.7007" y="244.963" width="39.0455" height="2"/>
-  <object id="13" name="doorUp" x="173.253" y="7.7045" width="38.1364" height="3.63636"/>
-  <object id="74" name="Puzzle001" x="32" y="64" width="31.7296" height="31.7296"/>
-  <object id="75" name="Puzzle002" x="96" y="64" width="31.7296" height="31.7296"/>
-  <object id="76" name="Puzzle003" x="32" y="128" width="31.7296" height="31.7296"/>
-  <object id="77" name="Puzzle004" x="96" y="128" width="31.7296" height="31.7296"/>
+  <object id="12" name="doorBottom" x="109.367" y="380.63" width="39.0455" height="2"/>
+  <object id="13" name="doorUp" x="109.253" y="2.03783" width="38.1364" height="3.63636"/>
+  <object id="74" name="Puzzle001" x="32" y="160" width="31.7296" height="31.7296"/>
+  <object id="75" name="Puzzle002" x="96" y="160" width="31.7296" height="31.7296"/>
+  <object id="76" name="Puzzle003" x="32" y="224" width="31.7296" height="31.7296"/>
+  <object id="77" name="Puzzle004" x="96" y="224" width="31.7296" height="31.7296"/>
  </objectgroup>
  <objectgroup name="InteractiveObjects">
-  <object id="70" name="PuzzleRock004" x="211.555" y="174.889" width="30.2228" height="30.2228"/>
-  <object id="71" name="PuzzleRock001" x="115.555" y="174.889" width="30.2228" height="30.2228"/>
-  <object id="72" name="PuzzleRock002" x="147.555" y="174.889" width="30.2228" height="30.2228"/>
-  <object id="73" name="PuzzleRock003" x="179.555" y="174.889" width="30.2228" height="30.2228"/>
+  <object id="70" name="PuzzleRock004" x="192" y="256" width="30.2228" height="30.2228"/>
+  <object id="71" name="PuzzleRock001" x="192" y="160" width="30.2228" height="30.2228"/>
+  <object id="72" name="PuzzleRock002" x="192" y="192" width="30.2228" height="30.2228"/>
+  <object id="73" name="PuzzleRock003" x="192" y="224" width="30.2228" height="30.2228"/>
  </objectgroup>
 </map>
