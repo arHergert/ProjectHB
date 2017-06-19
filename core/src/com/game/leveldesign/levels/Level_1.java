@@ -23,10 +23,14 @@ public class Level_1 extends Level {
      */
     public Level_1() {
         super("level1_map.tmx");
-        intPuzzle = new Rock(worldmap, "PuzzleRock001", true);
-        stringPuzzle = new Rock(worldmap, "PuzzleRock002", true);
-        booleanPuzzle = new Rock(worldmap, "PuzzleRock003", true);
-        floatPuzzle = new Rock(worldmap, "PuzzleRock004", true);
+        intPuzzle = new Rock(worldmap, "Rock1", true);
+        stringPuzzle = new Rock(worldmap, "Rock2", true);
+        booleanPuzzle = new Rock(worldmap, "Rock3", true);
+        floatPuzzle = new Rock(worldmap, "Rock4", true);
+        intHole = new Hole(worldmap, "Hole1");
+        stringHole = new Hole(worldmap, "Hole2");
+        booleanHole = new Hole(worldmap, "Hole3");
+        floatHole = new Hole(worldmap, "Hole4");
     }
 
     @Override
