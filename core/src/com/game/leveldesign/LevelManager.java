@@ -1,10 +1,7 @@
 package com.game.leveldesign;
 
 import com.badlogic.gdx.InputProcessor;
-import com.game.leveldesign.levels.Level;
-import com.game.leveldesign.levels.Level_0;
-import com.game.leveldesign.levels.Level_1;
-import com.game.leveldesign.levels.Level_2;
+import com.game.leveldesign.levels.*;
 
 import java.util.ArrayList;
 
@@ -43,6 +40,7 @@ public class LevelManager {
         levelList.add(0, new Level_0());
         levelList.add(1, new Level_1());
         levelList.add(2, new Level_2());
+        levelList.add(3, new Level_3());
 
 
         //Aktuelles Level bestimmen
