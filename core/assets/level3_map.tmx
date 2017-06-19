@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="67">
+ <tileset firstgid="1" source="finalTileset.tsx"/>
+ <tileset firstgid="257" source="tryandcatch.tsx"/>
+ <layer name="Grundebene" width="14" height="12">
+  <data encoding="base64" compression="zlib">
+   eJydz00LgkAQgOE92l29p2BmiR6szn0o1K3SIP//D/EVRlhkd8kGHnZm9ovxlVIeVobV1+pQ6kDyM+544IIrbqi1et5v8MQXPV54o0Wn1fP+BxEqHJCKrUgta4wN1gvsUSBBrvUzx/kpL/74b3y3/OHeztBb+t80Qynz2d61zTreM8URJ8ueKxKZwRUDXAcXxA==
+  </data>
+ </layer>
+ <layer name="Details" width="14" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BgQCEQFxFQAwAgxADk
+  </data>
+ </layer>
+ <layer name="PuzzleTextures" width="14" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgcgJVxoF0wcgHbIA57ABNyAA4=
+  </data>
+ </layer>
+ <layer name="Wand" width="14" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4B4wA3EQkDMBcTCQMwHxPxQMWEoZgZiHSDWBWImqBgjEZgdiM2A2ByI2aBiAF3MAYU=
+  </data>
+ </layer>
+ <objectgroup name="PlayerSpawnpoints">
+  <object id="1" name="spawnBottomDoor" x="350.356" y="298.204" width="3.63636" height="3.81818"/>
+  <object id="2" name="spawnUpperDoor" x="61.341" y="125.644" width="4.18182" height="4"/>
+ </objectgroup>
+ <objectgroup name="StaticCollisions"/>
+ <objectgroup name="Sensor">
+  <object id="12" name="doorBottom" x="329.867" y="379.129" width="39.0455" height="2"/>
+  <object id="13" name="doorUp" x="45.087" y="33.8712" width="38.1364" height="3.63636"/>
+ </objectgroup>
+ <objectgroup name="InteractiveObjects">
+  <object id="41" name="Plate22" x="256" y="128" width="30.6646" height="30.6646"/>
+  <object id="42" name="Plate21" x="256" y="192" width="30.6646" height="30.6646"/>
+  <object id="43" name="Plate20" x="256" y="256" width="30.6646" height="30.6646"/>
+  <object id="44" name="Plate12" x="176" y="128.333" width="30.6646" height="30.6646"/>
+  <object id="45" name="Plate11" x="176" y="192.333" width="30.6646" height="30.6646"/>
+  <object id="46" name="Plate10" x="176" y="256.333" width="30.6646" height="30.6646"/>
+  <object id="47" name="Plate02" x="96" y="128" width="30.6646" height="30.6646"/>
+  <object id="48" name="Plate01" x="96" y="192" width="30.6646" height="30.6646"/>
+  <object id="49" name="Plate00" x="96" y="256" width="30.6646" height="30.6646"/>
+  <object id="64" name="Plate31" x="336" y="192" width="30.6646" height="30.6646"/>
+  <object id="65" name="Plate30" x="336" y="256" width="30.6646" height="30.6646"/>
+  <object id="66" name="Plate32" x="336" y="128" width="30.6646" height="30.6646"/>
+ </objectgroup>
+</map>
