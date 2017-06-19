@@ -20,6 +20,15 @@ public class Level_2 extends Level {
     //IV
     private Plate[][] plates;
 
+    private FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("DisposableDroid.ttf"));
+    private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+    private BitmapFont font;
+
+    private String puzzleText = "for (int i=0; i < array.length(); i++){\n" +
+                                "   for (int j=0; j < array[i].length(); j++{\n" +
+                                "       array[i][j] = true;\n" +
+                                "   }\n" +
+                                "}\n";
 
     /**
      * @param
@@ -36,6 +45,14 @@ public class Level_2 extends Level {
         plates[2][0] = new Plate(worldmap, true, "Plate20");
         plates[2][1] = new Plate(worldmap, true, "Plate21");
         plates[2][2] = new Plate(worldmap, true, "Plate22");
+
+        fontParameter.color = Color.valueOf("43435d");
+        fontParameter.size = 11;
+        fontGenerator.scaleForPixelHeight(11);
+        fontParameter.minFilter = Texture.TextureFilter.Nearest;
+        fontParameter.magFilter = Texture.TextureFilter.MipMapLinearNearest;
+        font = fontGenerator.generateFont(fontParameter);
+        fontGenerator.dispose();
     }
 
     private void resetPlates() {
@@ -198,24 +215,7 @@ public class Level_2 extends Level {
             }
         }
 
-        /*
-        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("DisposableDroid.ttf"));
-        FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameter.color = Color.valueOf("43435d");
-        fontParameter.size = (int) Math.ceil(10);
-        fontGenerator.scaleForPixelHeight((int) Math.ceil(10));
-        fontParameter.minFilter = Texture.TextureFilter.Nearest;
-        fontParameter.magFilter = Texture.TextureFilter.MipMapLinearNearest;
-        BitmapFont font14 = fontGenerator.generateFont(fontParameter);
-        fontGenerator.dispose();
-        String puzzleText = "for (int i=0; i < array.length(); i++){\n" +
-                "   for (int j=0; j < array[i].length(); j++{\n" +
-                "       array[i][j] = true;\n" +
-                "   }\n" +
-                "}\n";
-
-        font14.draw(batch, puzzleText, worldmap.getMapRight()- 120, worldmap.getMapHeight() - 40);
-        */
-
+        font.draw(batch, puzzleText, worldmap.getMapRight()- 230, worldmap.getMapHeight() - 40);
     }
+
 }//end class Level_1
