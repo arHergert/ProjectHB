@@ -15,6 +15,7 @@ public class Hole extends MapObjects {
         fixture = body.createFixture(fixtureDef);
         shape.dispose();
         fixture.setUserData(mapSensorObject);
+        fixture.setSensor(true);
 	}
 	
 	public boolean holdsRock() {
