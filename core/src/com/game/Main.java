@@ -116,7 +116,7 @@ public class Main extends ApplicationAdapter {
         levels.getCurrentWorldMap().getWorld().step(1/60f, 6,2);
 
         //Aktualisieren des DebugRenderers
-        //debugRenderer.render(levels.getCurrentWorldMap().getWorld(), camera.combined);
+        debugRenderer.render(levels.getCurrentWorldMap().getWorld(), camera.combined);
 
         //Das batch zeichnet/aktualisiert die Positionen der Graphiken
         batch.setProjectionMatrix(camera.combined);
