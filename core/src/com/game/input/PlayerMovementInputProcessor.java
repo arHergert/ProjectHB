@@ -76,6 +76,7 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         }
 
+        System.out.println(horizSpeed * (PPM * PLAYER_SPEED) );
         boxPlayer.body.setLinearVelocity(horizSpeed * (PPM * PLAYER_SPEED)   , vertSpeed * (PPM * PLAYER_SPEED) );
 
 
@@ -100,6 +101,11 @@ public class PlayerMovementInputProcessor extends InputAdapter{
             camMoveDown = true;
         }
 
+        if(keycode == Input.Keys.SHIFT_LEFT){
+          moveSpeed = 2.5f;
+          PLAYER_SPEED = 12f;
+          PPM = 64;
+        }
         return false;
     }
 
@@ -122,6 +128,11 @@ public class PlayerMovementInputProcessor extends InputAdapter{
             camMoveDown = false;
         }
 
+        if(keycode == Input.Keys.SHIFT_LEFT){
+            moveSpeed = 1f;
+            PLAYER_SPEED = 5.3f;
+            PPM = 16;
+        }
 
 
         return false;
