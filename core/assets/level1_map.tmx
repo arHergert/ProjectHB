@@ -31,14 +31,14 @@
   <object id="12" name="doorUp" x="147.614" y="3.45446" width="23.6364" height="3.63636"/>
  </objectgroup>
  <objectgroup name="InteractiveObjects">
-  <object id="3" name="Rock4" x="192" y="176" width="29.6539" height="29.6539"/>
-  <object id="4" name="Rock3" x="96" y="176" width="29.6539" height="29.6539"/>
-  <object id="5" name="Rock2" x="192" y="112" width="29.6539" height="29.6539"/>
-  <object id="6" name="Rock1" x="96" y="112" width="29.6539" height="29.6539"/>
-  <object id="7" name="Hole3" x="256" y="64" width="29.6539" height="29.6539"/>
-  <object id="8" name="Hole2" x="32" y="64" width="29.6539" height="29.6539"/>
-  <object id="9" name="Hole1" x="256" y="224" width="29.6539" height="29.6539"/>
-  <object id="10" name="Hole4" x="32" y="224" width="29.6539" height="29.6539"/>
+  <object id="3" name="Rock4" x="193.025" y="180.683" width="32" height="22"/>
+  <object id="4" name="Rock3" x="96" y="180.683" width="32" height="22"/>
+  <object id="5" name="Rock2" x="193.025" y="116" width="32" height="22"/>
+  <object id="6" name="Rock1" x="96" y="116" width="32" height="22"/>
+  <object id="7" name="Hole3" x="256" y="73" width="32" height="22"/>
+  <object id="8" name="Hole2" x="32" y="73" width="32" height="22"/>
+  <object id="9" name="Hole1" x="256" y="224" width="32" height="22"/>
+  <object id="10" name="Hole4" x="32" y="224" width="32" height="22"/>
  </objectgroup>
  <objectgroup name="PlayerSpawnpoints">
   <object id="1" name="spawnBottomDoor" x="157.752" y="235.332" width="3.75399" height="3.94169"/>
