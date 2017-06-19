@@ -76,7 +76,6 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         }
 
-        System.out.println(horizSpeed * (PPM * PLAYER_SPEED) );
         boxPlayer.body.setLinearVelocity(horizSpeed * (PPM * PLAYER_SPEED)   , vertSpeed * (PPM * PLAYER_SPEED) );
 
 
