@@ -16,7 +16,7 @@ public class DesktopLauncher {
      */
     public static void main (String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.title = "Project HB v0.0.1";
+        config.title = "Try and Catch v0.0.1";
         config.width = 1280;
         config.height = 720;
         config.resizable = true;

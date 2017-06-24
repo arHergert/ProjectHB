@@ -14,6 +14,8 @@ public class PlayerMovementInputProcessor extends InputAdapter{
     //IV
     boolean camMoveLeft, camMoveRight, camMoveUp, camMoveDown;
     private float moveSpeed = 1f;
+    private int horizSpeed;
+    private int vertSpeed;
 
     //Constructor
 
@@ -24,8 +26,8 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
     public void updatePlayerMovement(Player boxPlayer, MapCamera camera, WorldMap levelmap){
 
-        int horizSpeed = 0;
-        int vertSpeed = 0;
+        horizSpeed = 0;
+        vertSpeed = 0;
 
         if(camMoveLeft){
 
@@ -66,9 +68,11 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         if (camMoveDown){
 
-            if (boxPlayer.body.getPosition().y > levelmap.getMapBottom() + boxPlayer.getSpriteHeight()/2){
+
+           // if (boxPlayer.body.getPosition().y > levelmap.getMapBottom() + boxPlayer.getSpriteHeight()/4){
                 vertSpeed -= moveSpeed;
-            }
+           // }
+
 
             if (boxPlayer.body.getPosition().y <= camera.position.y){
                 camera.translateInBounds(0,-moveSpeed);

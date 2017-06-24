@@ -119,23 +119,26 @@ public abstract class Level {
      */
     protected void checkDoorCollisions(Fixture fixA, Fixture fixB){
 
+        if(fixA.getUserData().equals("Player") || fixB.getUserData().equals("Player")) {
+            if (fixA.getUserData().equals("doorUp") || fixB.getUserData().equals("doorUp")){
+                Fixture doorUpFixture = fixA.getUserData() == "doorUp" ? fixA : fixB;
+                Fixture player = doorUpFixture == fixA ? fixB : fixA;
 
-        if (fixA.getUserData().equals("doorUp") || fixB.getUserData().equals("doorUp")){
-            Fixture doorUpFixture = fixA.getUserData() == "doorUp" ? fixA : fixB;
-            Fixture player = doorUpFixture == fixA ? fixB : fixA;
+                doorUp.activate();
 
-            doorUp.activate();
 
+            }
+
+            if (fixA.getUserData().equals("doorBottom") || fixB.getUserData().equals("doorBottom")){
+                Fixture doorBottomFixture = fixA.getUserData() == "doorBottom" ? fixA : fixB;
+                Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+
+                doorBottom.activate();
+
+            }
 
         }
 
-        if (fixA.getUserData().equals("doorBottom") || fixB.getUserData().equals("doorBottom")){
-            Fixture doorBottomFixture = fixA.getUserData() == "doorBottom" ? fixA : fixB;
-            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
-
-            doorBottom.activate();
-
-        }
     }
 
 

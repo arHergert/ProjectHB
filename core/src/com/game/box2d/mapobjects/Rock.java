@@ -5,11 +5,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.maps.objects.CircleMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Shape;
 import com.game.leveldesign.WorldMap;
-import com.sun.javafx.geom.Rectangle;
+
+import static com.game.box2d.Player.playerPositionX;
+import static com.game.box2d.Player.playerPositionY;
 
 /**
  * Ein Stein kann getragen werden und runtergestellt werden
@@ -36,6 +38,7 @@ public class Rock extends MapObjects {
 	public Rock(WorldMap map, String mapSensorObject, boolean isRectangle, String datatype) {
 		super(map);
 
+
         Shape shape;
         if (isRectangle){
             shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("InteractiveObjects").getObjects().get(mapSensorObject));
@@ -45,8 +48,9 @@ public class Rock extends MapObjects {
 
         fixtureDef.shape = shape;
         fixture = body.createFixture(fixtureDef);
-        shape.dispose();
         fixture.setUserData(mapSensorObject);
+        shape.dispose();
+
         this.isRectangle = isRectangle;
 
         if(datatype.equals("int")){
@@ -71,14 +75,22 @@ public class Rock extends MapObjects {
 	 * Hebt einen Stein hoch.
 	 */
 	public void pickUp() {
+
+        System.out.println("Stein hoch -> " + fixture.getUserData());
 		isPickedUp = true;
+        body.setActive(false)
+       ;
 	}
 	
 	/**
 	 * Setzt einen Stein wieder ab.
 	 */
 	public void putDown() {
+        System.out.println("Stein runter -> " + fixture.getUserData());
 		isPickedUp = false;
+        body.setActive(true);
+        body.setTransform(new Vector2(body.getPosition().x + (playerPositionX - 96), body.getPosition().y- (playerPositionY + 33) ), 0);
+
 	}
 	
 	/**
@@ -99,6 +111,13 @@ public class Rock extends MapObjects {
 
 
     public void draw(Batch batch) {
+
+        if(isPickedUp){
+
+            positionX = playerPositionX;
+            positionY = playerPositionY;
+
+        }
 
         batch.draw(currentTexture, positionX, positionY, 32, 22);
     }

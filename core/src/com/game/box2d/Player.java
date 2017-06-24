@@ -20,6 +20,9 @@ public class Player extends Sprite {
     public  static  float PPM = 16;
     public static boolean isCarryingObject = false;
 
+    public static float playerPositionX;
+    public static float playerPositionY;
+
     /** Referenz auf die aktuelle Welt, in der sich der Spieler befindet **/
     private World world;
     public Body body;
@@ -93,7 +96,7 @@ public class Player extends Sprite {
         FixtureDef fixtureDef = new FixtureDef();
         PolygonShape pShape = new PolygonShape();
        // pShape.setAsBox(boxImg.getWidth()/2, boxImg.getHeight()/2);
-        pShape.setAsBox(16, 32);
+        pShape.setAsBox(16, 8);
 
         fixtureDef.shape = pShape;
 
@@ -134,6 +137,11 @@ public class Player extends Sprite {
      */
     public void draw(Batch batch){
         batch.draw(boxImg, body.getPosition().x -16 , body.getPosition().y - 32, 32,64);
+
+        if(isCarryingObject){
+            playerPositionX = body.getPosition().x;
+            playerPositionY = body.getPosition().y;
+        }
     }
 
 }//end class Player
