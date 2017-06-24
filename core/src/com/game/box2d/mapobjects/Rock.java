@@ -122,7 +122,6 @@ public class Rock extends MapObjects {
 
 
             if(!playerBody.getLinearVelocity().isZero()){
-                System.out.println("Velocity Nicht Null");
                 positionX += horizSpeed * (PLAYER_SPEED/3.75);
                 positionY += vertSpeed * (PLAYER_SPEED/3.75);
                 body.setLinearVelocity(horizSpeed * (PPM * PLAYER_SPEED)   , vertSpeed * (PPM * PLAYER_SPEED) );
