@@ -25,7 +25,7 @@ public class Level_2 extends Level {
     private BitmapFont font;
 
     private String puzzleText = "for (int j=0; j < array.length(); j++){\n" +
-                                "   for (int i=0; j < array[j].length(); i++{\n" +
+                                "   for (int i=0; i < array[j].length(); i++{\n" +
                                 "       array[j][i] = true;\n" +
                                 "   }\n" +
                                 "}\n";
