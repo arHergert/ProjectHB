@@ -24,9 +24,9 @@ public class Level_3 extends Level {
     private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
     private BitmapFont font;
 
-    private String puzzleText = "for (int i=0; i <= 1; i++){\n" +
-            "   for (int j=0; j < 2; j++{\n" +
-            "       array[i][j] = true;\n" +
+    private String puzzleText = "for (int j=0; j <= 1; j++){\n" +
+            "   for (int i=0; i < 2; i++{\n" +
+            "       array[j][i] = true;\n" +
             "   }\n" +
             "}\n";
 
