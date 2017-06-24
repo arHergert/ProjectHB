@@ -7,6 +7,7 @@ import com.game.box2d.Player;
 
 import static com.game.box2d.Player.PLAYER_SPEED;
 import static com.game.box2d.Player.PPM;
+import static com.game.box2d.Player.playerBody;
 
 
 public class PlayerMovementInputProcessor extends InputAdapter{
@@ -14,8 +15,8 @@ public class PlayerMovementInputProcessor extends InputAdapter{
     //IV
     boolean camMoveLeft, camMoveRight, camMoveUp, camMoveDown;
     private float moveSpeed = 1f;
-    private int horizSpeed;
-    private int vertSpeed;
+    public static int horizSpeed;
+    public static int vertSpeed;
 
     //Constructor
 
@@ -31,11 +32,11 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         if(camMoveLeft){
 
-            if(boxPlayer.body.getPosition().x > levelmap.getMapLeft() + boxPlayer.getSpriteWidth()/2 ){
+            if(playerBody.getPosition().x > levelmap.getMapLeft() + boxPlayer.getSpriteWidth()/2 ){
                 horizSpeed -= moveSpeed;
             }
 
-            if (boxPlayer.body.getPosition().x<= camera.position.x){
+            if (playerBody.getPosition().x<= camera.position.x){
                 camera.translateInBounds(-moveSpeed,0);
             }
 
@@ -44,11 +45,11 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         if(camMoveRight){
 
-            if (boxPlayer.body.getPosition().x < levelmap.getMapRight()- boxPlayer.getSpriteWidth()/2){
+            if (playerBody.getPosition().x < levelmap.getMapRight()- boxPlayer.getSpriteWidth()/2){
                 horizSpeed += moveSpeed;
             }
 
-            if (boxPlayer.body.getPosition().x >= camera.position.x){
+            if (playerBody.getPosition().x >= camera.position.x){
                 camera.translateInBounds(moveSpeed,0);
             }
 
@@ -56,11 +57,11 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         if(camMoveUp){
 
-            if (boxPlayer.body.getPosition().y < levelmap.getMapTop() - boxPlayer.getSpriteHeight()/2){
+            if (playerBody.getPosition().y < levelmap.getMapTop() - boxPlayer.getSpriteHeight()/2){
                 vertSpeed += moveSpeed;
             }
 
-            if (boxPlayer.body.getPosition().y >= camera.position.y){
+            if (playerBody.getPosition().y >= camera.position.y){
                 camera.translateInBounds(0,moveSpeed);
             }
 
@@ -69,18 +70,18 @@ public class PlayerMovementInputProcessor extends InputAdapter{
         if (camMoveDown){
 
 
-           // if (boxPlayer.body.getPosition().y > levelmap.getMapBottom() + boxPlayer.getSpriteHeight()/4){
+           // if (playerBody.getPosition().y > levelmap.getMapBottom() + boxPlayer.getSpriteHeight()/4){
                 vertSpeed -= moveSpeed;
            // }
 
 
-            if (boxPlayer.body.getPosition().y <= camera.position.y){
+            if (playerBody.getPosition().y <= camera.position.y){
                 camera.translateInBounds(0,-moveSpeed);
             }
 
         }
 
-        boxPlayer.body.setLinearVelocity(horizSpeed * (PPM * PLAYER_SPEED)   , vertSpeed * (PPM * PLAYER_SPEED) );
+        playerBody.setLinearVelocity(horizSpeed * (PPM * PLAYER_SPEED)   , vertSpeed * (PPM * PLAYER_SPEED) );
 
 
 

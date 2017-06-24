@@ -9,6 +9,8 @@ import com.game.box2d.Player;
 import com.game.box2d.mapobjects.Hole;
 import com.game.box2d.mapobjects.Rock;
 
+import static com.game.box2d.Player.carryingStone;
+
 /**
  * Das erste Level
  * @author Florian Osterberg
@@ -52,15 +54,11 @@ public class Level_1 extends Level {
 
                     // wenn irgendwas mit dem Spieler kollidiert
                     if(fixA.getUserData().equals("Player") || fixB.getUserData().equals("Player")) {
-                    	
+
                     	// wenn Spieler mit einem Stein kollidiert
                     	if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
-                    		
-                    		if(Player.isCarryingObject == false) {
-                    			
-                    			
-                    			Player.isCarryingObject = true;
-                    			for(int i = 0; i < 4; i++) {
+
+                    			for(int i = 0; i <= 4; i++) {
                     				if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
                     					switch(i) {
                     					case 1: intPuzzle.collideOn(); break;
@@ -70,20 +68,12 @@ public class Level_1 extends Level {
                     					}
                     				}
                     			}
-                    			
-                    			
-                    		} else {
-                    			// Spieler kann keine 2 Steine tragen
-                    		}
                     		
                     	}
                     	// wenn Spieler mit einem Loch kollidiert
                     	else if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
-                    		
-                    		if(Player.isCarryingObject == true) {
-                    			// Stein ins Loch ablegen
-                    			Player.isCarryingObject = false;
-                    			for(int i = 0; i < 4; i++) {
+
+                    			for(int i = 0; i <= 4; i++) {
                     				if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
                     					switch(i) {
                     					case 1: intHole.collideOn(); break;
@@ -93,12 +83,7 @@ public class Level_1 extends Level {
                     					}
                     				}
                     			}
-                    			
-                    			
-                    		} else {
-                    			// nichts
-                    		}
-                    		
+
                     	}
                     	
                     }
@@ -125,7 +110,7 @@ public class Level_1 extends Level {
                     	if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
                     		
                 			
-                			for(int i = 0; i < 4; i++) {
+                			for(int i = 0; i <= 4; i++) {
                 				if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
                 					switch(i) {
                 					case 1: intPuzzle.collideOff(); break;
@@ -140,7 +125,7 @@ public class Level_1 extends Level {
                     	// wenn Spieler mit einem Loch kollidiert
                     	else if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
                     		
-                			for(int i = 0; i < 4; i++) {
+                			for(int i = 0; i <= 4; i++) {
                 				if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
                 					switch(i) {
                 					case 1: intHole.collideOff(); break;
@@ -182,24 +167,37 @@ public class Level_1 extends Level {
             public boolean keyDown(int keycode) {
 
             	if(keycode == Input.Keys.E) {
-            		
-            		if(intPuzzle.collidesWithPlayer()) {
-            			intPuzzle.pickUp();
-            		} else if(stringPuzzle.collidesWithPlayer()) {
-            			stringPuzzle.pickUp();
-            		} else if(booleanPuzzle.collidesWithPlayer()) {
-            			booleanPuzzle.pickUp();
-            		} else if(floatPuzzle.collidesWithPlayer()) {
-            			floatPuzzle.pickUp();
-            		} else if(intHole.collidesWithPlayer()) {
-            			try {
-							intHole.putRock(intPuzzle);
-						} catch (Exception e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-            			intPuzzle.putDown();
-            		} else if(stringHole.collidesWithPlayer()) {
+
+
+                    if(Player.isCarryingObject){
+
+                        try{
+                            carryingStone.putDown();
+                            carryingStone = null;
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+
+                    }else{
+
+                        if(intPuzzle.collidesWithPlayer()) {
+                            carryingStone = intPuzzle;
+                            carryingStone.pickUp();
+                        } else if(stringPuzzle.collidesWithPlayer()) {
+                            carryingStone = stringPuzzle;
+                            carryingStone.pickUp();
+                        } else if(booleanPuzzle.collidesWithPlayer()) {
+                            carryingStone = booleanPuzzle;
+                            carryingStone.pickUp();
+                        } else if(floatPuzzle.collidesWithPlayer()) {
+                            carryingStone = floatPuzzle;
+                            carryingStone.pickUp();
+                        }
+
+                    }
+
+
+                    if(stringHole.collidesWithPlayer()) {
             			try {
 							stringHole.putRock(stringPuzzle);
 						} catch (Exception e) {

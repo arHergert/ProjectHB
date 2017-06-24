@@ -5,13 +5,16 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.maps.objects.CircleMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Shape;
+import com.game.box2d.Player;
 import com.game.leveldesign.WorldMap;
 
-import static com.game.box2d.Player.playerPositionX;
-import static com.game.box2d.Player.playerPositionY;
+import static com.game.box2d.Player.PLAYER_SPEED;
+import static com.game.box2d.Player.PPM;
+import static com.game.box2d.Player.playerBody;
+import static com.game.input.PlayerMovementInputProcessor.horizSpeed;
+import static com.game.input.PlayerMovementInputProcessor.vertSpeed;
 
 /**
  * Ein Stein kann getragen werden und runtergestellt werden
@@ -21,7 +24,7 @@ public class Rock extends MapObjects {
 	/** Gibt zurück, ob ein Stein gerade hochgehoben ist. Standardweise false */
 	private boolean isPickedUp = false;
 	private boolean isRectangle;
-
+    //Shape shape;
     /** Texturen für jeden einzelnen Datentypen */
     private Texture intTex,stringTex,floatTex,boolText, currentTexture;
 	
@@ -50,6 +53,7 @@ public class Rock extends MapObjects {
         fixture = body.createFixture(fixtureDef);
         fixture.setUserData(mapSensorObject);
         shape.dispose();
+        body.setType(BodyDef.BodyType.KinematicBody);
 
         this.isRectangle = isRectangle;
 
@@ -78,8 +82,8 @@ public class Rock extends MapObjects {
 
         System.out.println("Stein hoch -> " + fixture.getUserData());
 		isPickedUp = true;
-        body.setActive(false)
-       ;
+        Player.isCarryingObject = true;
+
 	}
 	
 	/**
@@ -87,9 +91,10 @@ public class Rock extends MapObjects {
 	 */
 	public void putDown() {
         System.out.println("Stein runter -> " + fixture.getUserData());
-		isPickedUp = false;
-        body.setActive(true);
-        body.setTransform(new Vector2(body.getPosition().x + (playerPositionX - 96), body.getPosition().y- (playerPositionY + 33) ), 0);
+        Player.isCarryingObject = false;
+        isPickedUp = false;
+
+
 
 	}
 	
@@ -112,10 +117,20 @@ public class Rock extends MapObjects {
 
     public void draw(Batch batch) {
 
-        if(isPickedUp){
 
-            positionX = playerPositionX;
-            positionY = playerPositionY;
+        if(isPickedUp()){
+
+
+            if(!playerBody.getLinearVelocity().isZero()){
+                System.out.println("Velocity Nicht Null");
+                positionX += horizSpeed * (PLAYER_SPEED/3.75);
+                positionY += vertSpeed * (PLAYER_SPEED/3.75);
+                body.setLinearVelocity(horizSpeed * (PPM * PLAYER_SPEED)   , vertSpeed * (PPM * PLAYER_SPEED) );
+            }else{
+                body.setLinearVelocity(0 , 0 );
+            }
+
+
 
         }
 

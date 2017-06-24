@@ -83,7 +83,7 @@ public class Main extends ApplicationAdapter {
         if(levels.isPlayerSwitchingLevel()){
 
             //Alten BOX2D Körper und InputProcessor des aktuellen Levels entsorgen
-            levels.getCurrentWorldMap().getWorld().destroyBody(boxPlayer.body);
+            levels.getCurrentWorldMap().getWorld().destroyBody(boxPlayer.playerBody);
             multiplexer.removeProcessor(levels.getCurrentlevelInputLogic());
 
             //TODO Methode zum Disposen des aktuellen Levels, ohne dabei den ArrayList Eintrag zu löschen

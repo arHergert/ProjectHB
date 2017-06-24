@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.game.box2d.mapobjects.MapObjects;
+import com.game.box2d.mapobjects.Rock;
 import com.game.leveldesign.WorldMap;
 import com.game.Main;
 
@@ -17,15 +19,16 @@ public class Player extends Sprite {
 
     /** Konstante Pixel per Meter. Nötig, da Box2D in Meter statt Pixel rechnet. Wird fürs Playermovement benötigt */
     public static float PLAYER_SPEED = 5.3f;
-    public  static  float PPM = 16;
+    public static  float PPM = 16;
     public static boolean isCarryingObject = false;
 
-    public static float playerPositionX;
-    public static float playerPositionY;
+    /** Inventarslot für den Spieler. Platz für 1 Stein */
+    public static Rock carryingStone;
+
 
     /** Referenz auf die aktuelle Welt, in der sich der Spieler befindet **/
     private World world;
-    public Body body;
+    public static Body playerBody;
     private Texture boxImg;
 
     /**d
@@ -90,7 +93,7 @@ public class Player extends Sprite {
         def.fixedRotation = true;
 
         //Körper in der Welt erstellen mit den zuvor definierten Eigenschaften
-        body = world.createBody(def);
+        playerBody = world.createBody(def);
 
         //Körperform definieren (Rechteck) und dem Körper überreichen
         FixtureDef fixtureDef = new FixtureDef();
@@ -101,14 +104,14 @@ public class Player extends Sprite {
         fixtureDef.shape = pShape;
 
         //Namen für das Kollisionsobjekt festsetzen. Wird zur Kollisionsabfrage benötigt.
-        body.createFixture(pShape,1.0f).setUserData("Player");
+        playerBody.createFixture(pShape,1.0f).setUserData("Player");
 
         /** Fußhitbox erstellen für Druckplatten etc. */
         PolygonShape feet = new PolygonShape();
         feet.setAsBox( (32/2) - 6f, 0.5f,new Vector2(boxImg.getWidth()/64, boxImg.getHeight() - 63.5f), 0f);
         fixtureDef.shape = feet;
 
-        body.createFixture(feet,1.0f).setUserData("Player_feet");
+        playerBody.createFixture(feet,1.0f).setUserData("Player_feet");
 
         //Nicht mehr zugreifbares disposen
         pShape.dispose();
@@ -130,18 +133,13 @@ public class Player extends Sprite {
         return boxImg.getWidth();
     }
 
-
     /**
      * Zeichnet den Spieler mit seiner Grafikdatei an seiner Position
      * @param batch Benötigtes SpriteBatch aus der {@link Main}
      */
     public void draw(Batch batch){
-        batch.draw(boxImg, body.getPosition().x -16 , body.getPosition().y - 32, 32,64);
+        batch.draw(boxImg, playerBody.getPosition().x -16 , playerBody.getPosition().y - 32, 32,64);
 
-        if(isCarryingObject){
-            playerPositionX = body.getPosition().x;
-            playerPositionY = body.getPosition().y;
-        }
     }
 
 }//end class Player
