@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -19,6 +20,7 @@ public class Main extends ApplicationAdapter {
 
     //IV
     /** Initialisierung der benötigten Spielobjekte **/
+    public static TextureAtlas spritesheet;
     private SpriteBatch batch;
     private MapCamera camera;
     private TiledMapRenderer tiledMapRenderer;
@@ -38,6 +40,8 @@ public class Main extends ApplicationAdapter {
      */
     public void create () {
 
+        spritesheet = new TextureAtlas("spritesheet/tryandcatchpack.atlas");
+
         //Initialisierung des Spritebatches. Damit können Grafiken gezeichnet werden.
         batch = new SpriteBatch();
 
@@ -52,7 +56,7 @@ public class Main extends ApplicationAdapter {
 
         //Neuer Renderer, der die Kollisionsboxen im Spiel erkenntlich macht
         debugRenderer = new Box2DDebugRenderer();
-        boxPlayer = new Player(levels.getCurrentWorldMap(), "caveman.png", "spawnStart");
+        boxPlayer = new Player(levels.getCurrentWorldMap(), "spawnStart");
 
         //Definieren des Spielerinputs.
         multiplexer = new InputMultiplexer(); //Enthält alle InputProcessor des laufenden Spiels
@@ -96,7 +100,7 @@ public class Main extends ApplicationAdapter {
             tiledMapRenderer = new OrthogonalTiledMapRenderer(levels.getCurrentWorldMap().getMap());
             camera = new MapCamera(levels.getCurrentWorldMap());
             camera.update();
-            boxPlayer = new Player(levels.getCurrentWorldMap(), "caveman.png", levels.getSpawnpoint());
+            boxPlayer = new Player(levels.getCurrentWorldMap(), levels.getSpawnpoint());
 
 
         }
@@ -138,12 +142,12 @@ public class Main extends ApplicationAdapter {
      * Lässt angegebene Ressourcen die im Spiel erzeugt wurden wieder
      * frei und leert den Speicher.
      *
-     * UNBEDINGT ALLES, was die {@link Main#dispose()} Methode ausführen kann, hier rein tun
+     * UNBEDINGT ALLES, was die .dispose() Methode ausführen kann, hier rein tun
      */
 	public void dispose () {
         //TODO Methode zum Disposen aller Level
         debugRenderer.dispose();
-        boxPlayer.getImg().dispose();
+        spritesheet.dispose();
 
 	}
 

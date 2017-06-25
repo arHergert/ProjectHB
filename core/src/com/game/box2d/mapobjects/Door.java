@@ -1,5 +1,6 @@
 package com.game.box2d.mapobjects;
 
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.game.leveldesign.WorldMap;
@@ -8,7 +9,8 @@ import com.game.leveldesign.WorldMap;
  * Eine Tür kann geschlossen sein oder offen.
  */
 public class Door extends MapObjects {
-	
+
+    TextureAtlas atlas;
 	/** Speichert den Wert, ob die Tür geöffnet oder geschlossen ist */
 	private boolean isOpen;
 	
