@@ -1,15 +1,15 @@
 package com.game.box2d;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.game.box2d.mapobjects.MapObjects;
+import com.game.Main;
 import com.game.box2d.mapobjects.Rock;
 import com.game.leveldesign.WorldMap;
-import com.game.Main;
+
+import static com.game.Main.spritesheet;
 
 /**
  * Klasse zum Erstellen eines Spielcharakters. Pro Welt
@@ -29,7 +29,7 @@ public class Player extends Sprite {
     /** Referenz auf die aktuelle Welt, in der sich der Spieler befindet **/
     private World world;
     public static Body playerBody;
-    private Texture boxImg;
+    private TextureRegion boxImg;
 
     /**d
      * Erstellt einen neuen Spieler. Liest die Spawnpoints des Levels aus um
@@ -40,7 +40,6 @@ public class Player extends Sprite {
      *
      * @param level Referenz auf das Level, welches die Spawnpoints angeben und die Welt enthält
      * @param level Referenz auf das Level, welches die Spawnpoints angeben und die Welt enthält
-     * @param playerImgFile Textur des Spielers
      * @param spawnpoint Folgende Möglichkeiten gibt es:<br>
      *                   spawnStart -> Startet an der Start Position<br>
      *                   spawnBottomDoor -> Startet an der unteren Tür<br>
@@ -50,9 +49,9 @@ public class Player extends Sprite {
      *                   bei 0,0. WICHTIG: Die Spawnpoints müssen in der level-tmx-File
      *                   in der Ebene "PlayerSpawnpoints" abgelegt werden!
      */
-    public Player (WorldMap level, String playerImgFile , String spawnpoint){
+    public Player (WorldMap level, String spawnpoint){
         this.world = level.getWorld();
-        boxImg = new Texture(Gdx.files.internal(playerImgFile));
+        boxImg = spritesheet.findRegion("caveman");
 
 
         float startX = 0;
@@ -108,7 +107,7 @@ public class Player extends Sprite {
 
         /** Fußhitbox erstellen für Druckplatten etc. */
         PolygonShape feet = new PolygonShape();
-        feet.setAsBox( (32/2) - 6f, 0.5f,new Vector2(boxImg.getWidth()/64, boxImg.getHeight() - 63.5f), 0f);
+        feet.setAsBox( (32/2) - 6f, 0.5f,new Vector2(boxImg.getRegionWidth()/64, boxImg.getRegionHeight() - 63.5f), 0f);
         fixtureDef.shape = feet;
         fixtureDef.isSensor = true;
         Fixture fixture = playerBody.createFixture(fixtureDef);
@@ -124,16 +123,16 @@ public class Player extends Sprite {
     }
 
 
-    public Texture getImg(){
+    public TextureRegion getImg(){
         return boxImg;
     }
 
     public int getSpriteHeight(){
-       return boxImg.getHeight();
+       return boxImg.getRegionHeight();
     }
 
     public int getSpriteWidth(){
-        return boxImg.getWidth();
+        return boxImg.getRegionWidth();
     }
 
     /**

@@ -106,9 +106,16 @@ public class PlayerMovementInputProcessor extends InputAdapter{
         }
 
         if(keycode == Input.Keys.SHIFT_LEFT){
-          moveSpeed = 2.5f;
-          PLAYER_SPEED = 12f;
-          PPM = 64;
+
+            //Spieler darf nicht rennen, wenn er etwas trägt
+            if(!Player.isCarryingObject){
+                moveSpeed = 2.5f;
+                PLAYER_SPEED = 12f;
+                PPM = 64;
+            }else{
+                System.err.println("Rennen waehrend des Tragens nicht moeglich!");
+            }
+
         }
         return false;
     }

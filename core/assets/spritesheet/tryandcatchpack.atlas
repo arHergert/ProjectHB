@@ -1,0 +1,76 @@
+
+tryandcatchpack.png
+size: 1024,64
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+animatedwall
+  rotate: false
+  xy: 2, 2
+  size: 576, 32
+  orig: 576, 32
+  offset: 0, 0
+  index: -1
+caveman
+  rotate: false
+  xy: 932, 2
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+pressureplate_default
+  rotate: false
+  xy: 830, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+pressureplate_false
+  rotate: false
+  xy: 898, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+pressureplate_true
+  rotate: false
+  xy: 864, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+rock_rectangle_String
+  rotate: false
+  xy: 780, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+rock_rectangle_boolean
+  rotate: false
+  xy: 630, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+rock_rectangle_char
+  rotate: false
+  xy: 730, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+rock_rectangle_float
+  rotate: false
+  xy: 580, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+rock_rectangle_int
+  rotate: false
+  xy: 680, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
