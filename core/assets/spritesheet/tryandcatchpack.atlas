@@ -4,72 +4,142 @@ size: 1024,64
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-animatedwall
-  rotate: false
-  xy: 2, 2
-  size: 576, 32
-  orig: 576, 32
-  offset: 0, 0
-  index: -1
 caveman
   rotate: false
-  xy: 932, 2
+  xy: 948, 2
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: -1
+door
+  rotate: false
+  xy: 68, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 2
+door
+  rotate: false
+  xy: 134, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 3
+door
+  rotate: false
+  xy: 200, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 5
+door
+  rotate: false
+  xy: 266, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 6
+door
+  rotate: false
+  xy: 332, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 7
+door
+  rotate: false
+  xy: 398, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 8
+door
+  rotate: false
+  xy: 464, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 9
+dooropen
+  rotate: false
+  xy: 464, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+door
+  rotate: false
+  xy: 530, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 4
+doorclosed
+  rotate: false
+  xy: 2, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+door
+  rotate: false
+  xy: 2, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 1
 pressureplate_default
   rotate: false
-  xy: 830, 2
+  xy: 880, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 pressureplate_false
   rotate: false
-  xy: 898, 2
+  xy: 846, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 pressureplate_true
   rotate: false
-  xy: 864, 2
+  xy: 914, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 rock_rectangle_String
   rotate: false
-  xy: 780, 2
+  xy: 796, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_boolean
   rotate: false
-  xy: 630, 2
+  xy: 646, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_char
   rotate: false
-  xy: 730, 2
+  xy: 746, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_float
   rotate: false
-  xy: 580, 2
+  xy: 596, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_int
   rotate: false
-  xy: 680, 2
+  xy: 696, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0

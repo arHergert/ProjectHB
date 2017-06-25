@@ -13,7 +13,7 @@ import static com.game.box2d.Player.playerBody;
 public class PlayerMovementInputProcessor extends InputAdapter{
 
     //IV
-    boolean camMoveLeft, camMoveRight, camMoveUp, camMoveDown;
+    private boolean camMoveLeft, camMoveRight, camMoveUp, camMoveDown;
     private float moveSpeed = 1f;
     public static int horizSpeed;
     public static int vertSpeed;
