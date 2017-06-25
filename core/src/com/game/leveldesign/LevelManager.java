@@ -41,6 +41,7 @@ public class LevelManager {
         levelList.add(1, new Level_1());
         levelList.add(2, new Level_2());
         levelList.add(3, new Level_3());
+        levelList.add(4, new Level_4());
 
 
         //Aktuelles Level bestimmen
