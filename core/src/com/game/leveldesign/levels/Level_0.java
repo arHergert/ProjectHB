@@ -19,7 +19,7 @@ public class Level_0 extends Level{
      *
      */
     public Level_0() {
-        super("tilemapCave2.tmx");
+        super("level0_map.tmx");
     }
 
     @Override

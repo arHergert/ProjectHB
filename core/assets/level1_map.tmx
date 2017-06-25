@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="18">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="19">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <layer name="Grundebene" width="10" height="10">
   <data encoding="base64" compression="zlib">
@@ -22,17 +22,8 @@
   </data>
  </layer>
  <objectgroup name="StaticCollisions">
-  <object id="14" x="0" y="0">
-   <polyline points="0,0 320,0 320,288 192,288 192,320"/>
-  </object>
-  <object id="15" x="128" y="320">
-   <polyline points="0,0 0,-32 -128,-32 -128,-320"/>
-  </object>
-  <object id="16" x="128.333" y="287">
-   <polyline points="0,0 -0.333333,-31"/>
-  </object>
-  <object id="17" x="191.667" y="288">
-   <polyline points="0,0 0.333333,-32"/>
+  <object id="18" x="0" y="0">
+   <polyline points="0,0 320,0 320,256 192,256 192,320 128,320 128,256 0,256 0,0"/>
   </object>
  </objectgroup>
  <objectgroup name="Sensor">
