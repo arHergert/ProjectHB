@@ -57,7 +57,7 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         if(camMoveUp){
 
-            if (playerBody.getPosition().y < levelmap.getMapTop() - boxPlayer.getSpriteHeight()/2){
+            if (playerBody.getPosition().y < levelmap.getMapTop() - boxPlayer.getSpriteHeight()){
                 vertSpeed += moveSpeed;
             }
 

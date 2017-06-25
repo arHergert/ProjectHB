@@ -81,6 +81,7 @@ public class Rock extends MapObjects {
 	public void pickUp() {
 
         System.out.println("Stein hoch -> " + fixture.getUserData());
+
 		isPickedUp = true;
         Player.isCarryingObject = true;
 
@@ -90,9 +91,16 @@ public class Rock extends MapObjects {
 	 * Setzt einen Stein wieder ab.
 	 */
 	public void putDown() {
-        System.out.println("Stein runter -> " + fixture.getUserData());
-        Player.isCarryingObject = false;
-        isPickedUp = false;
+
+        if (positionX + (currentTexture.getWidth()/2)  < level.getMapRight() ){
+            System.out.println("Stein runter -> " + fixture.getUserData());
+            Player.isCarryingObject = false;
+            isPickedUp = false;
+
+        }else{
+            System.err.println("Stein kann an dieser Stelle nicht abgelegt werden!");
+        }
+
 
 
 

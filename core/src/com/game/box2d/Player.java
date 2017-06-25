@@ -110,8 +110,11 @@ public class Player extends Sprite {
         PolygonShape feet = new PolygonShape();
         feet.setAsBox( (32/2) - 6f, 0.5f,new Vector2(boxImg.getWidth()/64, boxImg.getHeight() - 63.5f), 0f);
         fixtureDef.shape = feet;
+        fixtureDef.isSensor = true;
+        Fixture fixture = playerBody.createFixture(fixtureDef);
+        fixture.setUserData("Player_feet");
 
-        playerBody.createFixture(feet,1.0f).setUserData("Player_feet");
+        //playerBody.createFixture(feet,1.0f).setUserData("Player_feet");
 
         //Nicht mehr zugreifbares disposen
         pShape.dispose();

@@ -41,11 +41,11 @@ public class Level_1 extends Level {
             @Override
             public void beginContact(Contact contact) {
 
-                Fixture fixA = contact.getFixtureA();
-                Fixture fixB = contact.getFixtureB();
+                fixA = contact.getFixtureA();
+                fixB = contact.getFixtureB();
 
                 //Überprüfen ob Player nicht mit nicht-interagierbaren Objekten wie Wände o.ä. kollidiert
-                if( fixA.getUserData() != null && fixB.getUserData() != null){
+                if( fixturesNotNull()){
 
                     //Kollisionsabfragen für die Türen
                     checkDoorCollisions(fixA,fixB);
@@ -96,12 +96,16 @@ public class Level_1 extends Level {
             @Override
             public void endContact(Contact contact) {
             	
-            	Fixture fixA = contact.getFixtureA();
-                Fixture fixB = contact.getFixtureB();
+            	fixA = contact.getFixtureA();
+                fixB = contact.getFixtureB();
             	
-                if( fixA.getUserData() != null && fixB.getUserData() != null) {
-                	
+                if( fixturesNotNull() ) {
+
+                    /**
+                     * checkDoorCollisions muss nicht mehr in endContact abgefragt werden, da der Player sofort wegspawnt, wenn
+                     * Kontakt aufgenommen wurde und das Ende der Kollision egal ist
                 	checkDoorCollisions(fixA,fixB);
+                     */
                 	
                     // wenn irgendwas mit dem Spieler kollidiert
                     if(fixA.getUserData().equals("Player") || fixB.getUserData().equals("Player")) {
@@ -237,5 +241,10 @@ public class Level_1 extends Level {
     	stringPuzzle.draw(batch);
     	booleanPuzzle.draw(batch);
     	floatPuzzle.draw(batch);
+    }
+
+    @Override
+    public void drawObjectsOverPlayer(Batch batch) {
+
     }
 }//end class Level_1

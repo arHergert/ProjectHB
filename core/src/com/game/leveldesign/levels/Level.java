@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
+import com.game.box2d.mapobjects.Door;
 import com.game.box2d.mapobjects.Sensor;
 import com.game.leveldesign.WorldMap;
 
@@ -16,10 +17,16 @@ public abstract class Level {
     /** Map und World des aktuellen Levels */
     protected WorldMap worldmap;
 
-    /** Sensoren für die Türobjekte. Jedes Level hat eine obere und Untere Tür (außer 1-2 Außnahmen)*/
+    /** Fixtures für die Kollisionsabfragen in den Subklassen-Leveln */
+    protected Fixture fixA;
+    protected Fixture fixB;
+
+    /** Sensoren für die Türobjekte. Jedes Level hat einen obereren und unteren Türsensor */
     private Sensor doorUp;
     private Sensor doorBottom;
 
+    /** Türobjekt, die einen dürchlässt oder stoppt. Jedes Level hat mindestens eine Tür */
+    protected Door door;
     /**
      *
      */
@@ -30,6 +37,13 @@ public abstract class Level {
         //Türsensoren für das aktuelle Level initialisieren
         doorUp = new Sensor(worldmap, "doorUp" );
         doorBottom = new Sensor(worldmap, "doorBottom");
+
+        //Tür für das Level initialisieren. Wenn keine Tür im Level verfügbar ist, wird eine Warnung ausgegeben
+        try{
+            door = new Door(worldmap,"Door");
+        }catch(Exception e){
+            System.err.println( mapFile +" hat keine Tuer! Bitte Tuer hinzufuegen");
+        }
 
         setLevelCollisionListener(levelContact());
 
@@ -119,22 +133,13 @@ public abstract class Level {
      */
     protected void checkDoorCollisions(Fixture fixA, Fixture fixB){
 
-        if(fixA.getUserData().equals("Player") || fixB.getUserData().equals("Player")) {
-            if (fixA.getUserData().equals("doorUp") || fixB.getUserData().equals("doorUp")){
-                Fixture doorUpFixture = fixA.getUserData() == "doorUp" ? fixA : fixB;
-                Fixture player = doorUpFixture == fixA ? fixB : fixA;
-
+        if(fixtureIs("Player")) {
+            if (fixtureIs("doorUp")){
                 doorUp.activate();
-
-
             }
 
-            if (fixA.getUserData().equals("doorBottom") || fixB.getUserData().equals("doorBottom")){
-                Fixture doorBottomFixture = fixA.getUserData() == "doorBottom" ? fixA : fixB;
-                Fixture player = doorBottomFixture == fixA ? fixB : fixA;
-
+            if (fixtureIs("doorBottom")){
                 doorBottom.activate();
-
             }
 
         }
@@ -142,7 +147,27 @@ public abstract class Level {
     }
 
 
+    /**
+     * Überprüft ob bei zwei Kollisionen alle Kollisionsobjekte eine
+     * Userdata (Namen) haben. Wichtig um benamte Objekte
+     * zu überprüfen.
+     * @return
+     */
+    protected boolean fixturesNotNull(){
+        return (fixA.getUserData() != null && fixB.getUserData() != null);
+    }
 
+    /**
+     * Überprüft ob eine der zwei kollidierenden FIxtures das jeweilige
+     * Objekt ist.
+     * @param collisionName Name des Objektes mit dem geprüft werden soll ob es mit etwas
+     *                      anderen Kollidiert
+     * @return
+     */
+    protected boolean fixtureIs(String collisionName){
+        return (fixA.getUserData().equals(collisionName) || fixB.getUserData().equals(collisionName));
+
+    }
     public Sensor getDoorUp(){
         return this.doorUp;
     }
@@ -160,4 +185,14 @@ public abstract class Level {
      * @param batch Die SpriteBatch batch aus der main
      */
     public abstract void drawObjects(Batch batch);
+
+    /**
+     * Zeichnet wie {@link Level#drawObjects(Batch)}
+     * die Levelgrafiken. Sollte benutzt werden, wenn
+     * Grafiken über den Spieler, statt hinter ihm
+     * gezeichnet werden sollen (z.B. Türen)
+     * @param batch Die SpriteBatch batch aus der main
+     */
+    public abstract void drawObjectsOverPlayer(Batch batch);
+
 }//end class Level

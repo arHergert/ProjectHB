@@ -38,6 +38,7 @@ public class Door extends MapObjects {
 	 */
 	public void open() {
 		isOpen = true;
+        body.setActive(false);
 	}
 	
 	/**
@@ -45,6 +46,7 @@ public class Door extends MapObjects {
 	 */
 	public void close() {
 		isOpen = false;
+        body.setActive(true);
 	}
 
 }

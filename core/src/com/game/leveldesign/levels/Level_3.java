@@ -72,11 +72,11 @@ public class Level_3 extends Level {
             @Override
             public void beginContact(Contact contact) {
 
-                Fixture fixA = contact.getFixtureA();
-                Fixture fixB = contact.getFixtureB();
+                fixA = contact.getFixtureA();
+                fixB = contact.getFixtureB();
 
                 //Überprüfen ob Player nicht mit nicht-interagierbaren Objekten wie Wände o.ä. kollidiert
-                if( fixA.getUserData() != null && fixB.getUserData() != null){
+                if( fixturesNotNull()){
 
                     //Kollisionsabfragen für die Türen
                     checkDoorCollisions(fixA,fixB);
@@ -211,6 +211,11 @@ public class Level_3 extends Level {
         }
 
         font.draw(batch, puzzleText, worldmap.getMapRight()- 230, worldmap.getMapHeight() - 40);
+    }
+
+    @Override
+    public void drawObjectsOverPlayer(Batch batch) {
+
     }
 
 }

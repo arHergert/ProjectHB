@@ -118,11 +118,12 @@ public class Main extends ApplicationAdapter {
         //Aktualisieren des DebugRenderers
         debugRenderer.render(levels.getCurrentWorldMap().getWorld(), camera.combined);
 
-        //Das batch zeichnet/aktualisiert die Positionen der Graphiken
+        //Das batch zeichnet/aktualisiert die Positionen der Grafiken
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         levels.getCurrentlevel().drawObjects(batch);
         boxPlayer.draw(batch); //Position der Playergrafik aktualisieren
+        levels.getCurrentlevel().drawObjectsOverPlayer(batch);
         batch.end();
 
         //Restliche Ebenen, nach der Grundebene, rendern

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="16" height="8" tilewidth="32" tileheight="32" nextobjectid="17">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="16" height="8" tilewidth="32" tileheight="32" nextobjectid="26">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <layer name="Grundebene" width="16" height="8">
   <data encoding="base64" compression="zlib">
-   eJyNzVsOgyAQhWG2oiZW0apbaL2+Wq3t/lfi/wDJxAAyyZcwB8J5KaXe6DFgFPuMxZHbfcKKDzbs+Ir9h78jt/uBFKVRiLPMfHmGHImhxflOhQYPx90z8o/W9Mf01o6s8/SH6Et/aOy70Jy4GhUM
+   eJydzckNhTAMRdG0Akh8xg8tMLNlpv9KuItE8iJAhKUj2S+DK6VUjQYtOjEPGC25mXtMmLFgxSbmA6clN/MOH7EWiV5md3mAEJ6WiP5Nij9+lrPc8Y9C73fZm1myUj2Xufe1XN5f/acTIQ==
   </data>
  </layer>
  <layer name="Details" width="16" height="8">
@@ -18,19 +18,29 @@
  </layer>
  <layer name="Wand" width="16" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFQxlwAzEfFIPYXFA2M5IaJizq+KBqARZoAJo=
+   eJxjYBgFAwm4gZgPikFsLiibGUkNExZ1fFC1jDgwK5J+NjzqAD+wALE=
   </data>
  </layer>
  <objectgroup name="StaticCollisions">
-  <object id="16" x="288.5" y="256">
-   <polyline points="0,0 223.5,0 223.5,-256 -288.5,-256 -288.5,0 -64.5,0"/>
+  <object id="23" x="224" y="192">
+   <polyline points="0,0 0,32 -224,32 -224,-192 288,-192 288,32 64,32 64,0"/>
   </object>
+  <object id="24" x="224" y="256">
+   <polyline points="0,0 0,-32"/>
+  </object>
+  <object id="25" x="287.667" y="255">
+   <polyline points="0,0 0.333333,-31"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="InteractiveObjects">
+  <object id="17" name="Lever1" x="195.333" y="177" width="21.3333" height="14"/>
+  <object id="21" name="Door" x="224" y="192" width="64" height="32"/>
  </objectgroup>
  <objectgroup name="Sensor">
   <object id="4" name="doorBottom" x="235.167" y="245.333" width="41.3334" height="2.66667"/>
  </objectgroup>
  <objectgroup name="PlayerSpawnpoints">
   <object id="2" name="spawnStart" x="254.459" y="126.625" width="2.75" height="3.5"/>
-  <object id="3" name="spawnBottomDoor" x="253.709" y="189.292" width="4" height="2.75"/>
+  <object id="3" name="spawnBottomDoor" x="254.209" y="181.292" width="4" height="2.75"/>
  </objectgroup>
 </map>

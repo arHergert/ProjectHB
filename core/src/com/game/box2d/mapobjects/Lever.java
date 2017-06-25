@@ -44,7 +44,7 @@ public class Lever extends MapObjects {
 	/**
 	* @return Zustand des Hebels
 	*/
-	protected boolean IsActivated() {
+	public boolean isActivated() {
 		return isActivated;
 	}
 
