@@ -146,4 +146,17 @@ public class LevelManager {
         return this.currentlevelInputLogic;
     }
 
+    /**
+     * Entfernt alle Ressourcen der Levels mit deren Box2d world und TiledMap maps
+     * aus dem RAM
+     */
+    public void disposeAllLevels(){
+
+        for (Level level : levelList) {
+            level.getWorldMap().getMap().dispose();
+            level.getWorldMap().getWorld().dispose();
+        }
+
+    }
+
 }//end class LevelManager

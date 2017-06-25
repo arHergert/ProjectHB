@@ -20,11 +20,12 @@ public class Player extends Sprite {
     /** Konstante Pixel per Meter. Nötig, da Box2D in Meter statt Pixel rechnet. Wird fürs Playermovement benötigt */
     public static float PLAYER_SPEED = 5.3f;
     public static  float PPM = 16;
-    public static boolean isCarryingObject = false;
 
     /** Inventarslot für den Spieler. Platz für 1 Stein */
     public static Rock carryingStone;
 
+    /** Abfrage ob der Spieler aktuell etwas in seinem Inventarslot besitzt*/
+    public static boolean isCarryingObject = false;
 
     /** Referenz auf die aktuelle Welt, in der sich der Spieler befindet **/
     private World world;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="70">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="71">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="14" height="12">
@@ -27,8 +27,8 @@
   <object id="2" name="spawnUpperDoor" x="158.341" y="94.644" width="4.18182" height="4"/>
  </objectgroup>
  <objectgroup name="StaticCollisions">
-  <object id="69" x="0" y="0">
-   <polyline points="0,0 448,0 448,320 224,320 224,384 160,384 160,320 0,320 0,0"/>
+  <object id="70" x="0" y="32">
+   <polyline points="0,0 128,0 128,-32 192,-32 192,0 448,0 448,288 224,288 224,352 160,352 160,288 0,288 0,0"/>
   </object>
  </objectgroup>
  <objectgroup name="Sensor">

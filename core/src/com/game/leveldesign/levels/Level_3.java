@@ -20,8 +20,6 @@ public class Level_3 extends Level {
     //IV
     private Plate[][] plates;
 
-    private FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("DisposableDroid.ttf"));
-    private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
     private BitmapFont font;
 
     private String puzzleText = "for (int j=0; j <= 1; j++){\n" +
@@ -49,9 +47,11 @@ public class Level_3 extends Level {
         plates[3][1] = new Plate(worldmap, true, "Plate31");
         plates[3][2] = new Plate(worldmap, true, "Plate32");
 
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         fontParameter.color = Color.valueOf("43435d");
-        fontParameter.size = 11;
-        fontGenerator.scaleForPixelHeight(11);
+        fontParameter.size = 9;
+        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("CodeNewRoman.otf"));
+        fontGenerator.scaleForPixelHeight(9);
         fontParameter.minFilter = Texture.TextureFilter.Nearest;
         fontParameter.magFilter = Texture.TextureFilter.MipMapLinearNearest;
         font = fontGenerator.generateFont(fontParameter);
