@@ -24,7 +24,8 @@ public abstract class MapObjects {
     protected FixtureDef fixtureDef;
     protected BodyDef bodyDef;
     protected Fixture fixture;
-    protected float positionX = 0, positionY = 0;
+    protected float positionX = 0;
+	protected float positionY = 0;
 
     /** Variable zur Bestimmung ob das Objekt mit dem Player kollidiert */
     private boolean collidesWithPlayer = false;
@@ -153,6 +154,14 @@ public abstract class MapObjects {
     public void collideOff(){
         System.out.println("OFF: " + fixture.getUserData());
         this.collidesWithPlayer = false;
+    }
+    
+    public float getX() {
+    	return positionX;
+    }
+    
+    public float getY() {
+    	return positionY;
     }
 
 

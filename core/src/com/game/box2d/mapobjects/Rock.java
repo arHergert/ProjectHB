@@ -26,6 +26,7 @@ public class Rock extends MapObjects {
 	/** Gibt zurück, ob ein Stein gerade hochgehoben ist. Standardweise false */
 	private boolean isPickedUp = false;
 	private boolean isRectangle;
+	float x,y;
     //Shape shape;
 
     /** Region der aktuellen Steintextur aus der Spritesheet*/
@@ -86,7 +87,8 @@ public class Rock extends MapObjects {
 	public void pickUp() {
 
         System.out.println("Stein hoch -> " + fixture.getUserData());
-
+        this.x = -1;
+        this.y = -1;
 		isPickedUp = true;
         Player.isCarryingObject = true;
 
@@ -109,6 +111,19 @@ public class Rock extends MapObjects {
 
 
 
+	}
+	
+	public void putDown(float x, float y) {
+		if (positionX + (currentTexture.getRegionWidth()/2)  < level.getMapRight() ){
+            System.out.println("Stein runter -> " + fixture.getUserData());
+            this.x = x;
+            this.y = y;
+            Player.isCarryingObject = false;
+            isPickedUp = false;
+
+        }else{
+            System.err.println("Stein kann an dieser Stelle nicht abgelegt werden!");
+        }
 	}
 	
 	/**
@@ -144,8 +159,16 @@ public class Rock extends MapObjects {
 
 
 
+        } else {
+        	
+        	if(x != -1 && y != -1) {
+        		batch.draw(currentTexture, x, y, 32, 22);
+        	} else {
+        		batch.draw(currentTexture, positionX, positionY, 32, 22);
+        	}
+        	
         }
 
-        batch.draw(currentTexture, positionX, positionY, 32, 22);
+        
     }
 }//end class Rock

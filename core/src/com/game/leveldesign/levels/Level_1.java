@@ -29,10 +29,10 @@ public class Level_1 extends Level {
         stringPuzzle = new Rock(worldmap, "Rock2", true, "String");
         booleanPuzzle = new Rock(worldmap, "Rock3", true,"boolean");
         floatPuzzle = new Rock(worldmap, "Rock4", true, "float");
-        intHole = new Hole(worldmap, "Hole1");
-        stringHole = new Hole(worldmap, "Hole2");
-        booleanHole = new Hole(worldmap, "Hole3");
-        floatHole = new Hole(worldmap, "Hole4");
+        intHole = new Hole(worldmap, "Hole1", "int");
+        stringHole = new Hole(worldmap, "Hole2", "String");
+        booleanHole = new Hole(worldmap, "Hole3", "boolean");
+        floatHole = new Hole(worldmap, "Hole4", "float");
     }
 
     @Override
@@ -175,12 +175,58 @@ public class Level_1 extends Level {
 
                     if(Player.isCarryingObject){
 
-                        try{
-                            carryingStone.putDown();
-                            carryingStone = null;
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
+                    	if(intHole.collidesWithPlayer()) {
+                    		
+                    		System.out.println("Ablegen in IntLoch");
+                    		try {
+								intHole.putRock(carryingStone);
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+                    		carryingStone = null;
+                    		
+                    	} else if(stringHole.collidesWithPlayer()) {
+                    		
+                    		System.out.println("Ablegen in StringLoch");
+                    		try {
+								stringHole.putRock(carryingStone);
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+                    		carryingStone = null;
+                    		
+                    	} else if(booleanHole.collidesWithPlayer()) {
+                    		
+                    		System.out.println("Ablegen in booleanLoch");
+                    		try {
+								booleanHole.putRock(carryingStone);
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+                    		carryingStone = null;
+                    		
+                    	} else if(floatHole.collidesWithPlayer()) {
+                    		
+                    		System.out.println("Ablegen in FloatLoch");
+                    		try {
+								floatHole.putRock(carryingStone);
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+                    		carryingStone = null;
+                    		
+                    	} else {
+                    		carryingStone.putDown();
+                    		carryingStone = null;
+                    	}
+                    	
+                    	
+                    	
+                        
 
                     }else{
 
@@ -200,39 +246,12 @@ public class Level_1 extends Level {
 
                     }
 
-
-                    if(stringHole.collidesWithPlayer()) {
-            			try {
-							stringHole.putRock(stringPuzzle);
-						} catch (Exception e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-            			stringPuzzle.putDown();
-            		} else if(booleanHole.collidesWithPlayer()) {
-            			try {
-							booleanHole.putRock(booleanPuzzle);
-						} catch (Exception e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-            			booleanPuzzle.putDown();
-            		} else if(floatHole.collidesWithPlayer()) {
-            			try {
-							floatHole.putRock(floatPuzzle);
-						} catch (Exception e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-            			floatPuzzle.putDown();
-            		}
-            		
-            		return true;
-            	}
-
-                return false;
+                return true;
             }
-        };
+            	
+            	return false;
+        }
+    };
     }
 
     @Override

@@ -25,7 +25,7 @@ public class Level_4 extends Level{
     public Level_4() {
         super("level4_map.tmx");
         intPuzzle = new Rock(worldmap, "Rock1", true, "int");
-        intHole = new Hole(worldmap, "Hole1");
+        intHole = new Hole(worldmap, "Hole1", "int");
     }
 
     @Override
