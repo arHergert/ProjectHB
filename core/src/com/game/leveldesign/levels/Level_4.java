@@ -9,6 +9,7 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.game.box2d.Player;
+import com.game.box2d.mapobjects.Door;
 import com.game.box2d.mapobjects.Hole;
 import com.game.box2d.mapobjects.Rock;
 
@@ -21,11 +22,15 @@ public class Level_4 extends Level{
 
     private Rock intPuzzle;
     private Hole intHole;
+    private Door door1;
+    private Door door2;
 
     public Level_4() {
         super("level4_map.tmx");
         intPuzzle = new Rock(worldmap, "Rock1", true, "int");
         intHole = new Hole(worldmap, "Hole1", "int");
+        door1 = new Door(worldmap,"Door1");
+        door2 = new Door(worldmap,"Door2");
     }
 
     @Override
@@ -178,10 +183,11 @@ public class Level_4 extends Level{
     @Override
     public void drawObjects(Batch batch) {
         intPuzzle.draw(batch);
+        door1.draw(batch);
+        door2.draw(batch);
     }
 
     @Override
     public void drawObjectsOverPlayer(Batch batch) {
-
     }
 }
