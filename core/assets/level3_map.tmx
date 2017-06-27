@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="68">
+<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="68">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="14" height="12">
   <data encoding="base64" compression="zlib">
-   eJydz00LgkAQgOE92l29p2BmiR6szn0o1K3SIP//D/EVRlhkd8kGHnZm9ovxlVIeVobV1+pQ6kDyM+544IIrbqi1et5v8MQXPV54o0Wn1fP+BxEqHJCKrUgta4wN1gvsUSBBrvUzx/kpL/74b3y3/OHeztBb+t80Qynz2d61zTreM8URJ8ueKxKZwRUDXAcXxA==
+   eJydz00LgkAQgOE91t26l2D2IXpQO/sJdassyP//Q3yFWVjEDbeBh9kZZncZTym1wnome0a9lXoj5wI33FGiQo3GqKf9Fg980eOJFzq8jXra/2CPFBlCcRShJfs4YOfgghgBIqN/+jGvz/Ef/43vJgvunWd6rv/pHRLZz/aubdfx3tLIcXWY1xHIXjoGTN8XxA==
   </data>
  </layer>
  <layer name="Details" width="14" height="12">
@@ -19,7 +19,7 @@
  </layer>
  <layer name="Wand" width="14" height="12">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo4B4wA3EQkDMBcTCQMwHxPxQMWEoZgZiHSDWBWImqBgjEZgdiM2A2ByI2aBiAF3MAYU=
+   eJxjYBgFo4B4wA3EQkDMBcTCQMwHxPxQMWEoZkZSzwQVYyQCsyPpY4OKAQA/hAC/
   </data>
  </layer>
  <objectgroup name="PlayerSpawnpoints">
