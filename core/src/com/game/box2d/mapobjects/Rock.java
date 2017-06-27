@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.CircleMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Shape;
 import com.game.box2d.Player;
@@ -116,8 +117,9 @@ public class Rock extends MapObjects {
 	public void putDown(float x, float y) {
 		if (positionX + (currentTexture.getRegionWidth()/2)  < level.getMapRight() ){
             System.out.println("Stein runter -> " + fixture.getUserData());
-            this.x = x;
-            this.y = y;
+
+
+            body.setTransform(new Vector2(0,0), 0);
             Player.isCarryingObject = false;
             isPickedUp = false;
 
@@ -146,28 +148,21 @@ public class Rock extends MapObjects {
     public void draw(Batch batch) {
 
 
-        if(isPickedUp()){
+        if(isPickedUp()) {
 
+            if (!playerBody.getLinearVelocity().isZero()) {
 
-            if(!playerBody.getLinearVelocity().isZero()){
-                positionX += horizSpeed * (PLAYER_SPEED/3.75);
-                positionY += vertSpeed * (PLAYER_SPEED/3.75);
-                body.setLinearVelocity(horizSpeed * (PPM * PLAYER_SPEED)   , vertSpeed * (PPM * PLAYER_SPEED) );
-            }else{
-                body.setLinearVelocity(0 , 0 );
+                //positionX und positionY ist immer die positon der Textur
+                positionX += horizSpeed * (PLAYER_SPEED / 3.75);
+                positionY += vertSpeed * (PLAYER_SPEED / 3.75);
+                body.setLinearVelocity(horizSpeed * (PPM * PLAYER_SPEED), vertSpeed * (PPM * PLAYER_SPEED));
+            } else {
+                body.setLinearVelocity(0, 0);
             }
-
-
-
-        } else {
-        	
-        	if(x != -1 && y != -1) {
-        		batch.draw(currentTexture, x, y, 32, 22);
-        	} else {
-        		batch.draw(currentTexture, positionX, positionY, 32, 22);
-        	}
-        	
         }
+
+        batch.draw(currentTexture, positionX, positionY, 32, 22);
+
 
         
     }

@@ -8,6 +8,7 @@ import com.game.leveldesign.WorldMap;
 
 public class Hole extends MapObjects {
 
+    //@TODO zwei Methoden aktiviert und deaktiviert.
 	private Rock contents;
 	private String datatype;
 	
@@ -41,7 +42,7 @@ public class Hole extends MapObjects {
 	
 	/**
 	 * Nimmt einen Puzzlestein aus einem Loch
-	 * und gibt das gelöschte Objekt wieder zurück.
+	 * und gibt das gelï¿½schte Objekt wieder zurï¿½ck.
 	 * @return der Stein, der aus dem Loch genommen wurde.
 	 */
 	public Rock removeRock() {
