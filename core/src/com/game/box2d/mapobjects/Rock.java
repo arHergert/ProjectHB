@@ -7,8 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.CircleMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.Shape;
+import com.badlogic.gdx.physics.box2d.*;
 import com.game.box2d.Player;
 import com.game.leveldesign.WorldMap;
 
@@ -55,13 +54,19 @@ public class Rock extends MapObjects {
             shape = getCircle((CircleMapObject)map.getMap().getLayers().get("InteractiveObjects").getObjects().get(mapSensorObject));
         }
 
+        //Hauptbody erstellen für das Kollidieren und zum Bewegen
         fixtureDef.shape = shape;
         fixture = body.createFixture(fixtureDef);
         fixture.setUserData(mapSensorObject);
         shape.dispose();
         body.setType(BodyDef.BodyType.KinematicBody);
-        this.datatype = datatype;
 
+
+        //Sensorbody erstellen zur Interaktion mit statischen Objekten
+
+
+
+        this.datatype = datatype;
         this.isRectangle = isRectangle;
 
         /* Texturen für jeden einzelnen Datentypen */
@@ -115,21 +120,7 @@ public class Rock extends MapObjects {
 
 
 	}
-	
-	public void putDown(float x, float y) {
-		if (positionX + (currentTexture.getRegionWidth()/2)  < level.getMapRight() ){
-            System.out.println("Stein runter -> " + fixture.getUserData());
 
-
-            body.setTransform(new Vector2(0,0), 0);
-            Player.isCarryingObject = false;
-            isPickedUp = false;
-
-        }else{
-            System.err.println("Stein kann an dieser Stelle nicht abgelegt werden!");
-        }
-	}
-	
 	/**
 	 * Gibt zurück, ob ein Stein gerade hochgehoben wird.
 	 * @return Ist der Stein hochgehoben?

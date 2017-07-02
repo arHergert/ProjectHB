@@ -1,17 +1,47 @@
 package com.game.box2d.mapobjects;
 
+import static com.game.Main.spritesheet;
 import static com.game.box2d.Player.carryingStone;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.game.leveldesign.WorldMap;
 
 public class Hole extends MapObjects {
 
-    //@TODO zwei Methoden aktiviert und deaktiviert.
+    /**
+     *  @TODO
+     *
+     *
+     *  NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!
+     *  NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!
+     *  NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!
+     *  NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!
+     *  NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!
+     *
+     *
+     *  Je nach status Texturen ändern!!!!!!!!!
+     *  Wenn Hole aktiviert wurde und stein richtig ist-> currentTexture = status_true;
+     *  Wenn Hole aktiviert wurde und stein falsch ist -> currentTexture = status_false;
+     *  Wenn Hole geleert wird/ leer ist -> currentTexture = status_default;
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     */
+
 	private Rock contents;
 	private String datatype;
 	private boolean collidesWithRock;
+
+    //Verschiedene Texturen für verschiedene Zustände
+    private TextureRegion status_neutral, status_true, status_false, currentTexture;
 	
 	public Hole(WorldMap map, String mapSensorObject, String datatype) {
 		super(map);
@@ -19,10 +49,16 @@ public class Hole extends MapObjects {
         fixtureDef.shape = shape;
         fixture = body.createFixture(fixtureDef);
         shape.dispose();
+        body.setType(BodyDef.BodyType.DynamicBody);
         fixture.setUserData(mapSensorObject);
         fixture.setSensor(true);
         this.datatype = datatype;
         collidesWithRock = false;
+
+        status_neutral = spritesheet.findRegion("hole_default");
+        status_true = spritesheet.findRegion("hole_true");
+        status_false = spritesheet.findRegion("hole_false");
+        currentTexture = status_neutral;
 	}
 	
 	public boolean holdsRock() {
@@ -33,7 +69,7 @@ public class Hole extends MapObjects {
 		if(contents == null) {
 			if(rock.isRectangle()) {
 				contents = rock;
-				rock.putDown(this.getX(), this.getY());
+				rock.putDown();
 			} else {
 				throw new Exception("This rock doesn't fit in that kind of hole.");
 			}
@@ -80,5 +116,13 @@ public class Hole extends MapObjects {
 	public Rock getRock() {
 		return contents;
 	}
-	
-}
+
+
+    @Override
+    public void draw(Batch batch) {
+
+        batch.draw(currentTexture,positionX,positionY,32,22);
+    }
+
+
+}//end class Hole
