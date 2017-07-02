@@ -256,10 +256,18 @@ public class Level_1 extends Level {
 
     @Override
     public void drawObjects(Batch batch) {
+
+        booleanHole.draw(batch);
+        floatHole.draw(batch);
+        intHole.draw(batch);
+        stringHole.draw(batch);
+
     	intPuzzle.draw(batch);
     	stringPuzzle.draw(batch);
     	booleanPuzzle.draw(batch);
     	floatPuzzle.draw(batch);
+
+
     }
 
     @Override
