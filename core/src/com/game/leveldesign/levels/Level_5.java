@@ -4,8 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
@@ -24,8 +27,19 @@ public class Level_5 extends Level {
     private Plate[][] plates2;
     private Door door1;
     private Door door2;
-    private BitmapFont font;
+    private BitmapFont font8;
+    private BitmapFont font10;
     private Lever lever1 = new Lever(worldmap, "Lever1");
+    private String puzzleText1 =
+            "if(a[0][0]) {\n" +
+            "   door.open();\n" +
+            "}\n";
+    private String puzzleText2 =
+            "for (int i = 0; i< a.length; i++){\n"+
+            "    for (int j = 0; j < a[i].length; j++ ){\n"+
+            "        if(a[i][j]) b[i][j].activate();\n"+
+            "    }\n"+
+            "}";
 
     public Level_5() {
         super("level5_map.tmx");
@@ -41,6 +55,17 @@ public class Level_5 extends Level {
         plates2[0][1] = new Plate(worldmap, true, "Plate101");
         plates2[1][0] = new Plate(worldmap, true, "Plate110");
         plates2[1][1] = new Plate(worldmap, true, "Plate111");
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParameter.color = Color.valueOf("43435d");
+        fontParameter.size = 8;
+        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("CodeNewRoman.otf"));
+        fontGenerator.scaleForPixelHeight(9);
+        fontParameter.minFilter = Texture.TextureFilter.Nearest;
+        fontParameter.magFilter = Texture.TextureFilter.MipMapLinearNearest;
+        font8 = fontGenerator.generateFont(fontParameter);
+        fontParameter.size = 10;
+        font10 = fontGenerator.generateFont(fontParameter);
+        fontGenerator.dispose();
     }
 
     @Override
@@ -69,6 +94,7 @@ public class Level_5 extends Level {
 
                         if (fixtureIs("Plate000")) {
                             plates1[0][0].load();
+                            Gdx.app.postRunnable(() -> door1.open());
 
                         } else if (fixtureIs("Plate001")) {
                             plates1[0][1].load();
@@ -132,6 +158,19 @@ public class Level_5 extends Level {
 
             public boolean keyDown(int keycode) {
 
+                if (keycode == Input.Keys.E ){
+
+                    if(lever1.collidesWithPlayer()){
+                        lever1.use();
+                        for (int i = 0; i< plates1.length; i++){
+                            for (int j = 0; j < plates1[i].length; j++ ){
+                                if(plates1[i][j].isActivated()) plates2[i][j].load();
+                            }
+                        }
+                    }
+
+                }
+
                 return false;
             }
 
@@ -147,6 +186,8 @@ public class Level_5 extends Level {
                 plates2[i][j].draw(batch);
             }
         }
+        font8.draw(batch, puzzleText1, 514, worldmap.getMapHeight() - 215);
+        font10.draw(batch, puzzleText2, 610, worldmap.getMapHeight() - 102);
     }
 
     @Override
