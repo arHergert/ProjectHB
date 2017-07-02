@@ -64,6 +64,7 @@ public class Level_3 extends Level {
                 plates[i][j].reset();
             }
         }
+        Gdx.app.postRunnable(() -> door.close());
     }
 
     @Override
@@ -120,6 +121,7 @@ public class Level_3 extends Level {
                             Fixture player = doorBottomFixture == fixA ? fixB : fixA;
                             if(plates[1][0].isActivated()) {
                                 plates[1][1].load();
+                                Gdx.app.postRunnable(() -> door.open());
                             } else {
                                 resetPlates();
                             }
@@ -215,7 +217,7 @@ public class Level_3 extends Level {
 
     @Override
     public void drawObjectsOverPlayer(Batch batch) {
-
+        door.draw(batch);
     }
 
 }

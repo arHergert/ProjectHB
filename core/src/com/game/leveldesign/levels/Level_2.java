@@ -151,6 +151,7 @@ public class Level_2 extends Level {
                             Fixture player = doorBottomFixture == fixA ? fixB : fixA;
                             if(plates[2][1].isActivated()) {
                                 plates[2][2].load();
+                                Gdx.app.postRunnable(() -> door.open());
                             } else {
                                 resetPlates();
                             }
@@ -218,7 +219,7 @@ public class Level_2 extends Level {
 
     @Override
     public void drawObjectsOverPlayer(Batch batch) {
-
+        door.draw(batch);
     }
 
 }//end class Level_1

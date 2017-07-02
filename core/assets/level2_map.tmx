@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="71">
+<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="72">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="14" height="12">
@@ -45,5 +45,6 @@
   <object id="47" name="Plate02" x="128" y="128" width="30.6646" height="30.6646"/>
   <object id="48" name="Plate01" x="128" y="192" width="30.6646" height="30.6646"/>
   <object id="49" name="Plate00" x="128" y="256" width="30.6646" height="30.6646"/>
+  <object id="71" name="Door" x="160" y="320" width="64" height="32"/>
  </objectgroup>
 </map>
