@@ -140,8 +140,6 @@ public class Level_5 extends Level {
 
     @Override
     public void drawObjects(Batch batch) {
-        door1.draw(batch);
-        door2.draw(batch);
         for (int i = 0; i < plates1.length; i++) {
             for (int j = 0; j < plates1[i].length; j++) {
 
@@ -153,6 +151,8 @@ public class Level_5 extends Level {
 
     @Override
     public void drawObjectsOverPlayer(Batch batch) {
+        door1.draw(batch);
+        door2.draw(batch);
 
     }
 }
