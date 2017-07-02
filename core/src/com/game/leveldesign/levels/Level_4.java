@@ -94,56 +94,26 @@ public class Level_4 extends Level{
                         if (fixtureIs("Plate00")) {
                             plates[0][0].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        door0.open();
-                                    }
-                                });
+                                Gdx.app.postRunnable(() -> door0.open());
                             }
-                            Gdx.app.postRunnable(new Runnable() {
-                                @Override
-                                public void run() {
-                                    door2.open();
-                                }
-                            });
+                            Gdx.app.postRunnable(() -> door2.open());
                         }else if(fixtureIs("Plate01")) {
                             plates[0][1].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        door0.open();
-                                    }
-                                });
+                                Gdx.app.postRunnable(() -> door0.open());
                             }
                         }else if(fixtureIs("Plate10")) {
                             plates[1][0].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        door0.open();
-                                    }
-                                });
+                                Gdx.app.postRunnable(() -> door0.open());
                             }
                         } else if(fixtureIs("Plate11")) {
                             plates[1][1].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        door0.open();
-                                    }
-                                });
+                                Gdx.app.postRunnable(() -> door0.open());
                             }
                             if(!plates[0][0].isActivated()) {
-                                Gdx.app.postRunnable(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        door1.open();
-                                    }
-                                });
+                                Gdx.app.postRunnable(() -> door1.open());
                             }
                         }
                     }
@@ -166,20 +136,6 @@ public class Level_4 extends Level{
 
                 }//end if-Abfage ob Player nicht mit StaticMapCollisions-Objekten kollidiert
 
-                if( fixturesNotNull() ) {
-
-                    /**
-                     * checkDoorCollisions muss nicht mehr in endContact abgefragt werden, da der Player sofort wegspawnt, wenn
-                     * Kontakt aufgenommen wurde und das Ende der Kollision egal ist
-                     checkDoorCollisions(fixA,fixB);
-                     */
-
-
-
-
-
-
-                }
             }
 
             @Override
