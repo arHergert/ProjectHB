@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="68">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="68">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="14" height="12">
   <data encoding="base64" compression="zlib">
-   eJydz00LgkAQgOE91t26l2D2IXpQO/sJdassyP//Q3yFWVjEDbeBh9kZZncZTym1wnome0a9lXoj5wI33FGiQo3GqKf9Fg980eOJFzq8jXra/2CPFBlCcRShJfs4YOfgghgBIqN/+jGvz/Ef/43vJgvunWd6rv/pHRLZz/aubdfx3tLIcXWY1xHIXjoGTN8XxA==
+   eJydz00LgkAQgOE91t26l2D2IXpQO/t5K6isW/7/n+ErzMIibrgNPMzOMLvLeEqpFdYz2TPqrdQbORe44Y4SFWo0Rj3tt3jgix5PvNDhbdTT/gd7pMgQiqMILdnHATsHF8QIEBn90495fY7/+G98N1lw7zzTc/1P75DIfrZ3bbuO95ZGjqvDvI5A9tIxAHE/F9Q=
   </data>
  </layer>
  <layer name="Details" width="14" height="12">

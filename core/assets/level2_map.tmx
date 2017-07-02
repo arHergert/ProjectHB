@@ -4,7 +4,7 @@
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="14" height="12">
   <data encoding="base64" compression="zlib">
-   eJydz0kLwjAQhuEcFeqteq9C3WkPLmdXqDdX0P//Q3wDX6CUJFgDD0kmk0kmNcZ00EUPFS5IkCpuzwfa97XeYY8Dznjj04i7+YiT8q644Y4XxigacTc/8FTeEFOZYIV1be+bR6qftbDQf3Isa/FZJN+tiz/es3XLH+7NPbG277keSvUXqhvq1d7zjQ22gbPYyNVDbHwBOXIYDg==
+   eJydz0kLwjAQhuEcFeqteq9C3WkPLmfXWwXXm/7/n+Eb+AKlJMEaeEgymUwyqTGmgy56qHBBglRxez7Qvq/1DnsccMYbn0bczUeclHfFDXe8MEbRiLv5gafyhpjKBCusa3vfPFL9rIWF/pNjWYvPIvluXfzxnq1b/nBv7om1fc/1UKq/UN1Qr/aeb2ywDZzFRq4eYuMLYJIYHg==
   </data>
  </layer>
  <layer name="Details" width="14" height="12">

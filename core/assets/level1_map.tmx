@@ -3,7 +3,7 @@
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <layer name="Grundebene" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJyFzUcKgDAQheFcRQULxnIGy8Kysiws9z+H/2ICQY0OfLyQPDKjUqpGJdmhR4NWcsCJGZPkhh0LVskDPhKHWDJABA3vQyk9+y576RUvPUPf/gt/drr2Gql1ztVzzNvfuHoXgQEPMg==
+   eJyFzUcKgDAQheFcRQULxnIGy8qysKws9z+G/2ICQY0OfLyQPDK9UqpGJTlgRINWssOOGZPkgRMLVskNPhKHWDJABA3vQyk9+y576RUvPUPf/gt/drr2Gql1ztVzzNvfuHoXl6EPQg==
   </data>
  </layer>
  <layer name="Details" width="10" height="10">

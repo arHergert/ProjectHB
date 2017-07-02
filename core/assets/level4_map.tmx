@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="16" tilewidth="32" tileheight="32" nextobjectid="140">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="20" height="16" tilewidth="32" tileheight="32" nextobjectid="140">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="20" height="16">
   <data encoding="base64" compression="zlib">
-   eJzVkskKwkAMhqdWUUFvtT1bQevF9uBydiu4XFzB5f2fw19IIMRoe3XgI037zc8waeicC0BIBESHek8Riu+B6EN6NwcLsBR1BdYgB1WRVQd7w+W6AwdwBCdRz+ACriqvBp6Gy/UBYpCAISGfe8b5YsNNhM+rD7qK1Lg/y8tEjke1AnzhvPvIyIsMz1eOo7nkwuN5tEADNEHb8Lh3Ku9A988ez+Ptb8CW9mmPe51n3cuI/Bu4077BF0/nWd7Efc5wbHhpybyyZH+YZ82jLHoenPltTcGswNH//a81EGcoynsB5QMl3w==
+   eJzVkskKwkAMhqdWUUFvtT1bQevF9uByduvFBVwvLu//GP5CAiFG26sDH2nab36GSUPnXABCIiA61HuKUHwPRB/SuzlYgKWoK7AGOaiKrDrYGi7XDTiAIziJegYXcFV5NXA3XK43EIMEDAn53DPOFxtuInxefdBVpMb9WV4mcjyqFeAL591HRl5keL5yHM0lFx7PowUaoAnahse9U3kHun/2eB5vfwf2tE973Os8615G5D/Ak/YNvng6z/Im7nOGY8NLS+aVJfvDPGseZdHz4MxvawpmBY7+73+tgThDUd4LDTIl7w==
   </data>
  </layer>
  <layer name="Details" width="20" height="16">
