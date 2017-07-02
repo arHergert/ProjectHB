@@ -190,6 +190,10 @@ public class Level_4 extends Level{
         }
         font.draw(batch, puzzleTextL, worldmap.getMapRight()- 590, worldmap.getMapHeight() - 50);
         font.draw(batch, puzzleTextR, worldmap.getMapRight()- 180, worldmap.getMapHeight() - 50);
+        font.draw(batch, "[0][0]", 145, worldmap.getMapHeight() - 390);
+        font.draw(batch, "[0][1]", 145, worldmap.getMapHeight() - 165);
+        font.draw(batch, "[1][0]", 465, worldmap.getMapHeight() - 390);
+        font.draw(batch, "[1][1]", 465, worldmap.getMapHeight() - 165);
     }
 
     @Override
