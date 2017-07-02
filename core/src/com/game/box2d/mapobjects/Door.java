@@ -20,7 +20,7 @@ import static com.game.Main.spritesheet;
  */
 public class Door extends MapObjects {
 
-    private enum Door_State{CLOSED,OPEN,OPENING,CLOSING}
+    private enum Door_State{CLOSED, OPENING,CLOSING}
     private Door_State currentState;
     private Door_State previousState;
     private float stateTimer;

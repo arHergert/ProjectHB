@@ -44,8 +44,11 @@ public class Level_1 extends Level {
                 fixA = contact.getFixtureA();
                 fixB = contact.getFixtureB();
 
+
                 //Überprüfen ob Player nicht mit nicht-interagierbaren Objekten wie Wände o.ä. kollidiert
                 if( fixturesNotNull()){
+
+                    System.out.println("FIXA: " +fixA.getUserData().toString() + "   FIXB: "+ fixB.getUserData().toString());
 
                     //Kollisionsabfragen für die Türen
                     checkDoorCollisions(fixA,fixB);
@@ -53,7 +56,7 @@ public class Level_1 extends Level {
                     //Restliches Zeug
 
                     // wenn irgendwas mit dem Spieler kollidiert
-                    if(fixA.getUserData().equals("Player") || fixB.getUserData().equals("Player")) {
+                    if(fixtureIs("Player")) {
 
                     	// wenn Spieler mit einem Stein kollidiert
                     	if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
@@ -70,27 +73,14 @@ public class Level_1 extends Level {
                     			}
                     		
                     	}
-                    	// wenn Spieler mit einem Loch kollidiert
-                    	/*else if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
+                    }
 
-                    			for(int i = 0; i <= 4; i++) {
-                    				if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
-                    					switch(i) {
-                    					case 1: intHole.collideOn(); break;
-                    					case 2: stringHole.collideOn(); break;
-                    					case 3: booleanHole.collideOn(); break;
-                    					case 4: floatHole.collideOn(); break;
-                    					}
-                    				}
-                    			}
 
-                    	}*/
-                    	
-                    } else if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
-                    	System.out.println("++ Rock");
+                    if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
+                    	//System.out.println("++ Rock");
                     	//Kollision mit Loch
                     	if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
-                    		System.out.println("++ Rock+Hole");
+                    		//System.out.println("++ Rock+Hole");
                 			for(int i = 0; i <= 4; i++) {
                 				if(fixA.getUserData().toString().startsWith("Hole") && fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().startsWith("Hole") &&  fixB.getUserData().toString().endsWith(""+i)) {
                 					switch(i) {
@@ -126,12 +116,11 @@ public class Level_1 extends Level {
                      */
                 	
                     // wenn irgendwas mit dem Spieler kollidiert
-                    if(fixA.getUserData().equals("Player") || fixB.getUserData().equals("Player")) {
+                    if(fixtureIs("Player")) {
                     	
                     	// wenn Spieler mit einem Stein kollidiert
                     	if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
-                    		
-                			
+
                 			for(int i = 0; i <= 4; i++) {
                 				if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
                 					switch(i) {
@@ -144,27 +133,11 @@ public class Level_1 extends Level {
                 			}
                     		
                     	}
-                    	// wenn Spieler mit einem Loch kollidiert
-                    	/*else if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
-                    		
-                			for(int i = 0; i <= 4; i++) {
-                				if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
-                					switch(i) {
-                					case 1: intHole.collideOff(); break;
-                					case 2: stringHole.collideOff(); break;
-                					case 3: booleanHole.collideOff(); break;
-                					case 4: floatHole.collideOff(); break;
-                					}
-                				}
-                			}
-                    			
-                    		
-                    	}*/
                     	
                     } else if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
-                    	System.out.println("--Rock");
+                    	//System.out.println("--Rock");
                     	if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
-                    		System.out.println("--Rock+Hole");
+                    		//System.out.println("--Rock+Hole");
                 			for(int i = 0; i <= 4; i++) {
                 				if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
                 					switch(i) {

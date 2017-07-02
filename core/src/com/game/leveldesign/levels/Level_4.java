@@ -21,7 +21,6 @@ import static com.game.box2d.Player.carryingStone;
 public class Level_4 extends Level{
 
     private Plate[][] plates;
-    private Door door0;
     private Door door1;
     private Door door2;
     private BitmapFont font;
@@ -37,7 +36,6 @@ public class Level_4 extends Level{
 
     public Level_4() {
         super("level4_map.tmx");
-        door0 = new Door(worldmap,"Door0");
         door1 = new Door(worldmap,"Door1");
         door2 = new Door(worldmap,"Door2");
         plates = new Plate[2][2];
@@ -94,23 +92,23 @@ public class Level_4 extends Level{
                         if (fixtureIs("Plate00")) {
                             plates[0][0].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(() -> door0.open());
+                                Gdx.app.postRunnable(() -> door.open());
                             }
                             Gdx.app.postRunnable(() -> door2.open());
                         }else if(fixtureIs("Plate01")) {
                             plates[0][1].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(() -> door0.open());
+                                Gdx.app.postRunnable(() -> door.open());
                             }
                         }else if(fixtureIs("Plate10")) {
                             plates[1][0].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(() -> door0.open());
+                                Gdx.app.postRunnable(() -> door.open());
                             }
                         } else if(fixtureIs("Plate11")) {
                             plates[1][1].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(() -> door0.open());
+                                Gdx.app.postRunnable(() -> door.open());
                             }
                             if(!plates[0][0].isActivated()) {
                                 Gdx.app.postRunnable(() -> door1.open());
@@ -166,7 +164,7 @@ public class Level_4 extends Level{
                                 plates[i][j].reset();
                             }
                         }
-                        door0.close();
+                        door.close();
                     }
 
                 }
@@ -179,7 +177,7 @@ public class Level_4 extends Level{
 
     @Override
     public void drawObjects(Batch batch) {
-        door0.draw(batch);
+
         door1.draw(batch);
         door2.draw(batch);
         for (int i = 0; i< plates.length; i++){
@@ -198,5 +196,7 @@ public class Level_4 extends Level{
 
     @Override
     public void drawObjectsOverPlayer(Batch batch) {
+
+        door.draw(batch);
     }
 }

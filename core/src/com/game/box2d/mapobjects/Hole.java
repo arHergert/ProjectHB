@@ -60,13 +60,13 @@ public class Hole extends MapObjects {
 	@Override
 	public void collideOn() {
 		collidesWithRock = true;
-		System.out.println("collideOn: " + fixture.getUserData());
+		//System.out.println("collideOn: " + fixture.getUserData());
 	}
 
 	@Override
 	public void collideOff() {
 		collidesWithRock = false;
-		System.out.println("collideOff: " + fixture.getUserData());
+	//	System.out.println("collideOff: " + fixture.getUserData());
 	}
 	
 	public boolean collidesWithRock() {

@@ -5,9 +5,7 @@ import com.game.leveldesign.WorldMap;
 import com.game.MapCamera;
 import com.game.box2d.Player;
 
-import static com.game.box2d.Player.PLAYER_SPEED;
-import static com.game.box2d.Player.PPM;
-import static com.game.box2d.Player.playerBody;
+import static com.game.box2d.Player.*;
 
 
 public class PlayerMovementInputProcessor extends InputAdapter{
@@ -57,7 +55,7 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         if(camMoveUp){
 
-            if (playerBody.getPosition().y < levelmap.getMapTop() - boxPlayer.getSpriteHeight()){
+            if (playerBody.getPosition().y < levelmap.getMapTop() - boxPlayer.getSpriteHeight()/2){
                 vertSpeed += moveSpeed;
             }
 
@@ -83,26 +81,31 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         playerBody.setLinearVelocity(horizSpeed * (PPM * PLAYER_SPEED)   , vertSpeed * (PPM * PLAYER_SPEED) );
 
-
+        //System.out.println("RICHTUNG: " + Input.Keys.toString(lastMovedDirection));
 
     }
 
     public boolean keyDown(int keycode) {
 
+
         if(keycode == Input.Keys.D){
             camMoveRight = true;
+            lastMovedDirection = keycode;
         }
 
         if(keycode == Input.Keys.A){
             camMoveLeft = true;
+            //lastMovedDirection = keycode;
         }
 
         if(keycode == Input.Keys.W){
             camMoveUp = true;
+            //lastMovedDirection = keycode;
         }
 
         if(keycode == Input.Keys.S){
             camMoveDown = true;
+            lastMovedDirection = keycode;
         }
 
         if(keycode == Input.Keys.SHIFT_LEFT){

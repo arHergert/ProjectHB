@@ -144,7 +144,7 @@ public abstract class MapObjects {
      * Aktiviert die Kollision mit dem Spieler
      */
     public void collideOn(){
-        System.out.println("ON: " + fixture.getUserData());
+        //System.out.println("ON: " + fixture.getUserData());
         this.collidesWithPlayer = true;
     }
 
@@ -152,7 +152,7 @@ public abstract class MapObjects {
      * Deaktiviert die Kollision mit dem Spieler
      */
     public void collideOff(){
-        System.out.println("OFF: " + fixture.getUserData());
+        //System.out.println("OFF: " + fixture.getUserData());
         this.collidesWithPlayer = false;
     }
     

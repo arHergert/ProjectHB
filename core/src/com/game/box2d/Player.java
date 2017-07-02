@@ -1,5 +1,8 @@
 package com.game.box2d;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -30,9 +33,29 @@ public class Player extends Sprite {
     /** Referenz auf die aktuelle Welt, in der sich der Spieler befindet **/
     private World world;
     public static Body playerBody;
-    private TextureRegion boxImg;
 
-    /**d
+
+    /** Zeigt an in welche Richtung der Spieler zuletzt bzw. gerade geht. Standardweise schaut er immer nach rechts */
+    public static int lastMovedDirection = Input.Keys.D;
+
+    /** Status die der Player einnehmen kann*/
+    private enum PlayerState{STANDING_LEFT,STANDING_RIGHT, WALKING_LEFT, WALKING_RIGHT,}
+
+    /** Texturen und Animationen des Spielers */
+    private TextureRegion playerStand_right;
+    private TextureRegion playerStand_left;
+    private Animation<TextureRegion> playerWalk_right;
+    private Animation<TextureRegion> playerWalk_left;
+
+    /** Aktueller und vorheriger Status des Spielers */
+    private  PlayerState currentState;
+    private PlayerState previousState;
+    private float stateTimer;
+
+    /** Speichert den aktuellsten Frame, welches gezeichnet wird*/
+    private TextureRegion currentFrame;
+
+    /**
      * Erstellt einen neuen Spieler. Liest die Spawnpoints des Levels aus um
      * zu bestimmen wo der Spieler platziert wird.
      *
@@ -52,7 +75,14 @@ public class Player extends Sprite {
      */
     public Player (WorldMap level, String spawnpoint){
         this.world = level.getWorld();
-        boxImg = spritesheet.findRegion("caveman");
+
+        /** Textur bzew Animationen definieren */
+        playerStand_right = spritesheet.findRegions("playerwalk").get(0);
+        playerStand_left = spritesheet.findRegions("playerwalk").get(0);
+
+        playerWalk_right = new Animation<>(0.1f, spritesheet.findRegions("playerwalk"));
+        playerWalk_left = new Animation<>(0.1f, spritesheet.findRegions("playerwalk"), Animation.PlayMode.REVERSED);
+
 
 
         float startX = 0;
@@ -102,13 +132,12 @@ public class Player extends Sprite {
         pShape.setAsBox(16, 8);
 
         fixtureDef.shape = pShape;
-
         //Namen für das Kollisionsobjekt festsetzen. Wird zur Kollisionsabfrage benötigt.
         playerBody.createFixture(pShape,1.0f).setUserData("Player");
 
         /** Fußhitbox erstellen für Druckplatten etc. */
         PolygonShape feet = new PolygonShape();
-        feet.setAsBox( (32/2) - 6f, 0.5f,new Vector2(boxImg.getRegionWidth()/64, boxImg.getRegionHeight() - 63.5f), 0f);
+        feet.setAsBox( (32/2) - 6f, 0.5f,new Vector2(16/64, 32 - 63.5f), 0f);
         fixtureDef.shape = feet;
         fixtureDef.isSensor = true;
         Fixture fixture = playerBody.createFixture(fixtureDef);
@@ -125,15 +154,15 @@ public class Player extends Sprite {
 
 
     public TextureRegion getImg(){
-        return boxImg;
+        return playerStand_right;
     }
 
     public int getSpriteHeight(){
-       return boxImg.getRegionHeight();
+       return playerStand_right.getRegionHeight();
     }
 
     public int getSpriteWidth(){
-        return boxImg.getRegionWidth();
+        return playerStand_right.getRegionWidth();
     }
 
     /**
@@ -141,9 +170,71 @@ public class Player extends Sprite {
      * @param batch Benötigtes SpriteBatch aus der {@link Main}
      */
     public void draw(Batch batch){
-        batch.draw(boxImg, playerBody.getPosition().x -16 , playerBody.getPosition().y - 32, 32,64);
+
+        currentFrame = getFrame();
+
+        batch.draw(currentFrame, playerBody.getPosition().x -16 , playerBody.getPosition().y - 32, 32,64);
 
     }
+
+    private TextureRegion getFrame() {
+        currentState = getState();
+
+        TextureRegion region;
+        switch (currentState){
+
+            case WALKING_LEFT:{
+                region = playerWalk_left.getKeyFrame(stateTimer, true);
+                if(!currentFrame.isFlipX()){
+                    currentFrame.flip(true, false);
+                }
+            }break;
+
+            case WALKING_RIGHT:{
+                region = playerWalk_left.getKeyFrame(stateTimer, true);
+
+                if(currentFrame.isFlipX()){
+                    currentFrame.flip(true, false);
+                }
+               // region.flip(true, false);
+            }break;
+
+            case STANDING_LEFT:{
+                region = playerStand_left;
+               // region.flip(true, false);
+            }break;
+
+            case STANDING_RIGHT:
+            default:{
+                region = playerStand_right;
+            }break;
+
+        }//end switch case currentState
+
+        stateTimer = currentState == previousState ? stateTimer + Gdx.graphics.getDeltaTime() : 0;
+        previousState = currentState;
+        return region;
+    }
+
+    private PlayerState getState() {
+
+
+        if(playerBody.getLinearVelocity().x > 0){
+            return PlayerState.WALKING_RIGHT;
+
+        }else if(playerBody.getLinearVelocity().x < 0){
+            return PlayerState.WALKING_LEFT;
+
+        }else if(playerBody.getLinearVelocity().isZero() && lastMovedDirection == Input.Keys.A){
+            return  PlayerState.STANDING_LEFT;
+
+        }else {
+            return  PlayerState.STANDING_RIGHT;
+
+        }
+
+    }
+
 
 }//end class Player
 
