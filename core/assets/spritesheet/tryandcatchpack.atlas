@@ -1,216 +1,349 @@
 
 tryandcatchpack.png
-size: 1024,128
+size: 512,256
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 door
   rotate: false
-  xy: 36, 68
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: 2
-door
-  rotate: false
-  xy: 102, 68
+  xy: 2, 202
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: 1
 door
   rotate: false
-  xy: 168, 68
+  xy: 68, 202
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: 3
 door
   rotate: false
-  xy: 234, 68
+  xy: 36, 168
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: 4
 door
   rotate: false
-  xy: 300, 68
+  xy: 134, 202
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
-  index: 6
+  index: 5
 door
   rotate: false
-  xy: 366, 68
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: 7
-door
-  rotate: false
-  xy: 432, 68
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: 9
-door
-  rotate: false
-  xy: 498, 68
+  xy: 102, 168
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: 8
 door
   rotate: false
-  xy: 564, 68
+  xy: 200, 202
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
-  index: 5
+  index: 7
+door
+  rotate: false
+  xy: 36, 134
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 9
+door
+  rotate: false
+  xy: 168, 168
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 6
+door
+  rotate: false
+  xy: 266, 202
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 2
 hole_default
   rotate: false
-  xy: 780, 68
+  xy: 332, 202
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 hole_false
   rotate: false
-  xy: 930, 68
+  xy: 252, 134
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 hole_true
   rotate: false
-  xy: 830, 68
+  xy: 202, 134
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
-playerwalk
+leftwalk
   rotate: false
-  xy: 2, 36
+  xy: 2, 136
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 6
-playerwalk
+leftwalk
   rotate: false
-  xy: 980, 36
+  xy: 2, 70
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 3
+leftwalk
+  rotate: false
+  xy: 70, 68
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 9
+leftwalk
+  rotate: false
+  xy: 70, 2
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 7
+leftwalk
+  rotate: false
+  xy: 138, 68
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 1
+leftwalk
+  rotate: false
+  xy: 172, 68
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 5
+leftwalk
+  rotate: false
+  xy: 172, 2
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 10
+leftwalk
+  rotate: false
+  xy: 240, 2
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 2
+leftwalk
+  rotate: false
+  xy: 274, 68
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 4
+leftwalk
+  rotate: false
+  xy: 308, 68
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 8
 playerwalk
   rotate: false
-  xy: 86, 2
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 9
-playerwalk
-  rotate: false
-  xy: 120, 2
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 3
-playerwalk
-  rotate: false
-  xy: 154, 2
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 7
-playerwalk
-  rotate: false
-  xy: 188, 2
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 2
-playerwalk
-  rotate: false
-  xy: 222, 2
+  xy: 2, 4
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 5
 playerwalk
   rotate: false
-  xy: 256, 2
+  xy: 36, 2
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 4
+playerwalk
+  rotate: false
+  xy: 104, 2
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 3
+playerwalk
+  rotate: false
+  xy: 138, 2
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 1
 playerwalk
   rotate: false
-  xy: 290, 2
+  xy: 206, 68
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 2
+playerwalk
+  rotate: false
+  xy: 206, 2
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 8
+playerwalk
+  rotate: false
+  xy: 240, 68
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 9
+playerwalk
+  rotate: false
+  xy: 274, 2
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 10
 playerwalk
   rotate: false
-  xy: 324, 2
+  xy: 376, 70
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
-  index: 4
+  index: 6
+playerwalk
+  rotate: false
+  xy: 376, 4
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 7
 pressureplate_default
   rotate: false
-  xy: 358, 34
+  xy: 334, 168
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 pressureplate_false
   rotate: false
-  xy: 2, 2
+  xy: 336, 134
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 pressureplate_true
   rotate: false
-  xy: 392, 34
+  xy: 302, 134
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 rock_rectangle_String
   rotate: false
-  xy: 680, 68
+  xy: 102, 134
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_boolean
   rotate: false
-  xy: 730, 68
+  xy: 152, 134
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_char
   rotate: false
-  xy: 880, 68
+  xy: 382, 202
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_float
   rotate: false
-  xy: 630, 68
+  xy: 234, 168
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_int
   rotate: false
-  xy: 36, 34
+  xy: 284, 168
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
+upwalk
+  rotate: false
+  xy: 36, 68
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 1
+upwalk
+  rotate: false
+  xy: 104, 68
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 4
+upwalk
+  rotate: false
+  xy: 308, 2
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 2
+upwalk
+  rotate: false
+  xy: 342, 68
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 3
+upwalk
+  rotate: false
+  xy: 342, 2
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 5
+upwalk
+  rotate: false
+  xy: 432, 170
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 6
+upwalk
+  rotate: false
+  xy: 466, 170
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 7
+upwalk
+  rotate: false
+  xy: 370, 136
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 9
+upwalk
+  rotate: false
+  xy: 410, 104
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 8

@@ -39,13 +39,15 @@ public class Player extends Sprite {
     public static int lastMovedDirection = Input.Keys.D;
 
     /** Status die der Player einnehmen kann*/
-    private enum PlayerState{STANDING_LEFT,STANDING_RIGHT, WALKING_LEFT, WALKING_RIGHT,}
+    private enum PlayerState{STANDING_LEFT,STANDING_RIGHT,STANDING_UP, WALKING_LEFT, WALKING_RIGHT, WALKING_UP, WALKING_DOWN}
 
     /** Texturen und Animationen des Spielers */
     private TextureRegion playerStand_right;
     private TextureRegion playerStand_left;
+    private TextureRegion playerStand_up;
     private Animation<TextureRegion> playerWalk_right;
     private Animation<TextureRegion> playerWalk_left;
+    private Animation<TextureRegion> playerWalk_up;
 
     /** Aktueller und vorheriger Status des Spielers */
     private  PlayerState currentState;
@@ -78,11 +80,13 @@ public class Player extends Sprite {
 
         /** Textur bzew Animationen definieren */
         playerStand_right = spritesheet.findRegions("playerwalk").get(0);
-        playerStand_left = spritesheet.findRegions("playerwalk").get(0);
+        playerStand_left = spritesheet.findRegions("leftwalk").get(0);
+        playerStand_up = spritesheet.findRegions("upwalk").get(0);
 
-        playerWalk_right = new Animation<>(0.1f, spritesheet.findRegions("playerwalk"));
-        playerWalk_left = new Animation<>(0.1f, spritesheet.findRegions("playerwalk"), Animation.PlayMode.REVERSED);
 
+        playerWalk_right = new Animation<>(0.090f, spritesheet.findRegions("playerwalk"));
+        playerWalk_left = new Animation<>(0.090f, spritesheet.findRegions("leftwalk"));
+        playerWalk_up = new Animation<>(0.060f, spritesheet.findRegions("upwalk"));
 
 
         float startX = 0;
@@ -184,24 +188,37 @@ public class Player extends Sprite {
         switch (currentState){
 
             case WALKING_LEFT:{
+
                 region = playerWalk_left.getKeyFrame(stateTimer, true);
-                if(!currentFrame.isFlipX()){
-                    currentFrame.flip(true, false);
-                }
+
             }break;
 
             case WALKING_RIGHT:{
-                region = playerWalk_left.getKeyFrame(stateTimer, true);
 
-                if(currentFrame.isFlipX()){
-                    currentFrame.flip(true, false);
-                }
-               // region.flip(true, false);
+                region = playerWalk_right.getKeyFrame(stateTimer, true);
+
+            }break;
+
+            case WALKING_UP:{
+
+                region = playerWalk_up.getKeyFrame(stateTimer, true);
+
+            }break;
+
+            case WALKING_DOWN:{
+
+                region = playerWalk_right.getKeyFrame(stateTimer, true);
+
             }break;
 
             case STANDING_LEFT:{
                 region = playerStand_left;
-               // region.flip(true, false);
+
+            }break;
+
+            case STANDING_UP:{
+                region = playerStand_up;
+
             }break;
 
             case STANDING_RIGHT:
@@ -225,8 +242,17 @@ public class Player extends Sprite {
         }else if(playerBody.getLinearVelocity().x < 0){
             return PlayerState.WALKING_LEFT;
 
-        }else if(playerBody.getLinearVelocity().isZero() && lastMovedDirection == Input.Keys.A){
+        }else if (playerBody.getLinearVelocity().y > 0) {
+            return PlayerState.WALKING_UP;
+
+        }else if (playerBody.getLinearVelocity().y < 0) {
+        return PlayerState.WALKING_DOWN;
+
+        }else if(playerBody.getLinearVelocity().isZero() && lastMovedDirection == Input.Keys.A ){
             return  PlayerState.STANDING_LEFT;
+
+        }else if(playerBody.getLinearVelocity().isZero() && lastMovedDirection == Input.Keys.W) {
+            return PlayerState.STANDING_UP;
 
         }else {
             return  PlayerState.STANDING_RIGHT;
