@@ -1,16 +1,19 @@
 package com.game.leveldesign.levels;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.physics.box2d.Contact;
-import com.badlogic.gdx.physics.box2d.ContactImpulse;
-import com.badlogic.gdx.physics.box2d.ContactListener;
-import com.badlogic.gdx.physics.box2d.Manifold;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.physics.box2d.*;
 import com.game.box2d.Player;
 import com.game.box2d.mapobjects.Door;
 import com.game.box2d.mapobjects.Hole;
+import com.game.box2d.mapobjects.Plate;
 import com.game.box2d.mapobjects.Rock;
 
 import static com.game.box2d.Player.carryingStone;
@@ -20,17 +23,38 @@ import static com.game.box2d.Player.carryingStone;
  */
 public class Level_4 extends Level{
 
-    private Rock intPuzzle;
-    private Hole intHole;
+    private Plate[][] plates;
     private Door door1;
     private Door door2;
+    private BitmapFont font;
+    private String puzzleTextL =
+            "if(!plate[0][0] & plate[1][1]) {\n" +
+            "   door.open();\n" +
+            "}\n";
+    private String puzzleTextR =
+            "if(plate[0][0]) {\n" +
+            "   door.open();\n" +
+            "}\n";
 
     public Level_4() {
         super("level4_map.tmx");
-        intPuzzle = new Rock(worldmap, "Rock1", true, "int");
-        intHole = new Hole(worldmap, "Hole1", "int");
         door1 = new Door(worldmap,"Door1");
         door2 = new Door(worldmap,"Door2");
+        plates = new Plate[2][2];
+        plates[0][0] = new Plate(worldmap, true, "Plate00");
+        plates[0][1] = new Plate(worldmap, true, "Plate01");
+        plates[1][0] = new Plate(worldmap, true, "Plate10");
+        plates[1][1] = new Plate(worldmap, true, "Plate11");
+
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParameter.color = Color.valueOf("43435d");
+        fontParameter.size = 9;
+        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("CodeNewRoman.otf"));
+        fontGenerator.scaleForPixelHeight(9);
+        fontParameter.minFilter = Texture.TextureFilter.Nearest;
+        fontParameter.magFilter = Texture.TextureFilter.MipMapLinearNearest;
+        font = fontGenerator.generateFont(fontParameter);
+        fontGenerator.dispose();
     }
 
     @Override
@@ -49,35 +73,14 @@ public class Level_4 extends Level{
                     checkDoorCollisions(fixA, fixB);
 
                     //Restliches Zeug
+                    if(fixA.getUserData().equals("Player_feet") || fixB.getUserData().equals("Player_feet")) {
 
-                    // wenn irgendwas mit dem Spieler kollidiert
-                    if(fixA.getUserData().equals("Player") || fixB.getUserData().equals("Player")) {
-
-                        // wenn Spieler mit einem Stein kollidiert
-                        if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
-
-                            for(int i = 0; i <= 4; i++) {
-                                if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
-                                    switch(i) {
-                                        case 1: intPuzzle.collideOn(); break;
-                                    }
-                                }
-                            }
-
+                        if (fixA.getUserData().equals("Plate00") || fixB.getUserData().equals("Plate00")) {
+                            Fixture doorBottomFixture = fixA.getUserData() == "Plate00" ? fixA : fixB;
+                            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+                            plates[0][0].load();
+                            door2.open();
                         }
-                        // wenn Spieler mit einem Loch kollidiert
-                        else if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
-
-                            for(int i = 0; i <= 4; i++) {
-                                if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
-                                    switch(i) {
-                                        case 1: intHole.collideOn(); break;
-                                    }
-                                }
-                            }
-
-                        }
-
                     }
                 }
             }
@@ -95,37 +98,7 @@ public class Level_4 extends Level{
                      checkDoorCollisions(fixA,fixB);
                      */
 
-                    // wenn irgendwas mit dem Spieler kollidiert
-                    if(fixA.getUserData().equals("Player") || fixB.getUserData().equals("Player")) {
 
-                        // wenn Spieler mit einem Stein kollidiert
-                        if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
-
-
-                            for(int i = 0; i <= 4; i++) {
-                                if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
-                                    switch(i) {
-                                        case 1: intPuzzle.collideOff(); break;
-                                    }
-                                }
-                            }
-
-                        }
-                        // wenn Spieler mit einem Loch kollidiert
-                        else if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
-
-                            for(int i = 0; i <= 4; i++) {
-                                if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
-                                    switch(i) {
-                                        case 1: intHole.collideOff(); break;
-                                    }
-                                }
-                            }
-
-
-                        }
-
-                    }
 
 
 
@@ -163,13 +136,6 @@ public class Level_4 extends Level{
                             e.printStackTrace();
                         }
 
-                    }else{
-
-                        if(intPuzzle.collidesWithPlayer()) {
-                            carryingStone = intPuzzle;
-                            carryingStone.pickUp();
-                        }
-
                     }
 
                     return true;
@@ -182,9 +148,16 @@ public class Level_4 extends Level{
 
     @Override
     public void drawObjects(Batch batch) {
-        intPuzzle.draw(batch);
         door1.draw(batch);
         door2.draw(batch);
+        for (int i = 0; i< plates.length; i++){
+            for (int j = 0; j < plates[i].length; j++ ){
+
+                plates[i][j].draw(batch);
+            }
+        }
+        font.draw(batch, puzzleTextL, worldmap.getMapRight()- 590, worldmap.getMapHeight() - 50);
+        font.draw(batch, puzzleTextR, worldmap.getMapRight()- 180, worldmap.getMapHeight() - 50);
     }
 
     @Override
