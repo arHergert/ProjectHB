@@ -219,7 +219,7 @@ public class Level_2 extends Level {
 
     @Override
     public void drawObjectsOverPlayer(Batch batch) {
-
+        door.draw(batch);
     }
 
 }//end class Level_1
