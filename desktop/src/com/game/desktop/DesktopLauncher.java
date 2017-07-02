@@ -12,9 +12,9 @@ public class DesktopLauncher {
     /**
      * Definiert die Fensterkonfigurationen (Titel, Höhe, Breite etc.) und
      * startet die Applikation über die {@link Main} - Klasse
-     * @param arg
+     * @param args
      */
-    public static void main (String[] arg) {
+    public static void main (String[] args) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         config.title = "Try and Catch v0.0.1";
         config.width = 1280;
