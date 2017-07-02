@@ -52,9 +52,9 @@ public class Door extends MapObjects {
         previousState = Door_State.CLOSING;
         stateTimer = 0f;
 
-        wallClosing = new Animation<TextureRegion>(0.030f,spritesheet.findRegions("door"), Animation.PlayMode.REVERSED);
-        wallOpening = new Animation<TextureRegion>(0.030f,spritesheet.findRegions("door"));
-        wallClosed = new TextureRegion(spritesheet.findRegion("doorclosed"));
+        wallClosing = new Animation<>(0.020f, spritesheet.findRegions("door"), Animation.PlayMode.REVERSED);
+        wallOpening = new Animation<>(0.020f, spritesheet.findRegions("door"));
+        wallClosed = new TextureRegion(spritesheet.findRegions("door").get(0));
 
 	}
 	
@@ -90,7 +90,7 @@ public class Door extends MapObjects {
         currentState = getState();
 
         //System.out.println(getState());
-        TextureRegion region = new TextureRegion();
+        TextureRegion region;
         switch (currentState){
 
             case OPENING: {
@@ -101,7 +101,8 @@ public class Door extends MapObjects {
                 region = wallClosing.getKeyFrame(stateTimer);
             }break;
 
-            case CLOSED:{
+            case CLOSED:
+            default:{
                 region = wallClosed;
             }break;
         }//end switch case region

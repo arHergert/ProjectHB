@@ -13,6 +13,13 @@ caveman
   index: -1
 door
   rotate: false
+  xy: 2, 2
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 1
+door
+  rotate: false
   xy: 68, 2
   size: 64, 32
   orig: 64, 32
@@ -31,63 +38,42 @@ door
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
-  index: 5
+  index: 4
 door
   rotate: false
   xy: 266, 2
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
-  index: 6
+  index: 5
 door
   rotate: false
   xy: 332, 2
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
-  index: 7
+  index: 6
 door
   rotate: false
   xy: 398, 2
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
-  index: 8
+  index: 7
 door
   rotate: false
   xy: 464, 2
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
-  index: 9
-dooropen
-  rotate: false
-  xy: 464, 2
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: -1
+  index: 8
 door
   rotate: false
   xy: 530, 2
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
-  index: 4
-doorclosed
-  rotate: false
-  xy: 2, 2
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: -1
-door
-  rotate: false
-  xy: 2, 2
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: 1
+  index: 9
 pressureplate_default
   rotate: false
   xy: 880, 2
@@ -111,14 +97,14 @@ pressureplate_true
   index: -1
 rock_rectangle_String
   rotate: false
-  xy: 796, 2
+  xy: 646, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_boolean
   rotate: false
-  xy: 646, 2
+  xy: 796, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
