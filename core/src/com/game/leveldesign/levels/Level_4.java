@@ -25,11 +25,11 @@ public class Level_4 extends Level{
     private Door door2;
     private BitmapFont font;
     private String puzzleTextL =
-            "if(!plate[0][0] & plate[1][1]) {\n" +
+            "if(!array[0][0] & array[1][1]) {\n" +
             "   door.open();\n" +
             "}\n";
     private String puzzleTextR =
-            "if(plate[0][0]) {\n" +
+            "if(array[0][0]) {\n" +
             "   door.open();\n" +
             "}\n";
     private Lever lever1 = new Lever(worldmap,"Lever1");
