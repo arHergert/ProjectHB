@@ -70,6 +70,11 @@ public class Hole extends MapObjects {
 			if(rock.isRectangle()) {
 				contents = rock;
 				rock.putDown();
+				if(this.datatype.equals(rock.datatype())) {
+					currentTexture = status_true;
+				} else {
+					currentTexture = status_false;
+				}
 			} else {
 				throw new Exception("This rock doesn't fit in that kind of hole.");
 			}
@@ -87,6 +92,7 @@ public class Hole extends MapObjects {
 		if(contents != null) {
 			Rock r = contents;
 			contents = null;
+			currentTexture = status_neutral;
 			return r;
 		} else {
 			return null;

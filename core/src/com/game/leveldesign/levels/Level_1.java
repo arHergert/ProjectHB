@@ -1,5 +1,6 @@
 package com.game.leveldesign.levels;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
@@ -19,6 +20,8 @@ public class Level_1 extends Level {
 
 	private Rock intPuzzle, stringPuzzle, booleanPuzzle, floatPuzzle;
 	private Hole intHole, stringHole, booleanHole, floatHole;
+	private Rock[] rocks = { intPuzzle, stringPuzzle, booleanPuzzle, floatPuzzle };
+	private Hole[] holes = { intHole, stringHole, booleanHole, floatHole };
 	
     /**
      * @param
@@ -178,8 +181,10 @@ public class Level_1 extends Level {
             	if(keycode == Input.Keys.E) {
             		
                     if(Player.isCarryingObject){
+                    	
+                    	clearHoles(carryingStone);
 
-                    	if(intHole.collidesWithRock()) {
+                    	if(intHole.collidesWithRock() && !intHole.holdsRock()) {
                     		
                     		System.out.println("Ablegen in IntLoch");
                     		try {
@@ -189,7 +194,7 @@ public class Level_1 extends Level {
 							}
                     		carryingStone = null;
                     		
-                    	} else if(stringHole.collidesWithRock()) {
+                    	} else if(stringHole.collidesWithRock() && !stringHole.holdsRock()) {
                     		
                     		System.out.println("Ablegen in StringLoch");
                     		try {
@@ -199,7 +204,7 @@ public class Level_1 extends Level {
 							}
                     		carryingStone = null;
                     		
-                    	} else if(booleanHole.collidesWithRock()) {
+                    	} else if(booleanHole.collidesWithRock() && !booleanHole.holdsRock()) {
                     		
                     		System.out.println("Ablegen in booleanLoch");
                     		try {
@@ -209,7 +214,7 @@ public class Level_1 extends Level {
 							}
                     		carryingStone = null;
                     		
-                    	} else if(floatHole.collidesWithRock()) {
+                    	} else if(floatHole.collidesWithRock() && !floatHole.holdsRock()) {
                     		
                     		System.out.println("Ablegen in FloatLoch");
                     		try {
@@ -223,10 +228,8 @@ public class Level_1 extends Level {
                     		carryingStone.putDown();
                     		carryingStone = null;
                     	}
+                    	puzzleComplete();
                     	
-                    	
-                    	
-                        
 
                     }else{
 
@@ -243,8 +246,10 @@ public class Level_1 extends Level {
                             carryingStone = floatPuzzle;
                             carryingStone.pickUp();
                         }
+                        clearHoles(carryingStone);
 
                     }
+                    
 
                 return true;
             }
@@ -275,11 +280,18 @@ public class Level_1 extends Level {
 
     }
     
+    /**
+     * Testet ob das Puzzle richtig gelöst wurde.
+     * Also alle Steine in den richtigen Löchern liegen.
+     * @return
+     */
     private boolean puzzleComplete() {
     	
     	if(intHole.holdsRock() && stringHole.holdsRock() && booleanHole.holdsRock() && floatHole.holdsRock()) {
     		
     		if(intHole.datatype().equals(intHole.getRock().datatype()) && stringHole.datatype().equals(stringHole.getRock().datatype()) && booleanHole.datatype().equals(booleanHole.getRock().datatype()) && floatHole.datatype().equals(floatHole.getRock().datatype())) {
+    			System.out.println("Level 1: Puzzle gelöst!");
+    			Gdx.app.postRunnable(() -> door.open());
     			return true;
     		}
     		
@@ -288,4 +300,39 @@ public class Level_1 extends Level {
     	return false;
     	
     }
+    
+    /**
+     * entfernt einen Stein aus den Löchern
+     * @param rock der Stein, der entfernt werden soll
+     */
+    private void clearHoles(Rock rock) {
+    	
+    	if(intHole.holdsRock()) {
+    		
+    		if(intHole.getRock().equals(rock)) {
+    			intHole.removeRock();
+    		}
+    		
+    	} else if(stringHole.holdsRock()) {
+    		
+    		if(stringHole.getRock().equals(rock)) {
+    			stringHole.removeRock();
+    		}
+    		
+    	} else if(booleanHole.holdsRock()) {
+    		
+    		if(booleanHole.getRock().equals(rock)) {
+    			booleanHole.removeRock();
+    		}
+    		
+    	} else if(floatHole.holdsRock()) {
+    		
+    		if(floatHole.getRock().equals(rock)) {
+    			floatHole.removeRock();
+    		}
+    		
+    	}
+    	
+    }
+    
 }//end class Level_1
