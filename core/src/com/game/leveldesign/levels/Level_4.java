@@ -24,6 +24,8 @@ public class Level_4 extends Level{
     private Door door1;
     private Door door2;
     private BitmapFont font;
+    private BitmapFont fontL;
+    private BitmapFont fontR;
     private String puzzleTextL =
             "if(!array[0][0] & array[1][1]) {\n" +
             "   door.open();\n" +
@@ -32,6 +34,9 @@ public class Level_4 extends Level{
             "if(array[0][0]) {\n" +
             "   door.open();\n" +
             "}\n";
+
+    private String puzzleTextDoor =
+            "if (array[0][0] && array[0][1] && array[1][0] && array[1][1]) door.open";
     private Lever lever1 = new Lever(worldmap,"Lever1");
 
     public Level_4() {
@@ -52,6 +57,10 @@ public class Level_4 extends Level{
         fontParameter.minFilter = Texture.TextureFilter.Nearest;
         fontParameter.magFilter = Texture.TextureFilter.MipMapLinearNearest;
         font = fontGenerator.generateFont(fontParameter);
+        fontParameter.size = 14;
+        fontR= fontGenerator.generateFont(fontParameter);
+        fontParameter.size = 13;
+        fontL= fontGenerator.generateFont(fontParameter);
         fontGenerator.dispose();
     }
 
@@ -186,8 +195,11 @@ public class Level_4 extends Level{
                 plates[i][j].draw(batch);
             }
         }
-        font.draw(batch, puzzleTextL, worldmap.getMapRight()- 590, worldmap.getMapHeight() - 50);
-        font.draw(batch, puzzleTextR, worldmap.getMapRight()- 180, worldmap.getMapHeight() - 50);
+
+        fontL.draw(batch, puzzleTextL, worldmap.getMapRight()- 630, worldmap.getMapHeight() - 45);
+        fontR.draw(batch, puzzleTextR, worldmap.getMapRight()- 200, worldmap.getMapHeight() - 40);
+
+        font.draw(batch, puzzleTextDoor, 145, worldmap.getMapHeight() - 430);
         font.draw(batch, "[0][0]", 145, worldmap.getMapHeight() - 390);
         font.draw(batch, "[0][1]", 145, worldmap.getMapHeight() - 165);
         font.draw(batch, "[1][0]", 465, worldmap.getMapHeight() - 390);

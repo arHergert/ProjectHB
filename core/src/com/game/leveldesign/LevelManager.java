@@ -37,6 +37,8 @@ public class LevelManager {
     public LevelManager(){
 
         //Hinzufügen der Level
+
+
         levelList.add(0, new Level_0());
         levelList.add(1, new Level_1());
         levelList.add(2, new Level_2());

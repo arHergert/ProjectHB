@@ -14,7 +14,7 @@
  </layer>
  <layer name="PuzzleTexture" width="20" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBjcgJWRtupHwSgYBSMXAAA4XgAN
+   eJxjYKAuyAfiHBy4AIeebCxqc6Fy9UBcgwM34DCvGovaWvK9NApGwSgYpgAA6oEMvw==
   </data>
  </layer>
  <layer name="Wand" width="20" height="16">
