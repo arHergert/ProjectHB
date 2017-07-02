@@ -52,8 +52,8 @@ public class Door extends MapObjects {
         previousState = Door_State.CLOSING;
         stateTimer = 0f;
 
-        wallClosing = new Animation<TextureRegion>(0.008f,spritesheet.findRegions("door"), Animation.PlayMode.REVERSED);
-        wallOpening = new Animation<TextureRegion>(0.008f,spritesheet.findRegions("door"));
+        wallClosing = new Animation<TextureRegion>(0.030f,spritesheet.findRegions("door"), Animation.PlayMode.REVERSED);
+        wallOpening = new Animation<TextureRegion>(0.030f,spritesheet.findRegions("door"));
         wallClosed = new TextureRegion(spritesheet.findRegion("doorclosed"));
 
 	}
@@ -69,7 +69,13 @@ public class Door extends MapObjects {
 	public void open() {
 		isOpen = true;
         doorWasOpened = true;
-        body.setActive(false);
+
+        try{
+            body.setActive(false);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
 	}
 	
 	/**

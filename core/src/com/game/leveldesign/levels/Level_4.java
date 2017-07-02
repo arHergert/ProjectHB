@@ -73,13 +73,21 @@ public class Level_4 extends Level{
                     checkDoorCollisions(fixA, fixB);
 
                     //Restliches Zeug
-                    if(fixA.getUserData().equals("Player_feet") || fixB.getUserData().equals("Player_feet")) {
+                    if(fixtureIs("Player_feet")) {
 
-                        if (fixA.getUserData().equals("Plate00") || fixB.getUserData().equals("Plate00")) {
-                            Fixture doorBottomFixture = fixA.getUserData() == "Plate00" ? fixA : fixB;
-                            Fixture player = doorBottomFixture == fixA ? fixB : fixA;
+                        if (fixtureIs("Plate00")) {
+
                             plates[0][0].load();
-                            door2.open();
+
+
+                            Gdx.app.postRunnable(new Runnable() {
+                                @Override
+                                public void run() {
+                                    door2.open();
+                                }
+                            });
+
+
                         }
                     }
                 }
