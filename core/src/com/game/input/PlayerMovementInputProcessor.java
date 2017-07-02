@@ -67,11 +67,7 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         if (camMoveDown){
 
-
-           // if (playerBody.getPosition().y > levelmap.getMapBottom() + boxPlayer.getSpriteHeight()/4){
                 vertSpeed -= moveSpeed;
-           // }
-
 
             if (playerBody.getPosition().y <= camera.position.y){
                 camera.translateInBounds(0,-moveSpeed);
@@ -81,7 +77,7 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         playerBody.setLinearVelocity(horizSpeed * (PPM * PLAYER_SPEED)   , vertSpeed * (PPM * PLAYER_SPEED) );
 
-        //System.out.println("RICHTUNG: " + Input.Keys.toString(lastMovedDirection));
+
 
     }
 
@@ -95,12 +91,12 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
         if(keycode == Input.Keys.A){
             camMoveLeft = true;
-            //lastMovedDirection = keycode;
+            lastMovedDirection = keycode;
         }
 
         if(keycode == Input.Keys.W){
             camMoveUp = true;
-            //lastMovedDirection = keycode;
+            lastMovedDirection = keycode;
         }
 
         if(keycode == Input.Keys.S){
