@@ -80,12 +80,19 @@ public class Level_4 extends Level{
                             plates[0][0].load();
 
 
+                            /*
                             Gdx.app.postRunnable(new Runnable() {
                                 @Override
                                 public void run() {
                                     door2.open();
                                 }
                             });
+                            */
+
+                            //Vorherige Code kann durch diese Lambda-Expression ersetzt werden
+                            Gdx.app.postRunnable( () -> door2.open());
+
+
 
 
                         }
