@@ -28,6 +28,7 @@ public class Rock extends MapObjects {
 	private boolean isPickedUp = false;
 	private boolean isRectangle;
 	float x,y;
+	private String datatype;
     //Shape shape;
 
     /** Region der aktuellen Steintextur aus der Spritesheet*/
@@ -59,6 +60,7 @@ public class Rock extends MapObjects {
         fixture.setUserData(mapSensorObject);
         shape.dispose();
         body.setType(BodyDef.BodyType.KinematicBody);
+        this.datatype = datatype;
 
         this.isRectangle = isRectangle;
 
@@ -166,4 +168,9 @@ public class Rock extends MapObjects {
 
         
     }
+    
+    public String datatype() {
+    	return datatype;
+    }
+    
 }//end class Rock

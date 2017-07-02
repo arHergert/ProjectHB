@@ -11,6 +11,7 @@ public class Hole extends MapObjects {
     //@TODO zwei Methoden aktiviert und deaktiviert.
 	private Rock contents;
 	private String datatype;
+	private boolean collidesWithRock;
 	
 	public Hole(WorldMap map, String mapSensorObject, String datatype) {
 		super(map);
@@ -21,6 +22,7 @@ public class Hole extends MapObjects {
         fixture.setUserData(mapSensorObject);
         fixture.setSensor(true);
         this.datatype = datatype;
+        collidesWithRock = false;
 	}
 	
 	public boolean holdsRock() {
@@ -53,6 +55,30 @@ public class Hole extends MapObjects {
 		} else {
 			return null;
 		}
+	}
+	
+	@Override
+	public void collideOn() {
+		collidesWithRock = true;
+		System.out.println("collideOn: " + fixture.getUserData());
+	}
+
+	@Override
+	public void collideOff() {
+		collidesWithRock = false;
+		System.out.println("collideOff: " + fixture.getUserData());
+	}
+	
+	public boolean collidesWithRock() {
+		return collidesWithRock;
+	}
+	
+	public String datatype() {
+		return datatype;
+	}
+	
+	public Rock getRock() {
+		return contents;
 	}
 	
 }

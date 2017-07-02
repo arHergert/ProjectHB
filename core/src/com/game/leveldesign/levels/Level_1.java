@@ -71,7 +71,7 @@ public class Level_1 extends Level {
                     		
                     	}
                     	// wenn Spieler mit einem Loch kollidiert
-                    	else if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
+                    	/*else if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
 
                     			for(int i = 0; i <= 4; i++) {
                     				if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
@@ -84,6 +84,24 @@ public class Level_1 extends Level {
                     				}
                     			}
 
+                    	}*/
+                    	
+                    } else if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
+                    	System.out.println("++ Rock");
+                    	//Kollision mit Loch
+                    	if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
+                    		System.out.println("++ Rock+Hole");
+                			for(int i = 0; i <= 4; i++) {
+                				if(fixA.getUserData().toString().startsWith("Hole") && fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().startsWith("Hole") &&  fixB.getUserData().toString().endsWith(""+i)) {
+                					switch(i) {
+                					case 1: intHole.collideOn(); break;
+                					case 2: stringHole.collideOn(); break;
+                					case 3: booleanHole.collideOn(); break;
+                					case 4: floatHole.collideOn(); break;
+                					}
+                				}
+                			}
+                    		
                     	}
                     	
                     }
@@ -127,7 +145,7 @@ public class Level_1 extends Level {
                     		
                     	}
                     	// wenn Spieler mit einem Loch kollidiert
-                    	else if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
+                    	/*else if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
                     		
                 			for(int i = 0; i <= 4; i++) {
                 				if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
@@ -141,13 +159,27 @@ public class Level_1 extends Level {
                 			}
                     			
                     		
+                    	}*/
+                    	
+                    } else if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
+                    	System.out.println("--Rock");
+                    	if(fixA.getUserData().toString().startsWith("Hole") || fixB.getUserData().toString().startsWith("Hole")) {
+                    		System.out.println("--Rock+Hole");
+                			for(int i = 0; i <= 4; i++) {
+                				if(fixA.getUserData().toString().endsWith(""+i) || fixB.getUserData().toString().endsWith(""+i)) {
+                					switch(i) {
+                					case 1: intHole.collideOff(); break;
+                					case 2: stringHole.collideOff(); break;
+                					case 3: booleanHole.collideOff(); break;
+                					case 4: floatHole.collideOff(); break;
+                					}
+                				}
+                			}
+                    		
                     	}
                     	
                     }
 
-                	
-                	
-                	
                 }
             	
             }
@@ -171,50 +203,45 @@ public class Level_1 extends Level {
             public boolean keyDown(int keycode) {
 
             	if(keycode == Input.Keys.E) {
-
-
+            		
                     if(Player.isCarryingObject){
 
-                    	if(intHole.collidesWithPlayer()) {
+                    	if(intHole.collidesWithRock()) {
                     		
                     		System.out.println("Ablegen in IntLoch");
                     		try {
 								intHole.putRock(carryingStone);
 							} catch (Exception e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
                     		carryingStone = null;
                     		
-                    	} else if(stringHole.collidesWithPlayer()) {
+                    	} else if(stringHole.collidesWithRock()) {
                     		
                     		System.out.println("Ablegen in StringLoch");
                     		try {
 								stringHole.putRock(carryingStone);
 							} catch (Exception e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
                     		carryingStone = null;
                     		
-                    	} else if(booleanHole.collidesWithPlayer()) {
+                    	} else if(booleanHole.collidesWithRock()) {
                     		
                     		System.out.println("Ablegen in booleanLoch");
                     		try {
 								booleanHole.putRock(carryingStone);
 							} catch (Exception e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
                     		carryingStone = null;
                     		
-                    	} else if(floatHole.collidesWithPlayer()) {
+                    	} else if(floatHole.collidesWithRock()) {
                     		
                     		System.out.println("Ablegen in FloatLoch");
                     		try {
 								floatHole.putRock(carryingStone);
 							} catch (Exception e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
                     		carryingStone = null;
@@ -265,5 +292,19 @@ public class Level_1 extends Level {
     @Override
     public void drawObjectsOverPlayer(Batch batch) {
 
+    }
+    
+    private boolean puzzleComplete() {
+    	
+    	if(intHole.holdsRock() && stringHole.holdsRock() && booleanHole.holdsRock() && floatHole.holdsRock()) {
+    		
+    		if(intHole.datatype().equals(intHole.getRock().datatype()) && stringHole.datatype().equals(stringHole.getRock().datatype()) && booleanHole.datatype().equals(booleanHole.getRock().datatype()) && floatHole.datatype().equals(floatHole.getRock().datatype())) {
+    			return true;
+    		}
+    		
+    	}
+    	
+    	return false;
+    	
     }
 }//end class Level_1
