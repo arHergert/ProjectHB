@@ -11,10 +11,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.physics.box2d.*;
 import com.game.box2d.Player;
-import com.game.box2d.mapobjects.Door;
-import com.game.box2d.mapobjects.Hole;
-import com.game.box2d.mapobjects.Plate;
-import com.game.box2d.mapobjects.Rock;
+import com.game.box2d.mapobjects.*;
 
 import static com.game.box2d.Player.carryingStone;
 
@@ -24,6 +21,7 @@ import static com.game.box2d.Player.carryingStone;
 public class Level_4 extends Level{
 
     private Plate[][] plates;
+    private Door door0;
     private Door door1;
     private Door door2;
     private BitmapFont font;
@@ -35,9 +33,11 @@ public class Level_4 extends Level{
             "if(plate[0][0]) {\n" +
             "   door.open();\n" +
             "}\n";
+    private Lever lever1 = new Lever(worldmap,"Lever1");
 
     public Level_4() {
         super("level4_map.tmx");
+        door0 = new Door(worldmap,"Door0");
         door1 = new Door(worldmap,"Door1");
         door2 = new Door(worldmap,"Door2");
         plates = new Plate[2][2];
@@ -57,6 +57,16 @@ public class Level_4 extends Level{
         fontGenerator.dispose();
     }
 
+    private boolean allPlatesActivated() {
+        boolean r = true;
+        for (int i = 0; i< plates.length; i++){
+            for (int j = 0; j < plates[i].length; j++ ){
+                if(!plates[i][j].isActivated()) r = false;
+            }
+        }
+        return r;
+    }
+
     @Override
     protected ContactListener levelContact() {
         return new ContactListener() {
@@ -72,28 +82,69 @@ public class Level_4 extends Level{
                     //Kollisionsabfragen für die Türen
                     checkDoorCollisions(fixA, fixB);
 
+                    // Kollision mit Hebel abfragen
+                    if(fixtureIs("Lever1")) {
+                        lever1.collideOn();
+
+                    }
+
                     //Restliches Zeug
                     if(fixtureIs("Player_feet")) {
 
                         if (fixtureIs("Plate00")) {
-
                             plates[0][0].load();
-
-
-                            /*
+                            if(allPlatesActivated()) {
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door0.open();
+                                    }
+                                });
+                            }
                             Gdx.app.postRunnable(new Runnable() {
                                 @Override
                                 public void run() {
                                     door2.open();
                                 }
                             });
-                            */
-
-                            //Vorherige Code kann durch diese Lambda-Expression ersetzt werden
-                            Gdx.app.postRunnable( () -> door2.open());
-
-
-
+                        }else if(fixtureIs("Plate01")) {
+                            plates[0][1].load();
+                            if(allPlatesActivated()) {
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door0.open();
+                                    }
+                                });
+                            }
+                        }else if(fixtureIs("Plate10")) {
+                            plates[1][0].load();
+                            if(allPlatesActivated()) {
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door0.open();
+                                    }
+                                });
+                            }
+                        } else if(fixtureIs("Plate11")) {
+                            plates[1][1].load();
+                            if(allPlatesActivated()) {
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door0.open();
+                                    }
+                                });
+                            }
+                            if(!plates[0][0].isActivated()) {
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door1.open();
+                                    }
+                                });
+                            }
                         }
                     }
                 }
@@ -103,6 +154,17 @@ public class Level_4 extends Level{
             public void endContact(Contact contact) {
                 fixA = contact.getFixtureA();
                 fixB = contact.getFixtureB();
+
+                //Überprüfen ob Player nicht mit nicht-interagierbaren Objekten wie Wände o.ä. kollidiert
+                if( fixturesNotNull() && fixtureIs("Player")){
+
+                    // Kollision mit Hebel abfragen
+                    if(fixtureIs("Lever1")) {
+                        lever1.collideOff();
+
+                    }
+
+                }//end if-Abfage ob Player nicht mit StaticMapCollisions-Objekten kollidiert
 
                 if( fixturesNotNull() ) {
 
@@ -134,34 +196,34 @@ public class Level_4 extends Level{
 
     @Override
     public InputProcessor levelInput() {
+
         return new InputAdapter(){
 
             public boolean keyDown(int keycode) {
 
-                if(keycode == Input.Keys.E) {
+                if (keycode == Input.Keys.E ){
 
-
-                    if(Player.isCarryingObject){
-
-                        try{
-                            carryingStone.putDown();
-                            carryingStone = null;
-                        }catch (Exception e){
-                            e.printStackTrace();
+                    if(lever1.collidesWithPlayer()){
+                        lever1.use();
+                        for (int i = 0; i< plates.length; i++){
+                            for (int j = 0; j < plates[i].length; j++ ){
+                                plates[i][j].reset();
+                            }
                         }
-
+                        door0.close();
                     }
 
-                    return true;
                 }
 
                 return false;
             }
+
         };
     }
 
     @Override
     public void drawObjects(Batch batch) {
+        door0.draw(batch);
         door1.draw(batch);
         door2.draw(batch);
         for (int i = 0; i< plates.length; i++){
