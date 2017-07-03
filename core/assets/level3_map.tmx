@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="69">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="69">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="14" height="12">
@@ -14,7 +14,7 @@
  </layer>
  <layer name="PuzzleTextures" width="14" height="12">
   <data encoding="base64" compression="zlib">
-   eJxjYBgcgJVxoF0wcgHbIA57ABNyAA4=
+   eJxjYKAuyAbiHDScR4S+aiCuQcN1VHTXLDL1zSNT39whYt8cIO4H4vl46Nlkmk0NAAD2+g5y
   </data>
  </layer>
  <layer name="Wand" width="14" height="12">
