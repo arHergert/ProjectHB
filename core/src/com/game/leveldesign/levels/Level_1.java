@@ -63,7 +63,6 @@ public class Level_1 extends Level {
                 //Überprüfen ob Player nicht mit nicht-interagierbaren Objekten wie Wände o.ä. kollidiert
                 if( fixturesNotNull()){
 
-                    System.out.println("FIXA: " +fixA.getUserData().toString() + "   FIXB: "+ fixB.getUserData().toString());
 
                     //Kollisionsabfragen für die Türen
                     checkDoorCollisions(fixA,fixB);
@@ -221,7 +220,7 @@ public class Level_1 extends Level {
 
                             if(intHole.collidesWithRock() && !intHole.holdsRock()) {
 
-                                System.out.println("Ablegen in IntLoch");
+                               // System.out.println("Ablegen in IntLoch");
                                 try {
                                     intHole.putRock(carryingStone);
                                 } catch (Exception e) {
@@ -231,7 +230,7 @@ public class Level_1 extends Level {
 
                             } else if(stringHole.collidesWithRock() && !stringHole.holdsRock()) {
 
-                                System.out.println("Ablegen in StringLoch");
+                               // System.out.println("Ablegen in StringLoch");
                                 try {
                                     stringHole.putRock(carryingStone);
                                 } catch (Exception e) {
@@ -241,7 +240,7 @@ public class Level_1 extends Level {
 
                             } else if(booleanHole.collidesWithRock() && !booleanHole.holdsRock()) {
 
-                                System.out.println("Ablegen in booleanLoch");
+                               // System.out.println("Ablegen in booleanLoch");
                                 try {
                                     booleanHole.putRock(carryingStone);
                                 } catch (Exception e) {
@@ -251,7 +250,7 @@ public class Level_1 extends Level {
 
                             } else if(floatHole.collidesWithRock() && !floatHole.holdsRock()) {
 
-                                System.out.println("Ablegen in FloatLoch");
+                              //  System.out.println("Ablegen in FloatLoch");
                                 try {
                                     floatHole.putRock(carryingStone);
                                 } catch (Exception e) {
