@@ -38,7 +38,7 @@ public class Level_4 extends Level{
 
     private String puzzleTextDoor =
             "if (array[0][0] && array[0][1] && array[1][0] && array[1][1]) door.open";
-    private Lever lever1 = new Lever(worldmap,"Lever1");
+    private Button lever1 = new Button(worldmap,"Lever1");
 
     public Level_4() {
         super("level4_map.tmx");
@@ -188,6 +188,7 @@ public class Level_4 extends Level{
     @Override
     public void drawObjects(Batch batch) {
 
+        lever1.draw(batch);
         door1.draw(batch);
         door2.draw(batch);
         for (int i = 0; i< plates.length; i++){
