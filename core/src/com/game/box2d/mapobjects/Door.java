@@ -48,8 +48,6 @@ public class Door extends MapObjects {
         fixture = body.createFixture(fixtureDef);
         shape.dispose();
         fixture.setUserData(mapSensorObject);
-        currentState = Door_State.CLOSING;
-        previousState = Door_State.CLOSING;
         stateTimer = 0f;
 
         wallClosing = new Animation<>(0.020f, spritesheet.findRegions("door"), Animation.PlayMode.REVERSED);

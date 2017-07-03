@@ -4,13 +4,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.physics.box2d.*;
 import com.game.box2d.Player;
 import com.game.box2d.mapobjects.Hole;
 import com.game.box2d.mapobjects.Rock;
+import com.game.leveldesign.TryAndCatchFont;
 
 import static com.game.box2d.Player.carryingStone;
+import static com.game.box2d.Player.playerBody;
 
 /**
  * Das erste Level
@@ -22,7 +28,10 @@ public class Level_1 extends Level {
 	private Hole intHole, stringHole, booleanHole, floatHole;
 	private Rock[] rocks = { intPuzzle, stringPuzzle, booleanPuzzle, floatPuzzle };
 	private Hole[] holes = { intHole, stringHole, booleanHole, floatHole };
-	
+
+    private TryAndCatchFont font;
+    private boolean playerOverRocks = false;
+
     /**
      * @param
      */
@@ -36,6 +45,9 @@ public class Level_1 extends Level {
         stringHole = new Hole(worldmap, "Hole2", "String");
         booleanHole = new Hole(worldmap, "Hole3", "boolean");
         floatHole = new Hole(worldmap, "Hole4", "float");
+        font = new TryAndCatchFont(12);
+
+
     }
 
     @Override
@@ -98,6 +110,16 @@ public class Level_1 extends Level {
                     	}
                     	
                     }
+
+                    //Wenn der Spieler mit seinen Füßen über den Steinen geht, wird die Variable akiviert
+                    if(fixtureIs("Player_feet")){
+
+                        if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")){
+
+                            playerOverRocks = true;
+
+                        }
+                    }
                     
 
 
@@ -156,6 +178,17 @@ public class Level_1 extends Level {
                     	
                     }
 
+                    if(fixtureIs("Player_feet")){
+
+                        if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")){
+
+                            playerOverRocks = false;
+
+                        }
+                    }
+
+
+
                 }
             	
             }
@@ -184,51 +217,61 @@ public class Level_1 extends Level {
                     	
                     	clearHoles(carryingStone);
 
-                    	if(intHole.collidesWithRock() && !intHole.holdsRock()) {
-                    		
-                    		System.out.println("Ablegen in IntLoch");
-                    		try {
-								intHole.putRock(carryingStone);
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-                    		carryingStone = null;
-                    		
-                    	} else if(stringHole.collidesWithRock() && !stringHole.holdsRock()) {
-                    		
-                    		System.out.println("Ablegen in StringLoch");
-                    		try {
-								stringHole.putRock(carryingStone);
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-                    		carryingStone = null;
-                    		
-                    	} else if(booleanHole.collidesWithRock() && !booleanHole.holdsRock()) {
-                    		
-                    		System.out.println("Ablegen in booleanLoch");
-                    		try {
-								booleanHole.putRock(carryingStone);
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-                    		carryingStone = null;
-                    		
-                    	} else if(floatHole.collidesWithRock() && !floatHole.holdsRock()) {
-                    		
-                    		System.out.println("Ablegen in FloatLoch");
-                    		try {
-								floatHole.putRock(carryingStone);
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-                    		carryingStone = null;
-                    		
-                    	} else {
-                    		carryingStone.putDown();
-                    		carryingStone = null;
-                    	}
-                    	puzzleComplete();
+                        if(playerBody.getLinearVelocity().isZero()){
+
+                            if(intHole.collidesWithRock() && !intHole.holdsRock()) {
+
+                                System.out.println("Ablegen in IntLoch");
+                                try {
+                                    intHole.putRock(carryingStone);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                carryingStone = null;
+
+                            } else if(stringHole.collidesWithRock() && !stringHole.holdsRock()) {
+
+                                System.out.println("Ablegen in StringLoch");
+                                try {
+                                    stringHole.putRock(carryingStone);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                carryingStone = null;
+
+                            } else if(booleanHole.collidesWithRock() && !booleanHole.holdsRock()) {
+
+                                System.out.println("Ablegen in booleanLoch");
+                                try {
+                                    booleanHole.putRock(carryingStone);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                carryingStone = null;
+
+                            } else if(floatHole.collidesWithRock() && !floatHole.holdsRock()) {
+
+                                System.out.println("Ablegen in FloatLoch");
+                                try {
+                                    floatHole.putRock(carryingStone);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                carryingStone = null;
+
+                            } else {
+                                carryingStone.putDown();
+                                carryingStone = null;
+                            }
+                            puzzleComplete();
+
+
+                        }else{
+                            System.err.println("Bitte stehen bleiben um Stein abzulegen!");
+                        }
+
+
+
                     	
 
                     }else{
@@ -267,10 +310,19 @@ public class Level_1 extends Level {
         intHole.draw(batch);
         stringHole.draw(batch);
 
-    	intPuzzle.draw(batch);
-    	stringPuzzle.draw(batch);
-    	booleanPuzzle.draw(batch);
-    	floatPuzzle.draw(batch);
+        font.draw(batch, "name;", worldmap.getMapLeft() + 55, worldmap.getMapHeight() - 80);
+        font.draw(batch, "alter;", worldmap.getMapLeft() + 240, worldmap.getMapHeight() - 230);
+        font.draw(batch, "maennlich;", worldmap.getMapLeft() + 240, worldmap.getMapHeight() - 80);
+        font.draw(batch, "groesse;", worldmap.getMapLeft() + 55, worldmap.getMapHeight() - 230);
+
+        //Zeichnet nur wenn der Player mit seinen Füßen nicht über den Steinen clippt
+        if(!playerOverRocks){
+            intPuzzle.draw(batch);
+            stringPuzzle.draw(batch);
+            booleanPuzzle.draw(batch);
+            floatPuzzle.draw(batch);
+
+        }
 
 
     }
@@ -278,11 +330,21 @@ public class Level_1 extends Level {
     @Override
     public void drawObjectsOverPlayer(Batch batch) {
 
+        //Zeichnet nur wenn der Player mit seinen Füßen über den Steinen clippt
+        if(playerOverRocks){
+            intPuzzle.draw(batch);
+            stringPuzzle.draw(batch);
+            booleanPuzzle.draw(batch);
+            floatPuzzle.draw(batch);
+        }
+
+        door.draw(batch);
+
     }
     
     /**
-     * Testet ob das Puzzle richtig gel�st wurde.
-     * Also alle Steine in den richtigen L�chern liegen.
+     * Testet ob das Puzzle richtig gel�st wurde.
+     * Also alle Steine in den richtigen L�chern liegen.
      * @return
      */
     private boolean puzzleComplete() {
@@ -290,7 +352,7 @@ public class Level_1 extends Level {
     	if(intHole.holdsRock() && stringHole.holdsRock() && booleanHole.holdsRock() && floatHole.holdsRock()) {
     		
     		if(intHole.datatype().equals(intHole.getRock().datatype()) && stringHole.datatype().equals(stringHole.getRock().datatype()) && booleanHole.datatype().equals(booleanHole.getRock().datatype()) && floatHole.datatype().equals(floatHole.getRock().datatype())) {
-    			System.out.println("Level 1: Puzzle gel�st!");
+    			System.out.println("Level 1: Puzzle geloest!");
     			Gdx.app.postRunnable(() -> door.open());
     			return true;
     		}
@@ -302,7 +364,7 @@ public class Level_1 extends Level {
     }
     
     /**
-     * entfernt einen Stein aus den L�chern
+     * entfernt einen Stein aus den L�chern
      * @param rock der Stein, der entfernt werden soll
      */
     private void clearHoles(Rock rock) {

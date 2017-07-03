@@ -133,7 +133,7 @@ public class Player extends Sprite {
         FixtureDef fixtureDef = new FixtureDef();
         PolygonShape pShape = new PolygonShape();
        // pShape.setAsBox(boxImg.getWidth()/2, boxImg.getHeight()/2);
-        pShape.setAsBox(11, 6);
+        pShape.setAsBox(11, 9);
 
         fixtureDef.shape = pShape;
         //Namen für das Kollisionsobjekt festsetzen. Wird zur Kollisionsabfrage benötigt.

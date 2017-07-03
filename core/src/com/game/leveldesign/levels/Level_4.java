@@ -20,6 +20,7 @@ import static com.game.box2d.Player.carryingStone;
  */
 public class Level_4 extends Level{
 
+
     private Plate[][] plates;
     private Door door1;
     private Door door2;
