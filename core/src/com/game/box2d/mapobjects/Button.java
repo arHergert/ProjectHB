@@ -1,8 +1,6 @@
 package com.game.box2d.mapobjects;
 
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -40,6 +38,7 @@ public class Button extends MapObjects {
         fixture = body.createFixture(fixtureDef);
         shape.dispose();
         fixture.setUserData(mapSensorObject);
+        fixture.setSensor(true);
 
         buttonDefault = spritesheet.findRegion("button_default");
         buttonOn = spritesheet.findRegion("button_on");
@@ -66,6 +65,9 @@ public class Button extends MapObjects {
 
     }
 
+    public boolean isActivated(){
+        return activated;
+    }
 
 
     @Override
