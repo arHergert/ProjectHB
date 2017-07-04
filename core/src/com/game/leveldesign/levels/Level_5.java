@@ -30,7 +30,7 @@ public class Level_5 extends Level {
     private Door door2;
     private BitmapFont font8;
     private BitmapFont font10;
-    private Lever lever1 = new Lever(worldmap, "Lever1");
+    private Button lever1 = new Button(worldmap, "Lever1");
     private Button button1 = new Button(worldmap, "Button1");
     private String puzzleText1 =
             "if(a[0][0]) {\n" +
@@ -39,7 +39,7 @@ public class Level_5 extends Level {
     private String puzzleText2 =
             "for (int i = 0; i< a.length; i++){\n"+
             "    for (int j = 0; j < a[i].length; j++ ){\n"+
-            "        if(!a[i][j]) b[i][j].activate();\n"+
+            "        b[i][j] = !a[i][j]\n"+
             "    }\n"+
             "}";
     private String puzzleText3 =
@@ -92,6 +92,10 @@ public class Level_5 extends Level {
                     // Kollision mit Hebel abfragen
                     if (fixtureIs("Lever1")) {
                         lever1.collideOn();
+
+                    }
+                    if(fixtureIs("Button1")) {
+                        button1.collideOn();
 
                     }
 
@@ -147,6 +151,10 @@ public class Level_5 extends Level {
                         lever1.collideOff();
 
                     }
+                    if (fixtureIs("Button1")) {
+                        button1.collideOff();
+
+                    }
 
                 }//end if-Abfage ob Player nicht mit StaticMapCollisions-Objekten kollidiert
 
@@ -176,10 +184,18 @@ public class Level_5 extends Level {
                         lever1.use();
                         for (int i = 0; i< plates1.length; i++){
                             for (int j = 0; j < plates1[i].length; j++ ){
-                                if(!plates1[i][j].isActivated()) plates2[i][j].load();
+                                if(!plates1[i][j].isActivated()) {
+                                    plates2[i][j].load();
+                                } else {
+                                    plates2[i][j].unload();
+                                }
                             }
                         }
-                    } else if(button1.collidesWithPlayer()){
+                        if(plates1[1][0].isActivated() && plates2[0][0].isActivated()) {
+                            door2.open();
+                        }
+                    }
+                    if(button1.collidesWithPlayer()){
                         button1.use();
                         for (int i = 0; i< plates1.length; i++){
                             for (int j = 0; j < plates1[i].length; j++ ){
@@ -208,6 +224,8 @@ public class Level_5 extends Level {
         font8.draw(batch, puzzleText1, 514, worldmap.getMapHeight() - 215);
         font10.draw(batch, puzzleText2, 610, worldmap.getMapHeight() - 102);
         font8.draw(batch, puzzleText3, 17, worldmap.getMapHeight() - 85);
+        button1.draw(batch);
+        lever1.draw(batch);
     }
 
     @Override
