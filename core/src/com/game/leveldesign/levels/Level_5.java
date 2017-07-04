@@ -29,6 +29,7 @@ public class Level_5 extends Level {
     private Door door1;
     //private Door door2;
     private BitmapFont font8;
+    private BitmapFont font9;
     private BitmapFont font10;
     private Button lever1 = new Button(worldmap, "Lever1");
     private Button button1 = new Button(worldmap, "Button1");
@@ -69,6 +70,8 @@ public class Level_5 extends Level {
         fontParameter.minFilter = Texture.TextureFilter.Nearest;
         fontParameter.magFilter = Texture.TextureFilter.MipMapLinearNearest;
         font8 = fontGenerator.generateFont(fontParameter);
+        fontParameter.size = 9;
+        font9 = fontGenerator.generateFont(fontParameter);
         fontParameter.size = 10;
         font10 = fontGenerator.generateFont(fontParameter);
         fontGenerator.dispose();
@@ -224,6 +227,10 @@ public class Level_5 extends Level {
         font8.draw(batch, puzzleText1, 514, worldmap.getMapHeight() - 215);
         font10.draw(batch, puzzleText2, 610, worldmap.getMapHeight() - 102);
         font8.draw(batch, puzzleText3, 17, worldmap.getMapHeight() - 85);
+        font9.draw(batch, "[0][0]", 193, worldmap.getMapHeight() - 228);
+        font9.draw(batch, "[0][1]", 193, worldmap.getMapHeight() - 228+96);
+        font9.draw(batch, "[1][0]", 193+96, worldmap.getMapHeight() - 228);
+        font9.draw(batch, "[1][1]", 193+96, worldmap.getMapHeight() - 228+96);
         button1.draw(batch);
         lever1.draw(batch);
     }
