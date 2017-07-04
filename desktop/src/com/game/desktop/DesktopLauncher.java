@@ -16,7 +16,7 @@ public class DesktopLauncher {
      */
     public static void main (String[] args) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.title = "Try and Catch v0.0.1";
+        config.title = "Try and Catch v0.5 Alpha";
         config.width = 1280;
         config.height = 720;
         config.resizable = true;

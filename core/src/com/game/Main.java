@@ -145,7 +145,6 @@ public class Main extends ApplicationAdapter {
      * UNBEDINGT ALLES, was die .dispose() Methode ausführen kann, hier rein tun
      */
 	public void dispose () {
-        //TODO Methode zum Disposen aller Level
         debugRenderer.dispose();
         levels.disposeAllLevels();
         spritesheet.dispose();
