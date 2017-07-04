@@ -13,6 +13,7 @@ import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
+import com.game.box2d.mapobjects.Button;
 import com.game.box2d.mapobjects.Door;
 import com.game.box2d.mapobjects.Lever;
 import com.game.box2d.mapobjects.Plate;
@@ -30,6 +31,7 @@ public class Level_5 extends Level {
     private BitmapFont font8;
     private BitmapFont font10;
     private Lever lever1 = new Lever(worldmap, "Lever1");
+    private Button button1 = new Button(worldmap, "Button1");
     private String puzzleText1 =
             "if(a[0][0]) {\n" +
             "   door.open();\n" +
@@ -37,9 +39,13 @@ public class Level_5 extends Level {
     private String puzzleText2 =
             "for (int i = 0; i< a.length; i++){\n"+
             "    for (int j = 0; j < a[i].length; j++ ){\n"+
-            "        if(a[i][j]) b[i][j].activate();\n"+
+            "        if(!a[i][j]) b[i][j].activate();\n"+
             "    }\n"+
             "}";
+    private String puzzleText3 =
+            "if(a[1][0] & b[0][0]) {\n" +
+            "   door.open();\n" +
+            "}\n";
 
     public Level_5() {
         super("level5_map.tmx");
@@ -101,12 +107,18 @@ public class Level_5 extends Level {
 
                         } else if (fixtureIs("Plate010")) {
                             plates1[1][0].load();
+                            if(plates2[0][0].isActivated()) {
+                                Gdx.app.postRunnable(() -> door2.open());
+                            }
 
                         } else if (fixtureIs("Plate011")) {
                             plates1[1][1].load();
 
                         } else if (fixtureIs("Plate100")) {
                             plates2[0][0].load();
+                            if(plates1[1][0].isActivated()) {
+                                Gdx.app.postRunnable(() -> door2.open());
+                            }
 
                         } else if (fixtureIs("Plate101")) {
                             plates2[0][1].load();
@@ -164,7 +176,14 @@ public class Level_5 extends Level {
                         lever1.use();
                         for (int i = 0; i< plates1.length; i++){
                             for (int j = 0; j < plates1[i].length; j++ ){
-                                if(plates1[i][j].isActivated()) plates2[i][j].load();
+                                if(!plates1[i][j].isActivated()) plates2[i][j].load();
+                            }
+                        }
+                    } else if(button1.collidesWithPlayer()){
+                        button1.use();
+                        for (int i = 0; i< plates1.length; i++){
+                            for (int j = 0; j < plates1[i].length; j++ ){
+                                plates1[i][j].reset();
                             }
                         }
                     }
@@ -188,6 +207,7 @@ public class Level_5 extends Level {
         }
         font8.draw(batch, puzzleText1, 514, worldmap.getMapHeight() - 215);
         font10.draw(batch, puzzleText2, 610, worldmap.getMapHeight() - 102);
+        font8.draw(batch, puzzleText3, 17, worldmap.getMapHeight() - 85);
     }
 
     @Override
