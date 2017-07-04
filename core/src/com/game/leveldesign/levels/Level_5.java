@@ -38,8 +38,8 @@ public class Level_5 extends Level {
             "   door.open();\n" +
             "}\n";
     private String puzzleText2 =
-            "for (int i = 0; i< a.length; i++){\n"+
-            "    for (int j = 0; j < a[i].length; j++ ){\n"+
+            "for (int i = 0; i< b.length; i++){\n"+
+            "    for (int j = 0; j < b[i].length; j++ ){\n"+
             "        b[i][j] = !a[i][j]\n"+
             "    }\n"+
             "}";
