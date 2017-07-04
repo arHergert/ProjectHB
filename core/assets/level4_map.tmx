@@ -4,7 +4,7 @@
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="20" height="16">
   <data encoding="base64" compression="zlib">
-   eJzVkskKwkAMhqdWUUFvtT1bQevF9uByduvFBVwvLu//GP5CAiFG26sDH2nab36GSUPnXABCIiA61HuKUHwPRB/SuzlYgKWoK7AGOaiKrDrYGi7XDTiAIziJegYXcFV5NXA3XK43EIMEDAn53DPOFxtuInxefdBVpMb9WV4mcjyqFeAL591HRl5keL5yHM0lFx7PowUaoAnahse9U3kHun/2eB5vfwf2tE973Os8615G5D/Ak/YNvng6z/Im7nOGY8NLS+aVJfvDPGseZdHz4MxvawpmBY7+73+tgThDUd4LDTIl7w==
+   eJzVk0sLglAQha89qKB2ZusM1DbqQmvdy00PsNemx///GR1hBobLJEKrBj7mjp45yox6xhgXeIRLjKl2LDxx3xW1R9dWYA02Im/BDhSgI7x64KBoOe9BCc7gIvIV3MDd8uuCp6Ll/AA+iMCckOeZ8n6+oo2EniMAU7AASzonyvw0XSp8HMot0AYh+VT1RPGbCF0s+qTG0F4K4cf7GII+GICRouPaWH4lzZ+fy/uo9Edwoj6pS0Rt+/GcM5CL+Vb6F3hTH+/P1tl+Ic1Wkiu9maJLGvo1Jf1Dv+AHv9jyY89vwf9CXdjffV3wN9nE7wOK7ych
   </data>
  </layer>
  <layer name="Details" width="20" height="16">
