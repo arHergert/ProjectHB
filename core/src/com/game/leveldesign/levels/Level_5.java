@@ -27,7 +27,7 @@ public class Level_5 extends Level {
     private Plate[][] plates1;
     private Plate[][] plates2;
     private Door door1;
-    private Door door2;
+    //private Door door2;
     private BitmapFont font8;
     private BitmapFont font10;
     private Button lever1 = new Button(worldmap, "Lever1");
@@ -50,7 +50,7 @@ public class Level_5 extends Level {
     public Level_5() {
         super("level5_map.tmx");
         door1 = new Door(worldmap, "Door1");
-        door2 = new Door(worldmap, "Door2");
+        //door2 = new Door(worldmap, "Door2");
         plates1 = new Plate[2][2];
         plates2 = new Plate[2][2];
         plates1[0][0] = new Plate(worldmap, true, "Plate000");
@@ -112,7 +112,7 @@ public class Level_5 extends Level {
                         } else if (fixtureIs("Plate010")) {
                             plates1[1][0].load();
                             if(plates2[0][0].isActivated()) {
-                                Gdx.app.postRunnable(() -> door2.open());
+                                Gdx.app.postRunnable(() -> door.open());
                             }
 
                         } else if (fixtureIs("Plate011")) {
@@ -121,7 +121,7 @@ public class Level_5 extends Level {
                         } else if (fixtureIs("Plate100")) {
                             plates2[0][0].load();
                             if(plates1[1][0].isActivated()) {
-                                Gdx.app.postRunnable(() -> door2.open());
+                                Gdx.app.postRunnable(() -> door.open());
                             }
 
                         } else if (fixtureIs("Plate101")) {
@@ -192,7 +192,7 @@ public class Level_5 extends Level {
                             }
                         }
                         if(plates1[1][0].isActivated() && plates2[0][0].isActivated()) {
-                            door2.open();
+                            door.open();
                         }
                     }
                     if(button1.collidesWithPlayer()){
@@ -231,7 +231,7 @@ public class Level_5 extends Level {
     @Override
     public void drawObjectsOverPlayer(Batch batch) {
         door1.draw(batch);
-        door2.draw(batch);
+        door.draw(batch);
 
     }
 }
