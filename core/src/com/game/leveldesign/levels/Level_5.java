@@ -40,7 +40,7 @@ public class Level_5 extends Level {
     private String puzzleText2 =
             "for (int i = 0; i< b.length; i++){\n"+
             "    for (int j = 0; j < b[i].length; j++ ){\n"+
-            "        b[i][j] = !a[i][j]\n"+
+            "        b[i][j] = !a[i][j];\n"+
             "    }\n"+
             "}";
     private String puzzleText3 =
