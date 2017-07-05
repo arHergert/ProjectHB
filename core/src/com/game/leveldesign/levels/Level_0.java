@@ -13,7 +13,8 @@ import com.game.box2d.mapobjects.Lever;
  */
 public class Level_0 extends Level{
 
-    private Lever lever1 = new Lever(worldmap,"Lever1");
+    private Lever lever1 = new Lever(worldmap,"Lever1", "Boden");
+    private boolean  playerOverLever = true;
 
     /**
      *
@@ -44,7 +45,20 @@ public class Level_0 extends Level{
 
                     }
 
+
+
                 }//end if-Abfage ob Player nicht mit StaticMapCollisions-Objekten kollidiert
+
+
+                //Wenn der Spieler mit seinen Füßen über den Steinen geht, wird die Variable akiviert
+                if(fixturesNotNull() && fixtureIs("Player_feet")){
+
+                    if(fixA.getUserData().toString().startsWith("Lever") || fixB.getUserData().toString().startsWith("Lever")){
+
+                        playerOverLever = false;
+
+                    }
+                }
 
 
             }
@@ -62,7 +76,20 @@ public class Level_0 extends Level{
 
                     }
 
+
+
+
                 }//end if-Abfage ob Player nicht mit StaticMapCollisions-Objekten kollidiert
+
+                if(fixturesNotNull() && fixtureIs("Player_feet")){
+
+                    if(fixA.getUserData().toString().startsWith("Lever") || fixB.getUserData().toString().startsWith("Lever")){
+
+                        playerOverLever = true;
+
+                    }
+                }
+
 
             }
             public void preSolve(Contact contact, Manifold oldManifold) {}
@@ -99,11 +126,18 @@ public class Level_0 extends Level{
 
     @Override
     public void drawObjects(Batch batch) {
-
+        if( playerOverLever){
+            lever1.draw(batch);
+        }
     }
 
     @Override
     public void drawObjectsOverPlayer(Batch batch) {
+
+        if( !playerOverLever){
+            lever1.draw(batch);
+        }
+
         door.draw(batch);
     }
 
