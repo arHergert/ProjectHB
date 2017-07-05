@@ -185,7 +185,7 @@ public class Level_3 extends Level {
 
             public boolean keyDown(int keycode) {
 
-                if (keycode == Input.Keys.E ){
+                if (keycode == Input.Keys.E || keycode == Input.Keys.SPACE){
                     System.out.println("");
                     System.out.println("Platte00: " + plates[0][0].isActivated());
                     System.out.println("Platte01: " + plates[0][1].isActivated());

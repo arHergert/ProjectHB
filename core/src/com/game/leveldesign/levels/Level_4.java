@@ -165,7 +165,7 @@ public class Level_4 extends Level{
 
             public boolean keyDown(int keycode) {
 
-                if (keycode == Input.Keys.E ){
+                if (keycode == Input.Keys.E || keycode == Input.Keys.SPACE){
 
                     if(lever1.collidesWithPlayer()){
                         lever1.use();

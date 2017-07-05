@@ -210,7 +210,7 @@ public class Level_1 extends Level {
 
             public boolean keyDown(int keycode) {
 
-            	if(keycode == Input.Keys.E) {
+            	if(keycode == Input.Keys.E|| keycode == Input.Keys.SPACE) {
             		
                     if(Player.isCarryingObject){
                     	

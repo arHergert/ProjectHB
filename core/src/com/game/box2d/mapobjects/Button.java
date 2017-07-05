@@ -73,7 +73,7 @@ public class Button extends MapObjects {
     @Override
     public void draw(Batch batch) {
 
-        batch.draw(currentFrame,positionX,positionY, 24,24);
+        batch.draw(currentFrame,positionX,positionY, 20,20);
     }
 
 

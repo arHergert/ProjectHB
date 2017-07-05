@@ -66,7 +66,6 @@ public class Plate extends MapObjects {
 
 	/**
 	* Wird aufgerufen, wenn sich kein Gewicht mehr auf der Platte befindet, und deaktivert diese, wenn sie nicht einrastet
-     * @deprecated
 	*/
 	public void unload() {
         currentTexture = status_neutral;
