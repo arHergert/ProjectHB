@@ -248,10 +248,10 @@ public class Player extends Sprite {
         }else if (playerBody.getLinearVelocity().y < 0) {
         return PlayerState.WALKING_DOWN;
 
-        }else if(playerBody.getLinearVelocity().isZero() && lastMovedDirection == Input.Keys.A ){
+        }else if(playerBody.getLinearVelocity().isZero() && (lastMovedDirection == Input.Keys.A || lastMovedDirection == Input.Keys.LEFT) ){
             return  PlayerState.STANDING_LEFT;
 
-        }else if(playerBody.getLinearVelocity().isZero() && lastMovedDirection == Input.Keys.W) {
+        }else if(playerBody.getLinearVelocity().isZero() && (lastMovedDirection == Input.Keys.W|| lastMovedDirection == Input.Keys.UP) ) {
             return PlayerState.STANDING_UP;
 
         }else {

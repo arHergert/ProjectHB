@@ -84,22 +84,22 @@ public class PlayerMovementInputProcessor extends InputAdapter{
     public boolean keyDown(int keycode) {
 
 
-        if(keycode == Input.Keys.D){
+        if(keycode == Input.Keys.D || keycode == Input.Keys.RIGHT){
             camMoveRight = true;
             lastMovedDirection = keycode;
         }
 
-        if(keycode == Input.Keys.A){
+        if(keycode == Input.Keys.A|| keycode == Input.Keys.LEFT){
             camMoveLeft = true;
             lastMovedDirection = keycode;
         }
 
-        if(keycode == Input.Keys.W){
+        if(keycode == Input.Keys.W || keycode == Input.Keys.UP){
             camMoveUp = true;
             lastMovedDirection = keycode;
         }
 
-        if(keycode == Input.Keys.S){
+        if(keycode == Input.Keys.S|| keycode == Input.Keys.DOWN){
             camMoveDown = true;
             lastMovedDirection = keycode;
         }
@@ -122,19 +122,19 @@ public class PlayerMovementInputProcessor extends InputAdapter{
 
     public boolean keyUp(int keycode) {
 
-        if(keycode == Input.Keys.D){
+        if(keycode == Input.Keys.D|| keycode == Input.Keys.RIGHT){
             camMoveRight = false;
         }
 
-        if(keycode == Input.Keys.A){
+        if(keycode == Input.Keys.A || keycode == Input.Keys.LEFT){
             camMoveLeft = false;
         }
 
-        if(keycode == Input.Keys.W){
+        if(keycode == Input.Keys.W || keycode == Input.Keys.UP){
             camMoveUp = false;
         }
 
-        if(keycode == Input.Keys.S){
+        if(keycode == Input.Keys.S || keycode == Input.Keys.DOWN){
             camMoveDown = false;
         }
 
