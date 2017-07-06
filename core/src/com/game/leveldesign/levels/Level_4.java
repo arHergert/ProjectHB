@@ -4,15 +4,18 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Timer;
 import com.game.box2d.Player;
 import com.game.box2d.mapobjects.*;
 
+import static com.game.Main.assetManager;
 import static com.game.box2d.Player.carryingStone;
 
 /**
@@ -103,22 +106,56 @@ public class Level_4 extends Level{
                             plates[0][0].load();
                             if(allPlatesActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
+
+                                Timer.schedule(new Timer.Task(){
+
+
+                                    public void run() {
+                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                    }
+                                }, 0.8f);
                             }
                             Gdx.app.postRunnable(() -> door2.open());
                         }else if(fixtureIs("Plate01")) {
                             plates[0][1].load();
                             if(allPlatesActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
+
+                                Timer.schedule(new Timer.Task(){
+
+
+                                    public void run() {
+                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                    }
+                                }, 0.8f);
+
+
                             }
                         }else if(fixtureIs("Plate10")) {
                             plates[1][0].load();
                             if(allPlatesActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
+
+                                Timer.schedule(new Timer.Task(){
+
+
+                                    public void run() {
+                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                    }
+                                }, 0.8f);
                             }
                         } else if(fixtureIs("Plate11")) {
                             plates[1][1].load();
                             if(allPlatesActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
+
+                                Timer.schedule(new Timer.Task(){
+
+
+                                    public void run() {
+                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                    }
+                                }, 0.8f);
                             }
                             if(!plates[0][0].isActivated()) {
                                 Gdx.app.postRunnable(() -> door1.open());

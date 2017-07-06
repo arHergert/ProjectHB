@@ -4,17 +4,20 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Timer;
 import com.game.box2d.Player;
 import com.game.box2d.mapobjects.Hole;
 import com.game.box2d.mapobjects.Rock;
 import com.game.leveldesign.TryAndCatchFont;
 
+import static com.game.Main.assetManager;
 import static com.game.box2d.Player.carryingStone;
 import static com.game.box2d.Player.playerBody;
 
@@ -352,6 +355,15 @@ public class Level_1 extends Level {
     		
     		if(intHole.datatype().equals(intHole.getRock().datatype()) && stringHole.datatype().equals(stringHole.getRock().datatype()) && booleanHole.datatype().equals(booleanHole.getRock().datatype()) && floatHole.datatype().equals(floatHole.getRock().datatype())) {
     			System.out.println("Level 1: Puzzle geloest!");
+
+                Timer.schedule(new Timer.Task(){
+
+
+                    public void run() {
+                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                    }
+                }, 0.8f);
+
     			Gdx.app.postRunnable(() -> door.open());
     			return true;
     		}

@@ -3,6 +3,8 @@ package com.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -21,6 +23,7 @@ public class Main extends ApplicationAdapter {
     //IV
     /** Initialisierung der benötigten Spielobjekte **/
     public static TextureAtlas spritesheet;
+    public static AssetManager assetManager;
     private SpriteBatch batch;
     private MapCamera camera;
     private TiledMapRenderer tiledMapRenderer;
@@ -41,6 +44,13 @@ public class Main extends ApplicationAdapter {
     public void create () {
 
         spritesheet = new TextureAtlas("spritesheet/tryandcatchpack.atlas");
+
+        assetManager = new AssetManager();
+        assetManager.load("sounds/wall_close.wav", Sound.class);
+        assetManager.load("sounds/wall_open.wav", Sound.class);
+        assetManager.load("sounds/button.wav", Sound.class);
+        assetManager.load("sounds/puzzleSolved.mp3", Sound.class);
+        assetManager.finishLoading();
 
         //Initialisierung des Spritebatches. Damit können Grafiken gezeichnet werden.
         batch = new SpriteBatch();
@@ -148,6 +158,7 @@ public class Main extends ApplicationAdapter {
         debugRenderer.dispose();
         levels.disposeAllLevels();
         spritesheet.dispose();
+        assetManager.dispose();
 
 	}
 

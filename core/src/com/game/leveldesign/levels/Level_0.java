@@ -35,7 +35,7 @@ public class Level_0 extends Level{
                 fixB = contact.getFixtureB();
 
                 //Überprüfen ob Player nicht mit nicht-interagierbaren Objekten wie Wände o.ä. kollidiert
-                if( fixturesNotNull() && fixtureIs("Player")){
+                if( fixturesNotNull() && (fixtureIs("Player") || fixtureIs("Player_feet")) ){
 
                     checkDoorCollisions(fixA,fixB);
 

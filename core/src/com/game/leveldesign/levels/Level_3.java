@@ -4,13 +4,17 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Timer;
 import com.game.box2d.mapobjects.Plate;
+
+import static com.game.Main.assetManager;
 
 /**
  * Created by Max on 19.06.2017.
@@ -122,6 +126,16 @@ public class Level_3 extends Level {
                             if(plates[1][0].isActivated()) {
                                 plates[1][1].load();
                                 Gdx.app.postRunnable(() -> door.open());
+
+                                Timer.schedule(new Timer.Task(){
+
+
+                                    public void run() {
+                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                    }
+                                }, 0.8f);
+
+
                             } else {
                                 resetPlates();
                             }
@@ -186,16 +200,7 @@ public class Level_3 extends Level {
             public boolean keyDown(int keycode) {
 
                 if (keycode == Input.Keys.E || keycode == Input.Keys.SPACE){
-                    System.out.println("");
-                    System.out.println("Platte00: " + plates[0][0].isActivated());
-                    System.out.println("Platte01: " + plates[0][1].isActivated());
-                    System.out.println("Platte02: " + plates[0][2].isActivated());
-                    System.out.println("Platte10: " + plates[1][0].isActivated());
-                    System.out.println("Platte11: " + plates[1][1].isActivated());
-                    System.out.println("Platte12: " + plates[1][2].isActivated());
-                    System.out.println("Platte20: " + plates[2][0].isActivated());
-                    System.out.println("Platte21: " + plates[2][1].isActivated());
-                    System.out.println("Platte22: " + plates[2][2].isActivated());
+
                 }
 
                 return false;

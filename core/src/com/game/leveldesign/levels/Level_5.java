@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -13,10 +14,13 @@ import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
+import com.badlogic.gdx.utils.Timer;
 import com.game.box2d.mapobjects.Button;
 import com.game.box2d.mapobjects.Door;
 import com.game.box2d.mapobjects.Lever;
 import com.game.box2d.mapobjects.Plate;
+
+import static com.game.Main.assetManager;
 
 /**
  * Created by Max on 02.07.2017.
@@ -116,6 +120,12 @@ public class Level_5 extends Level {
                             plates1[1][0].load();
                             if(plates2[0][0].isActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
+                                Timer.schedule(new Timer.Task(){
+
+                                    public void run() {
+                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                    }
+                                }, 0.8f);
                             }
 
                         } else if (fixtureIs("Plate011")) {
@@ -125,6 +135,14 @@ public class Level_5 extends Level {
                             plates2[0][0].load();
                             if(plates1[1][0].isActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
+                                Timer.schedule(new Timer.Task(){
+
+                                    public void run() {
+                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                    }
+                                }, 0.8f);
+
+
                             }
 
                         } else if (fixtureIs("Plate101")) {
@@ -196,6 +214,7 @@ public class Level_5 extends Level {
                         }
                         if(plates1[1][0].isActivated() && plates2[0][0].isActivated()) {
                             door.open();
+
                         }
                     }
                     if(button1.collidesWithPlayer()){

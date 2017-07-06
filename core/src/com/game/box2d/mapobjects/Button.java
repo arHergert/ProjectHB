@@ -1,6 +1,7 @@
 package com.game.box2d.mapobjects;
 
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -9,6 +10,7 @@ import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.Timer.Task;
 import com.game.leveldesign.WorldMap;
 
+import static com.game.Main.assetManager;
 import static com.game.Main.spritesheet;
 
 /**
@@ -53,6 +55,7 @@ public class Button extends MapObjects {
 	public void use() {
 		activated = true;
         currentFrame = buttonOn;
+        assetManager.get("sounds/button.wav", Sound.class).play();
 
         Timer.schedule(new Task(){
 

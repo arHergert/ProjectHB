@@ -1,6 +1,7 @@
 package com.game.box2d.mapobjects;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -13,6 +14,7 @@ import com.game.leveldesign.WorldMap;
 
 import java.util.Arrays;
 
+import static com.game.Main.assetManager;
 import static com.game.Main.spritesheet;
 
 /**
@@ -65,8 +67,15 @@ public class Door extends MapObjects {
 	 * Öffnet die Tür.
 	 */
 	public void open() {
+
+        if(!isOpen()){
+            assetManager.get("sounds/wall_open.wav", Sound.class).play();
+        }
+
 		isOpen = true;
         doorWasOpened = true;
+
+
 
         try{
             body.setActive(false);
@@ -80,6 +89,10 @@ public class Door extends MapObjects {
 	 * Schließt die Tür.
 	 */
 	public void close() {
+        if(isOpen()){
+            assetManager.get("sounds/wall_close.wav", Sound.class).play();
+        }
+
 		isOpen = false;
         body.setActive(true);
 	}
