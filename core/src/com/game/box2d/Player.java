@@ -2,6 +2,7 @@ package com.game.box2d;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -12,6 +13,7 @@ import com.game.Main;
 import com.game.box2d.mapobjects.Rock;
 import com.game.leveldesign.WorldMap;
 
+import static com.game.Main.assetManager;
 import static com.game.Main.spritesheet;
 
 /**
@@ -33,6 +35,9 @@ public class Player extends Sprite {
     /** Referenz auf die aktuelle Welt, in der sich der Spieler befindet **/
     private World world;
     public static Body playerBody;
+
+
+    private boolean walkSoundStarted = false;
 
 
     /** Zeigt an in welche Richtung der Spieler zuletzt bzw. gerade geht. Standardweise schaut er immer nach rechts */
@@ -176,6 +181,18 @@ public class Player extends Sprite {
     public void draw(Batch batch){
 
         currentFrame = getFrame();
+
+        if(!playerBody.getLinearVelocity().isZero()){
+
+            if(!walkSoundStarted){
+                assetManager.get("sounds/walk.wav", Sound.class).loop();
+                walkSoundStarted = true;
+            }
+
+        }else{
+            assetManager.get("sounds/walk.wav", Sound.class).stop();
+            walkSoundStarted=false;
+        }
 
         batch.draw(currentFrame, playerBody.getPosition().x -16 , playerBody.getPosition().y - 32, 32,64);
 

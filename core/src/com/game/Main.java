@@ -50,6 +50,8 @@ public class Main extends ApplicationAdapter {
         assetManager.load("sounds/wall_open.wav", Sound.class);
         assetManager.load("sounds/button.wav", Sound.class);
         assetManager.load("sounds/puzzleSolved.mp3", Sound.class);
+        assetManager.load("sounds/walk.wav", Sound.class);
+        assetManager.load("sounds/error.wav", Sound.class);
         assetManager.finishLoading();
 
         //Initialisierung des Spritebatches. Damit können Grafiken gezeichnet werden.

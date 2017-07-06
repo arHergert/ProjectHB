@@ -109,11 +109,11 @@ public class Level_4 extends Level{
 
                                 Timer.schedule(new Timer.Task(){
 
-
                                     public void run() {
                                         assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
                                     }
                                 }, 0.8f);
+
                             }
                             Gdx.app.postRunnable(() -> door2.open());
                         }else if(fixtureIs("Plate01")) {
@@ -123,13 +123,10 @@ public class Level_4 extends Level{
 
                                 Timer.schedule(new Timer.Task(){
 
-
                                     public void run() {
                                         assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
                                     }
                                 }, 0.8f);
-
-
                             }
                         }else if(fixtureIs("Plate10")) {
                             plates[1][0].load();
@@ -137,7 +134,6 @@ public class Level_4 extends Level{
                                 Gdx.app.postRunnable(() -> door.open());
 
                                 Timer.schedule(new Timer.Task(){
-
 
                                     public void run() {
                                         assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
@@ -150,7 +146,6 @@ public class Level_4 extends Level{
                                 Gdx.app.postRunnable(() -> door.open());
 
                                 Timer.schedule(new Timer.Task(){
-
 
                                     public void run() {
                                         assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
@@ -208,7 +203,7 @@ public class Level_4 extends Level{
                         lever1.use();
                         for (int i = 0; i< plates.length; i++){
                             for (int j = 0; j < plates[i].length; j++ ){
-                                plates[i][j].reset();
+                                plates[i][j].unload();
                             }
                         }
                         door.close();

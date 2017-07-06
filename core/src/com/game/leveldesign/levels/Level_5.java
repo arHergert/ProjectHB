@@ -221,7 +221,7 @@ public class Level_5 extends Level {
                         button1.use();
                         for (int i = 0; i< plates1.length; i++){
                             for (int j = 0; j < plates1[i].length; j++ ){
-                                plates1[i][j].reset();
+                                plates1[i][j].unload();
                             }
                         }
                     }

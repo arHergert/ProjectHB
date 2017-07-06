@@ -1,5 +1,6 @@
 package com.game.box2d.mapobjects;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -8,6 +9,7 @@ import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.Timer.Task;;
 import com.game.leveldesign.WorldMap;
 
+import static com.game.Main.assetManager;
 import static com.game.Main.spritesheet;
 
 /**
@@ -70,9 +72,7 @@ public class Plate extends MapObjects {
 	public void unload() {
         currentTexture = status_neutral;
 
-		if(!lock) {
-			isActivated = false;
-		}
+        isActivated = false;
 	}
 
 
@@ -87,6 +87,11 @@ public class Plate extends MapObjects {
 	public void reset() {
         currentTexture = status_false;
 
+        isActivated = false;
+
+
+        assetManager.get("sounds/error.wav", Sound.class).play();
+
         Timer.schedule(new Task(){
 
 
@@ -95,7 +100,7 @@ public class Plate extends MapObjects {
             }
         }, 0.4f);
 
-		isActivated = false;
+
 
 	}
 
