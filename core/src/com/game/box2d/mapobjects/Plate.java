@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.utils.Timer;
-import com.badlogic.gdx.utils.Timer.Task;;
+import com.badlogic.gdx.utils.Timer.Task;
 import com.game.leveldesign.WorldMap;
 
 import static com.game.Main.assetManager;

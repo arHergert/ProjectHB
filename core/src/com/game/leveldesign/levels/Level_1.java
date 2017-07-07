@@ -291,7 +291,6 @@ public class Level_1 extends Level {
                             carryingStone = floatPuzzle;
                             carryingStone.pickUp();
                         }
-                        clearHoles(carryingStone);
 
                     }
                     
@@ -386,19 +385,19 @@ public class Level_1 extends Level {
     			intHole.removeRock();
     		}
     		
-    	} else if(stringHole.holdsRock()) {
+    	} if(stringHole.holdsRock()) {
     		
     		if(stringHole.getRock().equals(rock)) {
     			stringHole.removeRock();
     		}
     		
-    	} else if(booleanHole.holdsRock()) {
+    	} if(booleanHole.holdsRock()) {
     		
     		if(booleanHole.getRock().equals(rock)) {
     			booleanHole.removeRock();
     		}
     		
-    	} else if(floatHole.holdsRock()) {
+    	} if(floatHole.holdsRock()) {
     		
     		if(floatHole.getRock().equals(rock)) {
     			floatHole.removeRock();
