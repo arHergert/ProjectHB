@@ -206,6 +206,7 @@ public class Level_4 extends Level{
                                 plates[i][j].unload();
                             }
                         }
+                        assetManager.get("sounds/plate_unload.wav", Sound.class).play();
                         door.close();
                     }
 

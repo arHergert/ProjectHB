@@ -1,6 +1,7 @@
 package com.game.box2d.mapobjects;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -11,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.game.box2d.Player;
 import com.game.leveldesign.WorldMap;
 
+import static com.game.Main.assetManager;
 import static com.game.Main.spritesheet;
 import static com.game.box2d.Player.PLAYER_SPEED;
 import static com.game.box2d.Player.PPM;
@@ -71,21 +73,27 @@ public class Rock extends MapObjects {
 
         /* Texturen für jeden einzelnen Datentypen */
         TextureRegion intTex, stringTex, floatTex, boolText;
-        if(datatype.equals("int")){
-            intTex = spritesheet.findRegion("rock_rectangle_int");
-            currentTexture = intTex;
-        }else if(datatype.equals("String")){
-            stringTex = spritesheet.findRegion("rock_rectangle_String");
-            currentTexture = stringTex;
-        }else if(datatype.equals("float")){
-            floatTex = spritesheet.findRegion("rock_rectangle_float");
-            currentTexture = floatTex;
-        }else if (datatype.equals("boolean")){
-            boolText = spritesheet.findRegion("rock_rectangle_boolean");
-            currentTexture = boolText;
-        }else{
-            intTex = spritesheet.findRegion("rock_rectangle_int");
-            currentTexture = intTex;
+        switch (datatype) {
+            case "int":
+                intTex = spritesheet.findRegion("rock_rectangle_int");
+                currentTexture = intTex;
+                break;
+            case "String":
+                stringTex = spritesheet.findRegion("rock_rectangle_String");
+                currentTexture = stringTex;
+                break;
+            case "float":
+                floatTex = spritesheet.findRegion("rock_rectangle_float");
+                currentTexture = floatTex;
+                break;
+            case "boolean":
+                boolText = spritesheet.findRegion("rock_rectangle_boolean");
+                currentTexture = boolText;
+                break;
+            default:
+                intTex = spritesheet.findRegion("rock_rectangle_int");
+                currentTexture = intTex;
+                break;
         }
 	}
 	
@@ -99,6 +107,7 @@ public class Rock extends MapObjects {
         this.y = -1;
 		isPickedUp = true;
         Player.isCarryingObject = true;
+        assetManager.get("sounds/rock_pickup.wav", Sound.class).play();
 
 	}
 	
@@ -111,6 +120,7 @@ public class Rock extends MapObjects {
             System.out.println("Stein runter -> " + fixture.getUserData());
             Player.isCarryingObject = false;
             isPickedUp = false;
+            assetManager.get("sounds/rock_putdown.wav", Sound.class).play();
 
         }else{
             System.err.println("Stein kann an dieser Stelle nicht abgelegt werden!");

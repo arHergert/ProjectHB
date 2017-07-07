@@ -46,12 +46,20 @@ public class Main extends ApplicationAdapter {
         spritesheet = new TextureAtlas("spritesheet/tryandcatchpack.atlas");
 
         assetManager = new AssetManager();
+
+        //Sounds im AssetManager registrieren
         assetManager.load("sounds/wall_close.wav", Sound.class);
         assetManager.load("sounds/wall_open.wav", Sound.class);
         assetManager.load("sounds/button.wav", Sound.class);
         assetManager.load("sounds/puzzleSolved.mp3", Sound.class);
         assetManager.load("sounds/walk.wav", Sound.class);
         assetManager.load("sounds/error.wav", Sound.class);
+        assetManager.load("sounds/hole_true.wav", Sound.class);
+        assetManager.load("sounds/hole_false.wav", Sound.class);
+        assetManager.load("sounds/rock_pickup.wav", Sound.class);
+        assetManager.load("sounds/rock_putdown.wav", Sound.class);
+        assetManager.load("sounds/plate_true.wav", Sound.class);
+        assetManager.load("sounds/plate_unload.wav", Sound.class);
         assetManager.finishLoading();
 
         //Initialisierung des Spritebatches. Damit können Grafiken gezeichnet werden.

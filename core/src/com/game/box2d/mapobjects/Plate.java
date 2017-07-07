@@ -62,8 +62,12 @@ public class Plate extends MapObjects {
 	* Wird aufgerufen, wenn Platte beschwert wird, und aktiviert diese
 	*/
 	public void load() {
+        if(!isActivated()){
+            assetManager.get("sounds/plate_true.wav", Sound.class).play();
+        }
         currentTexture = status_true;
 		isActivated = true;
+
 	}
 
 	/**

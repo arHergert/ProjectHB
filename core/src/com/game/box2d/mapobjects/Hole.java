@@ -1,8 +1,10 @@
 package com.game.box2d.mapobjects;
 
+import static com.game.Main.assetManager;
 import static com.game.Main.spritesheet;
 import static com.game.box2d.Player.carryingStone;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -72,8 +74,10 @@ public class Hole extends MapObjects {
 				rock.putDown();
 				if(this.datatype.equals(rock.datatype())) {
 					currentTexture = status_true;
+                    assetManager.get("sounds/hole_true.wav", Sound.class).play();
 				} else {
 					currentTexture = status_false;
+                    assetManager.get("sounds/hole_false.wav", Sound.class).play();
 				}
 			} else {
 				throw new Exception("This rock doesn't fit in that kind of hole.");

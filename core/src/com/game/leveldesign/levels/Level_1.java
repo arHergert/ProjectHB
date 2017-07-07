@@ -73,7 +73,7 @@ public class Level_1 extends Level {
                     //Restliches Zeug
 
                     // wenn irgendwas mit dem Spieler kollidiert
-                    if(fixtureIs("Player")) {
+                    if(fixtureIs("Player") || fixtureIs("Player_feet")) {
 
                     	// wenn Spieler mit einem Stein kollidiert
                     	if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
@@ -143,7 +143,7 @@ public class Level_1 extends Level {
                      */
                 	
                     // wenn irgendwas mit dem Spieler kollidiert
-                    if(fixtureIs("Player")) {
+                    if(fixtureIs("Player")|| fixtureIs("Player_feet")) {
                     	
                     	// wenn Spieler mit einem Stein kollidiert
                     	if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {

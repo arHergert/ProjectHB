@@ -120,12 +120,17 @@ public class Level_5 extends Level {
                             plates1[1][0].load();
                             if(plates2[0][0].isActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
-                                Timer.schedule(new Timer.Task(){
 
-                                    public void run() {
-                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
-                                    }
-                                }, 0.8f);
+                               if(!door.isOpen()){
+                                   Timer.schedule(new Timer.Task(){
+
+                                       public void run() {
+                                           assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                       }
+                                   }, 0.8f);
+                               }
+
+
                             }
 
                         } else if (fixtureIs("Plate011")) {
@@ -135,12 +140,15 @@ public class Level_5 extends Level {
                             plates2[0][0].load();
                             if(plates1[1][0].isActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
-                                Timer.schedule(new Timer.Task(){
 
-                                    public void run() {
-                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
-                                    }
-                                }, 0.8f);
+                                if(!door.isOpen()){
+                                    Timer.schedule(new Timer.Task(){
+
+                                        public void run() {
+                                            assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                        }
+                                    }, 0.8f);
+                                }
 
 
                             }
@@ -209,6 +217,7 @@ public class Level_5 extends Level {
                                     plates2[i][j].load();
                                 } else {
                                     plates2[i][j].unload();
+                                    assetManager.get("sounds/plate_unload.wav", Sound.class).play();
                                 }
                             }
                         }
@@ -222,6 +231,7 @@ public class Level_5 extends Level {
                         for (int i = 0; i< plates1.length; i++){
                             for (int j = 0; j < plates1[i].length; j++ ){
                                 plates1[i][j].unload();
+                                assetManager.get("sounds/plate_unload.wav", Sound.class).play();
                             }
                         }
                     }
