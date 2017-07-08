@@ -218,6 +218,8 @@ public class Level_3 extends Level {
         }
 
         font.draw(batch, puzzleText, worldmap.getMapRight()- 230, worldmap.getMapHeight() - 40);
+        font.draw(batch, "i", 80, worldmap.getMapHeight()-140);
+        font.draw(batch, "j", 370, worldmap.getMapHeight()-300);
     }
 
     @Override
