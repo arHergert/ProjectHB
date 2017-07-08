@@ -257,9 +257,9 @@ public class Level_5 extends Level {
         font10.draw(batch, puzzleText2, 610, worldmap.getMapHeight() - 102);
         font8.draw(batch, puzzleText3, 17, worldmap.getMapHeight() - 85);
         font9.draw(batch, "[0][0]", 193, worldmap.getMapHeight() - 228);
-        font9.draw(batch, "[0][1]", 193, worldmap.getMapHeight() - 228+96);
+        font9.draw(batch, "[0][1]", 193, worldmap.getMapHeight() - 228+80);
         font9.draw(batch, "[1][0]", 193+96, worldmap.getMapHeight() - 228);
-        font9.draw(batch, "[1][1]", 193+96, worldmap.getMapHeight() - 228+96);
+        font9.draw(batch, "[1][1]", 193+96, worldmap.getMapHeight() - 228+80);
         button1.draw(batch);
         lever1.draw(batch);
     }
