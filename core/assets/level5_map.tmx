@@ -85,12 +85,12 @@
  <objectgroup name="InteractiveObjects">
   <object id="1" name="Plate110" x="288" y="416" width="30.6646" height="30.6646"/>
   <object id="2" name="Plate100" x="192" y="416" width="30.6646" height="30.6646"/>
-  <object id="3" name="Plate111" x="288" y="320" width="30.6646" height="30.6646"/>
-  <object id="4" name="Plate101" x="192" y="320" width="30.6646" height="30.6646"/>
-  <object id="5" name="Plate001" x="192" y="96" width="30.6646" height="30.6646"/>
+  <object id="3" name="Plate111" x="288" y="336" width="30.6646" height="30.6646"/>
+  <object id="4" name="Plate101" x="192" y="336" width="30.6646" height="30.6646"/>
+  <object id="5" name="Plate001" x="192" y="112" width="30.6646" height="30.6646"/>
   <object id="6" name="Plate000" x="192" y="192" width="30.6646" height="30.6646"/>
   <object id="7" name="Plate010" x="288" y="192" width="30.6646" height="30.6646"/>
-  <object id="8" name="Plate011" x="288" y="96" width="30.6646" height="30.6646"/>
+  <object id="8" name="Plate011" x="288" y="112" width="30.6646" height="30.6646"/>
   <object id="9" name="Door" x="0" y="224" width="64" height="32"/>
   <object id="12" name="Lever1" x="787.333" y="212.333" width="24" height="24"/>
   <object id="13" name="Door1" x="448" y="192" width="64" height="32"/>
