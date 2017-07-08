@@ -118,7 +118,14 @@ public class Main extends ApplicationAdapter {
             //Kamera, Renderer, Player etc. auf das neue aktuelle Level verweisen
             multiplexer.addProcessor(levels.getCurrentlevelInputLogic());
             tiledMapRenderer = new OrthogonalTiledMapRenderer(levels.getCurrentWorldMap().getMap());
+
+
             camera = new MapCamera(levels.getCurrentWorldMap());
+
+            if(levels.currentLevelIsLong()){
+                levels.translateToPlayer(camera);
+            }
+
             camera.update();
             boxPlayer = new Player(levels.getCurrentWorldMap(), levels.getSpawnpoint());
 

@@ -5,6 +5,8 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.BoundingBox;
 import com.game.leveldesign.WorldMap;
 
+import static com.game.box2d.Player.playerBody;
+
 /**
  * Erweiterung der {@link OrthographicCamera} um zusätzliche Funktionen.
  * Diese sind:<br>
@@ -31,6 +33,7 @@ public class MapCamera extends OrthographicCamera {
         this.position.set ( levelmap.getMapWidth()/2,  levelmap.getMapHeight()/2, 0);
         this.setWorldBounds(levelmap.getMapLeft(), levelmap.getMapBottom(), levelmap.getMapWidth(), levelmap.getMapHeight());
     }
+
 
     /**
      * Definiert die Mapgrenzen, in denen sich die Kamera bewegen darf

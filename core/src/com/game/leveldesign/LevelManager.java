@@ -1,6 +1,7 @@
 package com.game.leveldesign;
 
 import com.badlogic.gdx.InputProcessor;
+import com.game.MapCamera;
 import com.game.leveldesign.levels.*;
 
 import java.util.ArrayList;
@@ -75,6 +76,32 @@ public class LevelManager {
         return currentlevel;
     }
 
+    /**
+     * Gibt an ob das aktuelle Level eines der Level ist,
+     * die zu lang sind und bei der die Kamera zum Start in der Mitte
+     * liegt.
+     * Level die zu lang sind sollten in dieser Methode eingetragen werden.
+     * @return
+     */
+    public boolean currentLevelIsLong(){
+        return (currentlevel == levelList.get(6)) ;
+    }
+
+
+    /**
+     * Falls ein aktuelles Level zu lang ist, wird
+     * die Kameraposition verschoben auf den gewünschten Ort.
+     * Jede Verschiebung muss für jedes gewünschte Level
+     * eingetragen werden.
+     * @param camera
+     */
+    public void translateToPlayer(MapCamera camera) {
+
+        if(currentlevel == levelList.get(6) ){
+            camera.translateInBounds(-440,0);
+        }
+
+    }
 
     /**
      * Gibt zurück ob der Spieler das aktuelle Level wechseln möchte.
@@ -163,5 +190,6 @@ public class LevelManager {
         }
 
     }
+
 
 }//end class LevelManager
