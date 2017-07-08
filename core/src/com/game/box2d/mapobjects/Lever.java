@@ -75,6 +75,10 @@ public class Lever extends MapObjects {
 
     }
 
+    public void setActivated(boolean b) {
+        isActivated = b;
+    }
+
 	/**
 	* Wird bei Benutzung des Hebels aufgerufen und ändert den Zustand
 	*/
