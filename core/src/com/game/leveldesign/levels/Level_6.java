@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -13,9 +14,12 @@ import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
+import com.badlogic.gdx.utils.Timer;
 import com.game.box2d.mapobjects.Button;
 import com.game.box2d.mapobjects.Door;
 import com.game.box2d.mapobjects.Lever;
+
+import static com.game.Main.assetManager;
 
 /**
  * Created by Max on 08.07.2017.
@@ -32,10 +36,19 @@ public class Level_6 extends Level {
     private Button button1 = new Button(worldmap, "Button1");
     private Button button2 = new Button(worldmap, "Button2");
     private Button button3 = new Button(worldmap, "Button3");
-    private String solution = "451";
-    private int i1 = 0;
+    private String solution = "748";
+    private String s1 = "i1++;\n" +
+            "if(i1>9) i1=0;";
+    private String s2 = "i2 = i2*2;\n" +
+            "if(i2>9) i2=1;";
+    private String s3 = "int temp = i3;\n" +
+            "i3 = i3 + i3alt;\n" +
+            "i3alt = temp;\n" +
+            "if(i3>9) i3=i3alt=1;";
+    private int i1 = 1;
     private int i2 = 1;
-    private int i3 = 0;
+    private int i3 = 1;
+    private int i3alt = 1;
     private BitmapFont font14;
     private boolean  playerOverLever = true;
 
@@ -44,7 +57,7 @@ public class Level_6 extends Level {
         door0.openWithoutSound();
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         fontParameter.color = Color.valueOf("43435d");
-        fontParameter.size = 14;
+        fontParameter.size = 12;
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("CodeNewRoman.otf"));
         fontGenerator.scaleForPixelHeight(9);
         fontParameter.minFilter = Texture.TextureFilter.Nearest;
@@ -156,9 +169,41 @@ public class Level_6 extends Level {
                     } else if(button1.collidesWithPlayer()) {
                         i1++;
                         if(i1>9) i1=0;
-                    }else if(button2.collidesWithPlayer()) {
+                        if(i1==7 && i2==4 && i3==8) {
+                            door.open();
+                            Timer.schedule(new Timer.Task(){
+
+                                public void run() {
+                                    assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                }
+                            }, 0.8f);
+                        }
+                    } else if(button2.collidesWithPlayer()) {
                         i2 = i2*2;
                         if(i2>9) i2=1;
+                        if(i1==7 && i2==4 && i3==8) {
+                            door.open();
+                            Timer.schedule(new Timer.Task(){
+
+                                public void run() {
+                                    assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                }
+                            }, 0.8f);
+                        }
+                    } else if(button3.collidesWithPlayer()) {
+                        int temp = i3;
+                        i3 = i3 + i3alt;
+                        i3alt = temp;
+                        if(i3>9) i3=i3alt=1;
+                        if(i1==7 && i2==4 && i3==8) {
+                            door.open();
+                            Timer.schedule(new Timer.Task(){
+
+                                public void run() {
+                                    assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                }
+                            }, 0.8f);
+                        }
                     }
 
                 }
@@ -199,9 +244,12 @@ public class Level_6 extends Level {
         button2.draw(batch);
         button3.draw(batch);
         font14.draw(batch, solution, 660, worldmap.getMapHeight() - 315);
-        font14.draw(batch, (new Integer(i1)).toString(), 348, worldmap.getMapHeight() - 185);
-        font14.draw(batch, (new Integer(i2)).toString(), 573, worldmap.getMapHeight() - 185);
-        font14.draw(batch, (new Integer(i3)).toString(), 798, worldmap.getMapHeight() - 185);
+        font14.draw(batch, "i1 = "+(new Integer(i1)).toString(), 330, worldmap.getMapHeight() - 185);
+        font14.draw(batch, "i2 = "+(new Integer(i2)).toString(), 555, worldmap.getMapHeight() - 185);
+        font14.draw(batch, "i3 = "+(new Integer(i3)).toString(), 780, worldmap.getMapHeight() - 185);
+        font14.draw(batch, s1, 288, worldmap.getMapHeight() - 52);
+        font14.draw(batch, s2, 512, worldmap.getMapHeight() - 52);
+        font14.draw(batch, s3, 722, worldmap.getMapHeight() - 38);
     }
 
     @Override
