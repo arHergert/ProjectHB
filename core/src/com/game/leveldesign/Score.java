@@ -12,6 +12,7 @@ public class Score {
 
     private long startTime;
 
+
     /**
      * Speichert die Zeit um die das Spiel begonnen hat,
      * damit am Ende des Spiels die Spielzeit berechnet

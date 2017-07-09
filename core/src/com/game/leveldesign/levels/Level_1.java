@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Timer;
 import com.game.box2d.Player;
+import com.game.box2d.mapobjects.Collectibles;
 import com.game.box2d.mapobjects.Hole;
 import com.game.box2d.mapobjects.Rock;
 import com.game.leveldesign.TryAndCatchFont;
@@ -34,6 +35,7 @@ public class Level_1 extends Level {
 
     private TryAndCatchFont font;
     private boolean playerOverRocks = false;
+    private Collectibles coll1;
 
 
 
@@ -52,6 +54,7 @@ public class Level_1 extends Level {
         floatHole = new Hole(worldmap, "Hole4", "float");
         font = new TryAndCatchFont(12);
 
+        coll1 = new Collectibles(worldmap,"Coll1");
     }
 
     @Override
@@ -75,6 +78,19 @@ public class Level_1 extends Level {
 
                     // wenn irgendwas mit dem Spieler kollidiert
                     if(fixtureIs("Player") || fixtureIs("Player_feet")) {
+
+
+                        if(fixtureStartsWith("Coll")){
+
+                            if(fixtureIs("Coll1")){
+
+                                Gdx.app.postRunnable(() -> coll1.collect());
+                            }
+
+                            increaseGarneredCollectiblesCount();
+                        }
+
+
 
                     	// wenn Spieler mit einem Stein kollidiert
                     	if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
@@ -311,6 +327,8 @@ public class Level_1 extends Level {
         floatHole.draw(batch);
         intHole.draw(batch);
         stringHole.draw(batch);
+
+        coll1.draw(batch);
 
         font.draw(batch, "name;", worldmap.getMapLeft() + 55, worldmap.getMapHeight() - 80);
         font.draw(batch, "alter;", worldmap.getMapLeft() + 240, worldmap.getMapHeight() - 230);

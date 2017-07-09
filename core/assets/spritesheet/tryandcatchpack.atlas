@@ -6,428 +6,470 @@ filter: Nearest,Nearest
 repeat: none
 button_default
   rotate: false
-  xy: 392, 18
+  xy: 160, 6
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 button_on
   rotate: false
-  xy: 340, 46
+  xy: 468, 36
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
+collectible
+  rotate: false
+  xy: 490, 180
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 4
+collectible
+  rotate: false
+  xy: 492, 112
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 5
+collectible
+  rotate: false
+  xy: 502, 112
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 6
+collectible
+  rotate: false
+  xy: 290, 48
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 1
+collectible
+  rotate: false
+  xy: 2, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 2
+collectible
+  rotate: false
+  xy: 2, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 3
 door
   rotate: false
-  xy: 2, 6
+  xy: 2, 222
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: 6
 door
   rotate: false
-  xy: 172, 204
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: 1
-door
-  rotate: false
-  xy: 68, 6
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: 2
-door
-  rotate: false
-  xy: 238, 204
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: 3
-door
-  rotate: false
-  xy: 304, 204
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: 4
-door
-  rotate: false
-  xy: 370, 204
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: 5
-door
-  rotate: false
-  xy: 172, 170
-  size: 64, 32
-  orig: 64, 32
-  offset: 0, 0
-  index: 7
-door
-  rotate: false
-  xy: 436, 204
+  xy: 2, 188
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: 8
 door
   rotate: false
-  xy: 172, 136
+  xy: 68, 222
   size: 64, 32
   orig: 64, 32
   offset: 0, 0
   index: 9
+door
+  rotate: false
+  xy: 68, 188
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 7
+door
+  rotate: false
+  xy: 2, 22
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 3
+door
+  rotate: false
+  xy: 68, 22
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 1
+door
+  rotate: false
+  xy: 308, 156
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 2
+door
+  rotate: false
+  xy: 308, 122
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 4
+door
+  rotate: false
+  xy: 374, 156
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: 5
 hole_default
   rotate: false
-  xy: 410, 70
+  xy: 308, 54
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 hole_false
   rotate: false
-  xy: 460, 102
+  xy: 358, 54
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 hole_true
   rotate: false
-  xy: 168, 2
+  xy: 424, 122
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 leftwalk
   rotate: false
-  xy: 238, 138
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 10
-leftwalk
-  rotate: false
-  xy: 306, 138
+  xy: 2, 56
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 1
 leftwalk
   rotate: false
-  xy: 340, 138
+  xy: 134, 190
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 2
 leftwalk
   rotate: false
-  xy: 374, 138
+  xy: 36, 122
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 3
 leftwalk
   rotate: false
-  xy: 408, 138
+  xy: 168, 190
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 4
 leftwalk
   rotate: false
-  xy: 442, 138
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 5
-leftwalk
-  rotate: false
-  xy: 206, 70
+  xy: 36, 56
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 6
 leftwalk
   rotate: false
-  xy: 240, 72
+  xy: 70, 122
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 7
 leftwalk
   rotate: false
-  xy: 274, 72
+  xy: 202, 190
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 8
 leftwalk
   rotate: false
-  xy: 308, 72
+  xy: 70, 56
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 9
+leftwalk
+  rotate: false
+  xy: 270, 190
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 5
+leftwalk
+  rotate: false
+  xy: 274, 58
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 10
 leverboden
   rotate: false
-  xy: 392, 44
+  xy: 442, 62
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: 1
+leverboden
+  rotate: false
+  xy: 212, 32
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: 2
-leverboden
+leverlinks
   rotate: false
-  xy: 418, 18
+  xy: 134, 30
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: 1
 leverlinks
   rotate: false
-  xy: 366, 46
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: 2
-leverlinks
-  rotate: false
-  xy: 340, 20
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: 1
-leveroben
-  rotate: false
-  xy: 366, 20
+  xy: 186, 32
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: 2
 leveroben
   rotate: false
-  xy: 418, 44
+  xy: 160, 32
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: 2
+leveroben
+  rotate: false
+  xy: 134, 4
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: 1
 leverrechts
   rotate: false
-  xy: 444, 42
+  xy: 238, 32
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: 1
 leverrechts
   rotate: false
-  xy: 444, 16
+  xy: 264, 32
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: 2
 leverunten
   rotate: false
-  xy: 470, 42
+  xy: 468, 62
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: 2
 leverunten
   rotate: false
-  xy: 470, 16
+  xy: 442, 36
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: 1
 playerwalk
   rotate: false
-  xy: 36, 106
+  xy: 2, 122
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
-  index: 2
+  index: 5
 playerwalk
   rotate: false
-  xy: 70, 172
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 3
-playerwalk
-  rotate: false
-  xy: 104, 172
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 6
-playerwalk
-  rotate: false
-  xy: 104, 106
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 8
-playerwalk
-  rotate: false
-  xy: 138, 172
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 9
-playerwalk
-  rotate: false
-  xy: 104, 40
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 1
-playerwalk
-  rotate: false
-  xy: 138, 106
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 4
-playerwalk
-  rotate: false
-  xy: 138, 40
+  xy: 304, 190
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 10
 playerwalk
   rotate: false
-  xy: 172, 70
+  xy: 372, 190
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
-  index: 5
+  index: 2
 playerwalk
   rotate: false
-  xy: 376, 72
+  xy: 406, 190
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 9
+playerwalk
+  rotate: false
+  xy: 440, 190
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 3
+playerwalk
+  rotate: false
+  xy: 138, 124
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 1
+playerwalk
+  rotate: false
+  xy: 206, 58
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 6
+playerwalk
+  rotate: false
+  xy: 240, 124
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 7
+playerwalk
+  rotate: false
+  xy: 240, 58
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 8
+playerwalk
+  rotate: false
+  xy: 274, 124
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 4
 pressureplate_default
   rotate: false
-  xy: 476, 170
+  xy: 408, 54
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 pressureplate_false
   rotate: false
-  xy: 134, 6
+  xy: 458, 88
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 pressureplate_true
   rotate: false
-  xy: 476, 136
+  xy: 474, 122
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 rock_rectangle_String
   rotate: false
-  xy: 410, 104
+  xy: 408, 88
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_boolean
   rotate: false
-  xy: 460, 68
+  xy: 308, 88
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_char
   rotate: false
-  xy: 240, 38
+  xy: 374, 122
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_float
   rotate: false
-  xy: 290, 38
+  xy: 358, 88
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 rock_rectangle_int
   rotate: false
-  xy: 172, 36
+  xy: 440, 156
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
 upwalk
   rotate: false
-  xy: 2, 172
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 3
-upwalk
-  rotate: false
-  xy: 2, 106
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 9
-upwalk
-  rotate: false
-  xy: 36, 172
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 1
-upwalk
-  rotate: false
-  xy: 2, 40
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 2
-upwalk
-  rotate: false
-  xy: 36, 40
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 5
-upwalk
-  rotate: false
-  xy: 70, 106
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: 6
-upwalk
-  rotate: false
-  xy: 70, 40
+  xy: 236, 190
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 8
 upwalk
   rotate: false
-  xy: 272, 138
+  xy: 338, 190
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 9
+upwalk
+  rotate: false
+  xy: 474, 190
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 7
 upwalk
   rotate: false
-  xy: 342, 72
+  xy: 104, 122
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 2
+upwalk
+  rotate: false
+  xy: 104, 56
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 1
+upwalk
+  rotate: false
+  xy: 138, 58
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 3
+upwalk
+  rotate: false
+  xy: 172, 124
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 4
+upwalk
+  rotate: false
+  xy: 172, 58
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 5
+upwalk
+  rotate: false
+  xy: 206, 124
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 6

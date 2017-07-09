@@ -33,6 +33,10 @@ public abstract class Level {
     protected boolean gameCompleted;
 
 
+    /** Gibt an wieviele Collectibles im aktuellen Level gesammelt wurden */
+    private int garneredCollectibles = 0;
+
+
     /**
      *
      */
@@ -174,6 +178,12 @@ public abstract class Level {
         return (fixA.getUserData().equals(collisionName) || fixB.getUserData().equals(collisionName));
 
     }
+
+
+    protected boolean fixtureStartsWith( String collisionName){
+        return (fixA.getUserData().toString().startsWith(collisionName) || fixB.getUserData().toString().startsWith(collisionName));
+    }
+
     public Sensor getDoorUp(){
         return this.doorUp;
     }
@@ -209,6 +219,15 @@ public abstract class Level {
      */
     public boolean gameCompleted(){
         return gameCompleted;
+    }
+
+
+    protected void increaseGarneredCollectiblesCount(){
+        garneredCollectibles++;
+    }
+
+    public int garneredLevelCollectibles(){
+        return garneredCollectibles;
     }
 
 }//end class Level

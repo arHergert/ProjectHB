@@ -1,11 +1,13 @@
 package com.game.leveldesign.levels;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.*;
+import com.game.box2d.mapobjects.Collectibles;
 import com.game.box2d.mapobjects.Lever;
 
 /**
@@ -16,11 +18,19 @@ public class Level_0 extends Level{
     private Lever lever1 = new Lever(worldmap,"Lever1", "Boden");
     private boolean  playerOverLever = true;
 
+
+    private Collectibles coll1;
+    private Collectibles coll2;
+
+
     /**
      *
      */
     public Level_0() {
         super("level0_map.tmx");
+
+        coll1 = new Collectibles(worldmap, "Coll1");
+        coll2 = new Collectibles(worldmap, "Coll2");
     }
 
     @Override
@@ -34,16 +44,32 @@ public class Level_0 extends Level{
                 fixA = contact.getFixtureA();
                 fixB = contact.getFixtureB();
 
+                //System.out.println("BEGIN    FIX A: " + fixA.getUserData() + "  FIX B: " +fixB.getUserData());
+
                 //Überprüfen ob Player nicht mit nicht-interagierbaren Objekten wie Wände o.ä. kollidiert
                 if( fixturesNotNull() && (fixtureIs("Player") || fixtureIs("Player_feet")) ){
 
                     checkDoorCollisions(fixA,fixB);
+
+                    if(fixtureStartsWith("Coll")){
+
+                        if(fixtureIs("Coll1")){
+
+                            Gdx.app.postRunnable(() -> coll1.collect());
+                        }else if (fixtureIs("Coll2")){
+                            Gdx.app.postRunnable(() ->coll2.collect());
+                        }
+
+                        increaseGarneredCollectiblesCount();
+                    }
+
 
                     // Kollision mit Hebel abfragen
                     if(fixtureIs("Lever1")) {
                         lever1.collideOn();
 
                     }
+
 
 
 
@@ -67,8 +93,11 @@ public class Level_0 extends Level{
                 fixA = contact.getFixtureA();
                 fixB = contact.getFixtureB();
 
+
+                //System.out.println("END    FIX A: " + fixA.getUserData() + "  FIX B: " +fixB.getUserData());
                 //Überprüfen ob Player nicht mit nicht-interagierbaren Objekten wie Wände o.ä. kollidiert
                 if( fixturesNotNull() && fixtureIs("Player")){
+
 
                     // Kollision mit Hebel abfragen
                     if(fixtureIs("Lever1")) {
@@ -129,6 +158,9 @@ public class Level_0 extends Level{
         if( playerOverLever){
             lever1.draw(batch);
         }
+
+        coll1.draw(batch);
+        coll2.draw(batch);
     }
 
     @Override

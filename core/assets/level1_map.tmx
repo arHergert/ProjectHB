@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="30">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="32">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <layer name="Grundebene" width="10" height="10">
   <data encoding="base64" compression="zlib">
@@ -40,6 +40,9 @@
   <object id="9" name="Hole1" x="203" y="224" width="32" height="22"/>
   <object id="10" name="Hole4" x="16" y="224" width="32" height="22"/>
   <object id="27" name="Door" x="128" y="256" width="64" height="32"/>
+ </objectgroup>
+ <objectgroup name="Collectibles">
+  <object id="31" name="Coll1" x="311" y="253" width="8" height="8"/>
  </objectgroup>
  <objectgroup name="PlayerSpawnpoints">
   <object id="1" name="spawnBottomDoor" x="157.752" y="235.332" width="3.75399" height="3.94169"/>

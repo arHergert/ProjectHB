@@ -60,6 +60,7 @@ public class Main extends ApplicationAdapter {
         assetManager.load("sounds/rock_putdown.wav", Sound.class);
         assetManager.load("sounds/plate_true.wav", Sound.class);
         assetManager.load("sounds/plate_unload.wav", Sound.class);
+        assetManager.load("sounds/collectible.wav", Sound.class);
         assetManager.finishLoading();
 
         //Initialisierung des Spritebatches. Damit können Grafiken gezeichnet werden.

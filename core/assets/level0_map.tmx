@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="16" height="8" tilewidth="32" tileheight="32" nextobjectid="34">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="16" height="8" tilewidth="32" tileheight="32" nextobjectid="36">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <layer name="Grundebene" width="16" height="8">
   <data encoding="base64" compression="zlib">
@@ -41,6 +41,10 @@
  </objectgroup>
  <objectgroup name="Sensor">
   <object id="4" name="doorBottom" x="235.167" y="245.333" width="41.3334" height="2.66667"/>
+ </objectgroup>
+ <objectgroup name="Collectibles">
+  <object id="34" name="Coll2" x="494.5" y="108.5" width="8" height="8"/>
+  <object id="35" name="Coll1" x="11.5" y="175" width="8" height="8"/>
  </objectgroup>
  <objectgroup name="PlayerSpawnpoints">
   <object id="2" name="spawnStart" x="254.459" y="84.2917" width="2.75" height="3.5"/>

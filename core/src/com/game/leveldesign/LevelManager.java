@@ -34,6 +34,8 @@ public class LevelManager {
 
     private Score scoremanager;
 
+    private int collectiblesCount;
+
     /**
      *
      */
@@ -61,6 +63,7 @@ public class LevelManager {
 
         //Punktemanager initialisieren
         scoremanager = new Score();
+        collectiblesCount = 0;
 
     }
 
@@ -142,7 +145,12 @@ public class LevelManager {
                 System.err.println("Kein naechstes Level verfuegbar. Bitte Sensor entfernen oder naechstes Level hinzufuegen!");
 
             }else{
+                //Anzahl eingesammelter Collectibles des Levels speichern
+                collectiblesCount += currentlevel.garneredLevelCollectibles();
+
                 currentlevel = levelList.get(levelList.indexOf(currentlevel)+1 );
+
+                System.out.println("Eingesammelte Collecibles insgesamt: " + collectiblesCount);
             }
 
 
