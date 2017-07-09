@@ -1,13 +1,19 @@
 package com.game.leveldesign.levels;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
+import com.game.box2d.mapobjects.Button;
 import com.game.box2d.mapobjects.Door;
 import com.game.box2d.mapobjects.Lever;
 
@@ -23,11 +29,28 @@ public class Level_6 extends Level {
     private Door door1 = new Door(worldmap, "Door1");
     private Door door2 = new Door(worldmap, "Door2");
     private Door door3 = new Door(worldmap, "Door3");
+    private Button button1 = new Button(worldmap, "Button1");
+    private Button button2 = new Button(worldmap, "Button2");
+    private Button button3 = new Button(worldmap, "Button3");
+    private String solution = "451";
+    private int i1 = 0;
+    private int i2 = 1;
+    private int i3 = 0;
+    private BitmapFont font14;
     private boolean  playerOverLever = true;
 
     public Level_6() {
         super("level6_map.tmx");
         updateDoors();
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParameter.color = Color.valueOf("43435d");
+        fontParameter.size = 14;
+        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("CodeNewRoman.otf"));
+        fontGenerator.scaleForPixelHeight(9);
+        fontParameter.minFilter = Texture.TextureFilter.Nearest;
+        fontParameter.magFilter = Texture.TextureFilter.MipMapLinearNearest;
+        font14 = fontGenerator.generateFont(fontParameter);
+        fontGenerator.dispose();
     }
 
     @Override
@@ -49,6 +72,12 @@ public class Level_6 extends Level {
                         lever1.collideOn();
                     } else if(fixtureIs("Lever2")) {
                         lever2.collideOn();
+                    } else if(fixtureIs("Button1")) {
+                        button1.collideOn();
+                    } else if(fixtureIs("Button2")) {
+                        button2.collideOn();
+                    } else if(fixtureIs("Button3")) {
+                        button3.collideOn();
                     }
 
 
@@ -79,10 +108,14 @@ public class Level_6 extends Level {
                     // Kollision mit Hebel abfragen
                     if(fixtureIs("Lever1")) {
                         lever1.collideOff();
-
                     } else if(fixtureIs("Lever2")) {
                         lever2.collideOff();
-
+                    } else if(fixtureIs("Button1")) {
+                        button1.collideOff();
+                    } else if(fixtureIs("Button2")) {
+                        button2.collideOff();
+                    } else if(fixtureIs("Button3")) {
+                        button3.collideOff();
                     }
 
 
@@ -120,6 +153,12 @@ public class Level_6 extends Level {
                     } else if(lever2.collidesWithPlayer()){
                         lever2.use();
                         updateDoors();
+                    } else if(button1.collidesWithPlayer()) {
+                        i1++;
+                        if(i1>9) i1=0;
+                    }else if(button2.collidesWithPlayer()) {
+                        i2 = i2*2;
+                        if(i2>9) i2=1;
                     }
 
                 }
@@ -156,6 +195,13 @@ public class Level_6 extends Level {
         door1.draw(batch);
         door2.draw(batch);
         door3.draw(batch);
+        button1.draw(batch);
+        button2.draw(batch);
+        button3.draw(batch);
+        font14.draw(batch, solution, 660, worldmap.getMapHeight() - 315);
+        font14.draw(batch, (new Integer(i1)).toString(), 348, worldmap.getMapHeight() - 185);
+        font14.draw(batch, (new Integer(i2)).toString(), 573, worldmap.getMapHeight() - 185);
+        font14.draw(batch, (new Integer(i3)).toString(), 798, worldmap.getMapHeight() - 185);
     }
 
     @Override
