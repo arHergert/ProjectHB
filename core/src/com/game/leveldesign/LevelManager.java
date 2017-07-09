@@ -1,10 +1,16 @@
 package com.game.leveldesign;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.game.MapCamera;
 import com.game.leveldesign.levels.*;
 
 import java.util.ArrayList;
+
+import static com.game.Main.scoremanager;
 
 /**
  * Klasse, die sich um alle Levels im Spiel kümmert.
@@ -32,9 +38,7 @@ public class LevelManager {
 
     private InputProcessor currentlevelInputLogic;
 
-    private Score scoremanager;
 
-    private int collectiblesCount;
 
     /**
      *
@@ -43,7 +47,7 @@ public class LevelManager {
 
         //Hinzufügen der Level
         levelList.add(0, new Level_0());
-        levelList.add(1, new Level_6());
+        levelList.add(1, new Level_1());
         levelList.add(2, new Level_2());
         levelList.add(3, new Level_3());
         levelList.add(4, new Level_4());
@@ -51,6 +55,7 @@ public class LevelManager {
         levelList.add(6, new Level_6());
         levelList.add(7, new Level_nMinus1());
 
+        //levelList.add(?, new Level_Score());
 
         //Aktuelles Level bestimmen
         this.currentlevel = levelList.get(0);
@@ -63,7 +68,6 @@ public class LevelManager {
 
         //Punktemanager initialisieren
         scoremanager = new Score();
-        collectiblesCount = 0;
 
     }
 
@@ -146,11 +150,11 @@ public class LevelManager {
 
             }else{
                 //Anzahl eingesammelter Collectibles des Levels speichern
-                collectiblesCount += currentlevel.garneredLevelCollectibles();
+                scoremanager.addCollectibles(currentlevel.garneredLevelCollectibles());
 
                 currentlevel = levelList.get(levelList.indexOf(currentlevel)+1 );
 
-                System.out.println("Eingesammelte Collecibles insgesamt: " + collectiblesCount);
+                System.out.println("Eingesammelte Collectibles insgesamt: " + scoremanager.getCollectedCount());
             }
 
 
@@ -191,26 +195,6 @@ public class LevelManager {
     }
 
 
-    /**
-     * Prüft ob das aktuelle Level das letzte ist und ob es durchgespielt
-     * wurde.
-     * @return
-     */
-    public boolean gameFinished(){
-        if( currentlevel == levelList.get(1)){
-            if (levelList.get(1).gameCompleted()){
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-
-
-    public void printScore(){
-        System.out.println(scoremanager.calculateTime());
-    }
 
 
     /**

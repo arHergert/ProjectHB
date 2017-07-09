@@ -156,4 +156,12 @@ public class Door extends MapObjects {
 
         batch.draw(currentFrame,positionX,positionY);
     }
+
+    public void drawBig(Batch batch) {
+
+        currentFrame = getFrame();
+
+        batch.draw(currentFrame,positionX,positionY, 64, 56);
+    }
+
 }//end class Door
