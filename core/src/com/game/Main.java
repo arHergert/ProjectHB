@@ -163,6 +163,11 @@ public class Main extends ApplicationAdapter {
         }
 
 
+        //Berechnet den Highscore, wenn das Spiel durchgespielt wurde
+       /* if(levels.gameFinished()){
+            levels.printScore();
+        }*/
+
 	}
 
     /**

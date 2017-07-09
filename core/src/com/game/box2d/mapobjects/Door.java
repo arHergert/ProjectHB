@@ -84,6 +84,32 @@ public class Door extends MapObjects {
         }
 
 	}
+
+    /**
+     * Öffnet eine Tür ohne den Sound abzuspielen.
+     * Für Debugzwecke und unkonventionelle Puzzles.
+     */
+    public void openWithoutSound(){
+        isOpen = true;
+        doorWasOpened = true;
+
+        try{
+            body.setActive(false);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Öffnet eine Tür ohne den Sound abzuspielen.
+     * Für Debugzwecke und unkonventionelle Puzzles.
+     */
+    public void closeWithoutSound(){
+        isOpen = false;
+        body.setActive(true);
+    }
+
+
 	
 	/**
 	 * Schließt die Tür.

@@ -32,14 +32,14 @@ public class LevelManager {
 
     private InputProcessor currentlevelInputLogic;
 
+    private Score scoremanager;
+
     /**
      *
      */
     public LevelManager(){
 
         //Hinzufügen der Level
-
-
         levelList.add(0, new Level_0());
         levelList.add(1, new Level_1());
         levelList.add(2, new Level_2());
@@ -58,6 +58,9 @@ public class LevelManager {
 
         //Inputlogik für das aktuelle Level festlegen
         currentlevelInputLogic = currentlevel.levelInput();
+
+        //Punktemanager initialisieren
+        scoremanager = new Score();
 
     }
 
@@ -178,6 +181,29 @@ public class LevelManager {
     public InputProcessor getCurrentlevelInputLogic(){
         return this.currentlevelInputLogic;
     }
+
+
+    /**
+     * Prüft ob das aktuelle Level das letzte ist und ob es durchgespielt
+     * wurde.
+     * @return
+     */
+    public boolean gameFinished(){
+        if( currentlevel == levelList.get(1)){
+            if (levelList.get(1).gameCompleted()){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+
+    public void printScore(){
+        System.out.println(scoremanager.calculateTime());
+    }
+
 
     /**
      * Entfernt alle Ressourcen der Levels mit deren Box2d world und TiledMap maps

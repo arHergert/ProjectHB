@@ -102,11 +102,7 @@ public class Lever extends MapObjects {
 
     public void draw(Batch batch) {
 
-        try{
-            batch.draw(currentTexture, positionX, positionY, 24, 24);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        batch.draw(currentTexture, positionX, positionY, 24, 24);
 
 
     }

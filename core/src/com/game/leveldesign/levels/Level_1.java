@@ -35,6 +35,8 @@ public class Level_1 extends Level {
     private TryAndCatchFont font;
     private boolean playerOverRocks = false;
 
+
+
     /**
      * @param
      */
@@ -49,7 +51,6 @@ public class Level_1 extends Level {
         booleanHole = new Hole(worldmap, "Hole3", "boolean");
         floatHole = new Hole(worldmap, "Hole4", "float");
         font = new TryAndCatchFont(12);
-
 
     }
 
@@ -406,5 +407,9 @@ public class Level_1 extends Level {
     	}
     	
     }
+
+
+
+
     
 }//end class Level_1

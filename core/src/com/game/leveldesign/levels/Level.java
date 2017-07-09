@@ -27,6 +27,12 @@ public abstract class Level {
 
     /** Türobjekt, die einen dürchlässt oder stoppt. Jedes Level hat mindestens eine Tür */
     protected Door door;
+
+    /** Flag zum Abfragen, ob das Spiel zu Ende gespielt wurde und der Highscore ermittel werden darf.
+     * Sollte nur im letzten Letzten level definiert werden.*/
+    protected boolean gameCompleted;
+
+
     /**
      *
      */
@@ -194,5 +200,15 @@ public abstract class Level {
      * @param batch Die SpriteBatch batch aus der main
      */
     public abstract void drawObjectsOverPlayer(Batch batch);
+
+    /**
+     * Gibt an ob das Spiel durchgespielt wurde.
+     * Wird durch den {@link com.game.leveldesign.LevelManager} aufgerufen
+     * um den Highscore zu ermitteln
+     * @return
+     */
+    public boolean gameCompleted(){
+        return gameCompleted;
+    }
 
 }//end class Level
