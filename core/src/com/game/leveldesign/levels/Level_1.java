@@ -60,6 +60,7 @@ public class Level_1 extends Level {
         coll2 = new Collectibles(worldmap,"Coll2");
         coll3 = new Collectibles(worldmap,"Coll3");
         hiddenDoor = new HiddenDoor(worldmap,"HiddenDoor", "Hidden");
+
     }
 
     @Override

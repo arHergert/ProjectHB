@@ -14,6 +14,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.game.box2d.Player;
 import com.game.input.PlayerMovementInputProcessor;
 import com.game.leveldesign.LevelManager;
+import com.game.leveldesign.Score;
 
 /**
  * Hauptklasse zur Erstellung, Aktualisierung und Verwaltung der Spiellogik und -objekte
@@ -24,6 +25,7 @@ public class Main extends ApplicationAdapter {
     /** Initialisierung der benötigten Spielobjekte **/
     public static TextureAtlas spritesheet;
     public static AssetManager assetManager;
+    public static Score scoremanager;
     private SpriteBatch batch;
     private MapCamera camera;
     private TiledMapRenderer tiledMapRenderer;
@@ -149,7 +151,7 @@ public class Main extends ApplicationAdapter {
         levels.getCurrentWorldMap().getWorld().step(1/60f, 6,2);
 
         //Aktualisieren des DebugRenderers
-        //debugRenderer.render(levels.getCurrentWorldMap().getWorld(), camera.combined);
+        debugRenderer.render(levels.getCurrentWorldMap().getWorld(), camera.combined);
 
         //Das batch zeichnet/aktualisiert die Positionen der Grafiken
         batch.setProjectionMatrix(camera.combined);
@@ -165,10 +167,7 @@ public class Main extends ApplicationAdapter {
         }
 
 
-        //Berechnet den Highscore, wenn das Spiel durchgespielt wurde
-       /* if(levels.gameFinished()){
-            levels.printScore();
-        }*/
+
 
 	}
 

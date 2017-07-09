@@ -140,12 +140,14 @@ public class Level_4 extends Level{
                             if(allPlatesActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
 
-                                Timer.schedule(new Timer.Task(){
+                                if(!door.isOpen()){
+                                    Timer.schedule(new Timer.Task(){
 
-                                    public void run() {
-                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
-                                    }
-                                }, 0.8f);
+                                        public void run() {
+                                            assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                        }
+                                    }, 0.8f);
+                                }
 
                             }
                             Gdx.app.postRunnable(() -> door2.open());
@@ -154,36 +156,42 @@ public class Level_4 extends Level{
                             if(allPlatesActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
 
-                                Timer.schedule(new Timer.Task(){
+                                if(!door.isOpen()){
+                                    Timer.schedule(new Timer.Task(){
 
-                                    public void run() {
-                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
-                                    }
-                                }, 0.8f);
+                                        public void run() {
+                                            assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                        }
+                                    }, 0.8f);
+                                }
                             }
                         }else if(fixtureIs("Plate10")) {
                             plates[1][0].load();
                             if(allPlatesActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
 
-                                Timer.schedule(new Timer.Task(){
+                                if(!door.isOpen()){
+                                    Timer.schedule(new Timer.Task(){
 
-                                    public void run() {
-                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
-                                    }
-                                }, 0.8f);
+                                        public void run() {
+                                            assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                        }
+                                    }, 0.8f);
+                                }
                             }
                         } else if(fixtureIs("Plate11")) {
                             plates[1][1].load();
                             if(allPlatesActivated()) {
                                 Gdx.app.postRunnable(() -> door.open());
 
-                                Timer.schedule(new Timer.Task(){
+                                if(!door.isOpen()){
+                                    Timer.schedule(new Timer.Task(){
 
-                                    public void run() {
-                                        assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
-                                    }
-                                }, 0.8f);
+                                        public void run() {
+                                            assetManager.get("sounds/puzzleSolved.mp3", Sound.class).play();
+                                        }
+                                    }, 0.8f);
+                                }
                             }
                             if(!plates[0][0].isActivated()) {
                                 Gdx.app.postRunnable(() -> door1.open());

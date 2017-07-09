@@ -40,6 +40,22 @@ public class TryAndCatchFont extends BitmapFont{
     }
 
 
+    public TryAndCatchFont(int size, String hexColor){
+
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParameter.color = Color.valueOf(hexColor);
+        fontParameter.size = size;
+        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("CodeNewRoman.otf"));
+        fontGenerator.scaleForPixelHeight(9);
+        fontParameter.minFilter = Texture.TextureFilter.Nearest;
+        fontParameter.magFilter = Texture.TextureFilter.MipMapLinearNearest;
+        font = fontGenerator.generateFont(fontParameter);
+        fontGenerator.dispose();
+
+    }
+
+
+
     @Override
     public GlyphLayout draw(Batch batch, CharSequence str, float x, float y) {
         return font.draw(batch, str, x, y);

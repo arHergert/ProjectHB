@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="58">
+ <tileset firstgid="1" source="finalTileset.tsx"/>
+ <layer name="Grundebene" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxzZGBgcAJiZyB2A2JFKHYEYhcgdoWKBwJxEBAHA3EYkjqQeAgQh6KJj2JUjA5wiQMAzjsOhQ==
+  </data>
+ </layer>
+ <layer name="Details" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgwkAAAGQAAE=
+  </data>
+ </layer>
+ <layer name="PuzzleTextures" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgwkAAAGQAAE=
+  </data>
+ </layer>
+ <layer name="Wand" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF9ACSQCwOxBJAzIwkzoQkDqIBDlgAlA==
+  </data>
+ </layer>
+ <objectgroup name="StaticCollisions">
+  <object id="56" x="0" y="288">
+   <polyline points="0,0 128,0 128,32 192,32 192,0 320,0 320,-256 320,-263.5 192.5,-263.5 192,-288 128,-288 128.5,-263.5 -0.5,-263.5 0,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Sensor">
+  <object id="53" name="doorBottom" x="133.977" y="2.5" width="53.0455" height="2"/>
+ </objectgroup>
+ <objectgroup name="InteractiveObjects">
+  <object id="49" name="Door" x="128" y="0" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup name="PlayerSpawnpoints">
+  <object id="54" name="spawnUpperDoor" x="157.841" y="288.435" width="4.3171" height="4.12939"/>
+ </objectgroup>
+</map>
