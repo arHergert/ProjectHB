@@ -15,10 +15,7 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.utils.Timer;
-import com.game.box2d.mapobjects.Button;
-import com.game.box2d.mapobjects.Door;
-import com.game.box2d.mapobjects.Lever;
-import com.game.box2d.mapobjects.Plate;
+import com.game.box2d.mapobjects.*;
 
 import static com.game.Main.assetManager;
 
@@ -37,6 +34,10 @@ public class Level_5 extends Level {
     private BitmapFont font10;
     private Button lever1 = new Button(worldmap, "Lever1");
     private Button button1 = new Button(worldmap, "Button1");
+
+    private Collectibles coll1, coll2;
+    private HiddenDoor hiddenDoor;
+
     private String puzzleText1 =
             "if(a[0][0]) {\n" +
             "   door.open();\n" +
@@ -79,6 +80,10 @@ public class Level_5 extends Level {
         fontParameter.size = 10;
         font10 = fontGenerator.generateFont(fontParameter);
         fontGenerator.dispose();
+
+        coll1 = new Collectibles(worldmap, "Coll1");
+        coll2 = new Collectibles(worldmap, "Coll2");
+        hiddenDoor = new HiddenDoor(worldmap,"HiddenDoor", "Hidden");
     }
 
     @Override
@@ -93,6 +98,8 @@ public class Level_5 extends Level {
                 //Überprüfen ob Player nicht mit nicht-interagierbaren Objekten wie Wände o.ä. kollidiert
                 if (fixturesNotNull()) {
 
+                    //System.out.println("BEGIN    FIX A: " + fixA.getUserData() + "  FIX B: " +fixB.getUserData());
+
                     //Kollisionsabfragen für die Türen
                     checkDoorCollisions(fixA, fixB);
 
@@ -105,6 +112,31 @@ public class Level_5 extends Level {
                         button1.collideOn();
 
                     }
+
+
+
+                    if(fixtureIs("Player") || fixtureIs("Player_feet")){
+                        if(fixtureStartsWith("Coll")){
+
+                            if(fixtureIs("Coll1")){
+
+                                Gdx.app.postRunnable(() -> coll1.collect());
+
+                            }else if (fixtureIs("Coll2")){
+                                Gdx.app.postRunnable(() -> coll2.collect());
+
+                            }
+
+                            increaseGarneredCollectiblesCount();
+                        }
+
+
+                        if(fixtureIs("HiddenDoor")){
+                            hiddenDoor.collideOn();
+                        }
+
+                    }
+
 
                     //Restliches Zeug
                     if (fixtureIs("Player_feet")) {
@@ -185,6 +217,16 @@ public class Level_5 extends Level {
 
                     }
 
+                    if(fixtureIs("Player") || fixtureIs("Player_feet")){
+
+                        if(fixtureIs("HiddenDoor")){
+                            hiddenDoor.collideOff();
+                        }
+
+                    }
+
+
+
                 }//end if-Abfage ob Player nicht mit StaticMapCollisions-Objekten kollidiert
 
             }
@@ -208,6 +250,10 @@ public class Level_5 extends Level {
             public boolean keyDown(int keycode) {
 
                 if (keycode == Input.Keys.E || keycode == Input.Keys.SPACE ){
+
+                    if(hiddenDoor.collidesWithPlayer()){
+                        hiddenDoor.openPath();
+                    }
 
                     if(lever1.collidesWithPlayer()){
                         lever1.use();
@@ -262,6 +308,9 @@ public class Level_5 extends Level {
         font9.draw(batch, "[1][1]", 193+96, worldmap.getMapHeight() - 228+80);
         button1.draw(batch);
         lever1.draw(batch);
+
+        coll1.draw(batch);
+        coll2.draw(batch);
     }
 
     @Override

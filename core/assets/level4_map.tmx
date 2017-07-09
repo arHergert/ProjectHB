@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="16" tilewidth="32" tileheight="32" nextobjectid="157">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="20" height="16" tilewidth="32" tileheight="32" nextobjectid="168">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="20" height="16">
   <data encoding="base64" compression="zlib">
-   eJzVk0sLglAQha89qKB2ZusM1DbqQmvdy00PsNemx///GR1hBobLJEKrBj7mjp45yox6xhgXeIRLjKl2LDxx3xW1R9dWYA02Im/BDhSgI7x64KBoOe9BCc7gIvIV3MDd8uuCp6Ll/AA+iMCckOeZ8n6+oo2EniMAU7AASzonyvw0XSp8HMot0AYh+VT1RPGbCF0s+qTG0F4K4cf7GII+GICRouPaWH4lzZ+fy/uo9Edwoj6pS0Rt+/GcM5CL+Vb6F3hTH+/P1tl+Ic1Wkiu9maJLGvo1Jf1Dv+AHv9jyY89vwf9CXdjffV3wN9nE7wOK7ych
+   eJytk0trAkEQhMeoRCHe1vW8CmourgcfZ6PJxQeoiZdE///PsBa6sBgbWYgNHzM9W13bTO+mIYQEpEZitC2vRKTyPJE8tbMF+ABLWVfgE3yBmni9go2j5boGe3AAR1m/wQ84RX518Odouf6CLhiCd0P3Pae/rqMdip7RBxmYgbntc+f+PN043McLqIKB+RR5x/HriG4kdXzOWNj904/zeAMN0AQtR8c8RH7FXE7yXs6j0G/BzupUl0se+/GeJ2Aabvdb6M/gYnWcX6yjn/afRUyd2omjy8VP+491ZRmLH89mT/JjPKs/Rv8ffiPH71HwX/AiE6+yfvwmy/hdAV+YKNU=
   </data>
  </layer>
  <layer name="Details" width="20" height="16">
@@ -19,7 +19,17 @@
  </layer>
  <layer name="Wand" width="20" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFlABxKBYCYmYkcSYg5sainhuLOiEkcxihWASIeZHU8UDF0AEudTBzQICVOK/gBWxIbCkqmMeCxGYfhOYh+5ca4YfsPmrHB7XDj9ruAwFBBkg6F2aApHMJIJZkwMwL4mhqJaFi6IARB0YOCzY86mAAAFhvAqs=
+   eJxjYBgFlABxKBYCYmYkcSYg5sainhuLOiEkcxihWASIeZHU8UDF0AEudYxImJVo3+AGbFAaZJ4UFcxjQTKPnYrmUQuwEVZCEqCV+6gdfrRILyAsyABJ58IMkHQuAcSSDJh5QRxNLQNUDAYYCWDksGDDIs+ARIMAADs7Aok=
+  </data>
+ </layer>
+ <layer name="Hidden1" width="20" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2D4AEYglhrk5rFS0bxRQBkAAHssAD0=
+  </data>
+ </layer>
+ <layer name="Hidden2" width="20" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjILBCYSobB4jGh8AC9AAFA==
   </data>
  </layer>
  <objectgroup name="PlayerSpawnpoints">
@@ -32,12 +42,23 @@
   <object id="144" x="192" y="128" width="64" height="86"/>
   <object id="145" x="384" y="128" width="64" height="86"/>
   <object id="146" x="384" y="0" width="256" height="56"/>
-  <object id="148" x="0" y="128" width="64" height="384"/>
   <object id="150" x="64" y="128" width="64" height="86"/>
   <object id="152" x="512" y="128" width="64" height="86"/>
   <object id="153" x="576" y="128" width="64" height="384"/>
   <object id="155" x="64" y="448" width="224" height="64"/>
-  <object id="156" x="352" y="448" width="224" height="64"/>
+  <object id="158" x="0" y="128">
+   <polyline points="0,0 64,0 64,160"/>
+  </object>
+  <object id="159" x="64" y="288">
+   <polyline points="0,0 0,20.6667 -64.6667,20.6667 -64,96 0,96 0,192"/>
+  </object>
+  <object id="160" x="352" y="512">
+   <polyline points="0,0 0,-64 160,-64 160,0 192,0 192,-64 224,-64"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Collectibles">
+  <object id="161" name="Coll1" x="17.3333" y="362.667" width="8" height="8"/>
+  <object id="162" name="Coll2" x="524" y="496.667" width="8" height="8"/>
  </objectgroup>
  <objectgroup name="Sensor">
   <object id="83" name="doorUp" x="302.542" y="225.371" width="38.1364" height="3.63636"/>
@@ -52,5 +73,7 @@
   <object id="123" name="Plate10" x="464" y="352" width="32" height="32"/>
   <object id="125" name="Lever1" x="355.667" y="256.333" width="24" height="24"/>
   <object id="139" name="Door" x="288" y="448" width="64" height="32"/>
+  <object id="165" name="HiddenDoor1" x="32" y="288" width="32" height="96"/>
+  <object id="167" name="HiddenDoor2" x="512" y="448" width="32" height="32"/>
  </objectgroup>
 </map>

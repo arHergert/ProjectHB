@@ -17,14 +17,17 @@ public class HiddenDoor extends MapObjects{
 
     /** Referen auf die Map in der sich die versteckte Tür befindet */
     private WorldMap map;
+    private String hiddenLayer;
 
     /**
      * Erstellt eine neue versteckte Tür
      * HiddenDoors müssen sich im Level in der Ebene "InteractiveObjects" befinden.
      *
      * @param map
+     * @param mapSensorObject
+     * @param layerName Name des Layers in dem sich dieser versteckte Bereich befindet
      */
-    public HiddenDoor(WorldMap map, String mapSensorObject) {
+    public HiddenDoor(WorldMap map, String mapSensorObject, String layerName) {
         super( map);
         PolygonShape shape = getRectangle((RectangleMapObject)map.getMap().getLayers().get("InteractiveObjects").getObjects().get(mapSensorObject));
         fixtureDef.shape = shape;
@@ -33,6 +36,7 @@ public class HiddenDoor extends MapObjects{
         fixture.setUserData(mapSensorObject);
 
         this.map = map;
+        hiddenLayer = layerName;
 
     }
 
@@ -49,7 +53,7 @@ public class HiddenDoor extends MapObjects{
         }
 
         assetManager.get("sounds/hiddendoor.wav", Sound.class).play();
-        map.getMap().getLayers().get("Hidden").setVisible(false);
+        map.getMap().getLayers().get(hiddenLayer).setVisible(false);
 
     }
 

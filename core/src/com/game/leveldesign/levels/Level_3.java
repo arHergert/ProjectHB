@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Timer;
+import com.game.box2d.mapobjects.Collectibles;
 import com.game.box2d.mapobjects.Plate;
 
 import static com.game.Main.assetManager;
@@ -25,6 +26,8 @@ public class Level_3 extends Level {
     private Plate[][] plates;
 
     private BitmapFont font;
+
+    private Collectibles coll1 = new Collectibles(worldmap,"Coll1");
 
     private String puzzleText = "for (int j=0; j <= 1; j++){\n" +
             "   for (int i=0; i < 2; i++{\n" +
@@ -87,6 +90,22 @@ public class Level_3 extends Level {
                     checkDoorCollisions(fixA,fixB);
 
                     //Restliches Zeug
+
+                    if(fixtureIs("Player") || fixtureIs("Player_feet")){
+                        if(fixtureStartsWith("Coll")){
+
+                            if(fixtureIs("Coll1")){
+
+                                Gdx.app.postRunnable(() -> coll1.collect());
+
+                            }
+
+                            increaseGarneredCollectiblesCount();
+                        }
+
+                    }
+
+
 
                     /**
                      * Da nur Player_feet die Druckplatten auslösen dürfen, muss
@@ -220,6 +239,8 @@ public class Level_3 extends Level {
         font.draw(batch, puzzleText, worldmap.getMapRight()- 230, worldmap.getMapHeight() - 40);
         font.draw(batch, "i", 80, worldmap.getMapHeight()-140);
         font.draw(batch, "j", 370, worldmap.getMapHeight()-300);
+
+        coll1.draw(batch);
     }
 
     @Override

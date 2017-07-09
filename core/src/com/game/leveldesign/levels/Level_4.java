@@ -27,6 +27,9 @@ public class Level_4 extends Level{
     private Plate[][] plates;
     private Door door1;
     private Door door2;
+
+    private Collectibles coll1, coll2;
+    private HiddenDoor hiddenDoor1, hiddenDoor2;
     private BitmapFont font;
     private BitmapFont fontL;
     private BitmapFont fontR;
@@ -66,6 +69,12 @@ public class Level_4 extends Level{
         fontParameter.size = 13;
         fontL= fontGenerator.generateFont(fontParameter);
         fontGenerator.dispose();
+
+        coll1 = new Collectibles(worldmap, "Coll1");
+        coll2 = new Collectibles(worldmap, "Coll2");
+
+        hiddenDoor1 = new HiddenDoor(worldmap,"HiddenDoor1", "Hidden1");
+        hiddenDoor2 = new HiddenDoor(worldmap,"HiddenDoor2", "Hidden2");
     }
 
     private boolean allPlatesActivated() {
@@ -99,6 +108,30 @@ public class Level_4 extends Level{
 
                     }
 
+
+                    if(fixtureIs("Player") || fixtureIs("Player_feet")){
+                        if(fixtureStartsWith("Coll")){
+
+                            if(fixtureIs("Coll1")){
+
+                                Gdx.app.postRunnable(() -> coll1.collect());
+
+                            }else if (fixtureIs("Coll2")){
+                                Gdx.app.postRunnable(() -> coll2.collect());
+
+                            }
+
+                            increaseGarneredCollectiblesCount();
+                        }
+
+
+                        if(fixtureIs("HiddenDoor1")){
+                            hiddenDoor1.collideOn();
+                        }else if(fixtureIs("HiddenDoor2")){
+                            hiddenDoor2.collideOn();
+                        }
+
+                    }
                     //Restliches Zeug
                     if(fixtureIs("Player_feet")) {
 
@@ -176,6 +209,16 @@ public class Level_4 extends Level{
 
                 }//end if-Abfage ob Player nicht mit StaticMapCollisions-Objekten kollidiert
 
+
+                if(fixturesNotNull() && (fixtureIs("Player") || fixtureIs("Player_feet")) ){
+
+                    if(fixtureIs("HiddenDoor1")){
+                        hiddenDoor1.collideOff();
+                    }else if(fixtureIs("HiddenDoor2")){
+                        hiddenDoor2.collideOff();
+                    }
+                }
+
             }
 
             @Override
@@ -198,6 +241,13 @@ public class Level_4 extends Level{
             public boolean keyDown(int keycode) {
 
                 if (keycode == Input.Keys.E || keycode == Input.Keys.SPACE){
+
+                    if(hiddenDoor1.collidesWithPlayer()){
+                        hiddenDoor1.openPath();
+                    }else if (hiddenDoor2.collidesWithPlayer()){
+                        hiddenDoor2.openPath();
+                    }
+
 
                     if(lever1.collidesWithPlayer()){
                         lever1.use();
@@ -239,6 +289,9 @@ public class Level_4 extends Level{
         font.draw(batch, "[0][1]", 145, worldmap.getMapHeight() - 165);
         font.draw(batch, "[1][0]", 465, worldmap.getMapHeight() - 390);
         font.draw(batch, "[1][1]", 465, worldmap.getMapHeight() - 165);
+
+        coll1.draw(batch);
+        coll2.draw(batch);
     }
 
     @Override

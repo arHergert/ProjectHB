@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="72">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="14" height="12" tilewidth="32" tileheight="32" nextobjectid="73">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="14" height="12">
@@ -34,6 +34,9 @@
  <objectgroup name="Sensor">
   <object id="12" name="doorBottom" x="329.867" y="379.129" width="39.0455" height="2"/>
   <object id="13" name="doorUp" x="45.087" y="33.8712" width="38.1364" height="3.63636"/>
+ </objectgroup>
+ <objectgroup name="Collectibles">
+  <object id="72" name="Coll1" x="41.5" y="317.5" width="8" height="8"/>
  </objectgroup>
  <objectgroup name="InteractiveObjects">
   <object id="41" name="Plate22" x="256" y="128" width="30.6646" height="30.6646"/>
