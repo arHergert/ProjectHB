@@ -41,7 +41,7 @@ public class Level_6 extends Level {
 
     public Level_6() {
         super("level6_map.tmx");
-        updateDoors();
+        door0.openWithoutSound();
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         fontParameter.color = Color.valueOf("43435d");
         fontParameter.size = 14;
