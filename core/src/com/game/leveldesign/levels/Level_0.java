@@ -5,8 +5,10 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.physics.box2d.Contact;
+import com.badlogic.gdx.physics.box2d.ContactImpulse;
+import com.badlogic.gdx.physics.box2d.ContactListener;
+import com.badlogic.gdx.physics.box2d.Manifold;
 import com.game.box2d.mapobjects.Collectibles;
 import com.game.box2d.mapobjects.Lever;
 
@@ -51,6 +53,12 @@ public class Level_0 extends Level{
 
                     checkDoorCollisions(fixA,fixB);
 
+                    // Kollision mit Hebel abfragen
+                    if(fixtureIs("Lever1")) {
+                        lever1.collideOn();
+
+                    }
+
                     if(fixtureStartsWith("Coll")){
 
                         if(fixtureIs("Coll1")){
@@ -62,14 +70,6 @@ public class Level_0 extends Level{
 
                         increaseGarneredCollectiblesCount();
                     }
-
-
-                    // Kollision mit Hebel abfragen
-                    if(fixtureIs("Lever1")) {
-                        lever1.collideOn();
-
-                    }
-
 
 
 
@@ -96,7 +96,7 @@ public class Level_0 extends Level{
 
                 //System.out.println("END    FIX A: " + fixA.getUserData() + "  FIX B: " +fixB.getUserData());
                 //Überprüfen ob Player nicht mit nicht-interagierbaren Objekten wie Wände o.ä. kollidiert
-                if( fixturesNotNull() && fixtureIs("Player")){
+                if( fixturesNotNull() && (fixtureIs("Player") || fixtureIs("Player_feet")) ){
 
 
                     // Kollision mit Hebel abfragen
