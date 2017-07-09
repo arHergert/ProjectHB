@@ -1,51 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="32">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="32" tileheight="32" nextobjectid="47">
  <tileset firstgid="1" source="finalTileset.tsx"/>
- <layer name="Grundebene" width="10" height="10">
+ <layer name="Grundebene" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJyFzUcKgDAQheFcRQULxnIGy8qysKws9z+G/2ICQY0OfLyQPDK9UqpGJTlgRINWssOOGZPkgRMLVskNPhKHWDJABA3vQyk9+y576RUvPUPf/gt/drr2Gql1ztVzzNvfuHoXl6EPQg==
+   eJxjYEAFPkDsDMROUNoXiP2A2AWIXaG0NwPxIAaIg4E4CErHAnEcEIcAcSiUjoaqdYTaC7LHDYd5SkCsiQNrQGllqNpAqL0ge8JwmKcOxDpArIgHGyDZjW4HNvOQ9epiMU8fi1p9DJOwmwfDyG4Guc8JTU4Ph3lqBPwKwuZofEMgViXRfdpIbFxuIQbAzKAWINU8AOqsFGo=
   </data>
  </layer>
- <layer name="Details" width="10" height="10">
+ <layer name="Details" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFAwEKgbgIizgAFRAA5A==
+   eJxjYBi+YBkONrlgGw72cAMbsYhtorsraAMKgbiIBPUAON0E/w==
   </data>
  </layer>
- <layer name="PuzzleTextures" width="10" height="10">
+ <layer name="PuzzleTextures" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFgwkAAAGQAAE=
+   eJxjYBgFo2AU4AIAAyAAAQ==
   </data>
  </layer>
- <layer name="Wand" width="10" height="10">
+ <layer name="Wand" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFlABBIBYCYmEgZkYSZ0KTY0TCrEjqWNDkAB40AIE=
+   eJxjZGBgYETCxAI2IBYBYlEkmhELJhbY4bCDXPPsqWwetd1nTWXzsAEWKptHifuYgFgSisWhNLb0IgjEQkAsDMTMaPqR5bDpJYRZkczDFjbYMAAQSAKL
+  </data>
+ </layer>
+ <layer name="Hidden" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAPMOLA5IJR80bNG4zmAQBayAA9
   </data>
  </layer>
  <objectgroup name="StaticCollisions">
-  <object id="18" x="0" y="0">
-   <polyline points="0,0 320,0 320,256 192,256 192,320 128,320 128,256 0,256 0,0"/>
+  <object id="33" x="448" y="160">
+   <polyline points="0,0 0,-160 -320,-160 -320,96 -192,96 -192,160 -128,160 -128,96 0,96 0,64"/>
+  </object>
+  <object id="34" x="448" y="160">
+   <polyline points="0,0 32,0 32.5,-107 160,-107 160,64 0,64"/>
+  </object>
+  <object id="44" x="480" y="160">
+   <polyline points="0,0 0,22.5 -31.5,21.5 -32,0"/>
+  </object>
+  <object id="45" x="480" y="64">
+   <polyline points="0,0 32,0 31.5,39.5 1,39.5"/>
+  </object>
+  <object id="46" x="608" y="64">
+   <polyline points="0,0 -32,0 -31.5,40 0,40"/>
   </object>
  </objectgroup>
  <objectgroup name="Sensor">
-  <object id="11" name="doorBottom" x="131.727" y="314.546" width="53.0455" height="2"/>
-  <object id="12" name="doorUp" x="147.614" y="3.45446" width="23.6364" height="3.63636"/>
+  <object id="11" name="doorBottom" x="263.727" y="314.546" width="53.0455" height="2"/>
+  <object id="12" name="doorUp" x="275.614" y="3.45446" width="23.6364" height="3.63636"/>
  </objectgroup>
  <objectgroup name="InteractiveObjects">
-  <object id="3" name="Rock4" x="147.025" y="191.683" width="32" height="22"/>
-  <object id="4" name="Rock3" x="70" y="191.683" width="32" height="22"/>
-  <object id="5" name="Rock2" x="147.025" y="107" width="32" height="22"/>
-  <object id="6" name="Rock1" x="70" y="107" width="32" height="22"/>
-  <object id="7" name="Hole3" x="203" y="73" width="32" height="22"/>
-  <object id="8" name="Hole2" x="16" y="73" width="32" height="22"/>
-  <object id="9" name="Hole1" x="203" y="224" width="32" height="22"/>
-  <object id="10" name="Hole4" x="16" y="224" width="32" height="22"/>
-  <object id="27" name="Door" x="128" y="256" width="64" height="32"/>
+  <object id="3" name="Rock4" x="275.025" y="191.683" width="32" height="22"/>
+  <object id="4" name="Rock3" x="198" y="191.683" width="32" height="22"/>
+  <object id="5" name="Rock2" x="275.025" y="107" width="32" height="22"/>
+  <object id="6" name="Rock1" x="198" y="107" width="32" height="22"/>
+  <object id="7" name="Hole3" x="331" y="73" width="32" height="22"/>
+  <object id="8" name="Hole2" x="144" y="73" width="32" height="22"/>
+  <object id="9" name="Hole1" x="331" y="224" width="32" height="22"/>
+  <object id="10" name="Hole4" x="144" y="224" width="32" height="22"/>
+  <object id="27" name="Door" x="256" y="256" width="64" height="32"/>
+  <object id="40" name="HiddenDoor" x="448" y="160" width="32" height="64"/>
  </objectgroup>
  <objectgroup name="Collectibles">
-  <object id="31" name="Coll1" x="311" y="253" width="8" height="8"/>
+  <object id="31" name="Coll2" x="528.75" y="99.5" width="8" height="8"/>
+  <object id="35" name="Coll1" x="439" y="250.5" width="8" height="8"/>
+  <object id="36" name="Coll3" x="571.75" y="147" width="8" height="8"/>
  </objectgroup>
  <objectgroup name="PlayerSpawnpoints">
-  <object id="1" name="spawnBottomDoor" x="157.752" y="235.332" width="3.75399" height="3.94169"/>
-  <object id="2" name="spawnUpperDoor" x="158.013" y="72.7118" width="4.3171" height="4.12939"/>
+  <object id="1" name="spawnBottomDoor" x="285.752" y="235.332" width="3.75399" height="3.94169"/>
+  <object id="2" name="spawnUpperDoor" x="286.013" y="72.7118" width="4.3171" height="4.12939"/>
  </objectgroup>
 </map>

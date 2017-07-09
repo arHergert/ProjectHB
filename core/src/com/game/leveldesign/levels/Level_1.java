@@ -14,6 +14,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Timer;
 import com.game.box2d.Player;
 import com.game.box2d.mapobjects.Collectibles;
+import com.game.box2d.mapobjects.HiddenDoor;
 import com.game.box2d.mapobjects.Hole;
 import com.game.box2d.mapobjects.Rock;
 import com.game.leveldesign.TryAndCatchFont;
@@ -35,7 +36,8 @@ public class Level_1 extends Level {
 
     private TryAndCatchFont font;
     private boolean playerOverRocks = false;
-    private Collectibles coll1;
+    private Collectibles coll1, coll2, coll3;
+    private HiddenDoor hiddenDoor;
 
 
 
@@ -55,6 +57,9 @@ public class Level_1 extends Level {
         font = new TryAndCatchFont(12);
 
         coll1 = new Collectibles(worldmap,"Coll1");
+        coll2 = new Collectibles(worldmap,"Coll2");
+        coll3 = new Collectibles(worldmap,"Coll3");
+        hiddenDoor = new HiddenDoor(worldmap,"HiddenDoor");
     }
 
     @Override
@@ -85,12 +90,22 @@ public class Level_1 extends Level {
                             if(fixtureIs("Coll1")){
 
                                 Gdx.app.postRunnable(() -> coll1.collect());
+
+                            }else if (fixtureIs("Coll2")){
+                                Gdx.app.postRunnable(() -> coll2.collect());
+
+                            }else if (fixtureIs("Coll3")){
+                                Gdx.app.postRunnable(() -> coll3.collect());
                             }
 
                             increaseGarneredCollectiblesCount();
                         }
 
 
+
+                        if(fixtureIs("HiddenDoor")){
+                            hiddenDoor.collideOn();
+                        }
 
                     	// wenn Spieler mit einem Stein kollidiert
                     	if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
@@ -161,7 +176,13 @@ public class Level_1 extends Level {
                 	
                     // wenn irgendwas mit dem Spieler kollidiert
                     if(fixtureIs("Player")|| fixtureIs("Player_feet")) {
-                    	
+
+                        if(fixtureIs("HiddenDoor")){
+                            hiddenDoor.collideOff();
+                        }
+
+
+
                     	// wenn Spieler mit einem Stein kollidiert
                     	if(fixA.getUserData().toString().startsWith("Rock") || fixB.getUserData().toString().startsWith("Rock")) {
 
@@ -231,7 +252,12 @@ public class Level_1 extends Level {
             public boolean keyDown(int keycode) {
 
             	if(keycode == Input.Keys.E|| keycode == Input.Keys.SPACE) {
-            		
+
+                    if(hiddenDoor.collidesWithPlayer()){
+                        hiddenDoor.openPath();
+                    }
+
+
                     if(Player.isCarryingObject){
                     	
                     	clearHoles(carryingStone);
@@ -329,11 +355,13 @@ public class Level_1 extends Level {
         stringHole.draw(batch);
 
         coll1.draw(batch);
+        coll2.draw(batch);
+        coll3.draw(batch);
 
-        font.draw(batch, "name;", worldmap.getMapLeft() + 55, worldmap.getMapHeight() - 80);
-        font.draw(batch, "alter;", worldmap.getMapLeft() + 240, worldmap.getMapHeight() - 230);
-        font.draw(batch, "maennlich;", worldmap.getMapLeft() + 240, worldmap.getMapHeight() - 80);
-        font.draw(batch, "groesse;", worldmap.getMapLeft() + 55, worldmap.getMapHeight() - 230);
+        font.draw(batch, "name;", worldmap.getMapLeft() + 185, worldmap.getMapHeight() - 80);
+        font.draw(batch, "alter;", worldmap.getMapLeft() + 370, worldmap.getMapHeight() - 230);
+        font.draw(batch, "maennlich;", worldmap.getMapLeft() + 370, worldmap.getMapHeight() - 80);
+        font.draw(batch, "groesse;", worldmap.getMapLeft() + 185, worldmap.getMapHeight() - 230);
 
         //Zeichnet nur wenn der Player mit seinen Füßen nicht über den Steinen clippt
         if(!playerOverRocks){
