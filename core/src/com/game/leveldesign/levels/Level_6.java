@@ -103,7 +103,7 @@ public class Level_6 extends Level {
                 fixB = contact.getFixtureB();
 
                 //Überprüfen ob Player nicht mit nicht-interagierbaren Objekten wie Wände o.ä. kollidiert
-                if( fixturesNotNull() && fixtureIs("Player")){
+                if( fixturesNotNull() && (fixtureIs("Player") || fixtureIs("Player_feet") )){
 
                     // Kollision mit Hebel abfragen
                     if(fixtureIs("Lever1")) {
