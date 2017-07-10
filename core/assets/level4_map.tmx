@@ -4,7 +4,7 @@
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="20" height="16">
   <data encoding="base64" compression="zlib">
-   eJytk0trAkEQhMeoRCHe1vW8CmourgcfZ6PJxQeoiZdE///PsBa6sBgbWYgNHzM9W13bTO+mIYQEpEZitC2vRKTyPJE8tbMF+ABLWVfgE3yBmni9go2j5boGe3AAR1m/wQ84RX518Odouf6CLhiCd0P3Pae/rqMdip7RBxmYgbntc+f+PN043McLqIKB+RR5x/HriG4kdXzOWNj904/zeAMN0AQtR8c8RH7FXE7yXs6j0G/BzupUl0se+/GeJ2Aabvdb6M/gYnWcX6yjn/afRUyd2omjy8VP+491ZRmLH89mT/JjPKs/Rv8ffiPH71HwX/AiE6+yfvwmy/hdAV+YKNU=
+   eJytk0trAkEQhMdEiQG9ret5Dai5uB58nI2Pi0kg0XhJ9P//DGugC4uxkSXY8DHTM9W1zcxsHkLIQG5kRsfyWkIu+5nkua0twBtYyrgCa7ABdfF6Au+OluMWfIFvsJNxD37AIfFrgD9Hy/EX9MAQvBo6f3H66znaoegZfVCAGZjbvHTOz9ONw3U8gEcwMJ+Ydx2/ruhGUsd9xsLOn368jxZogmfQdnTMQ+IX7+Ug3+V9RP0H+LQ61ZWSp3485wmYhsv5Rv0RnKyO95fq6Kf9FwlTp3bi6Erx0/5TXVXG4se12Z38GPfqj9H/p1d80yPH71bwX/CiEK+qfnyTVfzObrgo6w==
   </data>
  </layer>
  <layer name="Details" width="20" height="16">
