@@ -10,7 +10,6 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.utils.Timer;
 import com.game.box2d.mapobjects.Sensor;
-import com.game.leveldesign.Score;
 
 import static com.game.Main.assetManager;
 import static com.game.Main.scoremanager;

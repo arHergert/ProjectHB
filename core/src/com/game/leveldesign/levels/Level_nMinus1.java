@@ -8,6 +8,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Timer;
+import com.game.box2d.mapobjects.Collectibles;
 import com.game.box2d.mapobjects.Plate;
 
 import static com.game.Main.assetManager;
@@ -19,6 +20,8 @@ public class Level_nMinus1 extends Level {
 
     //IV
     private Plate[] plates;
+    private Collectibles coll1, coll2, coll3;
+
 
     public Level_nMinus1() {
         super("levelN-1_map.tmx");
@@ -28,6 +31,11 @@ public class Level_nMinus1 extends Level {
         plates[2] = new Plate(worldmap, false, "Plate3");
         plates[3] = new Plate(worldmap, false, "Plate4");
         plates[4] = new Plate(worldmap, false, "Plate5");
+
+        coll1 = new Collectibles(worldmap,"Coll1");
+        coll2 = new Collectibles(worldmap,"Coll2");
+        coll3 = new Collectibles(worldmap,"Coll3");
+
     }
 
     @Override
@@ -52,6 +60,29 @@ public class Level_nMinus1 extends Level {
                      * zuerst abgefragt werden ob bei einer Kollision
                      * mit den Druckplatten kein anderes Objekt mit denen kollidiert
                      */
+
+
+                    if(fixtureIs("Player") || fixtureIs("Player_feet")) {
+
+
+                        if (fixtureStartsWith("Coll")) {
+
+                            if (fixtureIs("Coll1")) {
+
+                                Gdx.app.postRunnable(() -> coll1.collect());
+
+                            } else if (fixtureIs("Coll2")) {
+                                Gdx.app.postRunnable(() -> coll2.collect());
+
+                            } else if (fixtureIs("Coll3")) {
+                                Gdx.app.postRunnable(() -> coll3.collect());
+                            }
+
+                            increaseGarneredCollectiblesCount();
+                        }
+                    }
+
+
 
                     if(fixA.getUserData().equals("Player_feet") || fixB.getUserData().equals("Player_feet")){
                         if (fixtureIs("Plate1")) {
@@ -154,6 +185,11 @@ public class Level_nMinus1 extends Level {
         for (int j = 0; j < plates.length; j++ ){
             plates[j].draw(batch);
         }
+
+        coll1.draw(batch);
+        coll2.draw(batch);
+        coll3.draw(batch);
+
     }
 
     @Override
