@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="58">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="60">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <layer name="Grundebene" width="10" height="10">
   <data encoding="base64" compression="zlib">
@@ -27,7 +27,8 @@
   </object>
  </objectgroup>
  <objectgroup name="Sensor">
-  <object id="53" name="doorBottom" x="133.977" y="2.5" width="53.0455" height="2"/>
+  <object id="53" name="doorBottom" x="133.977" y="22.5" width="53.0455" height="2"/>
+  <object id="58" name="ScoreSensor" x="96" y="256" width="128" height="32"/>
  </objectgroup>
  <objectgroup name="InteractiveObjects">
   <object id="49" name="Door" x="128" y="0" width="64" height="64"/>

@@ -1,8 +1,9 @@
 package com.game.leveldesign;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.TimeUtils;
-import com.game.leveldesign.levels.Level;
 
 /**
  * Zählt die Zeit, die der Spieler für's durchspielen der
@@ -10,10 +11,11 @@ import com.game.leveldesign.levels.Level;
  *
  * Created by Artur on 09.07.2017.
  */
-public class Score {
+public class Score implements Disposable{
 
     private long startTime;
-    private TryAndCatchFont scoreFont = new TryAndCatchFont(23, "ffffff");
+    private TryAndCatchFont scoreFontDesc = new TryAndCatchFont(23, "717184");
+    private TryAndCatchFont scoreFontColor = new TryAndCatchFont(23, "2A9E7E");
     private boolean scoreCalculated = false;
     private int completeTime;
     private String cleanTimeString;
@@ -73,26 +75,43 @@ public class Score {
     }
 
 
+    private String endScore(){
+
+        return ""+( ((25*60)-completeTime) + (collected * 15)  );
+    }
 
 
-    public void printScoreScreen(Batch batch, WorldMap map){
+
+    public void drawFirstLine(Batch batch, WorldMap map){
 
         if(!scoreCalculated){
 
             completeTime = (int) calculateTime();
             cleanTimeString = getDurationString(completeTime);
-            scoreX = map.getMapWidth()/2-120;
-            scoreY = map.getMapHeight()/2+30;
+            scoreX = map.getMapWidth()/2-130;
+            scoreY = map.getMapHeight()/2+50;
             scoreCalculated = true;
         }
 
 
-        scoreFont.draw(batch, "Time: "+ cleanTimeString+" Minuten", scoreX, scoreY);
-        scoreFont.draw(batch, "Collectibles: "+ collected + " / 99", scoreX, scoreY-50);
+        scoreFontDesc.draw(batch, "Zeit: ", scoreX, scoreY);
+        scoreFontColor.draw(batch, cleanTimeString+" Minuten", scoreX+70, scoreY);
+
     }
 
+    public void drawSecondLine(Batch batch, WorldMap map){
 
+        scoreFontDesc.draw(batch, "Collectibles: ", scoreX, scoreY-50);
+        scoreFontColor.draw(batch, collected + "/10 ", scoreX+190, scoreY-50);
 
+    }
+
+    public void drawThirdLine(Batch batch, WorldMap map){
+
+        scoreFontDesc.draw(batch, "Endscore: ", scoreX, scoreY-100);
+        scoreFontColor.draw(batch, endScore(), scoreX+130, scoreY-100);
+
+    }
 
 
     public void addCollectibles(int number){
@@ -103,4 +122,8 @@ public class Score {
         return collected;
     }
 
+    @Override
+    public void dispose() {
+
+    }
 }//end class Score

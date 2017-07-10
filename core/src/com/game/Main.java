@@ -182,7 +182,7 @@ public class Main extends ApplicationAdapter {
         levels.disposeAllLevels();
         spritesheet.dispose();
         assetManager.dispose();
-
+        scoremanager.dispose();
 	}
 
 
