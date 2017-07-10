@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="38">
+ <tileset firstgid="1" source="finalTileset.tsx"/>
+ <layer name="Grundebene" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJyFzUcKgDAQheFcRQULxnIGy0p0YVlZ7n8M/8UERBMz8DEh85LJlFIZGrQYMaFDL7MBBxbM0k9cWLFJ3xHKG5tUeoQEGsGPWnLPu8KSqyw5Q7/+iz07XXuN/HEu1bfMzFeu3A0R6Q7q
+  </data>
+ </layer>
+ <layer name="Details" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFAwEKgbgIizgAFRAA5A==
+  </data>
+ </layer>
+ <layer name="PuzzleTextures" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgwkAAAGQAAE=
+  </data>
+ </layer>
+ <layer name="Wand" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFlABBIBYCYmEgZkYSZ0KTY0TCrEjqWNDkAB40AIE=
+  </data>
+ </layer>
+ <objectgroup name="StaticCollisions">
+  <object id="18" x="0" y="0">
+   <polyline points="0,0 318,0 318,256 190.8,256 190.8,320 127.2,320 127.2,256 0,256 0,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Sensor">
+  <object id="11" name="doorBottom" x="131.727" y="314.546" width="53.0455" height="2"/>
+  <object id="12" name="doorUp" x="147.614" y="3.45446" width="23.6364" height="3.63636"/>
+ </objectgroup>
+ <objectgroup name="InteractiveObjects">
+  <object id="3" name="Rock4" x="80.3583" y="52.3497" width="32" height="22"/>
+  <object id="4" name="Rock3" x="233.333" y="50.3497" width="32" height="22"/>
+  <object id="5" name="Rock2" x="84.3583" y="215" width="32" height="22"/>
+  <object id="6" name="Rock1" x="192" y="50.3333" width="32" height="22"/>
+  <object id="7" name="Hole3" x="223.667" y="101.667" width="32" height="22"/>
+  <object id="8" name="Hole2" x="160.667" y="100.333" width="32" height="22"/>
+  <object id="9" name="Hole1" x="95" y="100.667" width="32" height="22"/>
+  <object id="10" name="Hole4" x="32" y="164.667" width="32" height="22"/>
+  <object id="27" name="Door" x="128" y="256" width="64" height="32"/>
+  <object id="30" name="Hole0" x="31.8333" y="99.5" width="32" height="22"/>
+  <object id="31" name="Hole5" x="95.5" y="164.833" width="32" height="22"/>
+  <object id="32" name="Hole6" x="159.167" y="165.167" width="32" height="22"/>
+  <object id="33" name="Hole7" x="223.5" y="165.833" width="32" height="22"/>
+  <object id="34" name="Rock0" x="246.821" y="210.325" width="32" height="22"/>
+  <object id="35" name="Rock5" x="31.8455" y="51.6587" width="32" height="22"/>
+  <object id="36" name="Rock6" x="32" y="215.333" width="32" height="22"/>
+  <object id="37" name="Rock7" x="203.179" y="211.675" width="32" height="22"/>
+ </objectgroup>
+ <objectgroup name="PlayerSpawnpoints">
+  <object id="1" name="spawnBottomDoor" x="157.752" y="235.332" width="3.75399" height="3.94169"/>
+  <object id="2" name="spawnUpperDoor" x="158.013" y="72.7118" width="4.3171" height="4.12939"/>
+ </objectgroup>
+</map>
