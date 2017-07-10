@@ -52,7 +52,7 @@ public abstract class Level {
         try{
             door = new Door(worldmap,"Door");
         }catch(Exception e){
-            System.err.println( mapFile +" hat keine Tuer! Bitte Tuer hinzufuegen");
+           // System.err.println( mapFile +" hat keine Tuer! Bitte Tuer hinzufuegen");
         }
 
         setLevelCollisionListener(levelContact());
