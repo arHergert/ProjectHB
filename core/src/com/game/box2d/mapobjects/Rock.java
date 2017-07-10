@@ -72,7 +72,8 @@ public class Rock extends MapObjects {
         this.isRectangle = isRectangle;
 
         /* Texturen für jeden einzelnen Datentypen */
-        TextureRegion intTex, stringTex, floatTex, boolText;
+        TextureRegion intTex, stringTex, floatTex, boolText,
+        arrayListTex,listTex,listVarTex,stringTypeTex,equalsTex,newTex,bracketsTex,diamondTex;
         switch (datatype) {
             case "int":
                 intTex = spritesheet.findRegion("rock_rectangle_int");
@@ -90,6 +91,38 @@ public class Rock extends MapObjects {
                 boolText = spritesheet.findRegion("rock_rectangle_boolean");
                 currentTexture = boolText;
                 break;
+            case "List":
+            	listTex = spritesheet.findRegion("rock_list");
+            	currentTexture = listTex;
+            	break;
+            case "<String>":
+            	stringTypeTex = spritesheet.findRegion("rock_String");
+            	currentTexture = stringTypeTex;
+            	break;
+            case "list":
+            	listVarTex = spritesheet.findRegion("rock_listvar");
+            	currentTexture = listVarTex;
+            	break;
+            case "=":
+            	equalsTex = spritesheet.findRegion("rock_equals");
+            	currentTexture = equalsTex;
+            	break;
+            case "new":
+            	newTex = spritesheet.findRegion("rock_new");
+            	currentTexture = newTex;
+            	break;
+            case "ArrayList":
+            	arrayListTex = spritesheet.findRegion("rock_arraylist");
+            	currentTexture = arrayListTex;
+            	break;
+            case "<>":
+            	diamondTex = spritesheet.findRegion("rock_diamond");
+            	currentTexture = diamondTex;
+            	break;
+            case "();":
+            	bracketsTex = spritesheet.findRegion("rock_brackets");
+            	currentTexture = bracketsTex;
+            	break;
             default:
                 intTex = spritesheet.findRegion("rock_rectangle_int");
                 currentTexture = intTex;
