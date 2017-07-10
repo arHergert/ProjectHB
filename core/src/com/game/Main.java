@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -64,6 +65,7 @@ public class Main extends ApplicationAdapter {
         assetManager.load("sounds/plate_unload.wav", Sound.class);
         assetManager.load("sounds/collectible.wav", Sound.class);
         assetManager.load("sounds/hiddendoor.wav", Sound.class);
+        assetManager.load("sounds/credits.mp3", Music.class);
         assetManager.finishLoading();
 
         //Initialisierung des Spritebatches. Damit können Grafiken gezeichnet werden.

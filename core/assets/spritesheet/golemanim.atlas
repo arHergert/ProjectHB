@@ -1,0 +1,118 @@
+
+golemanim.png
+size: 2048,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+golem
+  rotate: false
+  xy: 2, 100
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 16
+golem
+  rotate: false
+  xy: 2, 2
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 13
+golem
+  rotate: false
+  xy: 260, 100
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 11
+golem
+  rotate: false
+  xy: 260, 2
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 1
+golem
+  rotate: false
+  xy: 518, 100
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 2
+golem
+  rotate: false
+  xy: 518, 2
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 3
+golem
+  rotate: false
+  xy: 776, 100
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 4
+golem
+  rotate: false
+  xy: 776, 2
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 5
+golem
+  rotate: false
+  xy: 776, 2
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 7
+golem
+  rotate: false
+  xy: 776, 2
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 6
+golem
+  rotate: false
+  xy: 1034, 100
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 8
+golem
+  rotate: false
+  xy: 1034, 2
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 9
+golem
+  rotate: false
+  xy: 1292, 100
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 12
+golem
+  rotate: false
+  xy: 1292, 2
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 14
+golem
+  rotate: false
+  xy: 1550, 100
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 10
+golem
+  rotate: false
+  xy: 1550, 2
+  size: 256, 96
+  orig: 256, 96
+  offset: 0, 0
+  index: 15
