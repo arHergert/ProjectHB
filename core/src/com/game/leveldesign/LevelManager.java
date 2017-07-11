@@ -96,7 +96,7 @@ public class LevelManager {
      * @return
      */
     public boolean currentLevelIsLong(){
-        return (currentlevel == levelList.get(7) || currentlevel == levelList.get(1)) ;
+        return (currentlevel == levelList.get(7) || currentlevel == levelList.get(7)) ;
     }
 
 
