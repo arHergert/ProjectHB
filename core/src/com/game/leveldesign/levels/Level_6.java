@@ -208,6 +208,11 @@ public class Level_6 extends Level {
 
                 }
 
+                if(keycode == Input.Keys.Z){
+
+                    door.open();
+                }
+
                 return false;
             }
 

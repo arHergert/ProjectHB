@@ -54,9 +54,8 @@ public class LevelManager {
         levelList.add(5, new Level_5());
         levelList.add(6, new Level_6());
         levelList.add(7, new Level_nMinus1());
-
-        //levelList.add(?, new Level_Score());
-        //levelList.add(?, new Level_Credits());
+        levelList.add(8, new Level_Score());
+        levelList.add(9, new Level_Credits());
 
         //Aktuelles Level bestimmen
         this.currentlevel = levelList.get(0);
@@ -96,7 +95,7 @@ public class LevelManager {
      * @return
      */
     public boolean currentLevelIsLong(){
-        return (currentlevel == levelList.get(7) || currentlevel == levelList.get(7)) ;
+        return (currentlevel == levelList.get(7) || currentlevel == levelList.get(9)) ;
     }
 
 
@@ -111,7 +110,7 @@ public class LevelManager {
 
         if(currentlevel == levelList.get(7) ){
             camera.translateInBounds(-440,0);
-        }else if (currentlevel == levelList.get(1)){
+        }else if (currentlevel == levelList.get(9)){
             camera.translateInBounds(-725,0);
         }
 

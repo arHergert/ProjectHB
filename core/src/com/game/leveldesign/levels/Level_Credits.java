@@ -134,7 +134,7 @@ public class Level_Credits extends Level{
         font.draw(batch,"-Code New Roman by Samiru R.\n" +
                 "-Disposable Droid by Nate Piekos \n(studio@blambot.com)", positionX+1055,positionY-20);
 
-        font.draw(batch,"Danke fuer's spielen\n    :)", positionX+1380,positionY-25);
+        font.draw(batch,"Danke fuer's Spielen\n    :)", positionX+1380,positionY-25);
 
         titleFont.draw(batch,"Spiel beenden", positionX+1480,positionY-72);
 

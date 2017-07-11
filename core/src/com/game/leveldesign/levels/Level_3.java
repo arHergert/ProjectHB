@@ -222,6 +222,12 @@ public class Level_3 extends Level {
 
                 }
 
+                if(keycode == Input.Keys.Z){
+
+                    door.open();
+                }
+
+
                 return false;
             }
         };

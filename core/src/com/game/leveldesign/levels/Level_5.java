@@ -284,6 +284,11 @@ public class Level_5 extends Level {
 
                 }
 
+                if(keycode == Input.Keys.Z){
+
+                    door.open();
+                }
+
                 return false;
             }
 

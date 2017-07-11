@@ -341,9 +341,23 @@ public class Level_1 extends Level {
 
                 return true;
             }
-            	
+
+
+                if(keycode == Input.Keys.Z){
+
+                    door.open();
+                }
+
+
+
             	return false;
         }
+
+
+
+
+
+
     };
     }
 

@@ -102,7 +102,7 @@ public class Score implements Disposable{
     public void drawSecondLine(Batch batch, WorldMap map){
 
         scoreFontDesc.draw(batch, "Collectibles: ", scoreX, scoreY-50);
-        scoreFontColor.draw(batch, collected + "/10 ", scoreX+190, scoreY-50);
+        scoreFontColor.draw(batch, collected + "/12 ", scoreX+190, scoreY-50);
 
     }
 
