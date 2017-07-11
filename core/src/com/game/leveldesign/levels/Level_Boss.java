@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -20,8 +19,6 @@ import com.game.box2d.mapobjects.*;
 import com.game.leveldesign.TryAndCatchFont;
 
 import static com.game.Main.assetManager;
-import static com.game.Main.spritesheet;
-import static com.game.box2d.Player.PLAYER_SPEED;
 import static com.game.box2d.Player.carryingStone;
 import static com.game.box2d.Player.playerBody;
 

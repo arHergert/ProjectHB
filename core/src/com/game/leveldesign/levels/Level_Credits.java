@@ -4,18 +4,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
-import com.badlogic.gdx.utils.Timer;
 import com.game.box2d.mapobjects.Sensor;
 import com.game.leveldesign.TryAndCatchFont;
 
 import static com.game.Main.assetManager;
-import static com.game.Main.scoremanager;
 import static com.game.box2d.Player.PLAYER_SPEED;
 
 /**
