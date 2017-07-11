@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="30" height="12" tilewidth="32" tileheight="32" nextobjectid="169">
+ <tileset firstgid="1" source="finalTileset.tsx"/>
+ <tileset firstgid="257" source="tryandcatch.tsx"/>
+ <layer name="Grundebene" width="30" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxTZGBgUBzFo3gUj+JRPOgwAO6OLmk=
+  </data>
+ </layer>
+ <layer name="Details" width="30" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMBgBAAWgAAE=
+  </data>
+ </layer>
+ <layer name="PuzzleTexture" width="30" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMBgBAAWgAAE=
+  </data>
+ </layer>
+ <layer name="Wand" width="30" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMBgBAAWgAAE=
+  </data>
+ </layer>
+ <objectgroup name="PlayerSpawnpoints">
+  <object id="70" name="spawnUpperDoor" x="16.424" y="191.811" width="4.18182" height="4"/>
+  <object id="168" x="0" y="0">
+   <polyline points="0,0 960,0 960,384 0,384 0,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="StaticCollisions"/>
+ <objectgroup name="Collectibles"/>
+ <objectgroup name="Sensor">
+  <object id="84" name="doorBottom" x="848.989" y="55.9623" width="39.0455" height="2"/>
+ </objectgroup>
+ <objectgroup name="InteractiveObjects">
+  <object id="139" name="Door" x="836.333" y="73" width="64" height="32"/>
+ </objectgroup>
+</map>

@@ -1,10 +1,6 @@
 package com.game.leveldesign;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.game.MapCamera;
 import com.game.leveldesign.levels.*;
 
@@ -53,7 +49,7 @@ public class LevelManager {
         levelList.add(4, new Level_4());
         levelList.add(5, new Level_5());
         levelList.add(6, new Level_6());
-        levelList.add(7, new Level_7());
+        levelList.add(7, new Level_7neu());
         levelList.add(8, new Level_nMinus1());
         levelList.add(9, new Level_Score());
         levelList.add(10, new Level_Credits());
@@ -96,7 +92,7 @@ public class LevelManager {
      * @return
      */
     public boolean currentLevelIsLong(){
-        return (currentlevel == levelList.get(7) || currentlevel == levelList.get(9)) ;
+        return (currentlevel == levelList.get(8) || currentlevel == levelList.get(10)) ;
     }
 
 
@@ -109,9 +105,9 @@ public class LevelManager {
      */
     public void translateToPlayer(MapCamera camera) {
 
-        if(currentlevel == levelList.get(7) ){
+        if(currentlevel == levelList.get(8) ){
             camera.translateInBounds(-440,0);
-        }else if (currentlevel == levelList.get(9)){
+        }else if (currentlevel == levelList.get(10)){
             camera.translateInBounds(-725,0);
         }
 
