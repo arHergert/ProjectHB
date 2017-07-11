@@ -37,14 +37,14 @@ public class Level_6 extends Level {
     private Button button2 = new Button(worldmap, "Button2");
     private Button button3 = new Button(worldmap, "Button3");
     private String solution = "748";
-    private String s1 = "i1++;\n" +
-            "if(i1>9) i1=0;";
-    private String s2 = "i2 = i2*2;\n" +
-            "if(i2>9) i2=1;";
-    private String s3 = "int temp = i3;\n" +
-            "i3 = i3 + i3alt;\n" +
-            "i3alt = temp;\n" +
-            "if(i3>9) i3=i3alt=1;";
+    private String s1 = "x++;\n" +
+            "if(x>9) x=0;";
+    private String s2 = "y = y*2;\n" +
+            "if(y>9) y=1;";
+    private String s3 = "int temp = z;\n" +
+            "z = z + zAlt;\n" +
+            "zAlt = temp;\n" +
+            "if(z>9) z=ZAlt=1;";
     private int i1 = 1;
     private int i2 = 1;
     private int i3 = 1;
@@ -249,9 +249,9 @@ public class Level_6 extends Level {
         button2.draw(batch);
         button3.draw(batch);
         font14.draw(batch, solution, 660, worldmap.getMapHeight() - 315);
-        font14.draw(batch, "i1 = "+(new Integer(i1)).toString(), 330, worldmap.getMapHeight() - 185);
-        font14.draw(batch, "i2 = "+(new Integer(i2)).toString(), 555, worldmap.getMapHeight() - 185);
-        font14.draw(batch, "i3 = "+(new Integer(i3)).toString(), 780, worldmap.getMapHeight() - 185);
+        font14.draw(batch, "x = "+(new Integer(i1)).toString(), 333, worldmap.getMapHeight() - 185);
+        font14.draw(batch, "y = "+(new Integer(i2)).toString(), 558, worldmap.getMapHeight() - 185);
+        font14.draw(batch, "z = "+(new Integer(i3)).toString(), 783, worldmap.getMapHeight() - 185);
         font14.draw(batch, s1, 288, worldmap.getMapHeight() - 52);
         font14.draw(batch, s2, 512, worldmap.getMapHeight() - 52);
         font14.draw(batch, s3, 722, worldmap.getMapHeight() - 38);
