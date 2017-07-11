@@ -354,6 +354,9 @@ public class Level_7neu extends Level {
                     
 
                 return true;
+            } if(keycode == Input.Keys.Z){
+
+                    door.open();
             }
             	
             	return false;
