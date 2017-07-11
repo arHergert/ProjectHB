@@ -90,13 +90,28 @@ public class Level_1 extends Level {
 
                             if(fixtureIs("Coll1")){
 
-                                Gdx.app.postRunnable(() -> coll1.collect());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        coll1.collect();
+                                    }
+                                });
 
                             }else if (fixtureIs("Coll2")){
-                                Gdx.app.postRunnable(() -> coll2.collect());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        coll2.collect();
+                                    }
+                                });
 
                             }else if (fixtureIs("Coll3")){
-                                Gdx.app.postRunnable(() -> coll3.collect());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        coll3.collect();
+                                    }
+                                });
                             }
 
                             increaseGarneredCollectiblesCount();
@@ -425,7 +440,12 @@ public class Level_1 extends Level {
                     }
                 }, 0.8f);
 
-    			Gdx.app.postRunnable(() -> door.open());
+    			Gdx.app.postRunnable(new Runnable() {
+                    @Override
+                    public void run() {
+                        door.open();
+                    }
+                });
     			return true;
     		}
     		

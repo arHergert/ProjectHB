@@ -28,7 +28,7 @@ public class Level_Credits extends Level{
     private boolean creditsInitiated = false;
     private TryAndCatchFont font;
     private TryAndCatchFont titleFont;
-    int positionX, positionY;
+    private int positionX, positionY;
 
 
     /**
@@ -134,7 +134,11 @@ public class Level_Credits extends Level{
         font.draw(batch,"-Code New Roman by Samiru R.\n" +
                 "-Disposable Droid by Nate Piekos \n(studio@blambot.com)", positionX+1055,positionY-20);
 
-        font.draw(batch,"Danke fuer's Spielen\n    :)", positionX+1380,positionY-25);
+        titleFont.draw(batch,"Danke an unsere Beta-Tester:", positionX+1240,positionY);
+        font.draw(batch,"- Oliver.\n" +
+                "- Christian Reusrath", positionX+1255,positionY-20);
+
+        titleFont.draw(batch,"Danke fuer's Spielen\n    :)", positionX+1450,positionY-25);
 
         titleFont.draw(batch,"Spiel beenden", positionX+1480,positionY-72);
 

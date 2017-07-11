@@ -14,30 +14,6 @@ import com.game.leveldesign.WorldMap;
 
 public class Hole extends MapObjects {
 
-    /**
-     *  @TODO
-     *
-     *
-     *  NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!
-     *  NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!
-     *  NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!
-     *  NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!
-     *  NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!NICHT VERGESSEN!
-     *
-     *
-     *  Je nach status Texturen ändern!!!!!!!!!
-     *  Wenn Hole aktiviert wurde und stein richtig ist-> currentTexture = status_true;
-     *  Wenn Hole aktiviert wurde und stein falsch ist -> currentTexture = status_false;
-     *  Wenn Hole geleert wird/ leer ist -> currentTexture = status_default;
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     */
-
 	private Rock contents;
 	private String datatype;
 	private boolean collidesWithRock;
@@ -106,13 +82,13 @@ public class Hole extends MapObjects {
 	@Override
 	public void collideOn() {
 		collidesWithRock = true;
-		//System.out.println("collideOn: " + fixture.getUserData());
+		System.out.println("collideOn: " + fixture.getUserData());
 	}
 
 	@Override
 	public void collideOff() {
 		collidesWithRock = false;
-	//	System.out.println("collideOff: " + fixture.getUserData());
+        //System.out.println("collideOff: " + fixture.getUserData());
 	}
 	
 	public boolean collidesWithRock() {
@@ -126,6 +102,21 @@ public class Hole extends MapObjects {
 	public Rock getRock() {
 		return contents;
 	}
+
+    public void setCurrentTexture(String texture){
+
+        switch (texture) {
+            case "neutral":
+                currentTexture = status_neutral;
+                break;
+            case "false":
+                currentTexture = status_false;
+                break;
+            case "true":
+                currentTexture = status_true;
+                break;
+        }
+    }
 
 
     @Override

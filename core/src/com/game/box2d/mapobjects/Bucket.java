@@ -5,19 +5,19 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.game.leveldesign.WorldMap;
 
 /**
- * Ein Eimer, welches mit einem Gegenstand gefüllt werden kann
+ * Ein Eimer, welches mit einem Gegenstand gefuellt werden kann
  * und aus dem man diesen wieder herausnehmen kann.
  *
  * @param <T> Inhalt des Eimers. Muss MapObject extenden.
  */
 public class Bucket<T extends MapObjects> extends MapObjects {
 
-	/** MapObject, das der Eimer enthält */
+	/** MapObject, das der Eimer enthaelt */
 	private T contents;
 
     /**
      * Erstellt einen Eimer/Box, in der man ein anderes MapObject hineinlegen kann.
-     * Buckets müssen sich im Level in der Ebene "InteractiveObjects" befinden.
+     * Buckets muessen sich im Level in der Ebene "InteractiveObjects" befinden.
      *
      * @param map Referenz auf das Level, in der sich "Door" Ebene befindet
      * @param mapSensorObject Name des Sensors (Userdata). MUSS einzigartig sein.
@@ -32,11 +32,11 @@ public class Bucket<T extends MapObjects> extends MapObjects {
 	}
 	
 	/**
-	 * Fügt ein MapObject als Inhalt des Eimers hinzu.
+	 * Fuegt ein MapObject als Inhalt des Eimers hinzu.
 	 * Ein Eimer kann maximal ein Object enthalten
      *
 	 * @param mapObject das MapObject, das in den Eimer gelegt werden soll
-	 * @throws Exception wenn der Eimer bereits ein MapObject enthält
+	 * @throws Exception wenn der Eimer bereits ein MapObject enthaelt
 	 */
 	public void fill(T mapObject) throws Exception {
 		if(contents == null) {
@@ -47,7 +47,7 @@ public class Bucket<T extends MapObjects> extends MapObjects {
 	}
 	
 	/**
-	 * Leert den Eimer und gibt das enthaltene MapObject zurück.
+	 * Leert den Eimer und gibt das enthaltene MapObject zurueck.
 	 * @return das MapObject, das vorher im Eimer war
 	 */
 	public T empty() {
@@ -59,7 +59,7 @@ public class Bucket<T extends MapObjects> extends MapObjects {
 	}
 	
 	/**
-	 * Gibt das MapObject zurück, das im Eimer enthalten ist.
+	 * Gibt das MapObject zurueck, das im Eimer enthalten ist.
 	 * @return
 	 */
 	public T contents() {
@@ -67,7 +67,7 @@ public class Bucket<T extends MapObjects> extends MapObjects {
 	}
 	
 	/**
-	 * Prüft, ob der Eimer leer ist.
+	 * Prueft, ob der Eimer leer ist.
 	 * @return Ist der Eimer leer?
 	 */
 	public boolean isEmpty() {

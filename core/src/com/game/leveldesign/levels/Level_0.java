@@ -63,9 +63,19 @@ public class Level_0 extends Level{
 
                         if(fixtureIs("Coll1")){
 
-                            Gdx.app.postRunnable(() -> coll1.collect());
+                            Gdx.app.postRunnable(new Runnable() {
+                                @Override
+                                public void run() {
+                                    coll1.collect();
+                                }
+                            });
                         }else if (fixtureIs("Coll2")){
-                            Gdx.app.postRunnable(() ->coll2.collect());
+                            Gdx.app.postRunnable(new Runnable() {
+                                @Override
+                                public void run() {
+                                    coll2.collect();
+                                }
+                            });
                         }
 
                         increaseGarneredCollectiblesCount();

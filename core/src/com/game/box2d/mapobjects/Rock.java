@@ -25,7 +25,7 @@ import static com.game.input.PlayerMovementInputProcessor.vertSpeed;
  */
 public class Rock extends MapObjects {
 
-	/** Gibt zurück, ob ein Stein gerade hochgehoben ist. Standardweise false */
+	/** Gibt zurueck, ob ein Stein gerade hochgehoben ist. Standardweise false */
 	private boolean isPickedUp = false;
 	private boolean isRectangle;
 	float x,y;
@@ -38,7 +38,7 @@ public class Rock extends MapObjects {
 	/**
 	 * Erstellt ein neues Stein-Objekt.
      * Das Steinobjekt ist ein Kreisobjekt.
-     * Rocks müssen sich im Level in der Ebene "InteractiveObjects" befinden.
+     * Rocks muessen sich im Level in der Ebene "InteractiveObjects" befinden.
      *
 	 * @param map WorldMap des Levels
      * @param mapSensorObject Name des Objektes in der TiledMap
@@ -56,7 +56,7 @@ public class Rock extends MapObjects {
             shape = getCircle((CircleMapObject)map.getMap().getLayers().get("InteractiveObjects").getObjects().get(mapSensorObject));
         }
 
-        //Hauptbody erstellen für das Kollidieren und zum Bewegen
+        //Hauptbody erstellen fuer das Kollidieren und zum Bewegen
         fixtureDef.shape = shape;
         fixture = body.createFixture(fixtureDef);
         fixture.setUserData(mapSensorObject);
@@ -71,7 +71,7 @@ public class Rock extends MapObjects {
         this.datatype = datatype;
         this.isRectangle = isRectangle;
 
-        /* Texturen für jeden einzelnen Datentypen */
+        /* Texturen fuer jeden einzelnen Datentypen */
         TextureRegion intTex, stringTex, floatTex, boolText,
         arrayListTex,listTex,listVarTex,stringTypeTex,equalsTex,newTex,bracketsTex,diamondTex;
         switch (datatype) {
@@ -123,6 +123,10 @@ public class Rock extends MapObjects {
             	bracketsTex = spritesheet.findRegion("rock_brackets");
             	currentTexture = bracketsTex;
             	break;
+            case "normal":
+                bracketsTex = spritesheet.findRegion("rock_normal");
+                currentTexture = bracketsTex;
+                break;
             default:
                 intTex = spritesheet.findRegion("rock_rectangle_int");
                 currentTexture = intTex;
@@ -165,7 +169,7 @@ public class Rock extends MapObjects {
 	}
 
 	/**
-	 * Gibt zurück, ob ein Stein gerade hochgehoben wird.
+	 * Gibt zurueck, ob ein Stein gerade hochgehoben wird.
 	 * @return Ist der Stein hochgehoben?
 	 */
 	public boolean isPickedUp() {
@@ -173,7 +177,7 @@ public class Rock extends MapObjects {
 	}
 
 	/**
-	 * Gibt zurück, ob es sich um einen runden oder um einen eckigen Stein (für Puzzles) handelt.
+	 * Gibt zurueck, ob es sich um einen runden oder um einen eckigen Stein (fuer Puzzles) handelt.
 	 * @return true, wenn der Stein eckig ist
 	 */
 	public boolean isRectangle() {

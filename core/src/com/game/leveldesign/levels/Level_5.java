@@ -120,10 +120,20 @@ public class Level_5 extends Level {
 
                             if(fixtureIs("Coll1")){
 
-                                Gdx.app.postRunnable(() -> coll1.collect());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        coll1.collect();
+                                    }
+                                });
 
                             }else if (fixtureIs("Coll2")){
-                                Gdx.app.postRunnable(() -> coll2.collect());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        coll2.collect();
+                                    }
+                                });
 
                             }
 
@@ -143,7 +153,12 @@ public class Level_5 extends Level {
 
                         if (fixtureIs("Plate000")) {
                             plates1[0][0].load();
-                            Gdx.app.postRunnable(() -> door1.open());
+                            Gdx.app.postRunnable(new Runnable() {
+                                @Override
+                                public void run() {
+                                    door1.open();
+                                }
+                            });
 
                         } else if (fixtureIs("Plate001")) {
                             plates1[0][1].load();
@@ -151,7 +166,12 @@ public class Level_5 extends Level {
                         } else if (fixtureIs("Plate010")) {
                             plates1[1][0].load();
                             if(plates2[0][0].isActivated()) {
-                                Gdx.app.postRunnable(() -> door.open());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door.open();
+                                    }
+                                });
 
                                if(!door.isOpen()){
                                    Timer.schedule(new Timer.Task(){
@@ -171,7 +191,12 @@ public class Level_5 extends Level {
                         } else if (fixtureIs("Plate100")) {
                             plates2[0][0].load();
                             if(plates1[1][0].isActivated()) {
-                                Gdx.app.postRunnable(() -> door.open());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door.open();
+                                    }
+                                });
 
                                 if(!door.isOpen()){
                                     Timer.schedule(new Timer.Task(){

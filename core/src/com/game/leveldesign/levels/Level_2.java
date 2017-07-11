@@ -155,7 +155,12 @@ public class Level_2 extends Level {
                             Fixture player = doorBottomFixture == fixA ? fixB : fixA;
                             if(plates[2][1].isActivated()) {
                                 plates[2][2].load();
-                                Gdx.app.postRunnable(() -> door.open());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door.open();
+                                    }
+                                });
 
                                 Timer.schedule(new Timer.Task(){
 

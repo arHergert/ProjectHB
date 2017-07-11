@@ -19,7 +19,7 @@ import static com.game.box2d.Player.playerBody;
 /**
  * Level 7
  * --
- * Ähnlich codiert wie Level 1,
+ * ï¿½hnlich codiert wie Level 1,
  * funktioniert zu 95%, nur leider noch zu viel Codeduplikation...
  * @author Florian Osterberg
  */
@@ -430,7 +430,12 @@ public class Level_7neu extends Level {
                     }
                 }, 0.8f);
 
-    			Gdx.app.postRunnable(() -> door.open());
+    			Gdx.app.postRunnable(new Runnable() {
+                    @Override
+                    public void run() {
+                        door.open();
+                    }
+                });
     			return true;
     		}
     		

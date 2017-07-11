@@ -257,7 +257,12 @@ public class Level_7 extends Level {
                                     }
                                 }, 0.8f);
 
-                    			Gdx.app.postRunnable(() -> door.open());
+                    			Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door.open();
+                                    }
+                                });
                         	}
                         	
                         } else {

@@ -65,6 +65,7 @@ public class Main extends ApplicationAdapter {
         assetManager.load("sounds/plate_unload.wav", Sound.class);
         assetManager.load("sounds/collectible.wav", Sound.class);
         assetManager.load("sounds/hiddendoor.wav", Sound.class);
+        assetManager.load("sounds/golem.wav", Sound.class);
         assetManager.load("sounds/credits.mp3", Music.class);
         assetManager.finishLoading();
 
@@ -153,7 +154,7 @@ public class Main extends ApplicationAdapter {
         levels.getCurrentWorldMap().getWorld().step(1/60f, 6,2);
 
         //Aktualisieren des DebugRenderers
-        debugRenderer.render(levels.getCurrentWorldMap().getWorld(), camera.combined);
+        //debugRenderer.render(levels.getCurrentWorldMap().getWorld(), camera.combined);
 
         //Das batch zeichnet/aktualisiert die Positionen der Grafiken
         batch.setProjectionMatrix(camera.combined);

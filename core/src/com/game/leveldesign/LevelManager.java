@@ -93,7 +93,7 @@ public class LevelManager {
      * @return
      */
     public boolean currentLevelIsLong(){
-        return (currentlevel == levelList.get(8) || currentlevel == levelList.get(11)) ;
+        return ( currentlevel == levelList.get(8) || currentlevel == levelList.get(9) || currentlevel == levelList.get(11)) ;
     }
 
 
@@ -108,9 +108,13 @@ public class LevelManager {
 
         if(currentlevel == levelList.get(8) ){
             camera.translateInBounds(-440,0);
+        }else if (currentlevel == levelList.get(9)){
+            camera.translateInBounds(-155,0);
         }else if (currentlevel == levelList.get(11)){
             camera.translateInBounds(-725,0);
         }
+
+
 
 
     }

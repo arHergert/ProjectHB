@@ -18,7 +18,7 @@ import static com.game.Main.assetManager;
 import static com.game.Main.spritesheet;
 
 /**
- * Eine Tür kann geschlossen sein oder offen.
+ * Eine Tuer kann geschlossen sein oder offen.
  */
 public class Door extends MapObjects {
 
@@ -33,12 +33,12 @@ public class Door extends MapObjects {
     private TextureRegion wallClosed;
     private TextureRegion currentFrame;
 
-	/** Speichert den Wert, ob die Tür geöffnet oder geschlossen ist */
+	/** Speichert den Wert, ob die Tuer geoeffnet oder geschlossen ist */
 	private boolean isOpen;
 	
 	/**
-	 * Erstellt ein neues Tür-Objekt
-     * Doors müssen sich im Level in der Ebene "InteractiveObjects" befinden.
+	 * Erstellt ein neues Tuer-Objekt
+     * Doors muessen sich im Level in der Ebene "InteractiveObjects" befinden.
      *
 	 * @param map
 	 */
@@ -52,19 +52,19 @@ public class Door extends MapObjects {
         fixture.setUserData(mapSensorObject);
         stateTimer = 0f;
 
-        wallClosing = new Animation<>(0.020f, spritesheet.findRegions("door"), Animation.PlayMode.REVERSED);
-        wallOpening = new Animation<>(0.020f, spritesheet.findRegions("door"));
+        wallClosing = new Animation<TextureRegion>(0.020f, spritesheet.findRegions("door"), Animation.PlayMode.REVERSED);
+        wallOpening = new Animation<TextureRegion>(0.020f, spritesheet.findRegions("door"));
         wallClosed = new TextureRegion(spritesheet.findRegions("door").get(0));
 
 	}
 	
-	/** Gibt den Wert zurück, der aussagt, ob die Tür geöffnet oder geschlossen ist. */
+	/** Gibt den Wert zurueck, der aussagt, ob die Tuer geoeffnet oder geschlossen ist. */
 	public boolean isOpen() {
 		return isOpen;
 	}
 	
 	/**
-	 * Öffnet die Tür.
+	 * oeffnet die Tuer.
 	 */
 	public void open() {
 
@@ -86,7 +86,7 @@ public class Door extends MapObjects {
 	}
 
     /**
-     * Ö
+     * oe
      */
     public void openWithoutSound(){
         isOpen = true;
@@ -100,7 +100,7 @@ public class Door extends MapObjects {
     }
 	
 	/**
-	 * Schließt die Tür.
+	 * Schliesst die Tuer.
 	 */
 	public void close() {
         if(isOpen()){

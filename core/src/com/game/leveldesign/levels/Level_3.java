@@ -71,7 +71,12 @@ public class Level_3 extends Level {
                 plates[i][j].reset();
             }
         }
-        Gdx.app.postRunnable(() -> door.close());
+        Gdx.app.postRunnable(new Runnable() {
+            @Override
+            public void run() {
+                door.close();
+            }
+        });
     }
 
     @Override
@@ -96,7 +101,12 @@ public class Level_3 extends Level {
 
                             if(fixtureIs("Coll1")){
 
-                                Gdx.app.postRunnable(() -> coll1.collect());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        coll1.collect();
+                                    }
+                                });
 
                             }
 
@@ -144,7 +154,12 @@ public class Level_3 extends Level {
                             Fixture player = doorBottomFixture == fixA ? fixB : fixA;
                             if(plates[1][0].isActivated()) {
                                 plates[1][1].load();
-                                Gdx.app.postRunnable(() -> door.open());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door.open();
+                                    }
+                                });
 
                                 Timer.schedule(new Timer.Task(){
 

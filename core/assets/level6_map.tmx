@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-down" width="29" height="18" tilewidth="32" tileheight="32" nextobjectid="77">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="29" height="18" tilewidth="32" tileheight="32" nextobjectid="77">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Test" width="29" height="18">
@@ -90,7 +90,7 @@
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,0,0,4,1,1,1,1,1,1
 </data>
  </layer>
- <objectgroup name="InteractiveObjects" visible="0">
+ <objectgroup name="InteractiveObjects">
   <object id="38" name="Lever1" x="500.833" y="419.5" width="21.3333" height="24"/>
   <object id="39" name="Lever2" x="404.667" y="420" width="21.3333" height="24"/>
   <object id="40" name="Door" x="640" y="512" width="64" height="32"/>
@@ -102,15 +102,15 @@
   <object id="63" name="Button2" x="642.667" y="51" width="24" height="24"/>
   <object id="64" name="Button3" x="867" y="52" width="24" height="24"/>
  </objectgroup>
- <objectgroup name="Sensor" visible="0">
+ <objectgroup name="Sensor">
   <object id="45" name="doorUp" x="140.087" y="34" width="38.1364" height="3.63636"/>
   <object id="46" name="doorBottom" x="653.867" y="570.629" width="39.0455" height="2"/>
  </objectgroup>
- <objectgroup name="PlayerSpawnpoints" visible="0">
+ <objectgroup name="PlayerSpawnpoints">
   <object id="47" name="spawnUpperDoor" x="158.674" y="124.811" width="4.18182" height="4"/>
   <object id="48" name="spawnBottomDoor" x="670.189" y="494.621" width="3.63636" height="3.81818"/>
  </objectgroup>
- <objectgroup name="StaticCollisions" visible="0">
+ <objectgroup name="StaticCollisions">
   <object id="49" x="0" y="0" width="928" height="56"/>
   <object id="50" x="0" y="32" width="32" height="544"/>
   <object id="51" x="896" y="32" width="32" height="544"/>

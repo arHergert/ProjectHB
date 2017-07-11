@@ -89,9 +89,9 @@ public class Player extends Sprite {
         playerStand_up = spritesheet.findRegions("upwalk").get(0);
 
 
-        playerWalk_right = new Animation<>(0.090f, spritesheet.findRegions("playerwalk"));
-        playerWalk_left = new Animation<>(0.090f, spritesheet.findRegions("leftwalk"));
-        playerWalk_up = new Animation<>(0.060f, spritesheet.findRegions("upwalk"));
+        playerWalk_right = new Animation<TextureRegion>(0.090f, spritesheet.findRegions("playerwalk"));
+        playerWalk_left = new Animation<TextureRegion>(0.090f, spritesheet.findRegions("leftwalk"));
+        playerWalk_up = new Animation<TextureRegion>(0.060f, spritesheet.findRegions("upwalk"));
 
 
         float startX = 0;

@@ -114,10 +114,20 @@ public class Level_4 extends Level{
 
                             if(fixtureIs("Coll1")){
 
-                                Gdx.app.postRunnable(() -> coll1.collect());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        coll1.collect();
+                                    }
+                                });
 
                             }else if (fixtureIs("Coll2")){
-                                Gdx.app.postRunnable(() -> coll2.collect());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        coll2.collect();
+                                    }
+                                });
 
                             }
 
@@ -138,7 +148,12 @@ public class Level_4 extends Level{
                         if (fixtureIs("Plate00")) {
                             plates[0][0].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(() -> door.open());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door.open();
+                                    }
+                                });
 
                                 if(!door.isOpen()){
                                     Timer.schedule(new Timer.Task(){
@@ -150,11 +165,21 @@ public class Level_4 extends Level{
                                 }
 
                             }
-                            Gdx.app.postRunnable(() -> door2.open());
+                            Gdx.app.postRunnable(new Runnable() {
+                                @Override
+                                public void run() {
+                                    door2.open();
+                                }
+                            });
                         }else if(fixtureIs("Plate01")) {
                             plates[0][1].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(() -> door.open());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door.open();
+                                    }
+                                });
 
                                 if(!door.isOpen()){
                                     Timer.schedule(new Timer.Task(){
@@ -168,7 +193,12 @@ public class Level_4 extends Level{
                         }else if(fixtureIs("Plate10")) {
                             plates[1][0].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(() -> door.open());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door.open();
+                                    }
+                                });
 
                                 if(!door.isOpen()){
                                     Timer.schedule(new Timer.Task(){
@@ -182,7 +212,12 @@ public class Level_4 extends Level{
                         } else if(fixtureIs("Plate11")) {
                             plates[1][1].load();
                             if(allPlatesActivated()) {
-                                Gdx.app.postRunnable(() -> door.open());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door.open();
+                                    }
+                                });
 
                                 if(!door.isOpen()){
                                     Timer.schedule(new Timer.Task(){
@@ -194,7 +229,12 @@ public class Level_4 extends Level{
                                 }
                             }
                             if(!plates[0][0].isActivated()) {
-                                Gdx.app.postRunnable(() -> door1.open());
+                                Gdx.app.postRunnable(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        door1.open();
+                                    }
+                                });
                             }
                         }
                     }
