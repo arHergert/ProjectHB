@@ -425,7 +425,7 @@ public class Level_Boss extends Level{
         font.draw(batch,"public", positionX+765, positionY-280);
         font.draw(batch,"private", positionX+765, positionY-310);
 
-        font.draw(batch,"button.use();", positionX+485,positionY-241);
+        font.draw(batch,"button.use();", positionX+488,positionY-199);
 
 
 
