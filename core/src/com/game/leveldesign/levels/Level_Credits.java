@@ -132,7 +132,7 @@ public class Level_Credits extends Level{
                 "-Disposable Droid by Nate Piekos \n(studio@blambot.com)", positionX+1055,positionY-20);
 
         titleFont.draw(batch,"Danke an unsere Beta-Tester:", positionX+1240,positionY);
-        font.draw(batch,"- Oliver.\n" +
+        font.draw(batch,"- Oliver Arent\n" +
                 "- Christian Reusrath", positionX+1255,positionY-20);
 
         titleFont.draw(batch,"Danke fuer's Spielen\n    :)", positionX+1450,positionY-25);
