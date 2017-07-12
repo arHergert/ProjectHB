@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="36" height="14" tilewidth="32" tileheight="32" nextobjectid="209">
+<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-down" width="36" height="14" tilewidth="32" tileheight="32" nextobjectid="210">
  <tileset firstgid="1" source="finalTileset.tsx"/>
  <tileset firstgid="257" source="tryandcatch.tsx"/>
  <layer name="Grundebene" width="36" height="14">
   <data encoding="base64" compression="zlib">
-   eJzNlF9rwjAUxfM432XvNeC/Ve2D257VraCgsKmFDZz7/p9i58K9EK63aVr2YOFHSJOcc5L2xrn2zxt4B2uwSehfQR88gB74BVuw4zF5/9ghCz0ncAaf4JjQX6mcJfgC3zwmuUvu78Ehcd+0ZgDGSkv7ZTzHgw+VswIv4JXHJHfF/Qv4Sdw3rRkZWtov43nPYGKwNMZ8sNdJ0DYhWnXrfJCH2hm3TRTBmhhPxjvxmNboZonaet1Q6Vr6sVzWnDBP3jHPf1JExmJnlvq9uuSxajwlT5O2PPoOIH2q2QV7ix99L/rXrRpvm0f2ZHnrO4D0h4F3pbSsWm6bR/ZkeQ/cbc2H3j7iM+VzzFz8f9V56u6isfIXcpdWc8S8w/ncA3/Cpla5
+   eJzNlElrwzAQhXVM76F3W5AmTpr40LTnbIYWUshmSKDL//8VfQMzICYjW/apgg+hZd48rc51L1uwA2uwSWj/gCEYgAfwC97BB49J/2MPL1TO4AKO4JTQXimfFbiCG4+J74rbe/CZuG6KycFYael8Gc/x4KB81uAVvPGY+K65/QW+E9dNMU+Gls6X8bwlmBi8GGM+WOskqNsQrVicD/xQ/cx1G2UQ08TU6JMcRUQ3S9TWcSOla+nHfNH9qYw5oZ9ZTz99oPtTR3RjMU17lnpeXSmd/cZT/LRpS9F/AOnTm12oc6PzWjr7jXf1I2uycus/gPRHQW59btZb7upH1mTlzt39mw9z+4Y8Be9j5prvq/YT+4vGKr8wc/ZfYDHvsT//gT9dw1dj
   </data>
  </layer>
  <layer name="Details" width="36" height="14">
@@ -19,7 +19,7 @@
  </layer>
  <layer name="Wand" width="36" height="14">
   <data encoding="base64" compression="zlib">
-   eJxjZGBgYCQBszLQFogAsRgSLYaFD2KLQtkJSHotgNgGiG2x0AE0djepwG6gHYAGBpt77AfaAWhgsIUPLvcswaPnCC0cAgXxDJC8hpzvqJXn/JHMhmErJHlYvidkH3KaWorEXobE5gJibiiG+QWGYfwEIt1NKA0Tk6aoWe4Scg8xeQ7mHnbKnUPQ//R2DzHxRSh/IdeVgkAsBMTCSGx0WhiKxYFYAoglkWiYGXxQDFMPS6OMUHFkM2FyMPUAfy0S7Q==
+   eJxjZGBgYCQBszLQFogAsRgSLYaFD2KLQtkJSHotgNgGiG2x0AE0djepwG6gHYAGBpt77AfATlD6scIhN9jCB5d7luDRc4QWDoGCeAZIXkPOd9TKc/5IZsMwcjzB8j0h+5DT1FIk9jIkNhcQc0MxzC8wDOMnEOluQmmYmDRFzXKXkHuIyXMw97BT7hyC/qe3e4iJL0L5C7muFARiISAWRmKj08JQLA7EEkAsiUTDzOCDYph6WBplhIojmwmTg6kHAKTLE18=
   </data>
  </layer>
  <objectgroup name="PlayerSpawnpoints">
@@ -104,6 +104,7 @@
   <object id="177" name="Hole3" x="357.333" y="372.333" width="32" height="22"/>
   <object id="178" name="Door2" x="480" y="320" width="64" height="32"/>
   <object id="180" name="Lever" x="772" y="284.667" width="21.3333" height="24"/>
-  <object id="181" name="Button" x="500" y="249.333" width="24" height="24"/>
+  <object id="181" name="Button" x="500.667" y="211.333" width="24" height="24"/>
+  <object id="209" x="480" y="160" width="64" height="56"/>
  </objectgroup>
 </map>
