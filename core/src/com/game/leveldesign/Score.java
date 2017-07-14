@@ -76,8 +76,14 @@ public class Score implements Disposable{
 
 
     private String endScore(){
+        if(completeTime < 240) {
+            return ""+760 + (collected * 20);
+        }else if( completeTime > 760){
+            return ""+ 50 + (collected * 20);
+        }else{
+            return ""+( (760-completeTime) + (collected * 20)  );
+        }
 
-        return ""+( ((25*60)-completeTime) + (collected * 15)  );
     }
 
 
@@ -109,7 +115,7 @@ public class Score implements Disposable{
     public void drawThirdLine(Batch batch, WorldMap map){
 
         scoreFontDesc.draw(batch, "Endscore: ", scoreX, scoreY-100);
-        scoreFontColor.draw(batch, endScore(), scoreX+130, scoreY-100);
+        scoreFontColor.draw(batch, endScore() +"/1000", scoreX+130, scoreY-100);
 
     }
 
