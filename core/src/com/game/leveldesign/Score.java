@@ -76,14 +76,15 @@ public class Score implements Disposable{
 
 
     private String endScore(){
-        if(completeTime < 240) {
+        if(completeTime < 330) {
             int temp = 760 + (collected * 20);
             return ""+ temp;
-        }else if( completeTime > 760){
+        }else if( completeTime > 900){
             int temp = 50 + (collected * 20);
             return ""+ temp;
         }else{
-            return ""+( (760-completeTime) + (collected * 20)  );
+            int temp =(760-completeTime) + (collected * 20) ;
+            return ""+temp;
         }
 
     }
